@@ -1,5 +1,21 @@
+# Only prose is exposed for translation. The JSON files here are part config and
+# part content: locale_code, direction, date_format and s_internal_name are read by
+# Shopclass, not shown to anyone, and a machine translation pass over any of them
+# breaks the file rather than localising it -- a translated s_internal_name stops the
+# template being found at all.
 files:
   - source: /src/templates/*.pot
     translation: /src/translations/%locale_with_underscore%/%file_name%.po
-  - source: /src/templates/*.json
+
+  # Email templates: the subject and the body, nothing else. Keep every
+  # {PLACEHOLDER} exactly as it appears -- Shopclass substitutes real values for
+  # them, and a missing one sends a mail with the link or the name absent.
+  - source: /src/templates/mail.json
     translation: /src/translations/%locale_with_underscore%/%original_file_name%
+    translatable_elements:
+      - "$.template[*].s_title"
+      - "$.template[*].s_description"
+
+# locale.json is deliberately absent. It is a maintainer's configuration -- writing
+# direction, date and currency formats -- and its name fields are conventionally the
+# language's own name for itself, which is not a translation of the English one.

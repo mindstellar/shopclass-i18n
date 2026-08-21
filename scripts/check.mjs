@@ -57,6 +57,7 @@ for (const locale of locales) {
 
     if (mail.language !== locale) fail(locale, `mail.json language is "${mail.language}"`);
     const got = new Map((mail.template || []).map((t) => [t.fk_i_page_id, t]));
+
     for (const [id, src] of wanted) {
         const t = got.get(id);
         if (!t) { fail(locale, `mail.json missing template ${id} (${src.s_internal_name})`); continue; }

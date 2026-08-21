@@ -50,6 +50,19 @@ for (const locale of locales) {
         fail(locale, `direction "${meta.direction}" is not ltr or rtl`);
     }
 
+    // UTF-8 read as Latin-1 leaves a recognisable trail. It is worth failing on:
+    // the file still parses, still merges, and only shows up as mojibake on someone
+    // else's site -- which is how "fur" reached German users as "fÃ¼r" for years.
+    for (const domain of ['core', 'messages', 'theme']) {
+        const po = `${dir}/${domain}.po`;
+        if (!existsSync(po)) continue;
+        const text = await readFile(po, 'utf8');
+        const hits = text.match(/[\u00c3\u00c2][\u0080-\u00bf]/g);
+        if (hits) {
+            fail(locale, `${domain}.po looks mis-encoded (${hits.length} sequences, e.g. "${hits[0]}")`);
+        }
+    }
+
     if (!existsSync(`${dir}/mail.json`)) continue;
     let mail;
     try { mail = JSON.parse(await readFile(`${dir}/mail.json`, 'utf8')); }

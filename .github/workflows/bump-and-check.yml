@@ -1,0 +1,62 @@
+# Keeps locale versions honest and packs installable.
+#
+# Crowdin pushes translations here directly, so nothing human is in the loop to
+# bump a version -- which is why every locale sat at 1.0.2 while the translations
+# under them changed. This bumps whatever actually changed in the push, then
+# refuses anything that would be uninstallable.
+name: Bump and check
+
+on:
+  push:
+    branches: [master, develop]
+    paths:
+      - 'src/translations/**'
+  pull_request:
+    paths:
+      - 'src/**'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  bump-and-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        # Two commits, so the push can be compared against what came before it.
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Install dependencies
+        run: npm install --no-audit --no-fund
+
+      - name: Validate every locale
+        run: npm run check
+
+      - name: Bump versions for locales this push changed
+        if: github.event_name == 'push'
+        run: node scripts/bump.mjs --since HEAD~1
+
+      - name: Rebuild the locale index
+        if: github.event_name == 'push'
+        run: npm run build-list
+
+      - name: Commit the bumps
+        if: github.event_name == 'push'
+        run: |
+          if git diff --quiet; then
+            echo "Nothing to bump."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/translations/*/locale.json locale_list.json
+          git commit -m "Bump versions for the locales this push changed"
+          git push

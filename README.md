@@ -81,6 +81,24 @@ npm run merge
 Existing translations survive wherever the English string is unchanged; new strings appear
 untranslated. Strings Shopclass has removed are dropped.
 
+## Versions
+
+`locale.json` carries a version, and Shopclass compares it against the one a site
+installed to decide whether to offer an update. It is bumped automatically: a push that
+changes a language's files bumps that language's patch version and rebuilds
+`locale_list.json`. Nothing needs editing by hand, and a version only moves when the
+content under it did.
+
+## Display conventions
+
+`scripts/locale-conventions.json` records the date order, currency placement and writing
+direction for each language. `npm run new-locale` seeds from it, and `npm run conventions`
+brings every existing `locale.json` back in line after it is edited.
+
+This file exists because the defaults were wrong for years: German, Czech, Danish, Greek
+and Catalan all printed dates as `m/d/Y`, inherited from the English pack they were copied
+from.
+
 ## Checks
 
 ```bash

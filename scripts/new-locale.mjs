@@ -24,18 +24,22 @@ try { await access(dir); console.error(`${locale} already exists`); process.exit
 await mkdir(dir, { recursive: true });
 
 const meta = JSON.parse(await readFile('src/templates/locale.json', 'utf8'));
+// Known conventions win over the flags' defaults, so a new locale never inherits
+// en_US's date order just because nobody thought to pass --date-format.
+const conv = JSON.parse(await readFile('scripts/locale-conventions.json', 'utf8'))[locale] || {};
 const name = flag('name', locale);
 await writeFile(`${dir}/locale.json`, JSON.stringify({
     ...meta,
     locale_code: locale,
     name,
-    short_name: flag('short', name.split(' ')[0]),
+    short_name: flag('short', conv.short_name || name.split(' ')[0]),
     description: `${name} translation`,
-    direction: flag('direction', 'ltr'),
+    direction: flag('direction', conv.direction || 'ltr'),
     version: '1.0.0',
     author_name: flag('author', 'Shopclass community'),
     author_url: 'https://github.com/mindstellar/shopclass-i18n',
-    date_format: flag('date-format', 'd/m/Y'),
+    date_format: flag('date-format', conv.date_format || 'd/m/Y'),
+    currency_format: conv.currency_format || meta.currency_format,
 }, null, 4) + '\n');
 
 // Email templates start as the English set so the locale is installable at once;

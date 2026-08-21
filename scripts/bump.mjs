@@ -11,6 +11,8 @@
  */
 import { execFileSync } from 'node:child_process';
 import { readFile, writeFile } from 'node:fs/promises';
+import gettextParser from 'gettext-parser';
+import { withUtf8Header } from './lib.mjs';
 
 const argv = process.argv.slice(2);
 const dry = argv.includes('--dry');
@@ -18,6 +20,47 @@ const sinceIdx = argv.indexOf('--since');
 const since = sinceIdx > -1 ? argv[sinceIdx + 1] : 'HEAD';
 
 const git = (...a) => execFileSync('git', a, { encoding: 'utf8' }).trim();
+
+/**
+ * What a catalogue actually says, ignoring where the strings were found.
+ *
+ * A .po carries a source reference per entry, so any edit that shifts a line
+ * number in Shopclass rewrites all 32 catalogues without a word of translation
+ * changing. Bumping on that would tell every site an update is waiting and hand
+ * them the same text back.
+ */
+function meaning(buf) {
+    // Same reader as the merge: a header that lies about its charset must not
+    // read as a change in what the file says.
+    const parsed = gettextParser.po.parse(withUtf8Header(buf), 'utf-8');
+    const out = [];
+    for (const [ctx, entries] of Object.entries(parsed.translations || {})) {
+        for (const [msgid, e] of Object.entries(entries)) {
+            out.push(`${ctx}\u0004${msgid}\u0004${(e.msgstr || []).join('\u0001')}`);
+        }
+    }
+    return out.sort().join('\n');
+}
+
+/** Whether a locale's translatable content differs from the reference. */
+function contentChanged(locale, ref) {
+    const files = git('ls-files', `src/translations/${locale}`).split('\n').filter(Boolean);
+    for (const f of files) {
+        if (f.endsWith('.mo') || f.endsWith('/locale.json')) continue;
+        let before;
+        try { before = execFileSync('git', ['show', `${ref}:${f}`]); }
+        catch { return true; }                       // new file
+        let now;
+        try { now = execFileSync('cat', [f]); }
+        catch { return true; }                       // removed
+        if (f.endsWith('.po')) {
+            if (meaning(before) !== meaning(now)) return true;
+        } else if (!before.equals(now)) {
+            return true;
+        }
+    }
+    return false;
+}
 
 // Everything that differs from the reference, including files not yet staged.
 const changed = new Set();
@@ -35,18 +78,37 @@ if (!changed.size) {
     process.exit(0);
 }
 
+let bumped = 0;
 for (const locale of [...changed].sort()) {
+    if (!contentChanged(locale, since)) {
+        console.log(`  ${locale}: only source references moved, not bumped`);
+        continue;
+    }
     const path = `src/translations/${locale}/locale.json`;
     let meta;
     try { meta = JSON.parse(await readFile(path, 'utf8')); }
     catch { console.log(`  ${locale}: no readable locale.json, skipped`); continue; }
+
+    // Someone may have bumped by hand in the same push. Bumping again on top would
+    // move the version twice for one change, so a version that already differs from
+    // the reference is taken as done.
+    let priorVersion = null;
+    try { priorVersion = JSON.parse(execFileSync('git', ['show', `${since}:${path}`], { encoding: 'utf8' })).version; }
+    catch { /* new locale: nothing to compare against */ }
+    if (priorVersion && priorVersion !== meta.version) {
+        console.log(`  ${locale}: already bumped to ${meta.version} in this change`);
+        continue;
+    }
 
     const parts = String(meta.version || '1.0.0').split('.').map((n) => parseInt(n, 10) || 0);
     while (parts.length < 3) parts.push(0);
     parts[2]++;
     const next = parts.join('.');
     console.log(`  ${locale}: ${meta.version} -> ${next}`);
+    bumped++;
     meta.version = next;
     if (!dry) await writeFile(path, JSON.stringify(meta, null, 4) + '\n');
 }
-console.log(dry ? `\n${changed.size} locale(s) would bump` : `\n${changed.size} locale(s) bumped`);
+console.log(dry
+    ? `\n${bumped} of ${changed.size} changed locale(s) would bump`
+    : `\n${bumped} of ${changed.size} changed locale(s) bumped`);

@@ -3,8 +3,29 @@ import { readFile, writeFile } from 'node:fs/promises';
 
 export const DOMAINS = ['core', 'messages', 'theme'];
 
+/**
+ * Read a catalogue, trusting the bytes over the header.
+ *
+ * Every theme.po inherited from the Osclass project declares iso-8859-1 while
+ * holding UTF-8, and theme.pot still carries the unfilled "charset=CHARSET"
+ * placeholder. gettext-parser believes the header, so "però" comes back as
+ * "perÃ²" and is written out that way -- corruption that looks like a successful
+ * merge and only shows up as mojibake on someone's site.
+ */
 export async function readPo(path) {
-    return gettextParser.po.parse(await readFile(path));
+    const raw = await readFile(path);
+    return gettextParser.po.parse(withUtf8Header(raw), 'utf-8');
+}
+
+/** Rewrite a catalogue's declared charset to UTF-8, which is what these files are. */
+export function withUtf8Header(buf) {
+    // Only the header block, so a msgstr that happens to contain the word is untouched.
+    const head = buf.subarray(0, Math.min(buf.length, 2048)).toString('latin1');
+    const fixed = head.replace(/charset=[A-Za-z0-9_-]+/i, 'charset=utf-8');
+    if (fixed === head) {
+        return buf;
+    }
+    return Buffer.concat([Buffer.from(fixed, 'latin1'), buf.subarray(Math.min(buf.length, 2048))]);
 }
 
 /**
@@ -17,7 +38,13 @@ export async function readPo(path) {
 export function merge(template, existing) {
     const out = {
         charset: 'utf-8',
-        headers: { ...template.headers, ...pickHeaders(existing.headers) },
+        headers: {
+            ...template.headers,
+            ...pickHeaders(existing.headers),
+            // Written explicitly: the template this came from may still carry the
+            // unfilled CHARSET placeholder.
+            'content-type': 'text/plain; charset=UTF-8',
+        },
         translations: {},
     };
 

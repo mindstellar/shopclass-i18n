@@ -1,0 +1,66 @@
+# Re-merges every language when the English source changes.
+#
+# New strings do not appear in a translation catalogue on their own: the .po files
+# are merged against the template, so until that runs a translator opening the
+# project sees the old string set and the new ones are simply absent -- silently,
+# with everything still building.
+#
+# Existing translations survive wherever the English is unchanged. Strings the
+# source dropped are removed.
+name: Re-merge translations
+
+on:
+  push:
+    branches: [master, develop]
+    paths:
+      - 'src/templates/**'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+# This job commits to src/translations, which is the path bump-and-check watches.
+# It does not set that workflow off: GitHub does not raise events for pushes made
+# with the default GITHUB_TOKEN. The bump is therefore done here rather than left
+# to the other job, which would never see it.
+
+jobs:
+  remerge:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Install dependencies
+        run: npm install --no-audit --no-fund
+
+      - name: Re-merge every locale
+        run: npm run merge
+
+      - name: Validate
+        run: npm run check
+
+      - name: Bump the locales whose catalogues moved
+        run: node scripts/bump.mjs --since HEAD
+
+      - name: Rebuild the locale index
+        run: npm run build-list
+
+      - name: Commit
+        run: |
+          if git diff --quiet; then
+            echo "Templates changed but no catalogue did."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/translations locale_list.json
+          git commit -m "Re-merge translations against the updated templates"
+          git push

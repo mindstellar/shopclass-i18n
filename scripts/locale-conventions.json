@@ -1,35 +1,195 @@
 {
-  "_comment": "Per-locale display conventions, following CLDR. new-locale.mjs seeds from this so a new language does not inherit en_US's American date order, which is how de_DE, cs_CZ, da_DK, el_GR and ca_ES all ended up printing m/d/Y. date_format is a PHP date() string; currency_format places {NUMBER} and {CURRENCY}.",
-  "ar_SY": { "short_name": "Arabic",     "direction": "rtl", "date_format": "d/m/Y",  "currency_format": "{NUMBER} {CURRENCY}" },
-  "ca_ES": { "short_name": "Catalan",    "direction": "ltr", "date_format": "d/m/Y",  "currency_format": "{NUMBER} {CURRENCY}" },
-  "cs_CZ": { "short_name": "Czech",      "direction": "ltr", "date_format": "d.m.Y",  "currency_format": "{NUMBER} {CURRENCY}" },
-  "da_DK": { "short_name": "Danish",     "direction": "ltr", "date_format": "d.m.Y",  "currency_format": "{NUMBER} {CURRENCY}" },
-  "de_DE": { "short_name": "German",     "direction": "ltr", "date_format": "d.m.Y",  "currency_format": "{NUMBER} {CURRENCY}" },
-  "el_GR": { "short_name": "Greek",      "direction": "ltr", "date_format": "d/m/Y",  "currency_format": "{NUMBER} {CURRENCY}" },
-  "en_IN": { "short_name": "English",    "direction": "ltr", "date_format": "d/m/Y",  "currency_format": "{CURRENCY}{NUMBER}" },
-  "en_US": { "short_name": "English",    "direction": "ltr", "date_format": "m/d/Y",  "currency_format": "{CURRENCY}{NUMBER}" },
-  "es_ES": { "short_name": "Spanish",    "direction": "ltr", "date_format": "d/m/Y",  "currency_format": "{NUMBER} {CURRENCY}" },
-  "fa_IR": { "short_name": "Persian",    "direction": "rtl", "date_format": "Y/m/d",  "currency_format": "{NUMBER} {CURRENCY}" },
-  "fr_FR": { "short_name": "French",     "direction": "ltr", "date_format": "d/m/Y",  "currency_format": "{NUMBER} {CURRENCY}" },
-  "he_HE": { "short_name": "Hebrew",     "direction": "rtl", "date_format": "d.m.Y",  "currency_format": "{CURRENCY}{NUMBER}" },
-  "hi_IN": { "short_name": "Hindi",      "direction": "ltr", "date_format": "d/m/Y",  "currency_format": "{CURRENCY}{NUMBER}" },
-  "hr_HR": { "short_name": "Croatian",   "direction": "ltr", "date_format": "d.m.Y.", "currency_format": "{NUMBER} {CURRENCY}" },
-  "hu_HU": { "short_name": "Hungarian",  "direction": "ltr", "date_format": "Y.m.d.", "currency_format": "{NUMBER} {CURRENCY}" },
-  "id_ID": { "short_name": "Indonesian", "direction": "ltr", "date_format": "d/m/Y",  "currency_format": "{CURRENCY}{NUMBER}" },
-  "it_IT": { "short_name": "Italian",    "direction": "ltr", "date_format": "d/m/Y",  "currency_format": "{NUMBER} {CURRENCY}" },
-  "ja_JA": { "short_name": "Japanese",   "direction": "ltr", "date_format": "Y/m/d",  "currency_format": "{CURRENCY}{NUMBER}" },
-  "lt_LT": { "short_name": "Lithuanian", "direction": "ltr", "date_format": "Y-m-d",  "currency_format": "{NUMBER} {CURRENCY}" },
-  "nl_NL": { "short_name": "Dutch",      "direction": "ltr", "date_format": "d-m-Y",  "currency_format": "{CURRENCY} {NUMBER}" },
-  "no_NO": { "short_name": "Norwegian",  "direction": "ltr", "date_format": "d.m.Y",  "currency_format": "{NUMBER} {CURRENCY}" },
-  "pl_PL": { "short_name": "Polish",     "direction": "ltr", "date_format": "d.m.Y",  "currency_format": "{NUMBER} {CURRENCY}" },
-  "pt_BR": { "short_name": "Portuguese", "direction": "ltr", "date_format": "d/m/Y",  "currency_format": "{CURRENCY} {NUMBER}" },
-  "pt_PT": { "short_name": "Portuguese", "direction": "ltr", "date_format": "d/m/Y",  "currency_format": "{NUMBER} {CURRENCY}" },
-  "ro_RO": { "short_name": "Romanian",   "direction": "ltr", "date_format": "d.m.Y",  "currency_format": "{NUMBER} {CURRENCY}" },
-  "ru_RU": { "short_name": "Russian",    "direction": "ltr", "date_format": "d.m.Y",  "currency_format": "{NUMBER} {CURRENCY}" },
-  "th_TH": { "short_name": "Thai",       "direction": "ltr", "date_format": "d/m/Y",  "currency_format": "{CURRENCY}{NUMBER}" },
-  "tr_TR": { "short_name": "Turkish",    "direction": "ltr", "date_format": "d.m.Y",  "currency_format": "{CURRENCY}{NUMBER}" },
-  "uk_UK": { "short_name": "Ukrainian",  "direction": "ltr", "date_format": "d.m.Y",  "currency_format": "{NUMBER} {CURRENCY}" },
-  "vi_VN": { "short_name": "Vietnamese", "direction": "ltr", "date_format": "d/m/Y",  "currency_format": "{NUMBER} {CURRENCY}" },
-  "zh_CN": { "short_name": "Chinese",    "direction": "ltr", "date_format": "Y/m/d",  "currency_format": "{CURRENCY}{NUMBER}" },
-  "zh_TW": { "short_name": "Chinese",    "direction": "ltr", "date_format": "Y/m/d",  "currency_format": "{CURRENCY}{NUMBER}" }
+  "_comment": "Per-locale display conventions, following CLDR. new-locale.mjs seeds from this so a new language does not inherit en_US's American date order, which is how de_DE, cs_CZ, da_DK, el_GR and ca_ES all ended up printing m/d/Y. date_format is a PHP date() string; currency_format places {NUMBER} and {CURRENCY}. Language names stay in English rather than each language's own name: the picker is admin-facing, and an endonym list is harder to scan for the English-speaking admin who is choosing.",
+  "ar_SY": {
+    "short_name": "Arabic",
+    "direction": "rtl",
+    "date_format": "d/m/Y",
+    "currency_format": "{NUMBER} {CURRENCY}"
+  },
+  "ca_ES": {
+    "short_name": "Catalan",
+    "direction": "ltr",
+    "date_format": "d/m/Y",
+    "currency_format": "{NUMBER} {CURRENCY}"
+  },
+  "cs_CZ": {
+    "short_name": "Czech",
+    "direction": "ltr",
+    "date_format": "d.m.Y",
+    "currency_format": "{NUMBER} {CURRENCY}"
+  },
+  "da_DK": {
+    "short_name": "Danish",
+    "direction": "ltr",
+    "date_format": "d.m.Y",
+    "currency_format": "{NUMBER} {CURRENCY}"
+  },
+  "de_DE": {
+    "short_name": "German",
+    "direction": "ltr",
+    "date_format": "d.m.Y",
+    "currency_format": "{NUMBER} {CURRENCY}"
+  },
+  "el_GR": {
+    "short_name": "Greek",
+    "direction": "ltr",
+    "date_format": "d/m/Y",
+    "currency_format": "{NUMBER} {CURRENCY}"
+  },
+  "en_IN": {
+    "short_name": "English",
+    "direction": "ltr",
+    "date_format": "d/m/Y",
+    "currency_format": "{CURRENCY}{NUMBER}"
+  },
+  "en_US": {
+    "short_name": "English",
+    "direction": "ltr",
+    "date_format": "m/d/Y",
+    "currency_format": "{CURRENCY}{NUMBER}"
+  },
+  "es_ES": {
+    "short_name": "Spanish",
+    "direction": "ltr",
+    "date_format": "d/m/Y",
+    "currency_format": "{NUMBER} {CURRENCY}"
+  },
+  "fa_IR": {
+    "short_name": "Persian",
+    "direction": "rtl",
+    "date_format": "Y/m/d",
+    "currency_format": "{NUMBER} {CURRENCY}"
+  },
+  "fr_FR": {
+    "short_name": "French",
+    "direction": "ltr",
+    "date_format": "d/m/Y",
+    "currency_format": "{NUMBER} {CURRENCY}"
+  },
+  "he_HE": {
+    "short_name": "Hebrew",
+    "direction": "rtl",
+    "date_format": "d.m.Y",
+    "currency_format": "{CURRENCY}{NUMBER}"
+  },
+  "hi_IN": {
+    "short_name": "Hindi",
+    "direction": "ltr",
+    "date_format": "d/m/Y",
+    "currency_format": "{CURRENCY}{NUMBER}"
+  },
+  "hr_HR": {
+    "short_name": "Croatian",
+    "direction": "ltr",
+    "date_format": "d.m.Y.",
+    "currency_format": "{NUMBER} {CURRENCY}"
+  },
+  "hu_HU": {
+    "short_name": "Hungarian",
+    "direction": "ltr",
+    "date_format": "Y.m.d.",
+    "currency_format": "{NUMBER} {CURRENCY}"
+  },
+  "id_ID": {
+    "short_name": "Indonesian",
+    "direction": "ltr",
+    "date_format": "d/m/Y",
+    "currency_format": "{CURRENCY}{NUMBER}"
+  },
+  "it_IT": {
+    "short_name": "Italian",
+    "direction": "ltr",
+    "date_format": "d/m/Y",
+    "currency_format": "{NUMBER} {CURRENCY}"
+  },
+  "ja_JA": {
+    "short_name": "Japanese",
+    "direction": "ltr",
+    "date_format": "Y/m/d",
+    "currency_format": "{CURRENCY}{NUMBER}"
+  },
+  "lt_LT": {
+    "short_name": "Lithuanian",
+    "direction": "ltr",
+    "date_format": "Y-m-d",
+    "currency_format": "{NUMBER} {CURRENCY}"
+  },
+  "nl_NL": {
+    "short_name": "Dutch",
+    "direction": "ltr",
+    "date_format": "d-m-Y",
+    "currency_format": "{CURRENCY} {NUMBER}"
+  },
+  "no_NO": {
+    "short_name": "Norwegian",
+    "direction": "ltr",
+    "date_format": "d.m.Y",
+    "currency_format": "{NUMBER} {CURRENCY}"
+  },
+  "pl_PL": {
+    "short_name": "Polish",
+    "direction": "ltr",
+    "date_format": "d.m.Y",
+    "currency_format": "{NUMBER} {CURRENCY}"
+  },
+  "pt_BR": {
+    "short_name": "Portuguese",
+    "direction": "ltr",
+    "date_format": "d/m/Y",
+    "currency_format": "{CURRENCY} {NUMBER}"
+  },
+  "pt_PT": {
+    "short_name": "Portuguese",
+    "direction": "ltr",
+    "date_format": "d/m/Y",
+    "currency_format": "{NUMBER} {CURRENCY}"
+  },
+  "ro_RO": {
+    "short_name": "Romanian",
+    "direction": "ltr",
+    "date_format": "d.m.Y",
+    "currency_format": "{NUMBER} {CURRENCY}"
+  },
+  "ru_RU": {
+    "short_name": "Russian",
+    "direction": "ltr",
+    "date_format": "d.m.Y",
+    "currency_format": "{NUMBER} {CURRENCY}"
+  },
+  "th_TH": {
+    "short_name": "Thai",
+    "direction": "ltr",
+    "date_format": "d/m/Y",
+    "currency_format": "{CURRENCY}{NUMBER}"
+  },
+  "tr_TR": {
+    "short_name": "Turkish",
+    "direction": "ltr",
+    "date_format": "d.m.Y",
+    "currency_format": "{CURRENCY}{NUMBER}"
+  },
+  "uk_UK": {
+    "short_name": "Ukrainian",
+    "direction": "ltr",
+    "date_format": "d.m.Y",
+    "currency_format": "{NUMBER} {CURRENCY}"
+  },
+  "vi_VN": {
+    "short_name": "Vietnamese",
+    "direction": "ltr",
+    "date_format": "d/m/Y",
+    "currency_format": "{NUMBER} {CURRENCY}"
+  },
+  "zh_CN": {
+    "short_name": "Chinese",
+    "direction": "ltr",
+    "date_format": "Y/m/d",
+    "currency_format": "{CURRENCY}{NUMBER}"
+  },
+  "zh_TW": {
+    "short_name": "Chinese",
+    "direction": "ltr",
+    "date_format": "Y/m/d",
+    "currency_format": "{CURRENCY}{NUMBER}"
+  }
 }

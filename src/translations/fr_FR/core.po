@@ -14,7 +14,7 @@ msgstr ""
 "X-Crowdin-File: /develop/src/templates/core.pot\n"
 "X-Crowdin-File-ID: 8241\n"
 "Language-Team: French\n"
-"PO-Revision-Date: 2026-09-06 13:56\n"
+"PO-Revision-Date: 2026-09-08 15:40\n"
 
 #: oc-includes/osclass/classes/upgrade/Osclass.php
 msgid " If you're sure that is the case, you can continue with the upgrade."
@@ -156,6 +156,10 @@ msgstr[1] "Sous-catégories %d"
 msgid "%d submissions"
 msgstr "Soumissions %d"
 
+#: oc-includes/osclass/helpers/hAdminUi.php
+msgid "%d unsaved changes"
+msgstr ""
+
 #: oc-admin/themes/modern/appearance/widgets.php
 msgid "%d widget"
 msgid_plural "%d widgets"
@@ -239,11 +243,11 @@ msgstr "%s sur %s"
 msgid "%s's profile"
 msgstr "Profil de %s"
 
-#: oc-admin/themes/modern/users/ban_frm.php
+#: oc-includes/osclass/classes/admin/form/BanRuleForm.php
 msgid "(e.g. *@badsite.com, *@subdomain.badsite.com, *@*badsite.com)"
 msgstr "(par exemple *@badsite.com, *@subdomain.badsite.com, *@*badsite.com)"
 
-#: oc-admin/themes/modern/users/ban_frm.php
+#: oc-includes/osclass/classes/admin/form/BanRuleForm.php
 msgid "(e.g. 192.168.10-20.*)"
 msgstr "(par exemple 192.168.10-20.*)"
 
@@ -267,6 +271,10 @@ msgstr "0 le garde pour toujours. C'est l'histoire derrière les graphiques de s
 #: oc-admin/themes/modern/functions.php
 msgid "1 day"
 msgstr "1 jour"
+
+#: oc-includes/osclass/helpers/hAdminUi.php
+msgid "1 unsaved change"
+msgstr "1 modification non sauvegardée"
 
 #: oc-admin/themes/modern/appearance/widgets.php
 msgid "1 widget"
@@ -338,7 +346,7 @@ msgstr ""
 msgid "<strong>Remember</strong> that you must configure reCAPTCHA first"
 msgstr "<strong>Rappelez-vous</strong> que vous devez d'abord configurer reCAPTCHA"
 
-#: oc-admin/themes/modern/settings/billing.php
+#: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
 msgid "A 3-letter ISO 4217 code, e.g. USD, EUR."
 msgstr "A 3-letter ISO 4217 code, e.g. USD, EUR."
 
@@ -350,7 +358,7 @@ msgstr "A 3-letter ISO 4217 code, e.g. USD."
 msgid "A checked view of the environment Shopclass is running on: what it needs, what it can and cannot do, and where a quiet misconfiguration would bite."
 msgstr "Une vue vérifiée de l'environnement de la classe Shopclass fonctionne sur: ce dont elle a besoin, ce qu'il peut et ne peut pas faire, et où une configuration discrète mordrait une mauvaise configuration."
 
-#: oc-admin/themes/modern/settings/comments.php
+#: oc-includes/osclass/classes/admin/form/CommentSettingsForm.php
 msgid "A comment is being held for moderation"
 msgstr "Un commentaire est en cours de modération"
 
@@ -358,7 +366,7 @@ msgstr "Un commentaire est en cours de modération"
 msgid "A form is a set of fields shown together on the listing form, for the categories you choose."
 msgstr "Un formulaire est un ensemble de champs affichés ensemble sur le formulaire de liste, pour les catégories que vous choisissez."
 
-#: oc-admin/themes/modern/settings/comments.php
+#: oc-includes/osclass/classes/admin/form/CommentSettingsForm.php
 msgid "A new comment is posted"
 msgstr "Un nouveau commentaire est publié"
 
@@ -382,11 +390,11 @@ msgstr "À propos de cette commande"
 msgid "About you"
 msgstr "À propos de vous"
 
-#: oc-admin/themes/modern/settings/billing.php
+#: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
 msgid "Accept bank transfer / cash payment"
 msgstr "Accepter le virement bancaire / paiement en espèces"
 
-#: oc-admin/themes/modern/settings/permalinks.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
 msgid "Accepted keywords: %s"
 msgstr "Mots-clés acceptés: %s"
 
@@ -431,20 +439,8 @@ msgid "Activate"
 msgstr "Activer"
 
 #: oc-admin/themes/modern/settings/permalinks.php
-msgid "Activate alert url: this field is required"
-msgstr "URL de la page d'activation d'une alerte: ce champ est obligatoire"
-
-#: oc-admin/themes/modern/settings/permalinks.php
-msgid "Activate listing url: this field is required"
-msgstr "URL de l'activation d'une annonce : ce champ est obligatoire"
-
-#: oc-admin/themes/modern/settings/permalinks.php
 msgid "Activate this option if you want your site's URLs to be more attractive to search engines and intelligible for users."
 msgstr "Activez cette option si vous voulez que les URL de votre site soient plus attrayantes pour les moteurs de recherche et intelligible pour les utilisateurs."
-
-#: oc-admin/themes/modern/settings/permalinks.php
-msgid "Activate user url: this field is required"
-msgstr "URL de la page d'activation d'un utilisateur: ce champ est obligatoire"
 
 #: oc-admin/themes/modern/comments/frm.php
 #: oc-admin/themes/modern/items/index.php
@@ -465,11 +461,11 @@ msgstr "Stockage actif"
 msgid "Activity log"
 msgstr "Journal d'activité"
 
-#: oc-admin/themes/modern/admins/frm.php
 #: oc-admin/themes/modern/comments/frm.php
 #: oc-admin/themes/modern/settings/currencies.php
 #: oc-admin/themes/modern/settings/currency_form.php
 #: oc-admin/themes/modern/users/index.php
+#: oc-includes/osclass/classes/admin/form/AdminAccountForm.php
 msgid "Add"
 msgstr "Ajouter"
 
@@ -485,8 +481,8 @@ msgstr "Ajouter des URL que le sitemap ne découvrirait pas par ailleurs seul, c
 msgid "Add a keyword above, or import a list, to start quarantining matching listings."
 msgstr "Ajoutez un mot clé ci-dessus, ou importez une liste, pour commencer à mettre en quarantaine les listes correspondantes."
 
-#: oc-admin/themes/modern/admins/frm.php
 #: oc-admin/themes/modern/admins/index.php
+#: oc-includes/osclass/classes/admin/form/AdminAccountForm.php
 msgid "Add admin"
 msgstr "Ajouter un administrateur"
 
@@ -533,7 +529,7 @@ msgstr "Ajouter une annonce"
 msgid "Add new"
 msgstr "Ajouter un nouveau"
 
-#: oc-admin/themes/modern/users/ban_frm.php
+#: oc-includes/osclass/classes/admin/form/BanRuleForm.php
 msgid "Add new ban rule"
 msgstr "Ajouter une nouvelle règle d'exclusion"
 
@@ -602,11 +598,11 @@ msgstr "Ajoutez des utilisateurs qui peuvent gérer votre page. Vous pouvez ajou
 msgid "Add widget"
 msgstr "Ajouter un widget"
 
-#: oc-admin/themes/modern/settings/index.php
+#: oc-includes/osclass/classes/admin/form/MainSettingsForm.php
 msgid "Add your Google Maps JavaScript API key."
 msgstr "Ajoutez votre clé API JavaScript Google Maps."
 
-#: oc-admin/themes/modern/settings/index.php
+#: oc-includes/osclass/classes/admin/form/MainSettingsForm.php
 msgid "Add your Mapquest Consumer key."
 msgstr "Ajoutez votre clé de consommateur Mapquest."
 
@@ -639,7 +635,7 @@ msgstr "Ajouter, modifier ou supprimer la langue dans laquelle votre classe Shop
 msgid "Added by admin"
 msgstr "Ajouté par l'administrateur"
 
-#: oc-admin/themes/modern/settings/billing.php
+#: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
 msgid "Added on top of the category's own expiration ceiling."
 msgstr "Ajouté en haut du plafond d'expiration de la catégorie."
 
@@ -676,11 +672,15 @@ msgstr "Notifications d'administration"
 msgid "Admin sections"
 msgstr "Sections admin"
 
-#: oc-admin/themes/modern/admins/frm.php
+#: oc-includes/osclass/classes/admin/form/AdminAccountForm.php
+msgid "Admin type"
+msgstr "Type d'administration"
+
+#: oc-includes/osclass/classes/admin/form/AdminAccountForm.php
 msgid "Admin type <em>(required)</em>"
 msgstr "Type d'administration <em>(obligatoire)</em>"
 
-#: oc-admin/themes/modern/admins/frm.php
+#: oc-includes/osclass/classes/admin/form/AdminAccountForm.php
 msgid "Administrator"
 msgstr "Administrateur"
 
@@ -688,7 +688,7 @@ msgstr "Administrateur"
 msgid "Administrators"
 msgstr "Administrateurs"
 
-#: oc-admin/themes/modern/admins/frm.php
+#: oc-includes/osclass/classes/admin/form/AdminAccountForm.php
 msgid "Administrators have total control over all aspects of your installation, "
 msgstr "Les administrateurs ont un contrôle total sur tous les aspects de votre installation, "
 
@@ -709,6 +709,7 @@ msgid "Advanced"
 msgstr "Avancé"
 
 #: oc-admin/themes/modern/settings/advanced.php
+#: oc-includes/osclass/classes/admin/form/AdvancedSettingsForm.php
 msgid "Advanced Settings"
 msgstr "Paramètres avancés"
 
@@ -716,7 +717,7 @@ msgstr "Paramètres avancés"
 msgid "Advanced options"
 msgstr "Options avancées"
 
-#: oc-admin/themes/modern/settings/permalinks.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
 msgid "Advanced: customize URL structure"
 msgstr "Avancé : personnaliser la structure de l'URL"
 
@@ -740,10 +741,11 @@ msgid "Ajax error, try again."
 msgstr "Erreur Ajax, essayez à nouveau."
 
 #: oc-admin/themes/modern/settings/spamNbots.php
+#: oc-includes/osclass/classes/admin/form/SpamSettingsForm.php
 msgid "Akismet"
 msgstr "Akismet"
 
-#: oc-admin/themes/modern/settings/spamNbots.php
+#: oc-includes/osclass/classes/admin/form/SpamSettingsForm.php
 msgid "Akismet API Key"
 msgstr "Akismet API Key"
 
@@ -751,7 +753,7 @@ msgstr "Akismet API Key"
 msgid "Akismet is a hosted web service that saves you time by automatically detecting comment and trackback spam. "
 msgstr "Akismet est un service web hébergé qui vous fait gagner du temps en détectant automatiquement les commentaires et le spam trackback. "
 
-#: oc-admin/themes/modern/settings/spamNbots.php
+#: oc-includes/osclass/classes/admin/form/SpamSettingsForm.php
 msgid "Akismet is disabled, please enter an API key. <a href=\"%s\" target=\"_blank\">(Get your key)</a>"
 msgstr "Le service Akismet est désactivé. Entrez votre clé API pour l'activer. <a href=\"%s\" target=\"_blank\">Obtenir votre clé API Akismet</a>"
 
@@ -806,11 +808,11 @@ msgstr "Toutes les sections"
 msgid "All submissions for this form have been deleted"
 msgstr "Toutes les soumissions pour ce formulaire ont été supprimées"
 
-#: oc-admin/themes/modern/settings/index.php
+#: oc-includes/osclass/classes/admin/form/MainSettingsForm.php
 msgid "Allow Prerelease"
 msgstr "Autoriser le Prereleasing"
 
-#: oc-admin/themes/modern/settings/index.php
+#: oc-includes/osclass/classes/admin/form/MainSettingsForm.php
 msgid "Allow Shopclass to run a built-in <a href=\"%s\" target=\"_blank\" rel=\"noopener\">cron</a>"
 msgstr "Permettre à Shopclass d'exécuter un <a href=\"%s\" target=\"_blank\" rel=\"noopener\">cron</a> intégré"
 
@@ -818,35 +820,23 @@ msgstr "Permettre à Shopclass d'exécuter un <a href=\"%s\" target=\"_blank\" r
 msgid "Allow attached files in contact publisher form"
 msgstr "Autoriser les fichiers joints dans le formulaire de publication de contacts"
 
-#: oc-admin/themes/modern/settings/index.php
-msgid "Allow auto-updates of languages"
-msgstr "Autoriser les mises à jour automatiques des langues"
-
-#: oc-admin/themes/modern/settings/index.php
-msgid "Allow auto-updates of themes"
-msgstr "Autoriser la mise à jour automatique des thèmes"
-
-#: oc-admin/themes/modern/settings/index.php
-msgid "Allow auto-updates plugins"
-msgstr "Autoriser les plugins de mise à jour automatique"
-
 #: oc-admin/themes/modern/tools/system-info.php
 msgid "Allow bigger photo uploads"
 msgstr "Permettre l'envoi de plus grandes photos"
 
-#: oc-admin/themes/modern/settings/index.php
+#: oc-includes/osclass/classes/admin/form/MainSettingsForm.php
 msgid "Allow people to attach a file to the contact form"
 msgstr "Autoriser les personnes à joindre un fichier au formulaire de contact"
 
-#: oc-admin/themes/modern/settings/comments.php
+#: oc-includes/osclass/classes/admin/form/CommentSettingsForm.php
 msgid "Allow people to post comments on listings"
 msgstr "Permettre aux personnes de poster des commentaires sur les annonces"
 
-#: oc-admin/themes/modern/settings/index.php
+#: oc-includes/osclass/classes/admin/form/MainSettingsForm.php
 msgid "Allow prerelease update"
 msgstr "Autoriser la mise à jour des prérequis"
 
-#: oc-admin/themes/modern/settings/index.php
+#: oc-includes/osclass/classes/admin/form/MainSettingsForm.php
 msgid "Allow users to select a parent category as a category\n"
 "                            when inserting or editing a listing "
 msgstr "Permettre aux utilisateurs de sélectionner une catégorie parent comme catégorie\n"
@@ -925,7 +915,7 @@ msgstr "N'importe quel statut"
 msgid "Anyone can register"
 msgstr "N'importe qui peut s'inscrire"
 
-#: oc-admin/themes/modern/settings/mailserver.php
+#: oc-includes/osclass/classes/admin/form/MailServerSettingsForm.php
 msgid "Apache Module <b>mod_ssl</b> is not loaded"
 msgstr "Le module Apache <b>mod_ssl</b> n'est pas chargé"
 
@@ -1083,15 +1073,15 @@ msgstr "Attaché directement aux catégories %d , en dehors de n'importe quel fo
 msgid "Attached to"
 msgstr "Rattaché à"
 
-#: oc-admin/themes/modern/settings/index.php
+#: oc-includes/osclass/classes/admin/form/MainSettingsForm.php
 msgid "Attachments"
 msgstr "Fichiers joints"
 
-#: oc-admin/themes/modern/settings/spamNbots.php
+#: oc-includes/osclass/classes/admin/form/SpamSettingsForm.php
 msgid "Attempts per account"
 msgstr "Tentatives par compte"
 
-#: oc-admin/themes/modern/settings/spamNbots.php
+#: oc-includes/osclass/classes/admin/form/SpamSettingsForm.php
 msgid "Attempts per address"
 msgstr "Tentatives par adresse"
 
@@ -1118,25 +1108,25 @@ msgstr "Auteur (A-Z)"
 msgid "Author's e-mail"
 msgstr "E-mail de l'auteur"
 
-#: oc-admin/themes/modern/settings/spamNbots.php
+#: oc-includes/osclass/classes/admin/form/SpamSettingsForm.php
 msgid "Automatic"
 msgstr "Automatique"
 
-#: oc-admin/themes/modern/settings/index.php
+#: oc-includes/osclass/classes/admin/form/MainSettingsForm.php
 msgid "Automatic cron process"
 msgstr "Processus cron automatique"
 
-#: oc-admin/themes/modern/settings/spamNbots.php
+#: oc-includes/osclass/classes/admin/form/SpamSettingsForm.php
 msgid "Automatic prefers reCAPTCHA whenever its site and secret keys below are set; clear "
 msgstr "Automatique préfère reCAPTCHA chaque fois que son site et ses clés secrètes sont définies; effacer "
 
-#: oc-admin/themes/modern/settings/keywordBlock.php
+#: oc-includes/osclass/classes/admin/form/KeywordBlockSettingsForm.php
 msgid "Automatically hide a listing once enough distinct visitors have reported it"
 msgstr "Cacher automatiquement une liste une fois que les visiteurs distincts l'ont signalé"
 
 #: oc-admin/themes/modern/billing/package.php
 #: oc-admin/themes/modern/languages/frm.php
-#: oc-admin/themes/modern/settings/billing.php
+#: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
 msgid "Availability"
 msgstr "Disponibilité"
 
@@ -1244,10 +1234,14 @@ msgstr "Solde après"
 msgid "Balance now"
 msgstr "Solde maintenant"
 
-#: oc-admin/themes/modern/users/ban_frm.php
+#: oc-includes/osclass/classes/admin/form/BanRuleForm.php
 #: oc-includes/osclass/classes/datatables/BanRulesDataTable.php
 msgid "Ban name / Reason"
 msgstr "Règle d'exclusion / Raison"
+
+#: oc-includes/osclass/classes/admin/form/BanRuleForm.php
+msgid "Ban rule"
+msgstr "Règle de bannissement"
 
 #: oc-includes/osclass/classes/AdminMenu.php
 msgid "Ban rules"
@@ -1257,11 +1251,11 @@ msgstr "Règles d'exclusion"
 msgid "Ban rules block registration, listings or comments matching an IP or e-mail pattern."
 msgstr "Les règles de bannissement bloquent l'enregistrement, les annonces ou les commentaires correspondant à une adresse IP ou à un modèle de courriel."
 
-#: oc-admin/themes/modern/settings/billing.php
+#: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
 msgid "Bank details, or wherever a buyer sends the money. Shown to the "
 msgstr "Coordonnées bancaires ou partout où un acheteur envoie l'argent. Affiché à la "
 
-#: oc-admin/themes/modern/settings/billing.php
+#: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
 msgid "Bank transfer"
 msgstr "Virement bancaire"
 
@@ -1269,7 +1263,7 @@ msgstr "Virement bancaire"
 msgid "Barter"
 msgstr "Echange, troc"
 
-#: oc-admin/themes/modern/settings/comments.php
+#: oc-includes/osclass/classes/admin/form/CommentSettingsForm.php
 msgid "Before a comment appears, comment author must have at least"
 msgstr "Avant qu'un commentaire apparaisse, l'auteur du commentaire doit avoir au moins"
 
@@ -1283,12 +1277,13 @@ msgstr "Avant de commencer, assurons que votre serveur a tout ce dont il a besoi
 #: oc-admin/themes/modern/billing/package.php
 #: oc-admin/themes/modern/billing/packages.php
 #: oc-admin/themes/modern/billing/wallet.php
-#: oc-admin/themes/modern/settings/billing.php
 #: oc-includes/osclass/classes/AdminMenu.php
+#: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
 msgid "Billing"
 msgstr "Facturation"
 
 #: oc-admin/themes/modern/settings/billing.php
+#: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
 msgid "Billing settings"
 msgstr "Paramètres de facturation"
 
@@ -1339,11 +1334,7 @@ msgstr "En bas à gauche"
 msgid "Bottom Right"
 msgstr "En bas à droite"
 
-#: oc-admin/themes/modern/settings/index.php
-msgid "Branch - big changes"
-msgstr "Branche - grands changements"
-
-#: oc-admin/themes/modern/settings/comments.php
+#: oc-includes/osclass/classes/admin/form/CommentSettingsForm.php
 msgid "Break comments into pages with"
 msgstr "Cassez les commentaires en pages avec"
 
@@ -1388,15 +1379,15 @@ msgstr "Construire des formulaires réutilisables en faisant glisser des champs 
 msgid "Bulk actions"
 msgstr "Actions groupées"
 
-#: oc-admin/themes/modern/settings/billing.php
+#: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
 msgid "Bump price (credits)"
 msgstr "Augmenter le prix (crédits)"
 
-#: oc-admin/themes/modern/settings/billing.php
+#: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
 msgid "Bump to top"
 msgstr "Monter en haut"
 
-#: oc-admin/themes/modern/settings/billing.php
+#: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
 msgid "Bump, highlight and urgent are optional item upgrades, each priced and switched "
 msgstr "Bump, surlignement et urgent sont des mises à niveau optionnelles d'élément, chaque prix et changé "
 
@@ -1461,7 +1452,6 @@ msgstr "Impossible de mettre à jour"
 msgid "Can't write in config.php file. Check if the file is writable."
 msgstr "Impossible d'enregistrer le fichier config.php. Vérifiez si le fichier est accessible en écriture."
 
-#: oc-admin/themes/modern/admins/frm.php
 #: oc-admin/themes/modern/appearance/page-block-form.php
 #: oc-admin/themes/modern/billing/order.php
 #: oc-admin/themes/modern/billing/packages.php
@@ -1485,6 +1475,7 @@ msgstr "Impossible d'enregistrer le fichier config.php. Vérifiez si le fichier 
 #: oc-admin/themes/modern/settings/media.php
 #: oc-admin/themes/modern/users/ban.php
 #: oc-admin/themes/modern/users/frm.php
+#: oc-includes/osclass/classes/admin/form/AdminAccountForm.php
 msgid "Cancel"
 msgstr "Annuler"
 
@@ -1493,7 +1484,7 @@ msgstr "Annuler"
 msgid "Cancelled"
 msgstr "Annulé"
 
-#: oc-admin/themes/modern/settings/mailserver.php
+#: oc-includes/osclass/classes/admin/form/MailServerSettingsForm.php
 msgid "Cannot be sure that Apache Module <b>mod_ssl</b> is loaded."
 msgstr "Ne peut pas être sûr que le module Apache <b>mod_ssl</b> est chargé."
 
@@ -1502,14 +1493,15 @@ msgid "Cannot install new plugin"
 msgstr "Impossible d'installer le nouveau plugin"
 
 #: oc-admin/themes/modern/settings/spamNbots.php
+#: oc-includes/osclass/classes/admin/form/SpamSettingsForm.php
 msgid "Captcha"
 msgstr "Captcha"
 
-#: oc-admin/themes/modern/settings/spamNbots.php
+#: oc-includes/osclass/classes/admin/form/SpamSettingsForm.php
 msgid "Captcha is currently off: you forced a provider but its keys are empty. "
 msgstr "Captcha est actuellement éteint : vous avez forcé un fournisseur mais ses clés sont vides. "
 
-#: oc-admin/themes/modern/settings/spamNbots.php
+#: oc-includes/osclass/classes/admin/form/SpamSettingsForm.php
 msgid "Captcha provider"
 msgstr "Fournisseur Captcha"
 
@@ -1554,10 +1546,6 @@ msgstr "Catégories et nom"
 msgid "Categories are the sections people browse and file listings under. "
 msgstr "Les catégories sont les sections sous lesquelles les personnes naviguent et listent les fichiers. "
 
-#: oc-admin/themes/modern/settings/permalinks.php
-msgid "Categories url: this field is required"
-msgstr "URL des catégories: ce champ est obligatoire"
-
 #: oc-admin/themes/modern/items/frm.php
 #: oc-admin/themes/modern/items/index.php
 #: oc-admin/themes/modern/parts/market.php
@@ -1565,11 +1553,11 @@ msgstr "URL des catégories: ce champ est obligatoire"
 msgid "Category"
 msgstr "Catégories"
 
-#: oc-admin/themes/modern/settings/permalinks.php
-msgid "Category URL:"
-msgstr "URL de la catégorie:"
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
+msgid "Category URL"
+msgstr "URL de la catégorie"
 
-#: oc-admin/themes/modern/settings/advanced.php
+#: oc-includes/osclass/classes/admin/form/AdvancedSettingsForm.php
 msgid "Category based"
 msgstr "Basé sur la catégorie"
 
@@ -1577,7 +1565,7 @@ msgstr "Basé sur la catégorie"
 msgid "Category id is not a valid integer"
 msgstr "L'id de la catégorie n'est pas un entier valide"
 
-#: oc-admin/themes/modern/settings/index.php
+#: oc-includes/osclass/classes/admin/form/MainSettingsForm.php
 msgid "Category settings"
 msgstr "Paramètres de la catégorie"
 
@@ -1610,14 +1598,6 @@ msgstr "Changement"
 msgid "Change advanced configuration of your Shopclass. "
 msgstr "Modifier la configuration avancée de votre classe de magasin. "
 
-#: oc-admin/themes/modern/settings/permalinks.php
-msgid "Change email confirm url: this field is required"
-msgstr "URL de la page de confirmation de l'email: ce champ est obligatoire"
-
-#: oc-admin/themes/modern/settings/permalinks.php
-msgid "Change email url: this field is required"
-msgstr "URL de la page de changement d'email: ce champ est obligatoire"
-
 #: oc-includes/osclass/classes/Breadcrumb.php
 msgid "Change my email"
 msgstr "Changer mon email"
@@ -1634,10 +1614,6 @@ msgstr "Changer mon nom d'utilisateur"
 msgid "Change password"
 msgstr "Changer de mot de passe"
 
-#: oc-admin/themes/modern/settings/permalinks.php
-msgid "Change password url: this field is required"
-msgstr "URL de la page de changement du mot de passe de l'utilisateur: ce champ est obligatoire"
-
 #: oc-admin/themes/modern/settings/index.php
 msgid "Change the basic configuration of your Shopclass. From here, you can modify variables such as the site’s name, "
 msgstr "Changez la configuration de base de votre classe de magasin. À partir d'ici, vous pouvez modifier des variables telles que le nom du site, "
@@ -1645,10 +1621,6 @@ msgstr "Changez la configuration de base de votre classe de magasin. À partir d
 #: oc-includes/osclass/classes/EmailVariables.php
 msgid "Change user password link"
 msgstr "Lien pour modifier le mot de passe"
-
-#: oc-admin/themes/modern/settings/permalinks.php
-msgid "Change username url: this field is required"
-msgstr "Changement du nom d'un utilisateur: ce champ est obligatoire"
 
 #: oc-includes/osclass/classes/Breadcrumb.php
 #: oc-includes/osclass/classes/controller/admin/CAdminLogin.php
@@ -1671,7 +1643,7 @@ msgstr "Vérifier à nouveau"
 msgid "Check all"
 msgstr "Tout cocher"
 
-#: oc-admin/themes/modern/settings/keywordBlock.php
+#: oc-includes/osclass/classes/admin/form/KeywordBlockSettingsForm.php
 msgid "Check new and edited listings against the keyword blocklist below"
 msgstr "Vérifier les annonces nouvelles et modifiées par rapport à la liste noire des mots clés ci-dessous"
 
@@ -1691,7 +1663,7 @@ msgstr "Vérifier le serveur"
 msgid "Check to see if you're using the latest version of Shopclass. If you're not, "
 msgstr "Vérifiez si vous utilisez la dernière version de Shopclass. Si ce n'est pas le cas, "
 
-#: oc-admin/themes/modern/settings/index.php
+#: oc-includes/osclass/classes/admin/form/MainSettingsForm.php
 msgid "Check updates"
 msgstr "Vérifier les mises à jour"
 
@@ -1765,7 +1737,7 @@ msgstr "Quartier: saisissez au moins 3 caractères"
 msgid "City area: no more than 50 characters"
 msgstr "Quartier: ne doit pas dépasser 35 caractères"
 
-#: oc-admin/themes/modern/settings/advanced.php
+#: oc-includes/osclass/classes/admin/form/AdvancedSettingsForm.php
 msgid "City based"
 msgstr "Basé sur la ville"
 
@@ -1870,7 +1842,7 @@ msgstr "Fermer"
 msgid "Clothing"
 msgstr "Vêtements, habillement"
 
-#: oc-admin/themes/modern/settings/spamNbots.php
+#: oc-includes/osclass/classes/admin/form/SpamSettingsForm.php
 msgid "Cloudflare Turnstile"
 msgstr "Turnstile de Fusée nuageuse"
 
@@ -1905,6 +1877,7 @@ msgid "Comment"
 msgstr "Commentaire"
 
 #: oc-admin/themes/modern/settings/comments.php
+#: oc-includes/osclass/classes/admin/form/CommentSettingsForm.php
 msgid "Comment Settings"
 msgstr "Paramètres des commentaires"
 
@@ -1941,6 +1914,10 @@ msgstr "Commentaire : ce champ est obligatoire"
 #: oc-includes/osclass/classes/AdminMenu.php
 msgid "Comments"
 msgstr "Commentaires"
+
+#: oc-includes/osclass/classes/admin/form/CommentSettingsForm.php
+msgid "Comments per page"
+msgstr "Commentaires par page"
 
 #: oc-admin/themes/modern/settings/comments.php
 msgid "Comments per page: this field is required"
@@ -2030,7 +2007,7 @@ msgstr "Configurer le sitemap XML : combien d'URL vont dans chaque fichier, quel
 msgid "Configured through the OSC_CACHE constant."
 msgstr "Configuré à travers la constante OSC_CACHE."
 
-#: oc-admin/themes/modern/admins/frm.php
+#: oc-includes/osclass/classes/admin/form/AdminAccountForm.php
 msgid "Confirm new password"
 msgstr "Confirmer le nouveau mot de passe"
 
@@ -2062,18 +2039,18 @@ msgstr "Connecté, mais cette base de données a déjà des tables Shopclass ave
 msgid "Connection test"
 msgstr "Test de connexion"
 
-#: oc-admin/themes/modern/settings/permalinks.php
 #: oc-includes/osclass/classes/Breadcrumb.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
 #: oc-includes/osclass/classes/controller/CWebContact.php
 #: oc-includes/osclass/functions.php
 msgid "Contact"
 msgstr "Page de contact"
 
-#: oc-admin/themes/modern/settings/index.php
+#: oc-includes/osclass/classes/admin/form/MainSettingsForm.php
 msgid "Contact Settings"
 msgstr "Paramètres du contact"
 
-#: oc-admin/themes/modern/settings/index.php
+#: oc-includes/osclass/classes/admin/form/MainSettingsForm.php
 msgid "Contact e-mail"
 msgstr "E-mail du contact"
 
@@ -2098,11 +2075,7 @@ msgstr "Contacter l'annonceur"
 msgid "Contact seller"
 msgstr "Contacter l'annonceur"
 
-#: oc-admin/themes/modern/settings/permalinks.php
-msgid "Contact url: this field is required"
-msgstr "URL de la page de contact: ce champ est obligatoire"
-
-#: oc-admin/themes/modern/settings/permalinks.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
 msgid "Contact, feed &amp; language"
 msgstr "Contact, flux &amp; langue"
 
@@ -2123,7 +2096,7 @@ msgstr "Continuer"
 msgid "Continue with upgrade"
 msgstr "Poursuivre la mise à jour"
 
-#: oc-admin/themes/modern/settings/billing.php
+#: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
 msgid "Cooldown (hours)"
 msgstr "Refroidissement (heures)"
 
@@ -2135,11 +2108,7 @@ msgstr "Copié"
 msgid "Copy"
 msgstr "Copie"
 
-#: oc-admin/themes/modern/settings/index.php
-msgid "Core updates"
-msgstr "Mises à jour du noyau"
-
-#: oc-admin/themes/modern/settings/billing.php
+#: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
 msgid "Core's built-in payment method — no card processor, no API keys. A buyer "
 msgstr "Méthode de paiement intégrée du cœur — pas de processeur de carte, pas de clé d'API. Un acheteur "
 
@@ -2179,7 +2148,7 @@ msgstr "Impossible de charger les détails de ce package."
 msgid "Count crawler visits as views"
 msgstr "Nombre de visites d'artillerie comme vues"
 
-#: oc-admin/themes/modern/settings/spamNbots.php
+#: oc-includes/osclass/classes/admin/form/SpamSettingsForm.php
 msgid "Count failed attempts and refuse further ones past the limits below"
 msgstr "Compter les tentatives échouées et refuser d'autres tentatives dépassées les limites ci-dessous"
 
@@ -2201,7 +2170,7 @@ msgstr "Pays"
 msgid "Country"
 msgstr "Pays"
 
-#: oc-admin/themes/modern/settings/advanced.php
+#: oc-includes/osclass/classes/admin/form/AdvancedSettingsForm.php
 msgid "Country based"
 msgstr "Basé sur le pays"
 
@@ -2264,7 +2233,7 @@ msgstr "Les crédits sont ce que les utilisateurs dépensent sur des fonctionnal
 msgid "Credits — %s"
 msgstr "Crédits – %s"
 
-#: oc-admin/themes/modern/settings/index.php
+#: oc-includes/osclass/classes/admin/form/MainSettingsForm.php
 msgid "Cron Settings"
 msgstr "Paramètres Cron"
 
@@ -2279,7 +2248,7 @@ msgid "Currencies"
 msgstr "Devises"
 
 #: oc-admin/themes/modern/billing/package.php
-#: oc-admin/themes/modern/settings/billing.php
+#: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
 msgid "Currency"
 msgstr "Devise"
 
@@ -2299,6 +2268,7 @@ msgstr "Format de la devise"
 msgid "Currency format: this field is required"
 msgstr "Format de la devise : ce champ est obligatoire"
 
+#: oc-admin/themes/modern/settings/currencies.php
 #: oc-admin/themes/modern/settings/currency_form.php
 msgid "Currency symbol"
 msgstr "Symbole de devise"
@@ -2327,7 +2297,7 @@ msgstr "Thème actuel"
 msgid "Current version"
 msgstr "Version actuelle"
 
-#: oc-admin/themes/modern/settings/index.php
+#: oc-includes/osclass/classes/admin/form/MainSettingsForm.php
 msgid "Custom"
 msgstr "Personnalisé"
 
@@ -2341,11 +2311,11 @@ msgstr "HTML personnalisé"
 msgid "Custom HTML (legacy)"
 msgstr "HTML personnalisé (hérité)"
 
-#: oc-admin/themes/modern/settings/mailserver.php
+#: oc-includes/osclass/classes/admin/form/MailServerSettingsForm.php
 msgid "Custom Server"
 msgstr "Serveur personnalisé"
 
-#: oc-admin/themes/modern/settings/index.php
+#: oc-includes/osclass/classes/admin/form/MainSettingsForm.php
 msgid "Custom date format"
 msgstr "Format de date personnalisé"
 
@@ -2354,6 +2324,10 @@ msgstr "Format de date personnalisé"
 #: oc-includes/osclass/classes/datatables/KeywordBlocksDataTable.php
 msgid "Custom fields"
 msgstr "Champs personnalisés"
+
+#: oc-includes/osclass/classes/admin/form/LatestSearchSettingsForm.php
+msgid "Custom number"
+msgstr "Numéro personnalisé"
 
 #: oc-admin/themes/modern/settings/searches.php
 msgid "Custom number: this field cannot be left empty"
@@ -2367,7 +2341,7 @@ msgstr "Nombre personnalisé: ce champ ne doit contenir que des caractères num�
 msgid "Custom sitemap URLs"
 msgstr "URL du plan du site personnalisé"
 
-#: oc-admin/themes/modern/settings/index.php
+#: oc-includes/osclass/classes/admin/form/MainSettingsForm.php
 msgid "Custom time format"
 msgstr "Format de l'heure personnalisé"
 
@@ -2411,11 +2385,11 @@ msgstr "Serveur de base de données"
 #: oc-admin/themes/modern/billing/order.php
 #: oc-admin/themes/modern/billing/wallet.php
 #: oc-admin/themes/modern/main/index.php
-#: oc-admin/themes/modern/settings/index.php
 #: oc-admin/themes/modern/stats/comments.php
 #: oc-admin/themes/modern/stats/items.php
 #: oc-admin/themes/modern/stats/reports.php
 #: oc-admin/themes/modern/stats/users.php
+#: oc-includes/osclass/classes/admin/form/MainSettingsForm.php
 #: oc-includes/osclass/classes/datatables/AlertsDataTable.php
 #: oc-includes/osclass/classes/datatables/CommentsDataTable.php
 #: oc-includes/osclass/classes/datatables/ItemsDataTable.php
@@ -2425,11 +2399,12 @@ msgstr "Serveur de base de données"
 msgid "Date"
 msgstr "Date"
 
-#: oc-admin/themes/modern/settings/index.php
+#: oc-includes/osclass/classes/admin/form/MainSettingsForm.php
 msgid "Date & time format"
 msgstr "Format de date et d'heure"
 
 #: oc-admin/themes/modern/languages/frm.php
+#: oc-includes/osclass/classes/admin/form/MainSettingsForm.php
 msgid "Date format"
 msgstr "Format de la date"
 
@@ -2485,15 +2460,15 @@ msgstr "Point décimal"
 msgid "Decimal point: this field is required"
 msgstr "Point décimal : ce champ est obligatoire"
 
-#: oc-admin/themes/modern/settings/comments.php
+#: oc-includes/osclass/classes/admin/form/CommentSettingsForm.php
 msgid "Default comment settings"
 msgstr "Paramètres par défaut des commentaires"
 
-#: oc-admin/themes/modern/settings/index.php
+#: oc-includes/osclass/classes/admin/form/MainSettingsForm.php
 msgid "Default currency"
 msgstr "Devise par défaut"
 
-#: oc-admin/themes/modern/settings/index.php
+#: oc-includes/osclass/classes/admin/form/MainSettingsForm.php
 msgid "Default language"
 msgstr "Langue par défaut"
 
@@ -2638,17 +2613,9 @@ msgstr "Supprimer les annonces"
 msgid "Delete listing link"
 msgstr "Lien pour supprimer l'annonce"
 
-#: oc-admin/themes/modern/settings/permalinks.php
-msgid "Delete listing resource url: this field is required"
-msgstr "URL de la page de suppression des ressources d'une annonce : ce champ est obligatoire"
-
 #: oc-includes/osclass/classes/EmailVariables.php
 msgid "Delete listing url"
 msgstr "URL pour supprimer l'annonce"
-
-#: oc-admin/themes/modern/settings/permalinks.php
-msgid "Delete listing url: this field is required"
-msgstr "URL de la page de suppression d'une annonce: ce champ est obligatoire"
 
 #: oc-admin/themes/modern/tools/cleanup.php
 msgid "Delete matching items"
@@ -2710,7 +2677,6 @@ msgstr "La suppression du formulaire conserve ses champs (ils retournent à la p
 #: oc-admin/themes/modern/languages/frm.php
 #: oc-admin/themes/modern/languages/index.php
 #: oc-admin/themes/modern/plugins/index.php
-#: oc-admin/themes/modern/settings/currencies.php
 #: oc-includes/osclass/classes/form/CategoryForm.php
 #: oc-includes/osclass/classes/form/ItemForm.php
 #: oc-includes/osclass/classes/form/PageForm.php
@@ -2782,7 +2748,6 @@ msgstr "Désactiver le mode maintenance"
 
 #: oc-admin/themes/modern/billing/packages.php
 #: oc-admin/themes/modern/categories/index.php
-#: oc-admin/themes/modern/settings/index.php
 #: oc-includes/osclass/classes/controller/admin/CAdminPlugins.php
 #: oc-includes/osclass/classes/utility/SystemInfo.php
 msgid "Disabled"
@@ -2798,7 +2763,7 @@ msgstr "Refuser"
 msgid "Documentation"
 msgstr "Documentation"
 
-#: oc-admin/themes/modern/settings/index.php
+#: oc-includes/osclass/classes/admin/form/MainSettingsForm.php
 msgid "Documentation on date and time formatting"
 msgstr "Documentation sur le formatage de la date et de l'heure"
 
@@ -2871,7 +2836,7 @@ msgstr "Déposer un type de widget ici"
 msgid "Duplicated"
 msgstr "Doublon"
 
-#: oc-admin/themes/modern/settings/billing.php
+#: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
 msgid "Duration (days)"
 msgstr "Durée (jours)"
 
@@ -2883,25 +2848,26 @@ msgstr "Courriel"
 #: oc-admin/themes/modern/admins/index.php
 #: oc-admin/themes/modern/items/frm.php
 #: oc-admin/themes/modern/users/frm.php
+#: oc-includes/osclass/classes/admin/form/AdminAccountForm.php
 #: oc-includes/osclass/classes/datatables/AlertsDataTable.php
 #: oc-includes/osclass/classes/datatables/UsersDataTable.php
 msgid "E-mail"
 msgstr "Email"
 
-#: oc-admin/themes/modern/admins/frm.php
+#: oc-includes/osclass/classes/admin/form/AdminAccountForm.php
 msgid "E-mail <em>(required)</em>"
 msgstr "E-mail <em>(obligatoire)</em>"
 
-#: oc-admin/themes/modern/settings/comments.php
+#: oc-includes/osclass/classes/admin/form/CommentSettingsForm.php
 msgid "E-mail admin whenever"
 msgstr "Envoyer un e-mail à l'administrateur chaque fois que"
 
-#: oc-admin/themes/modern/users/ban_frm.php
+#: oc-includes/osclass/classes/admin/form/BanRuleForm.php
 #: oc-includes/osclass/classes/datatables/BanRulesDataTable.php
 msgid "E-mail rule"
 msgstr "Règle de l'adresse email"
 
-#: oc-admin/themes/modern/settings/comments.php
+#: oc-includes/osclass/classes/admin/form/CommentSettingsForm.php
 msgid "E-mail user whenever"
 msgstr "Envoyer un e-mail à l'utilisateur chaque fois que"
 
@@ -2943,7 +2909,7 @@ msgstr "Modifier"
 msgid "Edit %s"
 msgstr "Modifier %s"
 
-#: oc-admin/themes/modern/admins/frm.php
+#: oc-includes/osclass/classes/admin/form/AdminAccountForm.php
 msgid "Edit admin"
 msgstr "Profil de l'administrateur"
 
@@ -2988,10 +2954,6 @@ msgstr "Modifier la langue"
 msgid "Edit listing"
 msgstr "Modifier une annonce"
 
-#: oc-admin/themes/modern/settings/permalinks.php
-msgid "Edit listing url: this field is required"
-msgstr "URL de la page de modification d'une annonce : ce champ est obligatoire"
-
 #: oc-admin/themes/modern/pages/frm.php
 msgid "Edit page"
 msgstr "Modifier la page"
@@ -3000,7 +2962,7 @@ msgstr "Modifier la page"
 msgid "Edit profile"
 msgstr "Modifier le profil"
 
-#: oc-admin/themes/modern/users/ban_frm.php
+#: oc-includes/osclass/classes/admin/form/BanRuleForm.php
 msgid "Edit rule"
 msgstr "Modifier la règle"
 
@@ -3101,11 +3063,11 @@ msgstr "Activer (site web)"
 msgid "Enable TinyMCE on frontend"
 msgstr "Activer TinyMCE sur le frontend"
 
-#: oc-admin/themes/modern/settings/billing.php
+#: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
 msgid "Enable billing"
 msgstr "Activer la facturation"
 
-#: oc-admin/themes/modern/settings/permalinks.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
 msgid "Enable friendly urls"
 msgstr "Activer les URL amicales"
 
@@ -3144,15 +3106,15 @@ msgstr "Activé pour le site web public"
 msgid "Enabled rules also run automatically once a day."
 msgstr "Les règles activées s'exécutent automatiquement une fois par jour."
 
-#: oc-admin/themes/modern/settings/billing.php
+#: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
 msgid "Enabled with a price of 0 means every seller can feature a listing for free."
 msgstr "Activé avec un prix de 0 signifie que chaque vendeur peut afficher une annonce gratuitement."
 
-#: oc-admin/themes/modern/settings/billing.php
+#: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
 msgid "Enabled with a price of 0 means every seller can raise their "
 msgstr "Activé avec un prix de 0 signifie que chaque vendeur peut augmenter sa "
 
-#: oc-admin/themes/modern/settings/mailserver.php
+#: oc-includes/osclass/classes/admin/form/MailServerSettingsForm.php
 msgid "Encryption"
 msgstr "Chiffrement"
 
@@ -3322,19 +3284,19 @@ msgstr "Expirée"
 msgid "Expired listings"
 msgstr "Annonces expirées"
 
-#: oc-admin/themes/modern/settings/billing.php
+#: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
 msgid "Extra days"
 msgstr "Jours supplémentaires"
 
-#: oc-admin/themes/modern/settings/billing.php
+#: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
 msgid "Extra listing runtime"
 msgstr "Exécution de la liste supplémentaire"
 
-#: oc-admin/themes/modern/settings/billing.php
+#: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
 msgid "Extra photos"
 msgstr "Photos supplémentaires"
 
-#: oc-admin/themes/modern/settings/billing.php
+#: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
 msgid "Extra slots"
 msgstr "Emplacements supplémentaires"
 
@@ -3347,23 +3309,23 @@ msgstr "Echoué"
 msgid "Failed sign-ins and password-reset requests are counted per visitor address and per account "
 msgstr "Les connexions échouées et les demandes de réinitialisation de mot de passe sont comptées par adresse de visiteur et par compte "
 
-#: oc-admin/themes/modern/settings/spamNbots.php
+#: oc-includes/osclass/classes/admin/form/SpamSettingsForm.php
 msgid "Failures against one account name, from anywhere. This is what catches guessing "
 msgstr "Les échecs contre un nom de compte, de n'importe où. C'est ce qui attrape la devinture. "
 
-#: oc-admin/themes/modern/settings/spamNbots.php
+#: oc-includes/osclass/classes/admin/form/SpamSettingsForm.php
 msgid "Failures from one visitor address, across every account it tried. Keep this "
 msgstr "Échec d'une adresse de visiteur, pour chaque compte essayé. Conserver ceci "
 
-#: oc-admin/themes/modern/settings/billing.php
+#: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
 msgid "Featured listing duration (days)"
 msgstr "Durée de la mise en avant (jours)"
 
-#: oc-admin/themes/modern/settings/billing.php
+#: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
 msgid "Featured listing price (credits)"
 msgstr "Prix de mise en avant (crédits)"
 
-#: oc-admin/themes/modern/settings/billing.php
+#: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
 msgid "Featured listings"
 msgstr "Annonces en vedette"
 
@@ -3375,13 +3337,9 @@ msgstr "Février"
 msgid "February"
 msgstr "Février"
 
-#: oc-admin/themes/modern/settings/permalinks.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
 msgid "Feed"
 msgstr "Flux"
-
-#: oc-admin/themes/modern/settings/permalinks.php
-msgid "Feed url: this field is required"
-msgstr "URL du flux: ce champ est obligatoire"
 
 #: oc-includes/osclass/installer/gui/install.php
 msgid "Feedback"
@@ -3475,7 +3433,7 @@ msgstr "Enfants - bébés"
 msgid "For sale"
 msgstr "A vendre"
 
-#: oc-admin/themes/modern/admins/frm.php
+#: oc-includes/osclass/classes/admin/form/AdminAccountForm.php
 msgid "For security, type <b>your current password</b>"
 msgstr "Pour des raisons de sécurité, tapez <b>votre mot de passe actuel</b>"
 
@@ -3495,7 +3453,7 @@ msgstr "Forcer l'aspect"
 msgid "Force image aspect."
 msgstr "Forcer l'aspect de l'image."
 
-#: oc-admin/themes/modern/settings/searches.php
+#: oc-includes/osclass/classes/admin/form/LatestSearchSettingsForm.php
 msgid "Forever"
 msgstr "Pour toujours"
 
@@ -3531,7 +3489,7 @@ msgstr "Gratuit"
 msgid "Free disk space"
 msgstr "Espace disque libre"
 
-#: oc-admin/themes/modern/settings/billing.php
+#: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
 msgid "Free listings per seller"
 msgstr "Annonces gratuites par vendeur"
 
@@ -3547,7 +3505,7 @@ msgstr "Fréquence"
 msgid "Fri"
 msgstr "Vendredi"
 
-#: oc-admin/themes/modern/settings/index.php
+#: oc-includes/osclass/classes/admin/form/MainSettingsForm.php
 #: oc-includes/osclass/helpers/hUtils.php
 msgid "Friday"
 msgstr "Vendredi"
@@ -3560,7 +3518,7 @@ msgstr "E-mail de l'ami: ce champ est obligatoire"
 msgid "Friend's name: this field is required"
 msgstr "Nom de votre ami: ce champ est obligatoire"
 
-#: oc-admin/themes/modern/settings/permalinks.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
 msgid "Friendly URLs"
 msgstr "URL simplifiées"
 
@@ -3576,7 +3534,7 @@ msgstr "De"
 msgid "From here, you can edit or delete the listings reported by users (spam, misclassified, duplicate, expired, offensive). You can also delete the report if you consider it mistaken."
 msgstr "De là, vous pouvez modifier ou supprimer les annonces signalées par les utilisateurs (spam, mal classées, doublons, expirées, offensives). Vous pouvez également supprimer un signalement si vous le considérez comme une erreur ou inapproprié."
 
-#: oc-admin/themes/modern/settings/spamNbots.php
+#: oc-includes/osclass/classes/admin/form/SpamSettingsForm.php
 msgid "From the Cloudflare dashboard &raquo; Turnstile."
 msgstr "Depuis le tableau de bord de la Fusée nuageuse &raquo; Turnstile."
 
@@ -3596,7 +3554,7 @@ msgstr "L'extension GD est requise. Comment faire "
 msgid "GD is resizing your photos. It works and is fully supported — but it cannot read some formats (animated GIF frames, CMYK JPEGs) and resizes at lower quality than Imagick. On a photo-heavy site, installing the Imagick extension is worth it."
 msgstr "GD redimensionne vos photos. Il fonctionne et est entièrement supporté — mais il ne peut pas lire certains formats (images GIF animées, JPEG CMYK) et redimensionnées à une qualité inférieure à Imagick. Sur un site photo-lourd, l'installation de l'extension Imagick en vaut la peine."
 
-#: oc-admin/themes/modern/settings/mailserver.php
+#: oc-includes/osclass/classes/admin/form/MailServerSettingsForm.php
 msgid "GMail Server"
 msgstr "Serveur GMail"
 
@@ -3609,6 +3567,7 @@ msgid "General"
 msgstr "Généraux"
 
 #: oc-admin/themes/modern/settings/index.php
+#: oc-includes/osclass/classes/admin/form/MainSettingsForm.php
 msgid "General Settings"
 msgstr "Paramètres généraux"
 
@@ -3640,11 +3599,11 @@ msgstr "Go!"
 msgid "Google Maps"
 msgstr "Google Maps"
 
-#: oc-admin/themes/modern/settings/index.php
+#: oc-includes/osclass/classes/admin/form/MainSettingsForm.php
 msgid "Google Maps key"
 msgstr "Clé Google Maps"
 
-#: oc-admin/themes/modern/settings/spamNbots.php
+#: oc-includes/osclass/classes/admin/form/SpamSettingsForm.php
 msgid "Google reCAPTCHA"
 msgstr "ReCAPTCHA Google"
 
@@ -3716,15 +3675,15 @@ msgstr "Cacher le mot de passe"
 msgid "Higher price first"
 msgstr "Tri par prix descendant"
 
-#: oc-admin/themes/modern/settings/billing.php
+#: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
 msgid "Highlight"
 msgstr "Surligner"
 
-#: oc-admin/themes/modern/settings/billing.php
+#: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
 msgid "Highlight duration (days)"
 msgstr "Durée de surbrillance (jours)"
 
-#: oc-admin/themes/modern/settings/billing.php
+#: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
 msgid "Highlight price (credits)"
 msgstr "Surligner le prix (crédits)"
 
@@ -3772,12 +3731,12 @@ msgstr "Page d'accueil"
 msgid "Horoscopes - Tarot"
 msgstr "Horoscope, Tarots"
 
-#: oc-admin/themes/modern/settings/advanced.php
+#: oc-includes/osclass/classes/admin/form/AdvancedSettingsForm.php
 #: oc-includes/osclass/installer/gui/install-database.php
 msgid "Host"
 msgstr "Hôte"
 
-#: oc-admin/themes/modern/settings/mailserver.php
+#: oc-includes/osclass/classes/admin/form/MailServerSettingsForm.php
 msgid "Hostname"
 msgstr "Hostname"
 
@@ -3809,11 +3768,11 @@ msgstr "Échange de maison"
 msgid "How Shopclass talks to the database — the site cannot run without it."
 msgstr "Comment Shopclass parle à la base de données — le site ne peut pas fonctionner sans elle."
 
-#: oc-admin/themes/modern/settings/spamNbots.php
+#: oc-includes/osclass/classes/admin/form/SpamSettingsForm.php
 msgid "How far back failures are counted, and so how long a refusal lasts."
 msgstr "Jusqu'où les échecs sont comptés, et combien de temps durent un refus."
 
-#: oc-admin/themes/modern/settings/billing.php
+#: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
 msgid "How long a listing must wait before it can be bumped again."
 msgstr "Combien de temps une annonce doit attendre avant de pouvoir être rebumpée."
 
@@ -3825,7 +3784,7 @@ msgstr "Combien de temps une URL signée reste valide (60-604800)."
 msgid "How long one request may run. Backups and imports must finish inside it."
 msgstr "Combien de temps une requête peut être exécutée. Les sauvegardes et les importations doivent se terminer à l'intérieur."
 
-#: oc-admin/themes/modern/settings/searches.php
+#: oc-includes/osclass/classes/admin/form/LatestSearchSettingsForm.php
 msgid "How long queries are stored"
 msgstr "Combien de temps de requêtes sont stockées"
 
@@ -3841,7 +3800,7 @@ msgstr "Combien de fichiers peuvent être transportés en un seul téléchargeme
 msgid "How many form fields one request may carry. Large category trees and settings forms can approach it."
 msgstr "Combien de champs de formulaire une requête peut porter. Les grands arborescences de catégories et les formulaires de paramètres peuvent l'approcher."
 
-#: oc-admin/themes/modern/settings/billing.php
+#: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
 msgid "How many of a seller's listings may be live "
 msgstr "Combien d'inscriptions d'un vendeur peuvent être en vie "
 
@@ -3866,7 +3825,7 @@ msgstr "IP"
 msgid "IP Address: %s"
 msgstr "Addresse IP: %s"
 
-#: oc-admin/themes/modern/users/ban_frm.php
+#: oc-includes/osclass/classes/admin/form/BanRuleForm.php
 #: oc-includes/osclass/classes/datatables/BanRulesDataTable.php
 msgid "IP rule"
 msgstr "Règle de l'adresse IP"
@@ -3880,11 +3839,11 @@ msgstr "Nom de l'identifiant"
 msgid "If the value is set to zero, there is no wait period"
 msgstr "Si la valeur est définie à zéro, il n'y a pas de période d'attente"
 
-#: oc-admin/themes/modern/settings/comments.php
+#: oc-includes/osclass/classes/admin/form/CommentSettingsForm.php
 msgid "If the value is zero all comments are shown"
 msgstr "Si la valeur est zéro, tous les commentaires sont affichés"
 
-#: oc-admin/themes/modern/settings/comments.php
+#: oc-includes/osclass/classes/admin/form/CommentSettingsForm.php
 msgid "If the value is zero, an administrator must always approve comments"
 msgstr "Si la valeur est zéro, un administrateur doit toujours approuver les commentaires"
 
@@ -3900,7 +3859,7 @@ msgstr "Si la valeur est zéro, cela signifie que chaque annonce doit être vali
 msgid "If you don't specify a backup folder, the backup files will be created in the "
 msgstr "Si vous ne spécifiez pas de dossier de sauvegarde, les fichiers de sauvegarde seront créés dans le "
 
-#: oc-admin/themes/modern/settings/spamNbots.php
+#: oc-includes/osclass/classes/admin/form/SpamSettingsForm.php
 msgid "If you see a captcha widget below, the active provider is configured correctly"
 msgstr "Si vous voyez un widget captcha ci-dessous, le fournisseur actif est configuré correctement"
 
@@ -4204,7 +4163,7 @@ msgstr "Autoriser allow_url_fopen ?"
 msgid "Issue tracker"
 msgstr "Suivi de tickets"
 
-#: oc-admin/themes/modern/settings/permalinks.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
 msgid "It always appear before the category, region or city url."
 msgstr "Il apparaît toujours avant la catégorie, la région ou l'URL de la ville."
 
@@ -4220,11 +4179,11 @@ msgstr "Il peut s'agir d'un entier (jours à partir de la date de publication or
 msgid "It has to be a .PNG image"
 msgstr "Il doit s'agir d'une image .PNG"
 
-#: oc-admin/themes/modern/settings/index.php
+#: oc-includes/osclass/classes/admin/form/MainSettingsForm.php
 msgid "It is <b>recommended</b> to have this option enabled, because some features require it."
 msgstr "Il est <b>recommandé</b> de voir cette option activée, car certaines fonctionnalités l'exigent."
 
-#: oc-admin/themes/modern/settings/searches.php
+#: oc-includes/osclass/classes/admin/form/LatestSearchSettingsForm.php
 msgid "It may be useful to know what queries users make."
 msgstr "Il peut être utile de savoir ce que font les utilisateurs."
 
@@ -4309,7 +4268,7 @@ msgstr "Garder les copies locales"
 msgid "Keep original image, unaltered after uploading."
 msgstr "Garder l'image originale, non modifiée après le téléchargement."
 
-#: oc-admin/themes/modern/settings/spamNbots.php
+#: oc-includes/osclass/classes/admin/form/SpamSettingsForm.php
 msgid "Keep records for"
 msgstr "Conserver les enregistrements pour"
 
@@ -4348,10 +4307,11 @@ msgstr "Keyword"
 
 #: oc-admin/themes/modern/settings/keywordBlock.php
 #: oc-includes/osclass/classes/AdminMenu.php
+#: oc-includes/osclass/classes/admin/form/KeywordBlockSettingsForm.php
 msgid "Keyword blocklist"
 msgstr "Keyword blocklist"
 
-#: oc-admin/themes/modern/settings/keywordBlock.php
+#: oc-includes/osclass/classes/admin/form/KeywordBlockSettingsForm.php
 msgid "Keyword filter"
 msgstr "Filtre par mot clé"
 
@@ -4368,7 +4328,7 @@ msgstr "Étiquette (pour votre référence)"
 msgid "Land"
 msgstr "Terrains"
 
-#: oc-admin/themes/modern/settings/permalinks.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
 #: oc-includes/osclass/emails.php
 #: oc-includes/osclass/installer/gui/install.php
 msgid "Language"
@@ -4382,14 +4342,9 @@ msgstr "Cours de langues"
 msgid "Language package (.zip)"
 msgstr "Paquet de langue (.zip)"
 
-#: oc-admin/themes/modern/settings/index.php
 #: oc-includes/osclass/functions.php
 msgid "Language updates"
 msgstr "Mises à jour des langues"
-
-#: oc-admin/themes/modern/settings/permalinks.php
-msgid "Language url: this field is required"
-msgstr "URL de la langue: ce champ est obligatoire"
 
 #: oc-admin/themes/modern/languages/index.php
 #: oc-includes/osclass/classes/AdminMenu.php
@@ -4442,6 +4397,7 @@ msgid "Last checked %s."
 msgstr "Dernière vérification %s."
 
 #: oc-admin/themes/modern/settings/index.php
+#: oc-includes/osclass/classes/admin/form/MainSettingsForm.php
 msgid "Last checked on "
 msgstr "Dernière vérification le "
 
@@ -4465,7 +4421,7 @@ msgstr "Dernières annonces ajoutées"
 msgid "Latest listings added in"
 msgstr "Dernières annonces ajoutées dans"
 
-#: oc-admin/themes/modern/settings/index.php
+#: oc-includes/osclass/classes/admin/form/MainSettingsForm.php
 msgid "Latest listings shown"
 msgstr "Dernières annonces affichées"
 
@@ -4477,12 +4433,13 @@ msgstr "Nb. d'annonces récentes affichées: ce champ est obligatoire"
 msgid "Latest listings shown: this field must only contain numeric characters"
 msgstr "Nb. d'annonces récentes affichées: ce champ ne doit contenir que des caractères numériques"
 
-#: oc-admin/themes/modern/settings/searches.php
 #: oc-includes/osclass/classes/AdminMenu.php
+#: oc-includes/osclass/classes/admin/form/LatestSearchSettingsForm.php
 msgid "Latest searches"
 msgstr "Dernières recherches"
 
 #: oc-admin/themes/modern/settings/searches.php
+#: oc-includes/osclass/classes/admin/form/LatestSearchSettingsForm.php
 msgid "Latest searches Settings"
 msgstr "Paramètres des dernières recherches"
 
@@ -4494,7 +4451,7 @@ msgstr "Derniers utilisateurs sur le web"
 msgid "Leave blank and we'll generate a strong one for you."
 msgstr "Laissez vide et nous générerons un fort pour vous."
 
-#: oc-admin/themes/modern/settings/mailserver.php
+#: oc-includes/osclass/classes/admin/form/MailServerSettingsForm.php
 msgid "Leave blank to keep the current password."
 msgstr "Laisser vide pour conserver le mot de passe actuel."
 
@@ -4534,7 +4491,7 @@ msgstr "Permet à toute personne actuellement refusée d'essayer de nouveau tout
 msgid "Library"
 msgstr "Bibliothèque"
 
-#: oc-admin/themes/modern/settings/spamNbots.php
+#: oc-includes/osclass/classes/admin/form/SpamSettingsForm.php
 msgid "Limit sign-in attempts"
 msgstr "Limiter les tentatives de connexion"
 
@@ -4569,15 +4526,15 @@ msgstr "Paramètres de la liste"
 msgid "Listing Statistics"
 msgstr "Statistiques de la liste"
 
-#: oc-admin/themes/modern/settings/permalinks.php
-msgid "Listing URL:"
-msgstr "URL de la liste :"
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
+msgid "Listing URL"
+msgstr "URL de la liste"
 
-#: oc-admin/themes/modern/settings/permalinks.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
 msgid "Listing actions"
 msgstr "Liste des actions"
 
-#: oc-admin/themes/modern/settings/permalinks.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
 msgid "Listing activate"
 msgstr "Activation de la liste"
 
@@ -4585,19 +4542,15 @@ msgstr "Activation de la liste"
 msgid "Listing city"
 msgstr "Ville de l'annonce"
 
-#: oc-admin/themes/modern/settings/permalinks.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
 msgid "Listing contact"
 msgstr "Liste des contacts"
-
-#: oc-admin/themes/modern/settings/permalinks.php
-msgid "Listing contact url: this field is required"
-msgstr "URL de la page de contact pour une annonce : ce champ est obligatoire"
 
 #: oc-includes/osclass/classes/EmailVariables.php
 msgid "Listing country"
 msgstr "Pays de l'annonce"
 
-#: oc-admin/themes/modern/settings/permalinks.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
 msgid "Listing delete"
 msgstr "Suppression de la liste"
 
@@ -4609,7 +4562,7 @@ msgstr "Description de votre annonce"
 msgid "Listing description in all languages"
 msgstr "Description de l'annonce dans toutes les langues"
 
-#: oc-admin/themes/modern/settings/permalinks.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
 msgid "Listing edit"
 msgstr "Édition de la liste"
 
@@ -4621,15 +4574,11 @@ msgstr "ID de l'annonce"
 msgid "Listing list"
 msgstr "Liste d'annonces"
 
-#: oc-admin/themes/modern/settings/permalinks.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
 msgid "Listing mark"
 msgstr "Marque de liste"
 
-#: oc-admin/themes/modern/settings/permalinks.php
-msgid "Listing mark url: this field is required"
-msgstr "URL de la page de marquage d'une annonce : ce champ est obligatoire"
-
-#: oc-admin/themes/modern/settings/permalinks.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
 msgid "Listing new"
 msgstr "Nouvelle liste"
 
@@ -4641,17 +4590,13 @@ msgstr "Prix de l'annonce"
 msgid "Listing region"
 msgstr "Région de l'annonce"
 
-#: oc-admin/themes/modern/settings/permalinks.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
 msgid "Listing resource delete"
 msgstr "Suppression de la liste des ressources"
 
-#: oc-admin/themes/modern/settings/permalinks.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
 msgid "Listing send friend"
 msgstr "Liste d'envoi de l'ami"
-
-#: oc-admin/themes/modern/settings/permalinks.php
-msgid "Listing send friend url: this field is required"
-msgstr "URL de la page d'envoi à un ami: ce champ est obligatoire"
 
 #: oc-admin/themes/modern/main/index.php
 #: oc-admin/themes/modern/tools/cleanup.php
@@ -4731,10 +4676,6 @@ msgstr "Nb. d'annonces affichées dans le flux RSS: ce champ ne doit contenir qu
 msgid "Listings that are disabled/blocked."
 msgstr "Listes qui sont désactivées/bloquées."
 
-#: oc-admin/themes/modern/settings/permalinks.php
-msgid "Listings url: this field is required"
-msgstr "URL des annonces : ce champ est obligatoire"
-
 #: oc-admin/themes/modern/tools/cleanup.php
 msgid "Listings visitors have flagged as spam."
 msgstr "Les visiteurs ont signalé que les inscriptions étaient des spams."
@@ -4743,7 +4684,7 @@ msgstr "Les visiteurs ont signalé que les inscriptions étaient des spams."
 msgid "Listings' views"
 msgstr "Vues des listes"
 
-#: oc-admin/themes/modern/settings/permalinks.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
 msgid "Listings, pages &amp; categories"
 msgstr "Listes, pages &amp; catégories"
 
@@ -4812,18 +4753,10 @@ msgstr "Journalisation"
 msgid "Login"
 msgstr "Connexion"
 
-#: oc-admin/themes/modern/settings/permalinks.php
-msgid "Login url: this field is required"
-msgstr "URL de la page de login de l'utilisateur: ce champ est obligatoire"
-
 #: oc-includes/osclass/functions.php
 #: oc-includes/osclass/helpers/hUtils.php
 msgid "Logout"
 msgstr "Déconnexion"
-
-#: oc-admin/themes/modern/settings/permalinks.php
-msgid "Logout url: this field is required"
-msgstr "URL de la page de déconnexion: ce champ est obligatoire"
 
 #: oc-admin/themes/modern/tools/system-info.php
 msgid "Long tasks such as backups and imports must finish inside this."
@@ -4846,10 +4779,11 @@ msgid "Lower price first"
 msgstr "Tri par prix ascendant"
 
 #: oc-admin/themes/modern/settings/mailserver.php
+#: oc-includes/osclass/classes/admin/form/MailServerSettingsForm.php
 msgid "Mail Settings"
 msgstr "Paramètres de messagerie"
 
-#: oc-admin/themes/modern/settings/mailserver.php
+#: oc-includes/osclass/classes/admin/form/MailServerSettingsForm.php
 msgid "Mail from"
 msgstr "Courrier de"
 
@@ -4874,10 +4808,6 @@ msgstr "Le mode maintenance est activé — seuls les administrateurs signés pe
 #: oc-admin/themes/modern/tools/maintenance.php
 msgid "Maintenance mode is: <strong>%s</strong>"
 msgstr "Mode de maintenance: <strong>%s</strong>"
-
-#: oc-admin/themes/modern/settings/index.php
-msgid "Major - new features"
-msgstr "Principal - nouvelles fonctionnalités"
 
 #: oc-admin/themes/modern/settings/sitemap.php
 msgid "Make a backup before changing your robots.txt file."
@@ -4988,7 +4918,7 @@ msgid "Manufacturing - Operations"
 msgstr "Production"
 
 #: oc-admin/themes/modern/items/settings.php
-#: oc-admin/themes/modern/settings/index.php
+#: oc-includes/osclass/classes/admin/form/MainSettingsForm.php
 msgid "Maps"
 msgstr "Cartes"
 
@@ -5150,10 +5080,6 @@ msgstr "Échec de la migration : %s"
 msgid "Minimum"
 msgstr "Minimum"
 
-#: oc-admin/themes/modern/settings/index.php
-msgid "Minor - bug fixes"
-msgstr "Mineur - corrections de bugs"
-
 #: oc-includes/osclass/classes/datatables/ItemsDataTable.php
 msgid "Misclassified"
 msgstr "Mal classée"
@@ -5170,6 +5096,10 @@ msgstr "Manques"
 msgid "Missing"
 msgstr "Manquant"
 
+#: oc-includes/osclass/classes/admin/form/CommentSettingsForm.php
+msgid "Moderated comments"
+msgstr "Commentaires modérés"
+
 #: oc-admin/themes/modern/settings/comments.php
 msgid "Moderated comments: this field is required"
 msgstr "Commentaires approuvés: ce champ est obligatoire"
@@ -5182,7 +5112,7 @@ msgstr "Commentaires modérés: ce champ ne doit contenir que des caractères nu
 msgid "Moderation"
 msgstr "Modération"
 
-#: oc-admin/themes/modern/admins/frm.php
+#: oc-includes/osclass/classes/admin/form/AdminAccountForm.php
 msgid "Moderator"
 msgstr "Modérateur"
 
@@ -5210,7 +5140,7 @@ msgstr "Modifiez ici l'en-tête ou le pied de page de votre site."
 msgid "Mon"
 msgstr "Lundi"
 
-#: oc-admin/themes/modern/settings/index.php
+#: oc-includes/osclass/classes/admin/form/MainSettingsForm.php
 #: oc-includes/osclass/helpers/hUtils.php
 msgid "Monday"
 msgstr "Lundi"
@@ -5312,6 +5242,7 @@ msgstr "NOUVEAU champ personnalisé"
 #: oc-admin/themes/modern/stats/users.php
 #: oc-admin/themes/modern/users/frm.php
 #: oc-admin/themes/modern/users/index.php
+#: oc-includes/osclass/classes/admin/form/AdminAccountForm.php
 #: oc-includes/osclass/classes/datatables/UsersDataTable.php
 #: oc-includes/osclass/classes/form/CategoryForm.php
 #: oc-includes/osclass/classes/form/FieldForm.php
@@ -5326,7 +5257,7 @@ msgstr "Nom (A-Z)"
 msgid "Name (Z–A)"
 msgstr "Nom (Z–A)"
 
-#: oc-admin/themes/modern/admins/frm.php
+#: oc-includes/osclass/classes/admin/form/AdminAccountForm.php
 msgid "Name <em>(required)</em>"
 msgstr "Nom <em>(obligatoire)</em>"
 
@@ -5334,7 +5265,7 @@ msgstr "Nom <em>(obligatoire)</em>"
 msgid "Name for default locale is required."
 msgstr "Le nom de la locale par défaut est requis."
 
-#: oc-admin/themes/modern/settings/mailserver.php
+#: oc-includes/osclass/classes/admin/form/MailServerSettingsForm.php
 msgid "Name from"
 msgstr "Nom de"
 
@@ -5370,11 +5301,11 @@ msgstr "Nom: ce champ est obligatoire"
 msgid "Need more help?"
 msgstr "Besoin d'aide supplémentaire?"
 
-#: oc-admin/themes/modern/settings/keywordBlock.php
+#: oc-includes/osclass/classes/admin/form/KeywordBlockSettingsForm.php
 msgid "Needs a CAPTCHA provider configured under Settings &raquo; reCAPTCHA/Turnstile; "
 msgstr "Besoin d'un fournisseur de CAPTCHA configuré dans Paramètres &raquo; reCAPTCHA/Turnstile; "
 
-#: oc-admin/themes/modern/settings/comments.php
+#: oc-includes/osclass/classes/admin/form/CommentSettingsForm.php
 msgid "Needs a CAPTCHA provider configured under Settings &raquo; reCAPTCHA/Turnstile; otherwise no challenge is shown."
 msgstr "Besoin d'un fournisseur de CAPTCHA configuré dans Paramètres &raquo; reCAPTCHA/Turnstile; sinon aucun défi n'est affiché."
 
@@ -5418,17 +5349,13 @@ msgstr "Nouveau formulaire"
 msgid "New listing"
 msgstr "Nouvelle annonce"
 
-#: oc-admin/themes/modern/settings/permalinks.php
-msgid "New listing url: this field is required"
-msgstr "URL d'une nouvelle annonce : ce champ est obligatoire"
-
 #: oc-admin/themes/modern/main/index.php
 msgid "New listings/users"
 msgstr "Nouvelles listes/utilisateurs"
 
 #: oc-admin/gui/forgot_password.php
-#: oc-admin/themes/modern/admins/frm.php
 #: oc-admin/themes/modern/users/frm.php
+#: oc-includes/osclass/classes/admin/form/AdminAccountForm.php
 msgid "New password"
 msgstr "Nouveau mot de passe"
 
@@ -5656,7 +5583,7 @@ msgstr "Aucun résultat pour ce filtre"
 msgid "No subcategory"
 msgstr "Pas de sous-catégorie"
 
-#: oc-admin/themes/modern/settings/advanced.php
+#: oc-includes/osclass/classes/admin/form/AdvancedSettingsForm.php
 msgid "No subdomains"
 msgstr "Aucun sous-domaine"
 
@@ -5705,9 +5632,9 @@ msgid "Non-profit - Volunteer"
 msgstr "Volontariat, Caritatif"
 
 #: oc-admin/themes/modern/items/settings.php
-#: oc-admin/themes/modern/settings/mailserver.php
 #: oc-admin/themes/modern/settings/media.php
-#: oc-admin/themes/modern/settings/spamNbots.php
+#: oc-includes/osclass/classes/admin/form/MailServerSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/SpamSettingsForm.php
 #: oc-includes/osclass/classes/datatables/ItemsDataTable.php
 msgid "None"
 msgstr "Aucun"
@@ -5791,7 +5718,7 @@ msgid "Nothing needed changing."
 msgstr "Rien n'a besoin de changer."
 
 #: oc-admin/themes/modern/items/settings.php
-#: oc-admin/themes/modern/settings/comments.php
+#: oc-includes/osclass/classes/admin/form/CommentSettingsForm.php
 msgid "Notifications"
 msgstr "Notifications"
 
@@ -5823,7 +5750,7 @@ msgstr "Nombre de décimales : ce champ est obligatoire"
 msgid "Number of decimals: this field must only contain numeric characters"
 msgstr "Nombre de décimales : ce champ ne doit contenir que des caractères numériques"
 
-#: oc-admin/themes/modern/settings/keywordBlock.php
+#: oc-includes/osclass/classes/admin/form/KeywordBlockSettingsForm.php
 msgid "Number of distinct reporters (one vote per person) that auto-hides a listing."
 msgstr "Nombre de reporters distincts (un vote par personne) qui masquent automatiquement une liste."
 
@@ -5879,7 +5806,7 @@ msgstr "Désactivé"
 msgid "Off by default. Search-engine and AI crawlers are usually most of a busy "
 msgstr "Désactivé par défaut. Les moteurs de recherche et les robots d'exploration IA sont généralement la plupart du temps occupés "
 
-#: oc-admin/themes/modern/settings/keywordBlock.php
+#: oc-includes/osclass/classes/admin/form/KeywordBlockSettingsForm.php
 msgid "Off by default: a match is quarantined (flagged spam and hidden) so it can be "
 msgstr "Désactivé par défaut : une correspondance est mise en quarantaine (spam signalé et masqué), donc elle peut être "
 
@@ -5912,7 +5839,7 @@ msgstr "Décharger toutes les images locales vers le stockage distant"
 msgid "Older than"
 msgstr "Plus ancien que"
 
-#: oc-admin/themes/modern/settings/keywordBlock.php
+#: oc-includes/osclass/classes/admin/form/KeywordBlockSettingsForm.php
 msgid "On a match"
 msgstr "Sur un match"
 
@@ -5920,11 +5847,11 @@ msgstr "Sur un match"
 msgid "Once the upgrade is complete, you will be redirected to the Admin Control Panel."
 msgstr "Une fois la mise à niveau terminée, vous serez redirigé vers le panneau de configuration de l'administrateur."
 
-#: oc-admin/themes/modern/settings/searches.php
+#: oc-includes/osclass/classes/admin/form/LatestSearchSettingsForm.php
 msgid "One day"
 msgstr "Un jour"
 
-#: oc-admin/themes/modern/settings/searches.php
+#: oc-includes/osclass/classes/admin/form/LatestSearchSettingsForm.php
 msgid "One hour"
 msgstr "Une heure"
 
@@ -5938,7 +5865,7 @@ msgid_plural "%s locations have been deleted"
 msgstr[0] "Un emplacement a été supprimé"
 msgstr[1] "%s emplacements ont été supprimés"
 
-#: oc-admin/themes/modern/settings/searches.php
+#: oc-includes/osclass/classes/admin/form/LatestSearchSettingsForm.php
 msgid "One week"
 msgstr "Une semaine"
 
@@ -5963,7 +5890,7 @@ msgstr "Ne changez cela que si vous exécutez plusieurs classes dans la même ba
 msgid "Only logged in users can post listings"
 msgstr "Seuls les utilisateurs connectés peuvent publier des annonces"
 
-#: oc-admin/themes/modern/settings/spamNbots.php
+#: oc-includes/osclass/classes/admin/form/SpamSettingsForm.php
 msgid "Only logged-in users can subscribe to search alerts"
 msgstr "Seuls les utilisateurs connectés peuvent s'abonner aux alertes de recherche"
 
@@ -5983,7 +5910,7 @@ msgstr "OpenSSL"
 msgid "OpenStreetMaps"
 msgstr "OpenStreetMaps"
 
-#: oc-admin/themes/modern/settings/index.php
+#: oc-includes/osclass/classes/admin/form/MainSettingsForm.php
 msgid "OpenStreetMaps key"
 msgstr "OpenStreetMaps key"
 
@@ -6058,7 +5985,7 @@ msgstr "Autres services"
 msgid "Other Vehicles"
 msgstr "Autres véhicules"
 
-#: oc-admin/themes/modern/settings/comments.php
+#: oc-includes/osclass/classes/admin/form/CommentSettingsForm.php
 msgid "Other comment settings"
 msgstr "Autres paramètres de commentaire"
 
@@ -6087,7 +6014,7 @@ msgstr "Version de PHP >= 8.0.0"
 msgid "PM"
 msgstr "Après-midi"
 
-#: oc-admin/themes/modern/settings/mailserver.php
+#: oc-includes/osclass/classes/admin/form/MailServerSettingsForm.php
 msgid "POP"
 msgstr "POP"
 
@@ -6128,11 +6055,11 @@ msgstr "Page"
 msgid "Page %s"
 msgstr "Page %s"
 
-#: oc-admin/themes/modern/settings/permalinks.php
-msgid "Page URL:"
-msgstr "URL de la page :"
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
+msgid "Page URL"
+msgstr "URL de la page"
 
-#: oc-admin/themes/modern/settings/index.php
+#: oc-includes/osclass/classes/admin/form/MainSettingsForm.php
 msgid "Page description"
 msgstr "Description de la page"
 
@@ -6144,7 +6071,7 @@ msgstr "Paramètres de la page"
 msgid "Page template"
 msgstr "Modèle de page"
 
-#: oc-admin/themes/modern/settings/index.php
+#: oc-includes/osclass/classes/admin/form/MainSettingsForm.php
 msgid "Page title"
 msgstr "Titre de la page"
 
@@ -6152,9 +6079,9 @@ msgstr "Titre de la page"
 msgid "Page title: this field is required"
 msgstr "Titre du site: ce champ est obligatoire"
 
-#: oc-admin/themes/modern/settings/permalinks.php
-msgid "Page url: this field is required"
-msgstr "URL des pages: ce champ est obligatoire"
+#: oc-admin/themes/modern/appearance/widgets.php
+msgid "Page: %s"
+msgstr "Page : %s"
 
 #: oc-admin/themes/modern/pages/frm.php
 #: oc-admin/themes/modern/pages/index.php
@@ -6173,7 +6100,7 @@ msgstr "Pagination"
 msgid "Paid"
 msgstr "Payé"
 
-#: oc-admin/themes/modern/settings/index.php
+#: oc-includes/osclass/classes/admin/form/MainSettingsForm.php
 msgid "Parent categories"
 msgstr "Catégories parentes"
 
@@ -6190,8 +6117,8 @@ msgid "Parts of your database did not match what Shopclass expected, and have be
 msgstr "Des parties de votre base de données ne correspondent pas à ce que Shopclass attendait et ont été corrigées. Cela suit généralement un changement de plugin ou une mise à jour qui a été interrompue."
 
 #: oc-admin/gui/login.php
-#: oc-admin/themes/modern/settings/mailserver.php
 #: oc-admin/themes/modern/users/frm.php
+#: oc-includes/osclass/classes/admin/form/MailServerSettingsForm.php
 #: oc-includes/osclass/installer/gui/install-database.php
 #: oc-includes/osclass/installer/gui/install-finish.php
 #: oc-includes/osclass/installer/gui/install-target.php
@@ -6232,7 +6159,7 @@ msgstr "Schéma"
 msgid "Pattern (regex)"
 msgstr "Modèle (regex)"
 
-#: oc-admin/themes/modern/settings/billing.php
+#: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
 msgid "Payment instructions"
 msgstr "Instructions de paiement"
 
@@ -6257,6 +6184,7 @@ msgstr "Jobs en attente : %d &middot; Tâches échouées : %d"
 
 #: oc-admin/themes/modern/settings/permalinks.php
 #: oc-includes/osclass/classes/AdminMenu.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
 msgid "Permalinks"
 msgstr "Permaliens"
 
@@ -6269,11 +6197,11 @@ msgstr "Rencontres"
 msgid "Phone"
 msgstr "Téléphone"
 
-#: oc-admin/themes/modern/settings/billing.php
+#: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
 msgid "Photo cap"
 msgstr "Casquette photo"
 
-#: oc-admin/themes/modern/settings/billing.php
+#: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
 msgid "Photo count, the posting wait, and listing runtime are global limits by "
 msgstr "Le nombre de photos, l'attente de publication et le temps de lancement sont des limites globales de "
 
@@ -6281,7 +6209,7 @@ msgstr "Le nombre de photos, l'attente de publication et le temps de lancement s
 msgid "Photos"
 msgstr "Photos"
 
-#: oc-admin/themes/modern/settings/billing.php
+#: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
 msgid "Photos allowed per listing while the entitlement is held."
 msgstr "Photos permises par annonce tant que le droit est conservé."
 
@@ -6292,6 +6220,10 @@ msgstr "Photos par liste"
 #: oc-admin/themes/modern/fields/submissions.php
 msgid "Pick a form to see its submissions"
 msgstr "Choisissez un formulaire pour voir ses soumissions"
+
+#: oc-admin/themes/modern/appearance/widgets.php
+msgid "Placed on this page in the page builder. Edit it there."
+msgstr "Placé sur cette page dans le constructeur de pages. Modifiez-la là."
 
 #: oc-admin/themes/modern/fields/iframe.php
 msgid "Placeholder"
@@ -6321,7 +6253,6 @@ msgstr "Le plugin n'a pas pu être installé car il a déclenché une erreur fat
 msgid "Plugin package (.zip)"
 msgstr "Pack de plugins (.zip)"
 
-#: oc-admin/themes/modern/settings/index.php
 #: oc-includes/osclass/functions.php
 msgid "Plugin updates"
 msgstr "Mises à jour des extensions"
@@ -6413,7 +6344,7 @@ msgstr "Capture d'écran précédente"
 msgid "Price"
 msgstr "Prix"
 
-#: oc-admin/themes/modern/settings/billing.php
+#: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
 msgid "Price (credits)"
 msgstr "Prix (crédits)"
 
@@ -6421,7 +6352,7 @@ msgstr "Prix (crédits)"
 msgid "Price: no more than 50 characters"
 msgstr "Prix: pas plus de 50 caractères"
 
-#: oc-admin/themes/modern/settings/billing.php
+#: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
 msgid "Pricing"
 msgstr "Tarification"
 
@@ -6450,7 +6381,7 @@ msgstr "Protégez votre site contre les abus automatisés avec Google reCAPTCHA 
 msgid "Provider"
 msgstr "Fournisseur"
 
-#: oc-admin/themes/modern/settings/spamNbots.php
+#: oc-includes/osclass/classes/admin/form/SpamSettingsForm.php
 msgid "Pruned by the daily cron. Only the window above affects the limits; the rest is "
 msgstr "Nettoyé par le cron quotidien. Seule la fenêtre ci-dessus affecte les limites; le reste est "
 
@@ -6501,7 +6432,7 @@ msgstr "Téléchargements de file d'attente"
 msgid "Quickly find out how many new listings have been published on your site and how many visits each of the listings gets."
 msgstr "Accès rapide aux statistiques de votre site: vous voyez d'un coup d’œil combien d'annonces ont été publiées sur votre site et combien de visites chacune des annonces reçoit."
 
-#: oc-admin/themes/modern/settings/index.php
+#: oc-includes/osclass/classes/admin/form/MainSettingsForm.php
 msgid "RSS shows"
 msgstr "Séries RSS"
 
@@ -6601,10 +6532,6 @@ msgstr "Enregistrer le remboursement"
 msgid "Recover my password"
 msgstr "Récupérer mon mot de passe"
 
-#: oc-admin/themes/modern/settings/permalinks.php
-msgid "Recover user url: this field is required"
-msgstr "URL de la page de récupération du nom d'utilisateur: ce champ est obligatoire"
-
 #: oc-includes/osclass/classes/Breadcrumb.php
 #: oc-includes/osclass/functions.php
 msgid "Recover your password"
@@ -6652,7 +6579,7 @@ msgstr "Régénérer les images"
 msgid "Region"
 msgstr "Région"
 
-#: oc-admin/themes/modern/settings/advanced.php
+#: oc-includes/osclass/classes/admin/form/AdvancedSettingsForm.php
 msgid "Region based"
 msgstr "Basé sur la région"
 
@@ -6672,7 +6599,7 @@ msgstr "Utilisateur enregistré"
 msgid "Registered users will appear here once they sign up or you add them."
 msgstr "Les utilisateurs inscrits apparaîtront ici une fois qu'ils s'inscriront ou que vous les ajouterez."
 
-#: oc-admin/themes/modern/settings/keywordBlock.php
+#: oc-includes/osclass/classes/admin/form/KeywordBlockSettingsForm.php
 msgid "Reject the listing outright instead of quarantining it for review"
 msgstr "Refuser la liste au lieu de la mettre en quarantaine pour examen"
 
@@ -6688,7 +6615,7 @@ msgstr "Se souvenir de moi"
 msgid "Remember that for any doubts you might have you can consult our <a href=\"%1$s\">documentation</a>"
 msgstr "N'oubliez pas que pour tout doute que vous pourriez avoir vous pouvez consulter notre <a href=\"%1$s\">documentation</a>"
 
-#: oc-admin/themes/modern/settings/advanced.php
+#: oc-includes/osclass/classes/admin/form/AdvancedSettingsForm.php
 msgid "Remember to enable cookies for the subdomains too."
 msgstr "N'oubliez pas d'activer les cookies pour les sous-domaines."
 
@@ -6751,7 +6678,7 @@ msgstr "Une différence a été réparée."
 msgid "Repeat new password"
 msgstr "Répéter le nouveau mot de passe"
 
-#: oc-admin/themes/modern/settings/keywordBlock.php
+#: oc-includes/osclass/classes/admin/form/KeywordBlockSettingsForm.php
 msgid "Report CAPTCHA"
 msgstr "Rapport CAPTCHA"
 
@@ -6763,7 +6690,7 @@ msgstr "Signaler un problème"
 msgid "Report Statistics"
 msgstr "Statistiques du rapport"
 
-#: oc-admin/themes/modern/settings/keywordBlock.php
+#: oc-includes/osclass/classes/admin/form/KeywordBlockSettingsForm.php
 msgid "Report auto-block"
 msgstr "Signaler le blocage automatique"
 
@@ -6771,7 +6698,7 @@ msgstr "Signaler le blocage automatique"
 msgid "Report counts are always recorded — moderation depends on them."
 msgstr "Les compteurs de rapports sont toujours enregistrés — la modération en dépend."
 
-#: oc-admin/themes/modern/settings/keywordBlock.php
+#: oc-includes/osclass/classes/admin/form/KeywordBlockSettingsForm.php
 msgid "Report threshold"
 msgstr "Seuil de rapport"
 
@@ -6790,15 +6717,15 @@ msgstr "Rapports"
 msgid "Repository"
 msgstr "Dépôt"
 
-#: oc-admin/themes/modern/settings/comments.php
+#: oc-includes/osclass/classes/admin/form/CommentSettingsForm.php
 msgid "Require a CAPTCHA to post a comment"
 msgstr "Exiger un CAPTCHA pour poster un commentaire"
 
-#: oc-admin/themes/modern/settings/keywordBlock.php
+#: oc-includes/osclass/classes/admin/form/KeywordBlockSettingsForm.php
 msgid "Require a CAPTCHA to report a listing"
 msgstr "Nécessite un CAPTCHA pour signaler une annonce"
 
-#: oc-admin/themes/modern/settings/spamNbots.php
+#: oc-includes/osclass/classes/admin/form/SpamSettingsForm.php
 msgid "Require login for alerts"
 msgstr "Exiger la connexion pour les alertes"
 
@@ -6912,11 +6839,11 @@ msgstr "Lancer le nettoyage maintenant ?"
 msgid "Runs a small write/read/delete probe against the saved connection settings above."
 msgstr "Exécute une petite sonde en écriture/lecture/suppression par rapport aux paramètres de connexion sauvegardés ci-dessus."
 
-#: oc-admin/themes/modern/settings/mailserver.php
+#: oc-includes/osclass/classes/admin/form/MailServerSettingsForm.php
 msgid "SMTP"
 msgstr "SMTP"
 
-#: oc-admin/themes/modern/settings/mailserver.php
+#: oc-includes/osclass/classes/admin/form/MailServerSettingsForm.php
 msgid "SMTP authentication enabled"
 msgstr "Authentification SMTP activée"
 
@@ -6928,13 +6855,13 @@ msgstr "Ventes"
 msgid "Sat"
 msgstr "Samedi"
 
-#: oc-admin/themes/modern/settings/index.php
+#: oc-includes/osclass/classes/admin/form/MainSettingsForm.php
 #: oc-includes/osclass/helpers/hUtils.php
 msgid "Saturday"
 msgstr "Samedi"
 
-#: oc-admin/themes/modern/admins/frm.php
 #: oc-admin/themes/modern/settings/locations.php
+#: oc-includes/osclass/classes/admin/form/AdminAccountForm.php
 msgid "Save"
 msgstr "Enregistrer"
 
@@ -6942,7 +6869,7 @@ msgstr "Enregistrer"
 msgid "Save a backup of all of your site's information: listings, users and configuration."
 msgstr "Enregistrez une sauvegarde de toutes les informations de votre site : listes, utilisateurs et configuration."
 
-#: oc-admin/themes/modern/settings/billing.php
+#: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
 msgid "Save bank transfer settings"
 msgstr "Enregistrer les paramètres de virement bancaire"
 
@@ -6955,13 +6882,13 @@ msgstr "Enregistrer les paramètres de virement bancaire"
 #: oc-admin/themes/modern/pages/frm.php
 #: oc-admin/themes/modern/parts/ui.php
 #: oc-admin/themes/modern/settings/sitemap.php
-#: oc-admin/themes/modern/settings/spamNbots.php
 #: oc-admin/themes/modern/users/settings.php
+#: oc-includes/osclass/classes/admin/form/SpamSettingsForm.php
 #: oc-includes/osclass/helpers/hAdminUi.php
 msgid "Save changes"
 msgstr "Sauvegarder les modifications"
 
-#: oc-admin/themes/modern/settings/billing.php
+#: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
 msgid "Save limits"
 msgstr "Enregistrer les limites"
 
@@ -6969,7 +6896,7 @@ msgstr "Enregistrer les limites"
 msgid "Save package"
 msgstr "Enregistrer le paquet"
 
-#: oc-admin/themes/modern/settings/billing.php
+#: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
 msgid "Save pricing"
 msgstr "Enregistrer les prix"
 
@@ -6977,12 +6904,12 @@ msgstr "Enregistrer les prix"
 msgid "Save robots.txt"
 msgstr "Enregistrer robots.txt"
 
-#: oc-admin/themes/modern/settings/billing.php
 #: oc-admin/themes/modern/tools/cleanup.php
+#: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
 msgid "Save settings"
 msgstr "Enregistrer les paramètres"
 
-#: oc-admin/themes/modern/settings/searches.php
+#: oc-includes/osclass/classes/admin/form/LatestSearchSettingsForm.php
 msgid "Save the latest user searches"
 msgstr "Enregistrer les dernières recherches des utilisateurs"
 
@@ -6998,7 +6925,7 @@ msgstr "Enregistrer cette page avec le modèle du constructeur de page pour la c
 msgid "Save this password now — it won't be shown again. We also emailed it to %s."
 msgstr "Enregistrez ce mot de passe maintenant — il ne sera plus affiché. Nous l'avons également envoyé à %s."
 
-#: oc-admin/themes/modern/settings/billing.php
+#: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
 msgid "Save upgrade settings"
 msgstr "Enregistrer les paramètres de mise à jour"
 
@@ -7026,15 +6953,16 @@ msgid "Screenshots"
 msgstr "Captures d'écran"
 
 #: oc-admin/themes/modern/parts/market.php
-#: oc-admin/themes/modern/settings/permalinks.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
 msgid "Search"
 msgstr "Chercher"
 
-#: oc-admin/themes/modern/settings/permalinks.php
-msgid "Search URL:"
-msgstr "URL de recherche :"
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
+msgid "Search URL"
+msgstr "URL de recherche"
 
 #: oc-admin/themes/modern/settings/spamNbots.php
+#: oc-includes/osclass/classes/admin/form/SpamSettingsForm.php
 msgid "Search alerts"
 msgstr "Rechercher des alertes"
 
@@ -7042,69 +6970,45 @@ msgstr "Rechercher des alertes"
 msgid "Search alerts email visitors when new listings match a saved search. Requiring login before "
 msgstr "Alertes de recherche par courriel aux visiteurs lorsque les nouvelles annonces correspondent à une recherche enregistrée. Exiger une connexion avant "
 
-#: oc-admin/themes/modern/settings/permalinks.php
-msgid "Search category: this field is required"
-msgstr "URL des recherches par catégorie: ce champ est obligatoire"
-
-#: oc-admin/themes/modern/settings/permalinks.php
-msgid "Search city area: this field is required"
-msgstr "URL des recherches par quartier: ce champ est obligatoire"
-
-#: oc-admin/themes/modern/settings/permalinks.php
-msgid "Search city: this field is required"
-msgstr "URL des recherches par ville: ce champ est obligatoire"
-
-#: oc-admin/themes/modern/settings/permalinks.php
-msgid "Search country: this field is required"
-msgstr "URL des recherches par pays: ce champ est obligatoire"
-
-#: oc-admin/themes/modern/settings/permalinks.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
 msgid "Search keyword category"
 msgstr "Rechercher dans la catégorie des mots clés"
 
-#: oc-admin/themes/modern/settings/permalinks.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
 msgid "Search keyword city"
 msgstr "Rechercher dans la ville des mots clés"
 
-#: oc-admin/themes/modern/settings/permalinks.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
 msgid "Search keyword city area"
 msgstr "Rechercher dans la zone des mots-clés de la ville"
 
-#: oc-admin/themes/modern/settings/permalinks.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
 msgid "Search keyword country"
 msgstr "Rechercher dans le pays des mots clés"
 
-#: oc-admin/themes/modern/settings/permalinks.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
 msgid "Search keyword pattern"
 msgstr "Motif de recherche de mots clés"
 
-#: oc-admin/themes/modern/settings/permalinks.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
 msgid "Search keyword region"
 msgstr "Rechercher dans la région des mots clés"
 
-#: oc-admin/themes/modern/settings/permalinks.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
 msgid "Search keyword user"
 msgstr "Rechercher un utilisateur par mot clé"
 
-#: oc-admin/themes/modern/settings/index.php
+#: oc-includes/osclass/classes/admin/form/MainSettingsForm.php
 msgid "Search page shows"
 msgstr "Afficher la page de recherche"
-
-#: oc-admin/themes/modern/settings/permalinks.php
-msgid "Search pattern: this field is required"
-msgstr "URL des recherches par critères: ce champ est obligatoire"
 
 #: oc-admin/themes/modern/parts/market.php
 msgid "Search plugins…"
 msgstr "Rechercher dans les plugins…"
 
-#: oc-admin/themes/modern/settings/permalinks.php
-msgid "Search prefix URL:"
-msgstr "URL du préfixe de recherche :"
-
-#: oc-admin/themes/modern/settings/permalinks.php
-msgid "Search region: this field is required"
-msgstr "URL des recherches par région: ce champ est obligatoire"
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
+msgid "Search prefix URL"
+msgstr "URL du préfixe de recherche"
 
 #: oc-includes/osclass/classes/Breadcrumb.php
 #: oc-includes/osclass/functions.php
@@ -7118,14 +7022,6 @@ msgstr "Résultats de la recherche : %s"
 #: oc-admin/themes/modern/parts/market.php
 msgid "Search themes…"
 msgstr "Rechercher dans les thèmes…"
-
-#: oc-admin/themes/modern/settings/permalinks.php
-msgid "Search url: this field is required"
-msgstr "URL de la page de recherche: ce champ est obligatoire"
-
-#: oc-admin/themes/modern/settings/permalinks.php
-msgid "Search user: this field is required"
-msgstr "URL des recherches par utilisateur: ce champ est obligatoire"
 
 #: oc-includes/osclass/classes/form/UserForm.php
 msgid "Second password: enter at least 5 characters"
@@ -7226,35 +7122,35 @@ msgstr "Sélectionnez les catégories où vous souhaitez appliquer cet attribut:
 msgid "Select the categories where you want to apply this group:"
 msgstr "Sélectionnez les catégories où vous souhaitez appliquer ce groupe:"
 
-#: oc-admin/themes/modern/settings/billing.php
+#: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
 msgid "Sell a raised photo cap"
 msgstr "Vendre un bouchon photo élevé"
 
-#: oc-admin/themes/modern/settings/billing.php
+#: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
 msgid "Sell bump to top"
 msgstr "Vendre une bosse en haut"
 
-#: oc-admin/themes/modern/settings/billing.php
+#: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
 msgid "Sell extra listing slots"
 msgstr "Vendre des emplacements de listing supplémentaires"
 
-#: oc-admin/themes/modern/settings/billing.php
+#: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
 msgid "Sell extra runtime beyond the category limit"
 msgstr "Vendre un runtime supplémentaire au-delà de la limite de catégorie"
 
-#: oc-admin/themes/modern/settings/billing.php
+#: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
 msgid "Sell featured listings"
 msgstr "Vendre des annonces en vedette"
 
-#: oc-admin/themes/modern/settings/billing.php
+#: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
 msgid "Sell highlighting"
 msgstr "Vendre la mise en surbrillance"
 
-#: oc-admin/themes/modern/settings/billing.php
+#: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
 msgid "Sell marking a listing urgent"
 msgstr "Vendre en marquant une annonce urgente"
 
-#: oc-admin/themes/modern/settings/billing.php
+#: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
 msgid "Sell waiving the flood wait"
 msgstr "Vendre en renonçant à l'attente d'inondation"
 
@@ -7262,7 +7158,7 @@ msgstr "Vendre en renonçant à l'attente d'inondation"
 msgid "Seller email"
 msgstr "E-mail du vendeur"
 
-#: oc-admin/themes/modern/settings/billing.php
+#: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
 msgid "Seller limits"
 msgstr "Limites du vendeur"
 
@@ -7270,7 +7166,7 @@ msgstr "Limites du vendeur"
 msgid "Seller name"
 msgstr "Nom du vendeur"
 
-#: oc-admin/themes/modern/settings/billing.php
+#: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
 msgid "Selling on this site"
 msgstr "Vendre sur ce site"
 
@@ -7319,19 +7215,19 @@ msgstr "Liste de contrôle du serveur"
 msgid "Server error. Upload directory isn't writable."
 msgstr "Erreur serveur. Le répertoire de téléchargement n'est pas accessible en écriture."
 
-#: oc-admin/themes/modern/settings/mailserver.php
+#: oc-includes/osclass/classes/admin/form/MailServerSettingsForm.php
 msgid "Server port"
 msgstr "Port du serveur"
 
-#: oc-admin/themes/modern/settings/permalinks.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
 msgid "Server rules (.htaccess)"
 msgstr "Règles du serveur (.htaccess)"
 
-#: oc-admin/themes/modern/settings/permalinks.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
 msgid "Server rules (nginx)"
 msgstr "Règles du serveur (nginx)"
 
-#: oc-admin/themes/modern/settings/mailserver.php
+#: oc-includes/osclass/classes/admin/form/MailServerSettingsForm.php
 msgid "Server type"
 msgstr "Type de serveur"
 
@@ -7567,6 +7463,7 @@ msgid "Sign-in details"
 msgstr "Détails de connexion"
 
 #: oc-admin/themes/modern/settings/spamNbots.php
+#: oc-includes/osclass/classes/admin/form/SpamSettingsForm.php
 msgid "Sign-in protection"
 msgstr "Protection contre la connexion"
 
@@ -7612,15 +7509,15 @@ msgstr "Taille"
 msgid "Skip for now"
 msgstr "Ignorer pour l'instant"
 
-#: oc-admin/themes/modern/settings/billing.php
+#: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
 msgid "Skip the posting wait"
 msgstr "Ignorer l'attente de publication"
 
-#: oc-admin/themes/modern/settings/billing.php
+#: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
 msgid "Slot price in credits"
 msgstr "Prix du créneau en crédits"
 
-#: oc-admin/themes/modern/settings/billing.php
+#: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
 msgid "Slots per purchase"
 msgstr "Emplacements par achat"
 
@@ -7630,7 +7527,7 @@ msgstr "Emplacements par achat"
 msgid "Slug"
 msgstr "Limace"
 
-#: oc-admin/themes/modern/settings/index.php
+#: oc-includes/osclass/classes/admin/form/MainSettingsForm.php
 msgid "Software updates"
 msgstr "Mises à jour du logiciel"
 
@@ -7730,7 +7627,7 @@ msgstr "Statut"
 msgid "Stay up-to-date on the number of users registered on your site. You can also see a breakdown of the "
 msgstr "Restez à jour sur le nombre d'utilisateurs inscrits sur votre site. Vous pouvez également voir une ventilation de la "
 
-#: oc-admin/themes/modern/settings/billing.php
+#: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
 msgid "Stays hidden at checkout until instructions are written below — "
 msgstr "Reste caché à la caisse jusqu'à ce que les instructions soient écrites ci-dessous — "
 
@@ -7754,11 +7651,11 @@ msgstr "Paramètres de stockage"
 msgid "Storage queue"
 msgstr "File d'attente de stockage"
 
-#: oc-admin/themes/modern/settings/searches.php
+#: oc-includes/osclass/classes/admin/form/LatestSearchSettingsForm.php
 msgid "Store"
 msgstr "Magasin"
 
-#: oc-admin/themes/modern/settings/searches.php
+#: oc-includes/osclass/classes/admin/form/LatestSearchSettingsForm.php
 msgid "Store 1000 queries"
 msgstr "Stocker 1000 requêtes"
 
@@ -7766,7 +7663,7 @@ msgstr "Stocker 1000 requêtes"
 msgid "Subcategories"
 msgstr "Sous-catégories"
 
-#: oc-admin/themes/modern/settings/advanced.php
+#: oc-includes/osclass/classes/admin/form/AdvancedSettingsForm.php
 msgid "Subdomain type"
 msgstr "Type de sous-domaine"
 
@@ -7801,7 +7698,7 @@ msgstr "Sous-chaîne"
 msgid "Sun"
 msgstr "Dimanche"
 
-#: oc-admin/themes/modern/settings/index.php
+#: oc-includes/osclass/classes/admin/form/MainSettingsForm.php
 #: oc-includes/osclass/helpers/hUtils.php
 msgid "Sunday"
 msgstr "Dimanche"
@@ -7826,7 +7723,7 @@ msgstr "Basculer en mode sombre"
 msgid "Switch to light mode"
 msgstr "Basculer en mode lumière"
 
-#: oc-admin/themes/modern/settings/billing.php
+#: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
 msgid "Switching this off later hides the Billing menu but keeps every order "
 msgstr "Désactiver cette option masque ensuite le menu de facturation mais conserve toutes les commandes "
 
@@ -7900,6 +7797,18 @@ msgstr "Offset_y de texte"
 #: oc-admin/themes/modern/functions.php
 msgid "Thank you for using <a href=\"%s\" target=\"_blank\">Shopclass</a>"
 msgstr "Merci d'utiliser <a href=\"%s\" target=\"_blank\">Shopclass</a>"
+
+#: oc-includes/osclass/helpers/hSettings.php
+msgid "That could not be saved. Please check the values and try again."
+msgstr "Cela n'a pas pu être enregistré. Veuillez vérifier les valeurs et réessayer."
+
+#: oc-includes/osclass/helpers/hSettings.php
+msgid "That form does not name a record that can be saved."
+msgstr "Ce formulaire ne nomme pas un enregistrement qui peut être sauvegardé."
+
+#: oc-includes/osclass/helpers/hSettings.php
+msgid "That record no longer exists, so nothing was saved."
+msgstr "Cet enregistrement n'existe plus, donc rien n'a été sauvegardé."
 
 #: oc-includes/osclass/helpers/hSettings.php
 msgid "That settings page is not registered."
@@ -8017,13 +7926,17 @@ msgstr "Le fichier n'est pas une image valide"
 msgid "The installation directory is not writable."
 msgstr "Le répertoire d'installation n'est pas accessible en écriture."
 
-#: oc-admin/themes/modern/settings/spamNbots.php
+#: oc-includes/osclass/classes/admin/form/SpamSettingsForm.php
 msgid "The key you entered is invalid. Please double-check it"
 msgstr "La clé saisie n'est pas valide. Veuillez svp vérifier."
 
 #: oc-admin/themes/modern/tools/system-info.php
 msgid "The last cron run was %s ago — longer than a day, so it is probably no longer scheduled. Update checks, alerts and cleanup have stopped until it runs again."
 msgstr "Le dernier cron était %s il y a unnamed@@0 — plus d'un jour, donc il n'est probablement plus prévu. Les vérifications de mises à jour, les alertes et le nettoyage se sont arrêtés jusqu'à ce qu'il s'exécute à nouveau."
+
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
+msgid "The listing permalink structure must include {ITEM_ID}."
+msgstr "La structure du permalien d'inscription doit inclure {ITEM_ID}."
 
 #: oc-admin/themes/modern/tools/cache.php
 msgid "The older memcache extension."
@@ -8149,7 +8062,6 @@ msgstr "Les widgets ci-dessous composent cette page. Les widgets peuvent égalem
 msgid "Theme package (.zip)"
 msgstr "Paquet de thème (.zip)"
 
-#: oc-admin/themes/modern/settings/index.php
 #: oc-includes/osclass/functions.php
 msgid "Theme updates"
 msgstr "Mises à jour des thèmes"
@@ -8181,7 +8093,7 @@ msgstr "Il n'y a pas encore d'annonce téléchargée"
 msgid "There were no fields to move."
 msgstr "Il n'y avait pas de champs à déplacer."
 
-#: oc-admin/themes/modern/settings/comments.php
+#: oc-includes/osclass/classes/admin/form/CommentSettingsForm.php
 msgid "There's a new comment on his listing"
 msgstr "Il y a un nouveau commentaire sur sa liste"
 
@@ -8253,7 +8165,7 @@ msgstr "Ceci supprime la définition de champ et la supprime de chaque formulair
 msgid "This directory isn't writable, so packages can't be installed from here."
 msgstr "Ce répertoire n'est pas accessible en écriture, donc les paquets ne peuvent pas être installés ici."
 
-#: oc-admin/themes/modern/settings/searches.php
+#: oc-includes/osclass/classes/admin/form/LatestSearchSettingsForm.php
 msgid "This feature can generate a lot of data. It's recommended to purge this data periodically."
 msgstr "Cette fonctionnalité peut générer beaucoup de données. Il est recommandé de purger ces données périodiquement."
 
@@ -8291,7 +8203,7 @@ msgstr "Voici un exemple de page. C'est un bon endroit pour mettre vos Condition
 msgid "This is the folder in which your backups will be created. We recommend that you "
 msgstr "C'est le dossier dans lequel vos sauvegardes seront créées. Nous vous recommandons "
 
-#: oc-admin/themes/modern/settings/spamNbots.php
+#: oc-includes/osclass/classes/admin/form/SpamSettingsForm.php
 msgid "This key is valid"
 msgstr "Cette clé est valide"
 
@@ -8396,7 +8308,7 @@ msgstr "Dimension des miniatures: ce champ n'est pas dans le bon format"
 msgid "Thumbnail size: this field is required"
 msgstr "Dimension des miniatures: ce champ est obligatoire"
 
-#: oc-admin/themes/modern/settings/index.php
+#: oc-includes/osclass/classes/admin/form/MainSettingsForm.php
 #: oc-includes/osclass/helpers/hUtils.php
 msgid "Thursday"
 msgstr "Jeudi"
@@ -8413,11 +8325,15 @@ msgstr "Cocher pour ouvrir les liens dans un nouvel onglet"
 msgid "Tickets"
 msgstr "Vente de Billets"
 
-#: oc-admin/themes/modern/settings/index.php
+#: oc-includes/osclass/classes/admin/form/MainSettingsForm.php
 msgid "Time"
 msgstr "Date et heure"
 
-#: oc-admin/themes/modern/settings/index.php
+#: oc-includes/osclass/classes/admin/form/MainSettingsForm.php
+msgid "Time format"
+msgstr "Format de l'heure"
+
+#: oc-includes/osclass/classes/admin/form/MainSettingsForm.php
 msgid "Timezone"
 msgstr "Timezone"
 
@@ -8538,7 +8454,7 @@ msgstr "Essayez un autre statut ou un autre mode de paiement."
 msgid "Tue"
 msgstr "Mardi"
 
-#: oc-admin/themes/modern/settings/index.php
+#: oc-includes/osclass/classes/admin/form/MainSettingsForm.php
 #: oc-includes/osclass/helpers/hUtils.php
 msgid "Tuesday"
 msgstr "Mardi"
@@ -8559,23 +8475,23 @@ msgstr "Activer une cache d'objet persistante"
 msgid "Turn this on if the database doesn't exist yet and you want Shopclass to create it."
 msgstr "Activez cette option si la base de données n'existe pas encore et que vous voulez que Shopclass la crée."
 
-#: oc-admin/themes/modern/settings/billing.php
+#: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
 msgid "Turn this on to sell things on your site — featured listings, posting credits, "
 msgstr "Activez cette option pour vendre des objets sur votre site - des annonces en vedette, des crédits d'affichage, "
 
-#: oc-admin/themes/modern/settings/permalinks.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
 msgid "Turns links like index.php?page=item&id=42 into readable ones like "
 msgstr "Transforme les liens comme index.php?page=item&id=42 en liens lisibles comme "
 
-#: oc-admin/themes/modern/settings/spamNbots.php
+#: oc-includes/osclass/classes/admin/form/SpamSettingsForm.php
 msgid "Turnstile secret key"
 msgstr "Clé secrète Turnstile"
 
-#: oc-admin/themes/modern/settings/spamNbots.php
+#: oc-includes/osclass/classes/admin/form/SpamSettingsForm.php
 msgid "Turnstile site key"
 msgstr "Touche de site Tournstile"
 
-#: oc-admin/themes/modern/settings/spamNbots.php
+#: oc-includes/osclass/classes/admin/form/SpamSettingsForm.php
 msgid "Turnstile site key and Turnstile secret key"
 msgstr "Clé de site Turnstile et clé secrète Turnstile"
 
@@ -8596,8 +8512,8 @@ msgstr "Type de texte"
 msgid "Type your new password"
 msgstr "Tapez votre nouveau mot de passe"
 
-#: oc-admin/themes/modern/admins/frm.php
 #: oc-admin/themes/modern/users/frm.php
+#: oc-includes/osclass/classes/admin/form/AdminAccountForm.php
 msgid "Type your new password again"
 msgstr "Tapez à nouveau votre nouveau mot de passe"
 
@@ -8752,7 +8668,7 @@ msgstr "Mettre à jour l'annonce"
 msgid "Update my profile"
 msgstr "Mettre à jour mon profil"
 
-#: oc-admin/themes/modern/users/ban_frm.php
+#: oc-includes/osclass/classes/admin/form/BanRuleForm.php
 msgid "Update rule"
 msgstr "Actualiser la règle"
 
@@ -8818,7 +8734,7 @@ msgstr "La mise à jour est disponible pour (version actuelle %s)"
 msgid "Upgrade now"
 msgstr "Mettre à niveau maintenant"
 
-#: oc-admin/themes/modern/settings/billing.php
+#: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
 msgid "Upgrades"
 msgstr "Améliorations"
 
@@ -8870,15 +8786,15 @@ msgstr "Chemin des téléversements"
 msgid "Uptime"
 msgstr "Délai de disponibilité"
 
-#: oc-admin/themes/modern/settings/billing.php
+#: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
 msgid "Urgent"
 msgstr "Urgent"
 
-#: oc-admin/themes/modern/settings/billing.php
+#: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
 msgid "Urgent duration (days)"
 msgstr "Durée urgente (jours)"
 
-#: oc-admin/themes/modern/settings/billing.php
+#: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
 msgid "Urgent price (credits)"
 msgstr "Prix urgent (crédits)"
 
@@ -8894,7 +8810,7 @@ msgstr "URL pour modifier l'annonce"
 msgid "Use ImageMagick instead of GD library"
 msgstr "Utiliser ImageMagick au lieu de la bibliothèque GD"
 
-#: oc-admin/themes/modern/settings/mailserver.php
+#: oc-includes/osclass/classes/admin/form/MailServerSettingsForm.php
 msgid "Use POP before SMTP"
 msgstr "Utiliser le POP avant SMTP"
 
@@ -8952,83 +8868,67 @@ msgstr "Paramètres des utilisateurs"
 msgid "User Statistics"
 msgstr "Statistiques de l'utilisateur"
 
-#: oc-admin/themes/modern/settings/permalinks.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
 msgid "User account"
 msgstr "Compte utilisateur"
 
-#: oc-admin/themes/modern/settings/permalinks.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
 msgid "User activate"
 msgstr "Activation de l'utilisateur"
 
-#: oc-admin/themes/modern/settings/permalinks.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
 msgid "User activate alert"
 msgstr "Alerte d'activation de l'utilisateur"
 
-#: oc-admin/themes/modern/settings/permalinks.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
 msgid "User alerts"
 msgstr "Alertes utilisateur"
 
-#: oc-admin/themes/modern/settings/permalinks.php
-msgid "User alerts url: this field is required"
-msgstr "URL de la page des alertes d'un utilisateur: ce champ est obligatoire"
-
-#: oc-admin/themes/modern/settings/advanced.php
+#: oc-includes/osclass/classes/admin/form/AdvancedSettingsForm.php
 msgid "User based"
 msgstr "Basé sur l'utilisateur"
 
-#: oc-admin/themes/modern/settings/permalinks.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
 msgid "User change email"
 msgstr "Adresse e-mail de modification de l'utilisateur"
 
-#: oc-admin/themes/modern/settings/permalinks.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
 msgid "User change email confirm"
 msgstr "Confirmation du changement d'email de l'utilisateur"
 
-#: oc-admin/themes/modern/settings/permalinks.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
 msgid "User change password"
 msgstr "Changer le mot de passe de l'utilisateur"
 
-#: oc-admin/themes/modern/settings/permalinks.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
 msgid "User change username"
 msgstr "Changer le nom d'utilisateur"
 
-#: oc-admin/themes/modern/settings/permalinks.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
 msgid "User dashboard"
 msgstr "Tableau de bord de l'utilisateur"
-
-#: oc-admin/themes/modern/settings/permalinks.php
-msgid "User dashboard url: this field is required"
-msgstr "URL de la page du compte utilisateur: ce champ est obligatoire"
 
 #: oc-includes/osclass/classes/EmailVariables.php
 msgid "User email"
 msgstr "Email de l'utilisateur"
 
-#: oc-admin/themes/modern/settings/permalinks.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
 msgid "User forgot"
 msgstr "Utilisateur oublié"
-
-#: oc-admin/themes/modern/settings/permalinks.php
-msgid "User forgot url: this field is required"
-msgstr "URL de la page de récupération du nom de l'utilisateur: ce champ est obligatoire"
 
 #: oc-includes/osclass/classes/EmailVariables.php
 msgid "User ip address"
 msgstr "Adresse IP de l'utilisateur"
 
-#: oc-admin/themes/modern/settings/permalinks.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
 msgid "User listings"
 msgstr "Listes d'utilisateurs"
 
-#: oc-admin/themes/modern/settings/permalinks.php
-msgid "User listings url: this field is required"
-msgstr "URL de la page des annonces d'un annonceur : ce champ est obligatoire"
-
-#: oc-admin/themes/modern/settings/permalinks.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
 msgid "User login"
 msgstr "Connexion de l'utilisateur"
 
-#: oc-admin/themes/modern/settings/permalinks.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
 msgid "User logout"
 msgstr "Déconnexion de l'utilisateur"
 
@@ -9040,25 +8940,17 @@ msgstr "Nom d'utilisateur"
 msgid "User phone number"
 msgstr "Téléphone de l'utilisateur"
 
-#: oc-admin/themes/modern/settings/permalinks.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
 msgid "User profile"
 msgstr "Profil de l'utilisateur"
 
-#: oc-admin/themes/modern/settings/permalinks.php
-msgid "User profile url: this field is required"
-msgstr "URL de la page du profil utilisateur: ce champ est obligatoire"
-
-#: oc-admin/themes/modern/settings/permalinks.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
 msgid "User recover"
 msgstr "Récupération de l'utilisateur"
 
-#: oc-admin/themes/modern/settings/permalinks.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
 msgid "User register"
 msgstr "Inscription de l'utilisateur"
-
-#: oc-admin/themes/modern/settings/permalinks.php
-msgid "User register url: this field is required"
-msgstr "URL de la page d'enregistrement d'un nouvel utilisateur: ce champ est obligatoire"
 
 #: oc-admin/themes/modern/main/index.php
 msgid "User statistics"
@@ -9070,9 +8962,10 @@ msgstr "Type d'utilisateur"
 
 #: oc-admin/gui/login.php
 #: oc-admin/themes/modern/admins/index.php
-#: oc-admin/themes/modern/settings/mailserver.php
 #: oc-admin/themes/modern/users/frm.php
 #: oc-admin/themes/modern/users/index.php
+#: oc-includes/osclass/classes/admin/form/AdminAccountForm.php
+#: oc-includes/osclass/classes/admin/form/MailServerSettingsForm.php
 #: oc-includes/osclass/classes/datatables/UsersDataTable.php
 #: oc-includes/osclass/installer/gui/install-database.php
 #: oc-includes/osclass/installer/gui/install-finish.php
@@ -9080,7 +8973,7 @@ msgstr "Type d'utilisateur"
 msgid "Username"
 msgstr "Pseudo"
 
-#: oc-admin/themes/modern/admins/frm.php
+#: oc-includes/osclass/classes/admin/form/AdminAccountForm.php
 msgid "Username <em>(required)</em>"
 msgstr "Nom d'utilisateur <em>(obligatoire)</em>"
 
@@ -9127,7 +9020,7 @@ msgstr "Utilisateurs activés"
 msgid "Users have to validate their listings"
 msgstr "Les utilisateurs doivent valider leurs annonces"
 
-#: oc-admin/themes/modern/settings/comments.php
+#: oc-includes/osclass/classes/admin/form/CommentSettingsForm.php
 msgid "Users must be registered and logged in to comment"
 msgstr "Les utilisateurs doivent être enregistrés et connectés pour commenter"
 
@@ -9312,12 +9205,12 @@ msgstr "URL du site web"
 msgid "Wed"
 msgstr "Mercredi"
 
-#: oc-admin/themes/modern/settings/index.php
+#: oc-includes/osclass/classes/admin/form/MainSettingsForm.php
 #: oc-includes/osclass/helpers/hUtils.php
 msgid "Wednesday"
 msgstr "Mercredi"
 
-#: oc-admin/themes/modern/settings/index.php
+#: oc-includes/osclass/classes/admin/form/MainSettingsForm.php
 msgid "Week starts on"
 msgstr "La semaine commence le"
 
@@ -9342,11 +9235,11 @@ msgstr "Ce qu'un acheteur peut choisir au moment du paiement — un prix, une de
 msgid "What happened"
 msgstr "Ce qui s'est passé"
 
-#: oc-admin/themes/modern/settings/permalinks.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
 msgid "What it should look like"
 msgstr "À quoi cela devrait ressembler"
 
-#: oc-admin/themes/modern/settings/billing.php
+#: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
 msgid "What posting costs once the free quota runs out, and what a featured "
 msgstr "Quels sont les coûts de publication une fois que le quota gratuit est épuisé, et ce qui est mis en vedette "
 
@@ -9354,7 +9247,7 @@ msgstr "Quels sont les coûts de publication une fois que le quota gratuit est �
 msgid "What to remove"
 msgstr "Ce qu'il faut supprimer"
 
-#: oc-admin/themes/modern/settings/permalinks.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
 msgid "What your .htaccess file should look like"
 msgstr "À quoi devrait ressembler votre fichier .htaccess"
 
@@ -9404,7 +9297,7 @@ msgstr "Type de widget"
 msgid "Widgets"
 msgstr "Widgets"
 
-#: oc-admin/themes/modern/settings/spamNbots.php
+#: oc-includes/osclass/classes/admin/form/SpamSettingsForm.php
 msgid "Window"
 msgstr "Fenêtre"
 
@@ -9518,15 +9411,15 @@ msgstr ""
 msgid "Your Shopclass installation has been upgraded to version "
 msgstr "Votre installation de Shopclass a été mise à jour vers la version "
 
-#: oc-admin/themes/modern/settings/permalinks.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
 msgid "Your current .htaccess file"
 msgstr "Votre fichier .htaccess actuel"
 
-#: oc-admin/themes/modern/settings/advanced.php
+#: oc-includes/osclass/classes/admin/form/AdvancedSettingsForm.php
 msgid "Your current host is \"%s\". Add it without \"www\"."
 msgstr "Votre nom de domaine est \"%s\". Ajoutez le sans les \"www\"."
 
-#: oc-admin/themes/modern/admins/frm.php
+#: oc-includes/osclass/classes/admin/form/AdminAccountForm.php
 msgid "Your current password"
 msgstr "Votre mot de passe actuel"
 
@@ -9550,7 +9443,7 @@ msgstr "Adresse e-mail de votre ami: adresse e-mail invalide"
 msgid "Your friend's name: this field is required"
 msgstr "Nom de votre ami: ce champ est obligatoire"
 
-#: oc-admin/themes/modern/settings/advanced.php
+#: oc-includes/osclass/classes/admin/form/AdvancedSettingsForm.php
 msgid "Your host is required to know the subdomain."
 msgstr "Votre hôte est requis pour connaître le sous-domaine."
 
@@ -9628,7 +9521,7 @@ msgstr "autoriser_url_fopen"
 msgid "am"
 msgstr "Matin"
 
-#: oc-admin/themes/modern/settings/index.php
+#: oc-includes/osclass/classes/admin/form/MainSettingsForm.php
 msgid "at most"
 msgstr "au plus"
 
@@ -9656,7 +9549,7 @@ msgstr "Lien pour modifier le mot de passe"
 msgid "characters"
 msgstr "caractères"
 
-#: oc-admin/themes/modern/settings/comments.php
+#: oc-includes/osclass/classes/admin/form/CommentSettingsForm.php
 #: oc-includes/osclass/helpers/hAdminUi.php
 msgid "comments per page"
 msgstr "commentaires par page"
@@ -9687,9 +9580,9 @@ msgid "ctype"
 msgstr "ctype"
 
 #: oc-admin/themes/modern/items/settings.php
-#: oc-admin/themes/modern/settings/spamNbots.php
 #: oc-admin/themes/modern/tools/cleanup.php
 #: oc-admin/themes/modern/tools/logs.php
+#: oc-includes/osclass/classes/admin/form/SpamSettingsForm.php
 msgid "days"
 msgstr "Jours"
 
@@ -9757,7 +9650,7 @@ msgstr "à l'instant"
 msgid "keyword"
 msgstr "keyword"
 
-#: oc-admin/themes/modern/settings/index.php
+#: oc-includes/osclass/classes/admin/form/MainSettingsForm.php
 msgid "listings at most"
 msgstr "annonces au plus"
 
@@ -9765,7 +9658,7 @@ msgstr "annonces au plus"
 msgid "mbstring"
 msgstr "mbstring"
 
-#: oc-admin/themes/modern/settings/spamNbots.php
+#: oc-includes/osclass/classes/admin/form/SpamSettingsForm.php
 msgid "minutes"
 msgstr "minutes"
 
@@ -9777,7 +9670,7 @@ msgstr "manquant"
 msgid "mysqli"
 msgstr "mysqli"
 
-#: oc-admin/themes/modern/settings/index.php
+#: oc-includes/osclass/classes/admin/form/MainSettingsForm.php
 msgid "never"
 msgstr "Jamais"
 
@@ -9785,7 +9678,7 @@ msgstr "Jamais"
 msgid "never run"
 msgstr "Ne jamais exécuter"
 
-#: oc-admin/themes/modern/settings/permalinks.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
 msgid "nginx does not read .htaccess files. Add the "
 msgstr "nginx ne lit pas les fichiers .htaccess. Ajouter le "
 
@@ -9834,7 +9727,7 @@ msgstr "Après-midi"
 msgid "post_max_size is smaller than upload_max_filesize"
 msgstr "post_max_size est plus petit que upload_max_filesize"
 
-#: oc-admin/themes/modern/settings/comments.php
+#: oc-includes/osclass/classes/admin/form/CommentSettingsForm.php
 msgid "previously approved comments"
 msgstr "commentaires précédemment approuvés"
 
@@ -9842,27 +9735,31 @@ msgstr "commentaires précédemment approuvés"
 msgid "px"
 msgstr "px"
 
-#: oc-admin/themes/modern/settings/searches.php
+#: oc-includes/osclass/classes/admin/form/LatestSearchSettingsForm.php
 msgid "queries"
 msgstr "requêtes"
 
-#: oc-admin/themes/modern/settings/spamNbots.php
+#: oc-includes/osclass/classes/admin/form/SpamSettingsForm.php
 msgid "reCAPTCHA secret key"
 msgstr "Clé secrète reCAPTCHA"
 
-#: oc-admin/themes/modern/settings/spamNbots.php
+#: oc-includes/osclass/classes/admin/form/SpamSettingsForm.php
 msgid "reCAPTCHA site key"
 msgstr "Clé du site reCAPTCHA"
 
-#: oc-admin/themes/modern/settings/spamNbots.php
+#: oc-includes/osclass/classes/admin/form/SpamSettingsForm.php
 msgid "reCAPTCHA site key and reCAPTCHA secret key"
 msgstr "Clé du site reCAPTCHA et clé secrète reCAPTCHA"
+
+#: oc-includes/osclass/classes/admin/form/SpamSettingsForm.php
+msgid "reCAPTCHA version"
+msgstr "Version reCAPTCHA"
 
 #: oc-admin/themes/modern/tools/system-info.php
 msgid "read-only"
 msgstr "lecture seule"
 
-#: oc-admin/themes/modern/settings/keywordBlock.php
+#: oc-includes/osclass/classes/admin/form/KeywordBlockSettingsForm.php
 msgid "reporters"
 msgstr "reporters"
 

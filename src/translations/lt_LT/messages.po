@@ -14,7 +14,7 @@ msgstr ""
 "X-Crowdin-File: /develop/src/templates/messages.pot\n"
 "X-Crowdin-File-ID: 8243\n"
 "Language-Team: Lithuanian\n"
-"PO-Revision-Date: 2026-09-06 13:57\n"
+"PO-Revision-Date: 2026-09-08 15:42\n"
 
 #: oc-includes/osclass/classes/controller/admin/CAdminItems.php
 msgid "%d change has been made"
@@ -220,6 +220,10 @@ msgstr ""
 msgid "%s is required."
 msgstr ""
 
+#: oc-includes/osclass/classes/actions/UserActions.php
+msgid "%s is too long, the maximum is %d characters"
+msgstr ""
+
 #: oc-includes/osclass/classes/controller/admin/CAdminPages.php
 msgid "%s pages couldn't be deleted"
 msgstr "nepavyko panaikinti %s puslapių"
@@ -285,6 +289,7 @@ msgstr ""
 msgid "Added by admin"
 msgstr ""
 
+#: oc-includes/osclass/classes/actions/UserActions.php
 #: oc-includes/osclass/gui/account/user-profile-content.php
 msgid "Address"
 msgstr "Adresas"
@@ -314,10 +319,6 @@ msgstr "Įspėjimo ID yra netinkamo formato"
 #: oc-includes/osclass/helpers/hTheme.php
 msgid "Alerts"
 msgstr "Įspėjimus"
-
-#: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsPermalinks.php
-msgid "All fields are required."
-msgstr "Visi laukai yra būtini."
 
 #: oc-includes/osclass/gui/account/user-register-content.php
 msgid "Already have an account?"
@@ -393,7 +394,7 @@ msgstr ""
 msgid "Billing settings have been updated"
 msgstr ""
 
-#: oc-includes/osclass/classes/controller/admin/CAdminUsers.php
+#: oc-includes/osclass/classes/admin/form/BanRuleForm.php
 msgid "Both rules can not be empty"
 msgstr "Abi taisyklės negali būti tuščios"
 
@@ -454,6 +455,7 @@ msgstr ""
 msgid "Choose a package"
 msgstr ""
 
+#: oc-includes/osclass/classes/actions/UserActions.php
 #: oc-includes/osclass/gui/account/user-profile-content.php
 msgid "City"
 msgstr "Miestas"
@@ -498,10 +500,6 @@ msgstr "Komentaro parametrai atnaujinti"
 msgid "Comments"
 msgstr "Komentarai"
 
-#: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsComments.php
-msgid "Comments per page must only contain numeric characters"
-msgstr "Komentaruose puslapyje turi būti tik skaitiniai simboliai"
-
 #: oc-includes/osclass/classes/controller/admin/CAdminPlugins.php
 msgid "Configuration was saved"
 msgstr "Konfigūracija įrašyta"
@@ -521,10 +519,6 @@ msgstr ""
 #: oc-includes/osclass/helpers/hTheme.php
 msgid "Contact"
 msgstr "Liestis"
-
-#: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsMain.php
-msgid "Contact email field is required"
-msgstr "Kontakto el. pašto laukas yra būtinas"
 
 #: oc-includes/osclass/helpers/hTheme.php
 msgid "Contact the seller"
@@ -546,6 +540,7 @@ msgstr "Nepavyko prisijungti prie duomenų bazės. Klaida: %s"
 msgid "Could not select the database. Error: %s"
 msgstr "Nepavyko pasirinkti duomenų bazės. Klaida: %s"
 
+#: oc-includes/osclass/classes/actions/UserActions.php
 #: oc-includes/osclass/gui/account/user-profile-content.php
 msgid "Country"
 msgstr "Kraštas"
@@ -608,7 +603,7 @@ msgstr "Valiutos formato laukas yra būtinas"
 msgid "Currency must be a 3-letter code, e.g. USD"
 msgstr ""
 
-#: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsBilling.php
+#: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
 msgid "Currency must be a 3-letter code, e.g. USD."
 msgstr ""
 
@@ -635,10 +630,6 @@ msgstr ""
 #: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsSitemap.php
 msgid "Custom URL removed from the sitemap"
 msgstr ""
-
-#: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsLatestSearches.php
-msgid "Custom number could not be left empty"
-msgstr "Pasirinktinio numerio nepavyko palikti tuščio"
 
 #: oc-includes/osclass/gui/account/nav.php
 #: oc-includes/osclass/helpers/hTheme.php
@@ -703,6 +694,10 @@ msgstr "Katalogo '%s' pašalinti nepavyko, nes tai numatytoji kalba. <a href=\"%
 msgid "Directory '%s' couldn't be removed;)"
 msgstr "Katalogo '%s' pašalinti nepavyko;)"
 
+#: oc-includes/osclass/classes/actions/UserActions.php
+msgid "E-mail"
+msgstr "El. paštas"
+
 #: oc-includes/osclass/gui/account/parts/item-row.php
 msgid "Edit"
 msgstr "Redaguoti"
@@ -717,13 +712,9 @@ msgstr ""
 msgid "Email address or username"
 msgstr ""
 
-#: oc-includes/osclass/classes/controller/admin/CAdminAdmins.php
+#: oc-includes/osclass/classes/admin/form/AdminAccountForm.php
 msgid "Email already in use"
 msgstr "Jau naudojamas el. paštas"
-
-#: oc-includes/osclass/classes/controller/admin/CAdminAdmins.php
-msgid "Email invalid"
-msgstr "El. paštas neleistinas"
 
 #: oc-includes/osclass/classes/actions/ItemActions.php
 msgid "Email invalid."
@@ -785,11 +776,11 @@ msgstr "Klaida, zip failas nebuvo sukurtas nurodytame kataloge"
 msgid "Error: the currency code is not in the correct format"
 msgstr "Klaida: valiutos kodas yra netinkamo formato"
 
-#: oc-includes/osclass/classes/controller/admin/CAdminAdmins.php
+#: oc-includes/osclass/classes/admin/form/AdminAccountForm.php
 msgid "Existing email"
 msgstr "Esamas el. paštas"
 
-#: oc-includes/osclass/classes/controller/admin/CAdminAdmins.php
+#: oc-includes/osclass/classes/admin/form/AdminAccountForm.php
 msgid "Existing username"
 msgstr "Esamas vartotojo vardas"
 
@@ -801,11 +792,11 @@ msgstr "Pasibaigęs"
 msgid "Failed"
 msgstr ""
 
-#: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsPermalinks.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
 msgid "File <b>.htaccess</b> already exists and was not modified."
 msgstr "Failų <b>.htaccess</b> jau yra ir nebuvo modifikuota."
 
-#: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsPermalinks.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
 msgid "File <b>.htaccess</b> couldn't be filled out with the right content."
 msgstr "Failų <b>.htaccess</b> nepavyko užpildyti tinkamu turiniu."
 
@@ -817,15 +808,15 @@ msgstr "Failas nusiųstas, bet nepavyksta suaktyvinti kalbos"
 msgid "Forgotten your password?"
 msgstr ""
 
-#: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsPermalinks.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
 msgid "Friendly URLs deactivated, but .htaccess file could not be deleted. Please, remove it manually"
 msgstr "Draugiški URL išjungti, bet .htaccess failo panaikinti nepavyko. Pašalinkite jį rankiniu būdu"
 
-#: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsPermalinks.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
 msgid "Friendly URLs deactivated, but .htaccess file was modified outside Shopclass and was not deleted"
 msgstr ""
 
-#: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsPermalinks.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
 msgid "Friendly URLs successfully deactivated"
 msgstr "Draugiški URL sėkmingai išjungti"
 
@@ -841,15 +832,15 @@ msgstr "Puiku, puikus! Mes ką tik atnaujinome jūsų komentarą"
 msgid "Great! We've just updated your listing"
 msgstr "Puiku, puikus! Ką tik atnaujinome jūsų įrašą"
 
-#: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsPermalinks.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
 msgid "Here's the content you have to add to the <b>.htaccess</b> file. If you can't create the file or experience some problems with the URLs, please deactivate the <em>Friendly URLs</em> option."
 msgstr "Štai turinys, kurį turite įtraukti į <b>.htaccess</b> failą. Jei negalite sukurti failo arba kyla problemų dėl URL, išjunkite parinktį <em>Draugiški URL</em> ."
 
-#: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsPermalinks.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
 msgid "Here's the content you have to add to the <b>.htaccess</b> file. If you can't create the file, please deactivate the <em>Friendly URLs</em> option."
 msgstr "Štai turinys, kurį turite įtraukti į <b>.htaccess</b> failą. Jei negalite sukurti failo, išjunkite parinktį <em>Draugiški URL</em> ."
 
-#: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsPermalinks.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
 msgid "Here's the content you have to add to the <b>.htaccess</b> file. If you can't modify the file or experience some problems with the URLs, please deactivate the <em>Friendly URLs</em> option."
 msgstr "Štai turinys, kurį turite įtraukti į <b>.htaccess</b> failą. Jei negalite modifikuoti failo arba kyla problemų dėl URL, išjunkite parinktį <em>Draugiški URL</em> ."
 
@@ -857,7 +848,7 @@ msgstr "Štai turinys, kurį turite įtraukti į <b>.htaccess</b> failą. Jei ne
 msgid "History"
 msgstr ""
 
-#: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsPermalinks.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
 msgid "However, we can't check if Apache module <b>mod_rewrite</b> is loaded. If you experience some problems with the URLs, you should deactivate <em>Friendly URLs</em>"
 msgstr "Tačiau mes negalime patikrinti, ar Apache modulis <b>mod_rewrite</b> yra pakrautas. Jei kyla problemų dėl URL, turėtumėte išjungti <em>Draugiški URL</em>"
 
@@ -885,7 +876,7 @@ msgstr "Importavimas baigtas"
 msgid "Incorrect link"
 msgstr "Neteisingas saitas"
 
-#: oc-includes/osclass/classes/controller/admin/CAdminAdmins.php
+#: oc-includes/osclass/classes/admin/form/AdminAccountForm.php
 msgid "Incorrent current password"
 msgstr "Incorrent dabartinis slaptažodis"
 
@@ -923,6 +914,10 @@ msgstr ""
 
 #: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsKeywordBlock.php
 msgid "Keyword updated correctly"
+msgstr ""
+
+#: oc-includes/osclass/classes/actions/UserActions.php
+msgid "Landline"
 msgstr ""
 
 #: oc-includes/osclass/classes/controller/admin/CAdminLanguages.php
@@ -989,10 +984,6 @@ msgstr ""
 msgid "Mail server configuration has changed"
 msgstr "Pašto serverio konfigūracija pakeista"
 
-#: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsMailserver.php
-msgid "Mail server type is incorrect"
-msgstr "Pašto serverio tipas neteisingas"
-
 #: oc-includes/osclass/classes/controller/admin/CAdminTools.php
 msgid "Maintenance mode is OFF"
 msgstr "Priežiūros režimas išjungtas"
@@ -1000,10 +991,6 @@ msgstr "Priežiūros režimas išjungtas"
 #: oc-includes/osclass/classes/controller/admin/CAdminTools.php
 msgid "Maintenance mode is ON"
 msgstr "Priežiūros režimas įjungtas"
-
-#: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsMain.php
-msgid "Max latest listings has to be a numeric value"
-msgstr "Maksimalus naujausių sąrašų skaičius turi būti skaitinė reikšmė"
 
 #: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsMedia.php
 msgid "Media config has been updated"
@@ -1019,12 +1006,17 @@ msgstr ""
 msgid "Message"
 msgstr "Pranešimas"
 
+#: oc-includes/osclass/classes/actions/UserActions.php
 #: oc-includes/osclass/gui/account/user-profile-content.php
 msgid "Mobile"
 msgstr ""
 
 #: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsKeywordBlock.php
 msgid "Moderation settings have been updated"
+msgstr ""
+
+#: oc-includes/osclass/classes/actions/UserActions.php
+msgid "Municipality"
 msgstr ""
 
 #: oc-includes/osclass/classes/actions/ItemActions.php
@@ -1035,14 +1027,11 @@ msgstr "Savivaldybė per ilgai."
 msgid "Municipality too short."
 msgstr "Savivaldybė per trumpa."
 
+#: oc-includes/osclass/classes/actions/UserActions.php
 #: oc-includes/osclass/gui/account/user-profile-content.php
 #: oc-includes/osclass/gui/account/user-register-content.php
 msgid "Name"
 msgstr "Vardas, pavadinimas"
-
-#: oc-includes/osclass/classes/controller/admin/CAdminAdmins.php
-msgid "Name invalid"
-msgstr "Pavadinimas neleistinas"
 
 #: oc-includes/osclass/classes/actions/ItemActions.php
 msgid "Name too long."
@@ -1189,29 +1178,9 @@ msgstr "Dešimtainių dalių skaičiuje turi būti tik skaitiniai simboliai"
 msgid "Number of expiration days has to be a numeric value"
 msgstr "Galiojimo dienų skaičius turi būti skaitinė reikšmė"
 
-#: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsMain.php
-msgid "Number of listings in the RSS has to be a numeric value"
-msgstr "RSS sąrašų skaičius turi būti skaitinė reikšmė"
-
-#: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsMain.php
-msgid "Number of listings in the RSS must be an integer"
-msgstr "RSS sąrašų skaičius turi būti sveikasis skaičius"
-
-#: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsMain.php
-msgid "Number of listings on search has to be a numeric value"
-msgstr "Sąrašų skaičius paieškoje turi būti skaitinė reikšmė"
-
-#: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsComments.php
-msgid "Number of moderate comments must only contain numeric characters"
-msgstr "Nuosaikių komentarų skaičiuje turi būti tik skaitiniai simboliai"
-
 #: oc-includes/osclass/classes/controller/admin/CAdminItems.php
 msgid "Number of moderated listings must only contain numeric characters"
 msgstr "Prižiūrimų sąrašų skaičiuje turi būti tik skaitiniai simboliai"
-
-#: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsMain.php
-msgid "Number of recent listings displayed at home must be an integer"
-msgstr "Namuose rodomų naujausių sąrašų skaičius turi būti sveikasis skaičius"
 
 #: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsStorage.php
 msgid "Offload queued. Images move to remote storage in the background as the storage worker runs."
@@ -1257,14 +1226,6 @@ msgstr[3] "%s draudimo taisyklės panaikintos"
 #: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsCurrencies.php
 msgid "One currency has been deleted"
 msgstr "Panaikinta viena valiuta"
-
-#: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsPermalinks.php
-msgid "One field was not updated"
-msgid_plural "%s fields were not updated"
-msgstr[0] "Vienas laukas nebuvo atnaujintas"
-msgstr[1] "%s laukai neatnaujinti"
-msgstr[2] "%s laukai neatnaujinti"
-msgstr[3] "%s laukai neatnaujinti"
 
 #: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsKeywordBlock.php
 msgid "One keyword has been deleted"
@@ -1392,7 +1353,7 @@ msgstr ""
 msgid "Package updated"
 msgstr ""
 
-#: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsMain.php
+#: oc-includes/osclass/classes/admin/form/MainSettingsForm.php
 msgid "Page title field is required"
 msgstr "Būtinas puslapio pavadinimo laukas"
 
@@ -1421,10 +1382,6 @@ msgstr "Slaptažodis negali būti tuščias"
 msgid "Password has been changed"
 msgstr "Slaptažodis pakeistas"
 
-#: oc-includes/osclass/classes/controller/admin/CAdminAdmins.php
-msgid "Password invalid"
-msgstr "Slaptažodis neleistinas"
-
 #: oc-includes/osclass/classes/controller/CWebUser.php
 msgid "Passwords can't be empty"
 msgstr "Slaptažodžiai negali būti tušti"
@@ -1451,11 +1408,11 @@ msgstr ""
 msgid "Pending"
 msgstr ""
 
-#: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsPermalinks.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
 msgid "Permalinks structure updated"
 msgstr "Atnaujinta permalinkų struktūra"
 
-#: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsPermalinks.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
 msgid "Permalinks structure updated."
 msgstr "Permalinks struktūra atnaujinta."
 
@@ -1466,6 +1423,10 @@ msgstr "Telefonas neleistinas."
 #: oc-includes/osclass/gui/item-contact-content.php
 msgid "Phone number"
 msgstr "Telefono numeris"
+
+#: oc-includes/osclass/classes/actions/ItemActions.php
+msgid "Phone too long."
+msgstr ""
 
 #: oc-includes/osclass/gui/account/user-profile-content.php
 msgid "Picture"
@@ -1621,6 +1582,7 @@ msgstr ""
 msgid "Refunded"
 msgstr ""
 
+#: oc-includes/osclass/classes/actions/UserActions.php
 #: oc-includes/osclass/gui/account/user-profile-content.php
 msgid "Region"
 msgstr "Regionas"
@@ -1858,6 +1820,10 @@ msgstr ""
 msgid "Thanks! That's very helpful"
 msgstr "Ačiū! Tai labai naudinga"
 
+#: oc-includes/osclass/classes/controller/admin/CAdminUsers.php
+msgid "That ban rule no longer exists"
+msgstr ""
+
 #: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsSitemap.php
 msgid "That custom URL no longer exists"
 msgstr ""
@@ -1912,6 +1878,10 @@ msgstr ""
 
 #: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsCustom.php
 msgid "That settings page is not available"
+msgstr ""
+
+#: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsCustom.php
+msgid "That settings page saves into a table, which needs a controller of its own"
 msgstr ""
 
 #: oc-includes/osclass/classes/controller/CWebBilling.php
@@ -2140,10 +2110,6 @@ msgstr "Sąrašas nepažymėtas kaip nepažymėtas kaip"
 msgid "The listing hasn't been validated. Please validate it in order to make it public"
 msgstr "Sąrašas nepatvirtintas. Patvirtinkite jį, kad jis būtų viešas"
 
-#: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsPermalinks.php
-msgid "The listing permalink structure must include {ITEM_ID}; it was left unchanged."
-msgstr ""
-
 #: oc-includes/osclass/classes/controller/CWebItem.php
 msgid "The listing you are trying to delete couldn't be deleted"
 msgstr "Sąrašo, kurį bandote panaikinti, panaikinti nepavyko"
@@ -2176,7 +2142,7 @@ msgstr "Puslapis atnaujintas"
 msgid "The password cannot be empty"
 msgstr "Slaptažodis negali būti tuščias"
 
-#: oc-includes/osclass/classes/controller/admin/CAdminAdmins.php
+#: oc-includes/osclass/classes/admin/form/AdminAccountForm.php
 msgid "The password couldn't be updated. Passwords don't match"
 msgstr "Slaptažodžio atnaujinti nepavyko. Slaptažodžiai nesutampa"
 
@@ -2341,10 +2307,6 @@ msgstr ""
 #: oc-includes/osclass/classes/controller/admin/CAdminTools.php
 msgid "There are no tables to back up"
 msgstr "Nėra lentelių, kurių atsargines dalis būtų sukurta"
-
-#: oc-includes/osclass/classes/controller/admin/CAdminAdmins.php
-msgid "There has been an error adding a new admin"
-msgstr "Įtraukiant naują administratorių įvyko klaida"
 
 #: oc-includes/osclass/emails.php
 msgid "There has been some errors sending the message"
@@ -2520,15 +2482,16 @@ msgstr "Vartotojo registracija neįgalinta"
 msgid "User settings have been updated"
 msgstr "Vartotojo parametrai atnaujinti"
 
+#: oc-includes/osclass/classes/actions/UserActions.php
 #: oc-includes/osclass/gui/account/user-signin-content.php
 msgid "Username"
 msgstr "Vartotojo vardas"
 
-#: oc-includes/osclass/classes/controller/admin/CAdminAdmins.php
+#: oc-includes/osclass/classes/admin/form/AdminAccountForm.php
 msgid "Username already in use"
 msgstr "Vartotojo vardas jau naudojamas"
 
-#: oc-includes/osclass/classes/controller/admin/CAdminAdmins.php
+#: oc-includes/osclass/classes/admin/form/AdminAccountForm.php
 msgid "Username invalid"
 msgstr "Vartotojo vardas neleistinas"
 
@@ -2596,6 +2559,7 @@ msgstr "Ką tik išsiuntėme pardavėjui el. laišką"
 msgid "We've sent you an e-mail. Follow its instructions to validate the changes"
 msgstr "Išsiuntėme jums el. laišką. Vadovaukitės jo instrukcijomis, kad patikrintumėte pakeitimus"
 
+#: oc-includes/osclass/classes/actions/UserActions.php
 #: oc-includes/osclass/gui/account/user-profile-content.php
 msgid "Website"
 msgstr "Interneto svetainė"
@@ -2712,6 +2676,10 @@ msgstr "Jūsų Akismet raktas atnaujintas"
 #: oc-includes/osclass/gui/account/nav.php
 #: oc-includes/osclass/helpers/hTheme.php
 msgid "Your account"
+msgstr ""
+
+#: oc-includes/osclass/classes/actions/UserActions.php
+msgid "Your account could not be created. Please try again."
 msgstr ""
 
 #: oc-includes/osclass/classes/controller/CWebRegister.php
@@ -2835,6 +2803,10 @@ msgstr ""
 msgid "Your profile"
 msgstr ""
 
+#: oc-includes/osclass/classes/actions/UserActions.php
+msgid "Your profile could not be saved. Please try again."
+msgstr ""
+
 #: oc-includes/osclass/classes/controller/CWebUser.php
 msgid "Your profile has been updated successfully"
 msgstr "Jūsų profilis sėkmingai atnaujintas"
@@ -2851,8 +2823,20 @@ msgstr "Jūsų reCAPTCHA raktas atnaujintas"
 msgid "Your session has expired, please reload the page and try again."
 msgstr ""
 
+#: oc-includes/osclass/classes/actions/UserActions.php
+msgid "Zip code"
+msgstr "Pašto indeksas"
+
+#: oc-includes/osclass/classes/actions/ItemActions.php
+msgid "Zip code too long."
+msgstr ""
+
 #: oc-includes/osclass/gui/billing/wallet-content.php
 msgid "credits available"
+msgstr ""
+
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
+msgid "nginx does not read .htaccess: check the server rules below are in your nginx configuration, then reload nginx."
 msgstr ""
 
 #: oc-includes/osclass/gui/item-comments-content.php

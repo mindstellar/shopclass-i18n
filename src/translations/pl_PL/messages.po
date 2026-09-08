@@ -14,7 +14,7 @@ msgstr ""
 "X-Crowdin-File: /develop/src/templates/messages.pot\n"
 "X-Crowdin-File-ID: 8243\n"
 "Language-Team: Polish\n"
-"PO-Revision-Date: 2026-09-06 13:57\n"
+"PO-Revision-Date: 2026-09-08 15:42\n"
 
 #: oc-includes/osclass/classes/controller/admin/CAdminItems.php
 msgid "%d change has been made"
@@ -220,6 +220,10 @@ msgstr "%s jest nieprawidłowy."
 msgid "%s is required."
 msgstr "%s jest wymagany."
 
+#: oc-includes/osclass/classes/actions/UserActions.php
+msgid "%s is too long, the maximum is %d characters"
+msgstr "%s jest zbyt długi, maksymalna liczba znaków to %d"
+
 #: oc-includes/osclass/classes/controller/admin/CAdminPages.php
 msgid "%s pages couldn't be deleted"
 msgstr "%s stron nie zostało usuniętych"
@@ -285,6 +289,7 @@ msgstr "Zapisano ustawienia dziennika aktywności"
 msgid "Added by admin"
 msgstr "Dodane przez administratora"
 
+#: oc-includes/osclass/classes/actions/UserActions.php
 #: oc-includes/osclass/gui/account/user-profile-content.php
 msgid "Address"
 msgstr "Adres"
@@ -314,10 +319,6 @@ msgstr "ID powiadomienia ma niepoprawny format"
 #: oc-includes/osclass/helpers/hTheme.php
 msgid "Alerts"
 msgstr "Powiadomienia"
-
-#: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsPermalinks.php
-msgid "All fields are required."
-msgstr "Wszystkie pola są obowiązkowe."
 
 #: oc-includes/osclass/gui/account/user-register-content.php
 msgid "Already have an account?"
@@ -393,7 +394,7 @@ msgstr "Płatność jest wyłączona. Włącz ją, aby korzystać z zamówień i
 msgid "Billing settings have been updated"
 msgstr "Ustawienia płatności zostały zaktualizowane"
 
-#: oc-includes/osclass/classes/controller/admin/CAdminUsers.php
+#: oc-includes/osclass/classes/admin/form/BanRuleForm.php
 msgid "Both rules can not be empty"
 msgstr "Obydwie reguły nie mogą być puste"
 
@@ -454,6 +455,7 @@ msgstr "Wybierz nowe hasło"
 msgid "Choose a package"
 msgstr "Wybierz pakiet"
 
+#: oc-includes/osclass/classes/actions/UserActions.php
 #: oc-includes/osclass/gui/account/user-profile-content.php
 msgid "City"
 msgstr "Miasto"
@@ -498,10 +500,6 @@ msgstr "Ustawienia komentarzy zostały zaktualizowane"
 msgid "Comments"
 msgstr "Komentarze"
 
-#: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsComments.php
-msgid "Comments per page must only contain numeric characters"
-msgstr "Liczba komentarzy na stronę musi być numerem"
-
 #: oc-includes/osclass/classes/controller/admin/CAdminPlugins.php
 msgid "Configuration was saved"
 msgstr "Konfiguracja zapisana"
@@ -521,10 +519,6 @@ msgstr "Test połączenia zakończony powodzeniem"
 #: oc-includes/osclass/helpers/hTheme.php
 msgid "Contact"
 msgstr "Kontakt"
-
-#: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsMain.php
-msgid "Contact email field is required"
-msgstr "Adres e-mail jest obowiązkowy"
 
 #: oc-includes/osclass/helpers/hTheme.php
 msgid "Contact the seller"
@@ -546,6 +540,7 @@ msgstr "Połączenie z bazą danych niemożliwe. Błąd: %s"
 msgid "Could not select the database. Error: %s"
 msgstr "Błąd w wyborze bazy danych. Błąd: %s"
 
+#: oc-includes/osclass/classes/actions/UserActions.php
 #: oc-includes/osclass/gui/account/user-profile-content.php
 msgid "Country"
 msgstr "W związku z powyższym Komisja stwierdza, że w okresie objętym dochodzeniem przeglądowym przywóz produktu objętego postępowaniem z ChRL nie mógł zostać objęty środkami antydumpingowymi."
@@ -608,7 +603,7 @@ msgstr "Format waluty jest wymagany"
 msgid "Currency must be a 3-letter code, e.g. USD"
 msgstr "Waluta musi być trzyliterowy kod, np. USD"
 
-#: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsBilling.php
+#: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
 msgid "Currency must be a 3-letter code, e.g. USD."
 msgstr "Waluta musi być trzyliterowy kod, np. USD."
 
@@ -635,10 +630,6 @@ msgstr "Własny adres URL dodany do mapy strony"
 #: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsSitemap.php
 msgid "Custom URL removed from the sitemap"
 msgstr "Niestandardowy adres URL usunięty z mapy strony"
-
-#: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsLatestSearches.php
-msgid "Custom number could not be left empty"
-msgstr "Numer nie może być pusty."
 
 #: oc-includes/osclass/gui/account/nav.php
 #: oc-includes/osclass/helpers/hTheme.php
@@ -703,6 +694,10 @@ msgstr "Katalog '%s' nie mógł zostać usunięty, ponieważ jest domyślnym ję
 msgid "Directory '%s' couldn't be removed;)"
 msgstr "Nie można usunąć katalogu '%s' ;)"
 
+#: oc-includes/osclass/classes/actions/UserActions.php
+msgid "E-mail"
+msgstr "E-mail"
+
 #: oc-includes/osclass/gui/account/parts/item-row.php
 msgid "Edit"
 msgstr "Edytuj"
@@ -717,13 +712,9 @@ msgstr "Adres e-mail"
 msgid "Email address or username"
 msgstr "Adres e-mail lub nazwa użytkownika"
 
-#: oc-includes/osclass/classes/controller/admin/CAdminAdmins.php
+#: oc-includes/osclass/classes/admin/form/AdminAccountForm.php
 msgid "Email already in use"
 msgstr "Email jest już w naszej bazie"
-
-#: oc-includes/osclass/classes/controller/admin/CAdminAdmins.php
-msgid "Email invalid"
-msgstr "Niepoprawny email"
 
 #: oc-includes/osclass/classes/actions/ItemActions.php
 msgid "Email invalid."
@@ -785,11 +776,11 @@ msgstr "Błąd, plik zip nie został stworzony w wybranym katalogu"
 msgid "Error: the currency code is not in the correct format"
 msgstr "Błąd: kod nie jest poprawny"
 
-#: oc-includes/osclass/classes/controller/admin/CAdminAdmins.php
+#: oc-includes/osclass/classes/admin/form/AdminAccountForm.php
 msgid "Existing email"
 msgstr "Aktualny email"
 
-#: oc-includes/osclass/classes/controller/admin/CAdminAdmins.php
+#: oc-includes/osclass/classes/admin/form/AdminAccountForm.php
 msgid "Existing username"
 msgstr "Istniejący użytkownik"
 
@@ -801,11 +792,11 @@ msgstr "Wygasłe"
 msgid "Failed"
 msgstr "Niepowodzenie"
 
-#: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsPermalinks.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
 msgid "File <b>.htaccess</b> already exists and was not modified."
 msgstr "Plik <b>.htaccess</b> już istnieje i nie został zmodyfikowany."
 
-#: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsPermalinks.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
 msgid "File <b>.htaccess</b> couldn't be filled out with the right content."
 msgstr "Nie można wprowadzić zawartości do pliku <b>.htaccess</b> "
 
@@ -817,15 +808,15 @@ msgstr "Plik przesłany, ale nie można aktywować języka"
 msgid "Forgotten your password?"
 msgstr "Zapomniałeś hasła?"
 
-#: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsPermalinks.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
 msgid "Friendly URLs deactivated, but .htaccess file could not be deleted. Please, remove it manually"
 msgstr "Funkcja przyjaznych URL została wyłączona, ale plik .htaccess nie może zostać usunięty. Proszę usunąć go ręcznie."
 
-#: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsPermalinks.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
 msgid "Friendly URLs deactivated, but .htaccess file was modified outside Shopclass and was not deleted"
 msgstr "Przyjazne adresy URL dezaktywowane, ale plik .htaccess został zmodyfikowany poza Shopclass i nie został usunięty"
 
-#: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsPermalinks.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
 msgid "Friendly URLs successfully deactivated"
 msgstr "Przyjazne URLs dezaktywowane z sukcesem"
 
@@ -841,15 +832,15 @@ msgstr "Świetnie! Aktualizowaliśmy Twój komentarz!"
 msgid "Great! We've just updated your listing"
 msgstr "Świetnie! Twoje ogłoszenie zostało zaktualizowane"
 
-#: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsPermalinks.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
 msgid "Here's the content you have to add to the <b>.htaccess</b> file. If you can't create the file or experience some problems with the URLs, please deactivate the <em>Friendly URLs</em> option."
 msgstr "To jest zawartość, którą musisz wprowadzić do pliku <b>.htaccess</b>. Jeśli nie możesz stworzyć pliku lub masz problemy z URL, zdezaktywuj opcję <em>przyjaznych URL</em> "
 
-#: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsPermalinks.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
 msgid "Here's the content you have to add to the <b>.htaccess</b> file. If you can't create the file, please deactivate the <em>Friendly URLs</em> option."
 msgstr "To jest zawartość, którą musisz wprowadzić do pliku <b>.htaccess</b>. Jeśli nie możesz stworzyć pliku, zdezaktywuj opcję <em>przyjaznych URL</em>"
 
-#: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsPermalinks.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
 msgid "Here's the content you have to add to the <b>.htaccess</b> file. If you can't modify the file or experience some problems with the URLs, please deactivate the <em>Friendly URLs</em> option."
 msgstr "Oto zawartość, którą musisz dodać do pliku <b>.htaccess</b>. Jeśli nie można zmodyfikować plik lub wystąpił problem z adresami URL, należy wyłączyć funkcję <em>Przyjazne URL</em>."
 
@@ -857,7 +848,7 @@ msgstr "Oto zawartość, którą musisz dodać do pliku <b>.htaccess</b>. Jeśli
 msgid "History"
 msgstr "Historia"
 
-#: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsPermalinks.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
 msgid "However, we can't check if Apache module <b>mod_rewrite</b> is loaded. If you experience some problems with the URLs, you should deactivate <em>Friendly URLs</em>"
 msgstr "Nie możemy sprawdzić czy moduł Apache <b>mod_rewrite</b> jest załadowany.  Jeśli masz problemy z adresami URL, wyłącz opcję  <em> Przyjaznych URLs </em>."
 
@@ -885,7 +876,7 @@ msgstr "Import zakończony sukcesem"
 msgid "Incorrect link"
 msgstr "Nieprawidłowy link"
 
-#: oc-includes/osclass/classes/controller/admin/CAdminAdmins.php
+#: oc-includes/osclass/classes/admin/form/AdminAccountForm.php
 msgid "Incorrent current password"
 msgstr "Wprowadź aktualne hasło"
 
@@ -924,6 +915,10 @@ msgstr "Słowo kluczowe zapisane poprawnie"
 #: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsKeywordBlock.php
 msgid "Keyword updated correctly"
 msgstr "Słowo kluczowe zaktualizowane poprawnie"
+
+#: oc-includes/osclass/classes/actions/UserActions.php
+msgid "Landline"
+msgstr "Linia stacjonarna"
 
 #: oc-includes/osclass/classes/controller/admin/CAdminLanguages.php
 msgid "Language description field is required"
@@ -989,10 +984,6 @@ msgstr "Zalogowano jako %s"
 msgid "Mail server configuration has changed"
 msgstr "Konfiguracja serwera poczty zapisana"
 
-#: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsMailserver.php
-msgid "Mail server type is incorrect"
-msgstr "Serwer poczty jest niepoprawny"
-
 #: oc-includes/osclass/classes/controller/admin/CAdminTools.php
 msgid "Maintenance mode is OFF"
 msgstr "Tryb obsługi WYŁĄCZONY"
@@ -1000,10 +991,6 @@ msgstr "Tryb obsługi WYŁĄCZONY"
 #: oc-includes/osclass/classes/controller/admin/CAdminTools.php
 msgid "Maintenance mode is ON"
 msgstr "Tryb obsługi WŁĄCZONY "
-
-#: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsMain.php
-msgid "Max latest listings has to be a numeric value"
-msgstr "Maksymalna liczba ostatnich ogłoszeń musi być wartością numeryczną"
 
 #: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsMedia.php
 msgid "Media config has been updated"
@@ -1019,6 +1006,7 @@ msgstr "Członek od %s"
 msgid "Message"
 msgstr "Wiadomość"
 
+#: oc-includes/osclass/classes/actions/UserActions.php
 #: oc-includes/osclass/gui/account/user-profile-content.php
 msgid "Mobile"
 msgstr "Komórka"
@@ -1026,6 +1014,10 @@ msgstr "Komórka"
 #: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsKeywordBlock.php
 msgid "Moderation settings have been updated"
 msgstr "Ustawienia moderacji zostały zaktualizowane"
+
+#: oc-includes/osclass/classes/actions/UserActions.php
+msgid "Municipality"
+msgstr "Municipality"
 
 #: oc-includes/osclass/classes/actions/ItemActions.php
 msgid "Municipality too long."
@@ -1035,14 +1027,11 @@ msgstr "Miejscowość za długa."
 msgid "Municipality too short."
 msgstr "Miejscowość za krótka."
 
+#: oc-includes/osclass/classes/actions/UserActions.php
 #: oc-includes/osclass/gui/account/user-profile-content.php
 #: oc-includes/osclass/gui/account/user-register-content.php
 msgid "Name"
 msgstr "Imię"
-
-#: oc-includes/osclass/classes/controller/admin/CAdminAdmins.php
-msgid "Name invalid"
-msgstr "Nazwa nieważna"
 
 #: oc-includes/osclass/classes/actions/ItemActions.php
 msgid "Name too long."
@@ -1189,29 +1178,9 @@ msgstr "Liczba miejsc po przecinku musi być numerem"
 msgid "Number of expiration days has to be a numeric value"
 msgstr "Liczba dni ważności musi być liczbą całkowitą"
 
-#: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsMain.php
-msgid "Number of listings in the RSS has to be a numeric value"
-msgstr "Numer ogłoszeń w RSS musi być wartością liczbową"
-
-#: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsMain.php
-msgid "Number of listings in the RSS must be an integer"
-msgstr "Ilość ogłoszeń w RSS musi być liczbą całkowitą"
-
-#: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsMain.php
-msgid "Number of listings on search has to be a numeric value"
-msgstr "Liczba ogłoszeń wyszukiwanych musi być wartością liczbową"
-
-#: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsComments.php
-msgid "Number of moderate comments must only contain numeric characters"
-msgstr "Liczba moderowanych komentarzy musi być numerem"
-
 #: oc-includes/osclass/classes/controller/admin/CAdminItems.php
 msgid "Number of moderated listings must only contain numeric characters"
 msgstr "Liczba moderowanych ogłoszeń musi być numerem"
-
-#: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsMain.php
-msgid "Number of recent listings displayed at home must be an integer"
-msgstr "Ilość ostatnio pokazanych ogłoszeń na stronie głównej musi być liczbą całkowitą"
 
 #: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsStorage.php
 msgid "Offload queued. Images move to remote storage in the background as the storage worker runs."
@@ -1257,14 +1226,6 @@ msgstr[3] "%s zasady bana zostały usunięte"
 #: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsCurrencies.php
 msgid "One currency has been deleted"
 msgstr "Waluta została usunięta"
-
-#: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsPermalinks.php
-msgid "One field was not updated"
-msgid_plural "%s fields were not updated"
-msgstr[0] "jedno pole nie zostało zaktualizowane"
-msgstr[1] "%s pól nie zostało zaktualizowanych"
-msgstr[2] "%s pól nie zostało zaktualizowanych"
-msgstr[3] "%s pól nie zostało zaktualizowanych"
 
 #: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsKeywordBlock.php
 msgid "One keyword has been deleted"
@@ -1392,7 +1353,7 @@ msgstr "Pakiet usunięty"
 msgid "Package updated"
 msgstr "Pakiet zaktualizowany"
 
-#: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsMain.php
+#: oc-includes/osclass/classes/admin/form/MainSettingsForm.php
 msgid "Page title field is required"
 msgstr "Pole tytułu strony jest obowiązkowe"
 
@@ -1421,10 +1382,6 @@ msgstr "Hasło nie może być puste"
 msgid "Password has been changed"
 msgstr "Hasło zostało zmienione"
 
-#: oc-includes/osclass/classes/controller/admin/CAdminAdmins.php
-msgid "Password invalid"
-msgstr "Błędne hasło"
-
 #: oc-includes/osclass/classes/controller/CWebUser.php
 msgid "Passwords can't be empty"
 msgstr "Pole hasło nie może być puste"
@@ -1451,11 +1408,11 @@ msgstr "Metoda płatności"
 msgid "Pending"
 msgstr "Oczekujące"
 
-#: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsPermalinks.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
 msgid "Permalinks structure updated"
 msgstr "Struktura permalinks zaktualizowana"
 
-#: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsPermalinks.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
 msgid "Permalinks structure updated."
 msgstr "Struktura permalinks zaktualizowana"
 
@@ -1466,6 +1423,10 @@ msgstr "Nieprawidłowy numer telefonu."
 #: oc-includes/osclass/gui/item-contact-content.php
 msgid "Phone number"
 msgstr "Numer telefonu"
+
+#: oc-includes/osclass/classes/actions/ItemActions.php
+msgid "Phone too long."
+msgstr "Zbyt długi telefon."
 
 #: oc-includes/osclass/gui/account/user-profile-content.php
 msgid "Picture"
@@ -1621,6 +1582,7 @@ msgstr "Zwrot"
 msgid "Refunded"
 msgstr "Zwrócono"
 
+#: oc-includes/osclass/classes/actions/UserActions.php
 #: oc-includes/osclass/gui/account/user-profile-content.php
 msgid "Region"
 msgstr "Region"
@@ -1858,6 +1820,10 @@ msgstr "Dziękujemy! Twoje zgłoszenie zostało otrzymane."
 msgid "Thanks! That's very helpful"
 msgstr "Dzięki! Jest to bardzo pomocne!"
 
+#: oc-includes/osclass/classes/controller/admin/CAdminUsers.php
+msgid "That ban rule no longer exists"
+msgstr "Ta reguła bana już nie istnieje"
+
 #: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsSitemap.php
 msgid "That custom URL no longer exists"
 msgstr "Ten niestandardowy adres URL już nie istnieje"
@@ -1913,6 +1879,10 @@ msgstr "Ta metoda płatności nie jest dostępna"
 #: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsCustom.php
 msgid "That settings page is not available"
 msgstr "Ta strona ustawień nie jest dostępna"
+
+#: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsCustom.php
+msgid "That settings page saves into a table, which needs a controller of its own"
+msgstr "Ta strona ustawień zapisuje w tabeli, która potrzebuje własnego kontrolera"
 
 #: oc-includes/osclass/classes/controller/CWebBilling.php
 msgid "That upgrade is not available"
@@ -2140,10 +2110,6 @@ msgstr "Ogłoszenie nie zostało odznaczone jako"
 msgid "The listing hasn't been validated. Please validate it in order to make it public"
 msgstr "Twoje ogłoszenie nie zostało zweryfikowane. Prosimy o jego weryfikację, aby móc je opublikować."
 
-#: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsPermalinks.php
-msgid "The listing permalink structure must include {ITEM_ID}; it was left unchanged."
-msgstr "Struktura permalinka listy musi zawierać {ITEM_ID}; została niezmieniona."
-
 #: oc-includes/osclass/classes/controller/CWebItem.php
 msgid "The listing you are trying to delete couldn't be deleted"
 msgstr "Ogłoszenie które próbujesz skasować, nie może zostać usunięte"
@@ -2176,7 +2142,7 @@ msgstr "Strona została aktualizowana"
 msgid "The password cannot be empty"
 msgstr "HAsło nie może być puste"
 
-#: oc-includes/osclass/classes/controller/admin/CAdminAdmins.php
+#: oc-includes/osclass/classes/admin/form/AdminAccountForm.php
 msgid "The password couldn't be updated. Passwords don't match"
 msgstr "Hasło nie może być zaktualizowne. Hasła nie pasują"
 
@@ -2341,10 +2307,6 @@ msgstr "W tej chwili nie ma pakietów kredytowych do sprzedaży."
 #: oc-includes/osclass/classes/controller/admin/CAdminTools.php
 msgid "There are no tables to back up"
 msgstr "Brak tabel do wykonania kopii zapasowej"
-
-#: oc-includes/osclass/classes/controller/admin/CAdminAdmins.php
-msgid "There has been an error adding a new admin"
-msgstr "Wystąpił błąd podczas dodawania nowego administratora"
 
 #: oc-includes/osclass/emails.php
 msgid "There has been some errors sending the message"
@@ -2520,15 +2482,16 @@ msgstr "Rejestracja użytkowników niedostępna"
 msgid "User settings have been updated"
 msgstr "Zaktualizowano ustawienia użytkownika"
 
+#: oc-includes/osclass/classes/actions/UserActions.php
 #: oc-includes/osclass/gui/account/user-signin-content.php
 msgid "Username"
 msgstr "Użytkownik "
 
-#: oc-includes/osclass/classes/controller/admin/CAdminAdmins.php
+#: oc-includes/osclass/classes/admin/form/AdminAccountForm.php
 msgid "Username already in use"
 msgstr "Login jest już zajęty"
 
-#: oc-includes/osclass/classes/controller/admin/CAdminAdmins.php
+#: oc-includes/osclass/classes/admin/form/AdminAccountForm.php
 msgid "Username invalid"
 msgstr "Niepoprawny login"
 
@@ -2596,6 +2559,7 @@ msgstr "Wiadomość do sprzedającego została wysłana"
 msgid "We've sent you an e-mail. Follow its instructions to validate the changes"
 msgstr "Wysłaliśmy Ci email. Postępuj zgodnie ze wskazówkami, aby zatwierdzić zmiany."
 
+#: oc-includes/osclass/classes/actions/UserActions.php
 #: oc-includes/osclass/gui/account/user-profile-content.php
 msgid "Website"
 msgstr "Strona internetowa"
@@ -2713,6 +2677,10 @@ msgstr "Twój klucz Akismet został zaktualizowany"
 #: oc-includes/osclass/helpers/hTheme.php
 msgid "Your account"
 msgstr "Twoje konto"
+
+#: oc-includes/osclass/classes/actions/UserActions.php
+msgid "Your account could not be created. Please try again."
+msgstr "Twoje konto nie może zostać utworzone. Spróbuj ponownie."
 
 #: oc-includes/osclass/classes/controller/CWebRegister.php
 msgid "Your account has already been validated"
@@ -2835,6 +2803,10 @@ msgstr "Twoje zamówienia"
 msgid "Your profile"
 msgstr "Twój profil"
 
+#: oc-includes/osclass/classes/actions/UserActions.php
+msgid "Your profile could not be saved. Please try again."
+msgstr "Twój profil nie może zostać zapisany. Spróbuj ponownie."
+
 #: oc-includes/osclass/classes/controller/CWebUser.php
 msgid "Your profile has been updated successfully"
 msgstr "Twój profil został aktualizowany z powodzeniem."
@@ -2851,9 +2823,21 @@ msgstr "Twój klucz reCAPTCHA został zaktualizowany"
 msgid "Your session has expired, please reload the page and try again."
 msgstr "Twoja sesja wygasła, odśwież stronę i spróbuj ponownie."
 
+#: oc-includes/osclass/classes/actions/UserActions.php
+msgid "Zip code"
+msgstr "Kod pocztowy"
+
+#: oc-includes/osclass/classes/actions/ItemActions.php
+msgid "Zip code too long."
+msgstr "Kod pocztowy jest zbyt długi."
+
 #: oc-includes/osclass/gui/billing/wallet-content.php
 msgid "credits available"
 msgstr "dostępne kredyty"
+
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
+msgid "nginx does not read .htaccess: check the server rules below are in your nginx configuration, then reload nginx."
+msgstr "nginx nie odczytuje .htaccess: sprawdź czy poniższe reguły serwera znajdują się w konfiguracji nginx, a następnie odśwież nginx."
 
 #: oc-includes/osclass/gui/item-comments-content.php
 msgid "not published"

@@ -14,7 +14,7 @@ msgstr ""
 "X-Crowdin-File: /develop/src/templates/messages.pot\n"
 "X-Crowdin-File-ID: 8243\n"
 "Language-Team: Ukrainian\n"
-"PO-Revision-Date: 2026-09-06 13:58\n"
+"PO-Revision-Date: 2026-09-08 15:42\n"
 
 #: oc-includes/osclass/classes/controller/admin/CAdminItems.php
 msgid "%d change has been made"
@@ -220,6 +220,10 @@ msgstr ""
 msgid "%s is required."
 msgstr "%s є обов'язковим."
 
+#: oc-includes/osclass/classes/actions/UserActions.php
+msgid "%s is too long, the maximum is %d characters"
+msgstr "%s занадто довгий, максимальна кількість символів є %d"
+
 #: oc-includes/osclass/classes/controller/admin/CAdminPages.php
 msgid "%s pages couldn't be deleted"
 msgstr "%s сторінок не можуть бути видалені"
@@ -285,6 +289,7 @@ msgstr "Налаштування журналу активності збере�
 msgid "Added by admin"
 msgstr "Додано адміністратором"
 
+#: oc-includes/osclass/classes/actions/UserActions.php
 #: oc-includes/osclass/gui/account/user-profile-content.php
 msgid "Address"
 msgstr "Адреса"
@@ -314,10 +319,6 @@ msgstr "id cповіщення не є у правильному форматі"
 #: oc-includes/osclass/helpers/hTheme.php
 msgid "Alerts"
 msgstr "Попередження"
-
-#: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsPermalinks.php
-msgid "All fields are required."
-msgstr "Всі поля обов'язкові для заповнення."
 
 #: oc-includes/osclass/gui/account/user-register-content.php
 msgid "Already have an account?"
@@ -393,7 +394,7 @@ msgstr "Платіж відключений. Увімкніть його для 
 msgid "Billing settings have been updated"
 msgstr "Налаштування оплати були оновлені"
 
-#: oc-includes/osclass/classes/controller/admin/CAdminUsers.php
+#: oc-includes/osclass/classes/admin/form/BanRuleForm.php
 msgid "Both rules can not be empty"
 msgstr "Обидва правила не можуть бути порожніми"
 
@@ -454,6 +455,7 @@ msgstr "Оберіть новий пароль"
 msgid "Choose a package"
 msgstr "Виберіть пакет"
 
+#: oc-includes/osclass/classes/actions/UserActions.php
 #: oc-includes/osclass/gui/account/user-profile-content.php
 msgid "City"
 msgstr "Місто"
@@ -498,10 +500,6 @@ msgstr "Налаштування коментарів успішно оновл�
 msgid "Comments"
 msgstr "Коментарі"
 
-#: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsComments.php
-msgid "Comments per page must only contain numeric characters"
-msgstr "Кількість коментарів на сторінці повинні містити тільки цифри"
-
 #: oc-includes/osclass/classes/controller/admin/CAdminPlugins.php
 msgid "Configuration was saved"
 msgstr "Конфігурація збережена"
@@ -521,10 +519,6 @@ msgstr "Перевірка підключення пройшла успішно"
 #: oc-includes/osclass/helpers/hTheme.php
 msgid "Contact"
 msgstr "Контакт"
-
-#: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsMain.php
-msgid "Contact email field is required"
-msgstr "Поле контактного e-mail обов'язкове для заповнення"
 
 #: oc-includes/osclass/helpers/hTheme.php
 msgid "Contact the seller"
@@ -546,6 +540,7 @@ msgstr "Не можу з'єднатися з базй даних. Помилка
 msgid "Could not select the database. Error: %s"
 msgstr "Не вдалося вибрати базу даних. Помилка: %s"
 
+#: oc-includes/osclass/classes/actions/UserActions.php
 #: oc-includes/osclass/gui/account/user-profile-content.php
 msgid "Country"
 msgstr "Країна"
@@ -608,7 +603,7 @@ msgstr "Поле формату валюти обов'язково для зап
 msgid "Currency must be a 3-letter code, e.g. USD"
 msgstr "Валюта має бути 3-буквеним кодом, наприклад USD"
 
-#: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsBilling.php
+#: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
 msgid "Currency must be a 3-letter code, e.g. USD."
 msgstr "Валюта має бути 3-буквеним кодом, наприклад USD."
 
@@ -635,10 +630,6 @@ msgstr "Користувацька URL-адреса, додана до мапи 
 #: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsSitemap.php
 msgid "Custom URL removed from the sitemap"
 msgstr "Користувацька URL-адреса видалена з мапи сайту"
-
-#: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsLatestSearches.php
-msgid "Custom number could not be left empty"
-msgstr "Число користувача  не може бути порожнім"
 
 #: oc-includes/osclass/gui/account/nav.php
 #: oc-includes/osclass/helpers/hTheme.php
@@ -703,6 +694,10 @@ msgstr "Каталог '%s' не вдалося видалити, оскільк
 msgid "Directory '%s' couldn't be removed;)"
 msgstr "Каталог '%s' не може бути видалений;)"
 
+#: oc-includes/osclass/classes/actions/UserActions.php
+msgid "E-mail"
+msgstr "Ел. пошта"
+
 #: oc-includes/osclass/gui/account/parts/item-row.php
 msgid "Edit"
 msgstr "Редагувати"
@@ -717,13 +712,9 @@ msgstr "Адреса електронної пошти"
 msgid "Email address or username"
 msgstr "Електронна пошта або ім'я користувача"
 
-#: oc-includes/osclass/classes/controller/admin/CAdminAdmins.php
+#: oc-includes/osclass/classes/admin/form/AdminAccountForm.php
 msgid "Email already in use"
 msgstr "Цей e - mail вже використовується"
-
-#: oc-includes/osclass/classes/controller/admin/CAdminAdmins.php
-msgid "Email invalid"
-msgstr "E - mail недійсний"
 
 #: oc-includes/osclass/classes/actions/ItemActions.php
 msgid "Email invalid."
@@ -785,11 +776,11 @@ msgstr "Помилка, zip файл не створений у вказаном
 msgid "Error: the currency code is not in the correct format"
 msgstr "Помилка: Код валюти знаходиться в неправильному форматі"
 
-#: oc-includes/osclass/classes/controller/admin/CAdminAdmins.php
+#: oc-includes/osclass/classes/admin/form/AdminAccountForm.php
 msgid "Existing email"
 msgstr "Існуючий e - mail"
 
-#: oc-includes/osclass/classes/controller/admin/CAdminAdmins.php
+#: oc-includes/osclass/classes/admin/form/AdminAccountForm.php
 msgid "Existing username"
 msgstr "Існуюче ім'я користувача"
 
@@ -801,11 +792,11 @@ msgstr "Застарілі"
 msgid "Failed"
 msgstr "Не вдалося"
 
-#: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsPermalinks.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
 msgid "File <b>.htaccess</b> already exists and was not modified."
 msgstr "Файл <b>.htaccess</b> вже існує і не був змінений."
 
-#: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsPermalinks.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
 msgid "File <b>.htaccess</b> couldn't be filled out with the right content."
 msgstr "Файл <b>.htaccess</b> не може бути заповнений!"
 
@@ -817,15 +808,15 @@ msgstr "Файл завантажений, але не вдалося актив
 msgid "Forgotten your password?"
 msgstr "Забули ваш пароль?"
 
-#: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsPermalinks.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
 msgid "Friendly URLs deactivated, but .htaccess file could not be deleted. Please, remove it manually"
 msgstr "Дружні URL деактивовані, але .htaccess файл не може бути видалений. Будь ласка, видаліть його вручну"
 
-#: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsPermalinks.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
 msgid "Friendly URLs deactivated, but .htaccess file was modified outside Shopclass and was not deleted"
 msgstr "Дружні URL деактивовано, але файл .htaccess був змінений за межами Shopclass і не було видалено"
 
-#: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsPermalinks.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
 msgid "Friendly URLs successfully deactivated"
 msgstr "Дружні URL успішно деактивовані"
 
@@ -841,15 +832,15 @@ msgstr "Відмінно! Ми тільки що оновили ваш коме�
 msgid "Great! We've just updated your listing"
 msgstr "Відмінно! Ми тільки що оновили ваше оголошення"
 
-#: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsPermalinks.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
 msgid "Here's the content you have to add to the <b>.htaccess</b> file. If you can't create the file or experience some problems with the URLs, please deactivate the <em>Friendly URLs</em> option."
 msgstr "Тут зміст, який ви повинні додати у файл <b>.htaccess</b>. Якщо ви не можете створити файл, або у вас інші проблеми, відключите опцію <em>Дружні URL</em>."
 
-#: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsPermalinks.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
 msgid "Here's the content you have to add to the <b>.htaccess</b> file. If you can't create the file, please deactivate the <em>Friendly URLs</em> option."
 msgstr "Тут зміст, який ви повинні додати у файл <b>.htaccess</b>. Якщо ви не можете створити файл, відключите опцію <em>Дружні URL</em>."
 
-#: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsPermalinks.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
 msgid "Here's the content you have to add to the <b>.htaccess</b> file. If you can't modify the file or experience some problems with the URLs, please deactivate the <em>Friendly URLs</em> option."
 msgstr "Вміст необхідно додати у файл <b>.htaccess</b>. Якщо ви не можете змінити файл або виникли проблеми з URL- адресами, будь ласка, відключите <em>Дружні URL</em> як варіант."
 
@@ -857,7 +848,7 @@ msgstr "Вміст необхідно додати у файл <b>.htaccess</b>.
 msgid "History"
 msgstr "Історія"
 
-#: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsPermalinks.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
 msgid "However, we can't check if Apache module <b>mod_rewrite</b> is loaded. If you experience some problems with the URLs, you should deactivate <em>Friendly URLs</em>"
 msgstr "Взагалі-то, ми не можемо перевірити чи завантажений  модуль <b>mod_rewrite</b>. Якщо ви відчуваєте проблеми з URL-адресами, ви повинні відключити <em>Дружні URL</em> (називаються, ЧПУ або постійні посилання)"
 
@@ -885,7 +876,7 @@ msgstr "Імпорт завершено"
 msgid "Incorrect link"
 msgstr "Невірне посилання"
 
-#: oc-includes/osclass/classes/controller/admin/CAdminAdmins.php
+#: oc-includes/osclass/classes/admin/form/AdminAccountForm.php
 msgid "Incorrent current password"
 msgstr "Невірний пароль"
 
@@ -924,6 +915,10 @@ msgstr "Ключове слово збережено правильно"
 #: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsKeywordBlock.php
 msgid "Keyword updated correctly"
 msgstr "Ключове слово оновлено правильно"
+
+#: oc-includes/osclass/classes/actions/UserActions.php
+msgid "Landline"
+msgstr "Дом. телефон"
 
 #: oc-includes/osclass/classes/controller/admin/CAdminLanguages.php
 msgid "Language description field is required"
@@ -989,10 +984,6 @@ msgstr "Ви увійшли як %s успішно"
 msgid "Mail server configuration has changed"
 msgstr "Конфігурація поштового сервера була змінена"
 
-#: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsMailserver.php
-msgid "Mail server type is incorrect"
-msgstr "Тип поштового сервера вказаний некоректно"
-
 #: oc-includes/osclass/classes/controller/admin/CAdminTools.php
 msgid "Maintenance mode is OFF"
 msgstr "Режим обслуговування відключений"
@@ -1000,10 +991,6 @@ msgstr "Режим обслуговування відключений"
 #: oc-includes/osclass/classes/controller/admin/CAdminTools.php
 msgid "Maintenance mode is ON"
 msgstr "Режим обслуговування включений"
-
-#: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsMain.php
-msgid "Max latest listings has to be a numeric value"
-msgstr "Макс. кількість останніх оголошень повинно мати числове значення"
 
 #: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsMedia.php
 msgid "Media config has been updated"
@@ -1019,6 +1006,7 @@ msgstr "Учасник з %s"
 msgid "Message"
 msgstr "Повідомлення"
 
+#: oc-includes/osclass/classes/actions/UserActions.php
 #: oc-includes/osclass/gui/account/user-profile-content.php
 msgid "Mobile"
 msgstr "Мобільний"
@@ -1026,6 +1014,10 @@ msgstr "Мобільний"
 #: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsKeywordBlock.php
 msgid "Moderation settings have been updated"
 msgstr "Налаштування модерації було оновлено"
+
+#: oc-includes/osclass/classes/actions/UserActions.php
+msgid "Municipality"
+msgstr "Municipality"
 
 #: oc-includes/osclass/classes/actions/ItemActions.php
 msgid "Municipality too long."
@@ -1035,14 +1027,11 @@ msgstr "Муніципалітет занадто довгий."
 msgid "Municipality too short."
 msgstr "Муніципалітет занадто короткий."
 
+#: oc-includes/osclass/classes/actions/UserActions.php
 #: oc-includes/osclass/gui/account/user-profile-content.php
 #: oc-includes/osclass/gui/account/user-register-content.php
 msgid "Name"
 msgstr "Ім'я"
-
-#: oc-includes/osclass/classes/controller/admin/CAdminAdmins.php
-msgid "Name invalid"
-msgstr "Ім'я недійсне"
 
 #: oc-includes/osclass/classes/actions/ItemActions.php
 msgid "Name too long."
@@ -1189,29 +1178,9 @@ msgstr "Кількість знаків після коми повинно мі�
 msgid "Number of expiration days has to be a numeric value"
 msgstr "Кількість днів повинно мати числове значення"
 
-#: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsMain.php
-msgid "Number of listings in the RSS has to be a numeric value"
-msgstr "Кількість оголошень в RSS повинно мати числове значення"
-
-#: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsMain.php
-msgid "Number of listings in the RSS must be an integer"
-msgstr "Кількість оголошень в RSS повинна бути цілим числом"
-
-#: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsMain.php
-msgid "Number of listings on search has to be a numeric value"
-msgstr "Кількість оголошень в пошуку повинно мати числове значення"
-
-#: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsComments.php
-msgid "Number of moderate comments must only contain numeric characters"
-msgstr "Кількість коментарів для модерування має містити лише цифри"
-
 #: oc-includes/osclass/classes/controller/admin/CAdminItems.php
 msgid "Number of moderated listings must only contain numeric characters"
 msgstr "Кількість модераторів оголошення повинно містити лише цифри"
-
-#: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsMain.php
-msgid "Number of recent listings displayed at home must be an integer"
-msgstr "Кількість останніх оголошень на головній сторінці має бути цілим числом"
 
 #: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsStorage.php
 msgid "Offload queued. Images move to remote storage in the background as the storage worker runs."
@@ -1257,14 +1226,6 @@ msgstr[3] "правила заборони %s видалено"
 #: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsCurrencies.php
 msgid "One currency has been deleted"
 msgstr "Одна валюта була видалена"
-
-#: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsPermalinks.php
-msgid "One field was not updated"
-msgid_plural "%s fields were not updated"
-msgstr[0] "Одне поле не було оновлено"
-msgstr[1] "%s поля не оновлено"
-msgstr[2] "%s поля не оновлено"
-msgstr[3] "%s поля не оновлено"
 
 #: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsKeywordBlock.php
 msgid "One keyword has been deleted"
@@ -1392,7 +1353,7 @@ msgstr "Пакунок видалено"
 msgid "Package updated"
 msgstr "Пакет оновлено"
 
-#: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsMain.php
+#: oc-includes/osclass/classes/admin/form/MainSettingsForm.php
 msgid "Page title field is required"
 msgstr "Заголовок сторінки обов'язковий для заповнення"
 
@@ -1421,10 +1382,6 @@ msgstr "Пароль не може бути порожнім"
 msgid "Password has been changed"
 msgstr "Пароль був змінений"
 
-#: oc-includes/osclass/classes/controller/admin/CAdminAdmins.php
-msgid "Password invalid"
-msgstr "Пароль недійсний"
-
 #: oc-includes/osclass/classes/controller/CWebUser.php
 msgid "Passwords can't be empty"
 msgstr "Пароль не може бути порожнім"
@@ -1451,11 +1408,11 @@ msgstr "Метод оплати"
 msgid "Pending"
 msgstr "Очікує підтвердження"
 
-#: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsPermalinks.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
 msgid "Permalinks structure updated"
 msgstr "Структура постійних посилань оновилася"
 
-#: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsPermalinks.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
 msgid "Permalinks structure updated."
 msgstr "Структура постійних посилань оновилася"
 
@@ -1466,6 +1423,10 @@ msgstr "Телефон недійсний."
 #: oc-includes/osclass/gui/item-contact-content.php
 msgid "Phone number"
 msgstr "Номер телефону"
+
+#: oc-includes/osclass/classes/actions/ItemActions.php
+msgid "Phone too long."
+msgstr "Телефон задовгий."
 
 #: oc-includes/osclass/gui/account/user-profile-content.php
 msgid "Picture"
@@ -1621,6 +1582,7 @@ msgstr "Повернення коштів"
 msgid "Refunded"
 msgstr "Повернуто гроші"
 
+#: oc-includes/osclass/classes/actions/UserActions.php
 #: oc-includes/osclass/gui/account/user-profile-content.php
 msgid "Region"
 msgstr "Регіон"
@@ -1858,6 +1820,10 @@ msgstr "Дякуємо! Ваша заявка була отримана."
 msgid "Thanks! That's very helpful"
 msgstr "Спасибо! Це дуже корисно"
 
+#: oc-includes/osclass/classes/controller/admin/CAdminUsers.php
+msgid "That ban rule no longer exists"
+msgstr "Цього правила заборони більше не існує"
+
 #: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsSitemap.php
 msgid "That custom URL no longer exists"
 msgstr "Не існує цього користувацького URL"
@@ -1913,6 +1879,10 @@ msgstr "Цей метод оплати недоступний"
 #: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsCustom.php
 msgid "That settings page is not available"
 msgstr "Сторінка налаштувань недоступна"
+
+#: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsCustom.php
+msgid "That settings page saves into a table, which needs a controller of its own"
+msgstr "Ця сторінка налаштувань зберігається в таблиці, для якої потрібен контролер її власний"
 
 #: oc-includes/osclass/classes/controller/CWebBilling.php
 msgid "That upgrade is not available"
@@ -2140,10 +2110,6 @@ msgstr "З оголошення не знята позначка"
 msgid "The listing hasn't been validated. Please validate it in order to make it public"
 msgstr "Оголошення не було підтверджене. Будь ласка, підтвердіть його це для того, щоб опублікувати оголошення"
 
-#: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsPermalinks.php
-msgid "The listing permalink structure must include {ITEM_ID}; it was left unchanged."
-msgstr "Структура постійного посилання повинні містити {ITEM_ID}; вона залишилася без змін."
-
 #: oc-includes/osclass/classes/controller/CWebItem.php
 msgid "The listing you are trying to delete couldn't be deleted"
 msgstr "Оголошення, яке ви намагаєтеся видалити, не може бути видалено"
@@ -2176,7 +2142,7 @@ msgstr "Сторінка оновлена"
 msgid "The password cannot be empty"
 msgstr "Пароль не може бути порожнім"
 
-#: oc-includes/osclass/classes/controller/admin/CAdminAdmins.php
+#: oc-includes/osclass/classes/admin/form/AdminAccountForm.php
 msgid "The password couldn't be updated. Passwords don't match"
 msgstr "Пароль не може бути оновлений. Паролі не збігаються"
 
@@ -2341,10 +2307,6 @@ msgstr "Наразі немає кредитних пакетів для про�
 #: oc-includes/osclass/classes/controller/admin/CAdminTools.php
 msgid "There are no tables to back up"
 msgstr "Немає таблиць для резервного копіювання"
-
-#: oc-includes/osclass/classes/controller/admin/CAdminAdmins.php
-msgid "There has been an error adding a new admin"
-msgstr "Виникла помилка додавання адміна"
 
 #: oc-includes/osclass/emails.php
 msgid "There has been some errors sending the message"
@@ -2520,15 +2482,16 @@ msgstr "Реєстрація користувачів не включена"
 msgid "User settings have been updated"
 msgstr "Настройки користувача були оновлені"
 
+#: oc-includes/osclass/classes/actions/UserActions.php
 #: oc-includes/osclass/gui/account/user-signin-content.php
 msgid "Username"
 msgstr "Ім'я користувача"
 
-#: oc-includes/osclass/classes/controller/admin/CAdminAdmins.php
+#: oc-includes/osclass/classes/admin/form/AdminAccountForm.php
 msgid "Username already in use"
 msgstr "Таке ім'я користувача вже використовується"
 
-#: oc-includes/osclass/classes/controller/admin/CAdminAdmins.php
+#: oc-includes/osclass/classes/admin/form/AdminAccountForm.php
 msgid "Username invalid"
 msgstr "Ім'я користувача недійсне"
 
@@ -2596,6 +2559,7 @@ msgstr "Ми тільки що відправили e-mail продавцю"
 msgid "We've sent you an e-mail. Follow its instructions to validate the changes"
 msgstr "Ми відправили вам повідомлення на e-mail. Дотримуйтесь інструкцій для підтвердження змін"
 
+#: oc-includes/osclass/classes/actions/UserActions.php
 #: oc-includes/osclass/gui/account/user-profile-content.php
 msgid "Website"
 msgstr "Вебсайт"
@@ -2713,6 +2677,10 @@ msgstr "Ваш ключ Akismet був оновлений"
 #: oc-includes/osclass/helpers/hTheme.php
 msgid "Your account"
 msgstr "Ваш акаунт"
+
+#: oc-includes/osclass/classes/actions/UserActions.php
+msgid "Your account could not be created. Please try again."
+msgstr "Неможливо створити обліковий запис. Будь ласка, спробуйте ще раз."
 
 #: oc-includes/osclass/classes/controller/CWebRegister.php
 msgid "Your account has already been validated"
@@ -2835,6 +2803,10 @@ msgstr "Ваші ордери"
 msgid "Your profile"
 msgstr "Ваш профіль"
 
+#: oc-includes/osclass/classes/actions/UserActions.php
+msgid "Your profile could not be saved. Please try again."
+msgstr "Не вдалося зберегти ваш профіль. Будь ласка, спробуйте ще раз."
+
 #: oc-includes/osclass/classes/controller/CWebUser.php
 msgid "Your profile has been updated successfully"
 msgstr "Ваш профіль був успішно оновлений"
@@ -2851,9 +2823,21 @@ msgstr "Ваш ключ reCAPTCHA був оновлений"
 msgid "Your session has expired, please reload the page and try again."
 msgstr "Час сеансу минув. Будь ласка, оновіть сторінку та спробуйте ще раз."
 
+#: oc-includes/osclass/classes/actions/UserActions.php
+msgid "Zip code"
+msgstr "Поштовий індекс"
+
+#: oc-includes/osclass/classes/actions/ItemActions.php
+msgid "Zip code too long."
+msgstr "Поштовий індекс занадто довгий."
+
 #: oc-includes/osclass/gui/billing/wallet-content.php
 msgid "credits available"
 msgstr "доступні кредити"
+
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
+msgid "nginx does not read .htaccess: check the server rules below are in your nginx configuration, then reload nginx."
+msgstr "nginx не читає .htaccess: перевірте правила сервера нижче, вони знаходяться в конфігурації nginx, а потім перезавантажте nginx."
 
 #: oc-includes/osclass/gui/item-comments-content.php
 msgid "not published"

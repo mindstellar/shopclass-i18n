@@ -14,7 +14,7 @@ msgstr ""
 "X-Crowdin-File: /develop/src/templates/messages.pot\n"
 "X-Crowdin-File-ID: 8243\n"
 "Language-Team: Chinese Traditional\n"
-"PO-Revision-Date: 2026-09-06 13:58\n"
+"PO-Revision-Date: 2026-09-08 15:42\n"
 
 #: oc-includes/osclass/classes/controller/admin/CAdminItems.php
 msgid "%d change has been made"
@@ -169,6 +169,10 @@ msgstr ""
 msgid "%s is required."
 msgstr ""
 
+#: oc-includes/osclass/classes/actions/UserActions.php
+msgid "%s is too long, the maximum is %d characters"
+msgstr ""
+
 #: oc-includes/osclass/classes/controller/admin/CAdminPages.php
 msgid "%s pages couldn't be deleted"
 msgstr "%s 頁面無法刪除"
@@ -231,6 +235,7 @@ msgstr ""
 msgid "Added by admin"
 msgstr ""
 
+#: oc-includes/osclass/classes/actions/UserActions.php
 #: oc-includes/osclass/gui/account/user-profile-content.php
 msgid "Address"
 msgstr "位址"
@@ -260,10 +265,6 @@ msgstr "通知識別碼不是正確的格式"
 #: oc-includes/osclass/helpers/hTheme.php
 msgid "Alerts"
 msgstr "通知"
-
-#: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsPermalinks.php
-msgid "All fields are required."
-msgstr "所有欄位都不能留空。"
 
 #: oc-includes/osclass/gui/account/user-register-content.php
 msgid "Already have an account?"
@@ -339,7 +340,7 @@ msgstr ""
 msgid "Billing settings have been updated"
 msgstr ""
 
-#: oc-includes/osclass/classes/controller/admin/CAdminUsers.php
+#: oc-includes/osclass/classes/admin/form/BanRuleForm.php
 msgid "Both rules can not be empty"
 msgstr "兩種規則不能留空"
 
@@ -400,6 +401,7 @@ msgstr ""
 msgid "Choose a package"
 msgstr ""
 
+#: oc-includes/osclass/classes/actions/UserActions.php
 #: oc-includes/osclass/gui/account/user-profile-content.php
 msgid "City"
 msgstr "城市"
@@ -444,10 +446,6 @@ msgstr "留言設定已經更新"
 msgid "Comments"
 msgstr "留言"
 
-#: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsComments.php
-msgid "Comments per page must only contain numeric characters"
-msgstr "每個頁面留言的數量只能使用數字字元"
-
 #: oc-includes/osclass/classes/controller/admin/CAdminPlugins.php
 msgid "Configuration was saved"
 msgstr "設定已儲存"
@@ -467,10 +465,6 @@ msgstr ""
 #: oc-includes/osclass/helpers/hTheme.php
 msgid "Contact"
 msgstr "連絡我們"
-
-#: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsMain.php
-msgid "Contact email field is required"
-msgstr "連絡郵件欄位不可留空"
 
 #: oc-includes/osclass/helpers/hTheme.php
 msgid "Contact the seller"
@@ -492,6 +486,7 @@ msgstr "無法連接到資料庫。錯誤：%s"
 msgid "Could not select the database. Error: %s"
 msgstr "無法選取資料庫。錯誤：%s"
 
+#: oc-includes/osclass/classes/actions/UserActions.php
 #: oc-includes/osclass/gui/account/user-profile-content.php
 msgid "Country"
 msgstr "國家"
@@ -554,7 +549,7 @@ msgstr "貨幣格式欄位不可留空"
 msgid "Currency must be a 3-letter code, e.g. USD"
 msgstr ""
 
-#: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsBilling.php
+#: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
 msgid "Currency must be a 3-letter code, e.g. USD."
 msgstr ""
 
@@ -581,10 +576,6 @@ msgstr ""
 #: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsSitemap.php
 msgid "Custom URL removed from the sitemap"
 msgstr ""
-
-#: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsLatestSearches.php
-msgid "Custom number could not be left empty"
-msgstr "自訂數字不能留空"
 
 #: oc-includes/osclass/gui/account/nav.php
 #: oc-includes/osclass/helpers/hTheme.php
@@ -649,6 +640,10 @@ msgstr "目錄 「%s」 無法刪除， 因為它是預設語言。 <a href=\"%s
 msgid "Directory '%s' couldn't be removed;)"
 msgstr "資料夾 '%s' 無法移除;)"
 
+#: oc-includes/osclass/classes/actions/UserActions.php
+msgid "E-mail"
+msgstr "電子郵件"
+
 #: oc-includes/osclass/gui/account/parts/item-row.php
 msgid "Edit"
 msgstr "編輯"
@@ -663,13 +658,9 @@ msgstr ""
 msgid "Email address or username"
 msgstr ""
 
-#: oc-includes/osclass/classes/controller/admin/CAdminAdmins.php
+#: oc-includes/osclass/classes/admin/form/AdminAccountForm.php
 msgid "Email already in use"
 msgstr "電子郵件已經被使用"
-
-#: oc-includes/osclass/classes/controller/admin/CAdminAdmins.php
-msgid "Email invalid"
-msgstr "電子郵件無效"
 
 #: oc-includes/osclass/classes/actions/ItemActions.php
 msgid "Email invalid."
@@ -731,11 +722,11 @@ msgstr "錯誤，這個 zip 檔案無法建立在特定資料夾"
 msgid "Error: the currency code is not in the correct format"
 msgstr "錯誤：這個貨幣代碼不是正確的格式"
 
-#: oc-includes/osclass/classes/controller/admin/CAdminAdmins.php
+#: oc-includes/osclass/classes/admin/form/AdminAccountForm.php
 msgid "Existing email"
 msgstr "已使用的電子郵件"
 
-#: oc-includes/osclass/classes/controller/admin/CAdminAdmins.php
+#: oc-includes/osclass/classes/admin/form/AdminAccountForm.php
 msgid "Existing username"
 msgstr "已使用的使用者名稱"
 
@@ -747,11 +738,11 @@ msgstr "過期"
 msgid "Failed"
 msgstr ""
 
-#: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsPermalinks.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
 msgid "File <b>.htaccess</b> already exists and was not modified."
 msgstr "檔案 <b>.htaccess</b> 已經存在且尚未修改。"
 
-#: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsPermalinks.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
 msgid "File <b>.htaccess</b> couldn't be filled out with the right content."
 msgstr "檔案 <b>.htaccess</b> 無法置入正確的內容。"
 
@@ -763,15 +754,15 @@ msgstr "上傳但無法激活語言的檔"
 msgid "Forgotten your password?"
 msgstr ""
 
-#: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsPermalinks.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
 msgid "Friendly URLs deactivated, but .htaccess file could not be deleted. Please, remove it manually"
 msgstr "友善網址未啟用，但 .htaccess 無法刪除，請手動移除"
 
-#: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsPermalinks.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
 msgid "Friendly URLs deactivated, but .htaccess file was modified outside Shopclass and was not deleted"
 msgstr ""
 
-#: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsPermalinks.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
 msgid "Friendly URLs successfully deactivated"
 msgstr "友善網址成功關閉"
 
@@ -787,15 +778,15 @@ msgstr "太棒了！我們更新了您的線上留言"
 msgid "Great! We've just updated your listing"
 msgstr "太棒了！我們更新了您的廣告清單"
 
-#: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsPermalinks.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
 msgid "Here's the content you have to add to the <b>.htaccess</b> file. If you can't create the file or experience some problems with the URLs, please deactivate the <em>Friendly URLs</em> option."
 msgstr "這是您要加入 <b>.htaccess</b> 的內容。如果您無法建立或這個檔案，或遇到網址的問題，請關閉 <em>友善網址</em> 選項。"
 
-#: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsPermalinks.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
 msgid "Here's the content you have to add to the <b>.htaccess</b> file. If you can't create the file, please deactivate the <em>Friendly URLs</em> option."
 msgstr "這是您要加入 <b>.htaccess</b> 的內容。如果您無法建立這個檔案，請關閉 <em>友善網址</em> 選項。"
 
-#: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsPermalinks.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
 msgid "Here's the content you have to add to the <b>.htaccess</b> file. If you can't modify the file or experience some problems with the URLs, please deactivate the <em>Friendly URLs</em> option."
 msgstr "這是您必須添加入 <b>.htaccess</b> 檔案的內容，如果您無法變更這個檔案，或遭遇網址的問題，請取消啟用 <em>友善網址</em> 選項。"
 
@@ -803,7 +794,7 @@ msgstr "這是您必須添加入 <b>.htaccess</b> 檔案的內容，如果您無
 msgid "History"
 msgstr ""
 
-#: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsPermalinks.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
 msgid "However, we can't check if Apache module <b>mod_rewrite</b> is loaded. If you experience some problems with the URLs, you should deactivate <em>Friendly URLs</em>"
 msgstr "我們無法檢查 Apache 模組 <b>mod_rewrite</b> 是否已經載入，如果您曾遇到網址的問題，您應該關閉 <em>友善網址</em>"
 
@@ -831,7 +822,7 @@ msgstr "匯入完成"
 msgid "Incorrect link"
 msgstr "錯誤的超連結"
 
-#: oc-includes/osclass/classes/controller/admin/CAdminAdmins.php
+#: oc-includes/osclass/classes/admin/form/AdminAccountForm.php
 msgid "Incorrent current password"
 msgstr "不和諧電流密碼"
 
@@ -869,6 +860,10 @@ msgstr ""
 
 #: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsKeywordBlock.php
 msgid "Keyword updated correctly"
+msgstr ""
+
+#: oc-includes/osclass/classes/actions/UserActions.php
+msgid "Landline"
 msgstr ""
 
 #: oc-includes/osclass/classes/controller/admin/CAdminLanguages.php
@@ -935,10 +930,6 @@ msgstr ""
 msgid "Mail server configuration has changed"
 msgstr "電子郵件伺服器設定已經變更"
 
-#: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsMailserver.php
-msgid "Mail server type is incorrect"
-msgstr "電子郵件伺服器型式不正確"
-
 #: oc-includes/osclass/classes/controller/admin/CAdminTools.php
 msgid "Maintenance mode is OFF"
 msgstr "維護模式已關閉"
@@ -946,10 +937,6 @@ msgstr "維護模式已關閉"
 #: oc-includes/osclass/classes/controller/admin/CAdminTools.php
 msgid "Maintenance mode is ON"
 msgstr "維護模式已開啟"
-
-#: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsMain.php
-msgid "Max latest listings has to be a numeric value"
-msgstr "最近清單的最大數量必須是數值"
 
 #: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsMedia.php
 msgid "Media config has been updated"
@@ -965,12 +952,17 @@ msgstr ""
 msgid "Message"
 msgstr "消息"
 
+#: oc-includes/osclass/classes/actions/UserActions.php
 #: oc-includes/osclass/gui/account/user-profile-content.php
 msgid "Mobile"
 msgstr ""
 
 #: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsKeywordBlock.php
 msgid "Moderation settings have been updated"
+msgstr ""
+
+#: oc-includes/osclass/classes/actions/UserActions.php
+msgid "Municipality"
 msgstr ""
 
 #: oc-includes/osclass/classes/actions/ItemActions.php
@@ -981,14 +973,11 @@ msgstr "名稱太長。"
 msgid "Municipality too short."
 msgstr "名稱太短。"
 
+#: oc-includes/osclass/classes/actions/UserActions.php
 #: oc-includes/osclass/gui/account/user-profile-content.php
 #: oc-includes/osclass/gui/account/user-register-content.php
 msgid "Name"
 msgstr "姓名"
-
-#: oc-includes/osclass/classes/controller/admin/CAdminAdmins.php
-msgid "Name invalid"
-msgstr "名稱無效"
 
 #: oc-includes/osclass/classes/actions/ItemActions.php
 msgid "Name too long."
@@ -1135,29 +1124,9 @@ msgstr "小數點位數只能使用數字字元"
 msgid "Number of expiration days has to be a numeric value"
 msgstr "到期日的數字必須是數值"
 
-#: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsMain.php
-msgid "Number of listings in the RSS has to be a numeric value"
-msgstr "RSS 中廣告清單的數量必須是數值"
-
-#: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsMain.php
-msgid "Number of listings in the RSS must be an integer"
-msgstr "RSS 中廣告清單的數量必須是整數"
-
-#: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsMain.php
-msgid "Number of listings on search has to be a numeric value"
-msgstr "清單的搜尋數量必須是數值"
-
-#: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsComments.php
-msgid "Number of moderate comments must only contain numeric characters"
-msgstr "線上留言的審核數量只能使用數字字元"
-
 #: oc-includes/osclass/classes/controller/admin/CAdminItems.php
 msgid "Number of moderated listings must only contain numeric characters"
 msgstr "廣告清單的審核數量只能使用數字字元"
-
-#: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsMain.php
-msgid "Number of recent listings displayed at home must be an integer"
-msgstr "最近清單顯示數量必須是整數"
 
 #: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsStorage.php
 msgid "Offload queued. Images move to remote storage in the background as the storage worker runs."
@@ -1191,11 +1160,6 @@ msgstr[0] "%s 禁令規則已被刪除"
 #: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsCurrencies.php
 msgid "One currency has been deleted"
 msgstr "一個貨幣已刪除"
-
-#: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsPermalinks.php
-msgid "One field was not updated"
-msgid_plural "%s fields were not updated"
-msgstr[0] "%s 欄位未更新"
 
 #: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsKeywordBlock.php
 msgid "One keyword has been deleted"
@@ -1305,7 +1269,7 @@ msgstr ""
 msgid "Package updated"
 msgstr ""
 
-#: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsMain.php
+#: oc-includes/osclass/classes/admin/form/MainSettingsForm.php
 msgid "Page title field is required"
 msgstr "頁面標題欄位不可留空"
 
@@ -1334,10 +1298,6 @@ msgstr "密碼不能空白"
 msgid "Password has been changed"
 msgstr "密碼已經變更"
 
-#: oc-includes/osclass/classes/controller/admin/CAdminAdmins.php
-msgid "Password invalid"
-msgstr "密碼無效"
-
 #: oc-includes/osclass/classes/controller/CWebUser.php
 msgid "Passwords can't be empty"
 msgstr "密碼不能留空"
@@ -1364,11 +1324,11 @@ msgstr ""
 msgid "Pending"
 msgstr ""
 
-#: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsPermalinks.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
 msgid "Permalinks structure updated"
 msgstr "固定網址結構更新"
 
-#: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsPermalinks.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
 msgid "Permalinks structure updated."
 msgstr "固定網址結構更新。"
 
@@ -1379,6 +1339,10 @@ msgstr "電話無效。"
 #: oc-includes/osclass/gui/item-contact-content.php
 msgid "Phone number"
 msgstr "電話號碼"
+
+#: oc-includes/osclass/classes/actions/ItemActions.php
+msgid "Phone too long."
+msgstr ""
 
 #: oc-includes/osclass/gui/account/user-profile-content.php
 msgid "Picture"
@@ -1534,6 +1498,7 @@ msgstr ""
 msgid "Refunded"
 msgstr ""
 
+#: oc-includes/osclass/classes/actions/UserActions.php
 #: oc-includes/osclass/gui/account/user-profile-content.php
 msgid "Region"
 msgstr "地區"
@@ -1771,6 +1736,10 @@ msgstr ""
 msgid "Thanks! That's very helpful"
 msgstr "謝謝！這對我們很有幫助"
 
+#: oc-includes/osclass/classes/controller/admin/CAdminUsers.php
+msgid "That ban rule no longer exists"
+msgstr ""
+
 #: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsSitemap.php
 msgid "That custom URL no longer exists"
 msgstr ""
@@ -1825,6 +1794,10 @@ msgstr ""
 
 #: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsCustom.php
 msgid "That settings page is not available"
+msgstr ""
+
+#: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsCustom.php
+msgid "That settings page saves into a table, which needs a controller of its own"
 msgstr ""
 
 #: oc-includes/osclass/classes/controller/CWebBilling.php
@@ -2053,10 +2026,6 @@ msgstr "這個廣告清單無法清除標示為"
 msgid "The listing hasn't been validated. Please validate it in order to make it public"
 msgstr "這個廣告清單尚未驗證，請先證驗以便公開發佈"
 
-#: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsPermalinks.php
-msgid "The listing permalink structure must include {ITEM_ID}; it was left unchanged."
-msgstr ""
-
 #: oc-includes/osclass/classes/controller/CWebItem.php
 msgid "The listing you are trying to delete couldn't be deleted"
 msgstr "您輸入的清單無法刪除"
@@ -2089,7 +2058,7 @@ msgstr "這個頁面已經更新"
 msgid "The password cannot be empty"
 msgstr "密碼不能空白"
 
-#: oc-includes/osclass/classes/controller/admin/CAdminAdmins.php
+#: oc-includes/osclass/classes/admin/form/AdminAccountForm.php
 msgid "The password couldn't be updated. Passwords don't match"
 msgstr "這個密碼不能更新，密碼不相符"
 
@@ -2254,10 +2223,6 @@ msgstr ""
 #: oc-includes/osclass/classes/controller/admin/CAdminTools.php
 msgid "There are no tables to back up"
 msgstr "沒有資料表可備份"
-
-#: oc-includes/osclass/classes/controller/admin/CAdminAdmins.php
-msgid "There has been an error adding a new admin"
-msgstr "新增新管理員時發生錯誤"
 
 #: oc-includes/osclass/emails.php
 msgid "There has been some errors sending the message"
@@ -2430,15 +2395,16 @@ msgstr "使用者註冊帳號尚未啟用"
 msgid "User settings have been updated"
 msgstr "使用者設定已更新"
 
+#: oc-includes/osclass/classes/actions/UserActions.php
 #: oc-includes/osclass/gui/account/user-signin-content.php
 msgid "Username"
 msgstr "使用者名稱"
 
-#: oc-includes/osclass/classes/controller/admin/CAdminAdmins.php
+#: oc-includes/osclass/classes/admin/form/AdminAccountForm.php
 msgid "Username already in use"
 msgstr "使用者名稱已經被使用"
 
-#: oc-includes/osclass/classes/controller/admin/CAdminAdmins.php
+#: oc-includes/osclass/classes/admin/form/AdminAccountForm.php
 msgid "Username invalid"
 msgstr "使用者名稱無效"
 
@@ -2506,6 +2472,7 @@ msgstr "我們已經傳送電子郵件給廣告主"
 msgid "We've sent you an e-mail. Follow its instructions to validate the changes"
 msgstr "我們已經發送電子郵件給您，請按照說明驗證其變更"
 
+#: oc-includes/osclass/classes/actions/UserActions.php
 #: oc-includes/osclass/gui/account/user-profile-content.php
 msgid "Website"
 msgstr "網站"
@@ -2622,6 +2589,10 @@ msgstr "您的 Akismet key 已經更新"
 #: oc-includes/osclass/gui/account/nav.php
 #: oc-includes/osclass/helpers/hTheme.php
 msgid "Your account"
+msgstr ""
+
+#: oc-includes/osclass/classes/actions/UserActions.php
+msgid "Your account could not be created. Please try again."
 msgstr ""
 
 #: oc-includes/osclass/classes/controller/CWebRegister.php
@@ -2745,6 +2716,10 @@ msgstr ""
 msgid "Your profile"
 msgstr ""
 
+#: oc-includes/osclass/classes/actions/UserActions.php
+msgid "Your profile could not be saved. Please try again."
+msgstr ""
+
 #: oc-includes/osclass/classes/controller/CWebUser.php
 msgid "Your profile has been updated successfully"
 msgstr "您的個人資料已經更新"
@@ -2761,8 +2736,20 @@ msgstr "您的 reCAPTCHA 碼已經更新"
 msgid "Your session has expired, please reload the page and try again."
 msgstr ""
 
+#: oc-includes/osclass/classes/actions/UserActions.php
+msgid "Zip code"
+msgstr "郵遞區號"
+
+#: oc-includes/osclass/classes/actions/ItemActions.php
+msgid "Zip code too long."
+msgstr ""
+
 #: oc-includes/osclass/gui/billing/wallet-content.php
 msgid "credits available"
+msgstr ""
+
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
+msgid "nginx does not read .htaccess: check the server rules below are in your nginx configuration, then reload nginx."
 msgstr ""
 
 #: oc-includes/osclass/gui/item-comments-content.php

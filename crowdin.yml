@@ -4,6 +4,12 @@
 # uk_UA/ -- new folders with no locale.json, which npm run check rejects, while the
 # real locales receive nothing. The mapping is repeated rather than anchored: not
 # every Crowdin config reader follows YAML aliases.
+# The project stores files by their full path (develop/src/templates/core.pot). Without
+# this the Crowdin CLI strips the prefix every source shares and looks for
+# develop/core.pot instead, so crowdin-upload.yml failed with "does not exist in the
+# project" on its first run.
+preserve_hierarchy: true
+
 files:
   - source: /src/templates/*.pot
     translation: /src/translations/%locale_with_underscore%/%file_name%.po

@@ -19,6 +19,15 @@ on:
 permissions:
   contents: write
 
+# Merging several translation PRs in the same minute starts one run per merge, and
+# they pushed their bumps at the same moment: one won, the other died on "! [rejected]
+# master -> master (fetch first)" and its bump was simply lost. Runs on a branch now
+# queue instead of overlapping -- cancelling is wrong here, a cancelled run is a
+# locale left on a stale version.
+concurrency:
+  group: bump-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: false
+
 jobs:
   bump-and-check:
     runs-on: ubuntu-latest
@@ -59,4 +68,17 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add src/translations/*/locale.json locale_list.json
           git commit -m "Bump versions for the locales this push changed"
-          git push
+          # Queueing keeps two runs from pushing at once, but a queued run still
+          # checked out the commit that triggered it, so it is behind whatever the
+          # run before it pushed. Rebase onto the branch before pushing, and retry:
+          # a merge landing mid-push must not cost a bump.
+          for attempt in 1 2 3 4 5; do
+            if git push origin "HEAD:${GITHUB_REF_NAME}"; then
+              exit 0
+            fi
+            echo "push rejected, rebasing (attempt $attempt)"
+            git pull --rebase origin "${GITHUB_REF_NAME}" || exit 1
+            sleep $((attempt * 5))
+          done
+          echo "could not push the bumps after 5 attempts"
+          exit 1

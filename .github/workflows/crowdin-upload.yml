@@ -6,8 +6,12 @@
 # pull request, a batch from scripts -- is quietly overwritten by Crowdin's next pull
 # request. Uploading on merge keeps Crowdin's copy in step with the repository.
 #
-# Needs two repository secrets: CROWDIN_PROJECT_ID and CROWDIN_PERSONAL_TOKEN (a token
-# scoped to this project). Until they exist the job skips rather than fails.
+# Only the languages a push changed are uploaded, one job each, side by side: Crowdin
+# takes minutes to import a language and the CLI accepts one language per run, so
+# uploading all thirty in a row took over an hour for a change to one of them.
+#
+# Needs two repository secrets: CROWDIN_PROJECT_ID and CROWDIN_PERSONAL_TOKEN. Until
+# they exist the upload skips rather than fails.
 name: Upload translations to Crowdin
 
 on:
@@ -17,25 +21,30 @@ on:
       - 'src/translations/**/*.po'
       - 'src/translations/**/mail.json'
   workflow_dispatch:
-
-# One upload at a time; a second queues rather than interleaving imports.
-concurrency:
-  group: crowdin-upload
-  cancel-in-progress: false
+    inputs:
+      languages:
+        description: 'Crowdin language ids, space separated (e.g. "ru uk pl"). Empty uploads every language.'
+        required: false
+        default: ''
 
 jobs:
-  upload:
+  plan:
     runs-on: ubuntu-latest
     # Two kinds of push carry nothing Crowdin lacks: Crowdin's own pull requests, and
     # a re-merge, which only reshapes catalogues around templates Crowdin already read.
-    # Uploading after either costs half an hour of imports for no change.
     if: >-
       github.event_name == 'workflow_dispatch' ||
       (!contains(github.event.head_commit.message, 'New Crowdin updates') &&
        !startsWith(github.event.head_commit.message, 'Re-merge translations'))
+    outputs:
+      languages: ${{ steps.pick.outputs.languages }}
+      ready: ${{ steps.secrets.outputs.ready }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          # Two commits: a merged pull request is compared with the commit before it.
+          fetch-depth: 2
 
       - name: Check the Crowdin secrets are set
         id: secrets
@@ -50,8 +59,55 @@ jobs:
             echo "::notice::CROWDIN_PERSONAL_TOKEN or CROWDIN_PROJECT_ID is not set; skipping the upload."
           fi
 
-      - name: Upload translations
-        if: steps.secrets.outputs.ready == 'true'
+      - name: Work out which languages to upload
+        id: pick
+        env:
+          REQUESTED: ${{ inputs.languages }}
+        run: |
+          # Folder name -> Crowdin language id. Most ids are the language part alone;
+          # these five are regional in Crowdin. English is the source, never a target.
+          to_id() {
+            case "$1" in
+              en_*) ;;
+              es_ES|pt_BR|pt_PT|zh_CN|zh_TW) echo "${1/_/-}" ;;
+              *) echo "${1%%_*}" ;;
+            esac
+          }
+          if [ "$GITHUB_EVENT_NAME" = "workflow_dispatch" ] && [ -n "$REQUESTED" ]; then
+            ids="$REQUESTED"
+          else
+            if [ "$GITHUB_EVENT_NAME" = "workflow_dispatch" ]; then
+              folders=$(ls src/translations)
+            else
+              folders=$(git diff --name-only HEAD~1 HEAD -- src/translations \
+                | sed -n 's|^src/translations/\([^/]*\)/.*|\1|p' | sort -u)
+            fi
+            ids=$(for f in $folders; do to_id "$f"; done)
+          fi
+          json=$(printf '%s\n' $ids | sed '/^$/d' | sort -u | jq -R . | jq -sc .)
+          echo "languages=$json" >> "$GITHUB_OUTPUT"
+          echo "Languages to upload: $json"
+
+  upload:
+    needs: plan
+    if: needs.plan.outputs.ready == 'true' && needs.plan.outputs.languages != '[]'
+    runs-on: ubuntu-latest
+    strategy:
+      # One language failing to import must not cancel the others.
+      fail-fast: false
+      max-parallel: 6
+      matrix:
+        language: ${{ fromJSON(needs.plan.outputs.languages) }}
+    # A second upload of the same language queues behind the first instead of
+    # interleaving two imports of one file.
+    concurrency:
+      group: crowdin-upload-${{ matrix.language }}
+      cancel-in-progress: false
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Upload ${{ matrix.language }}
         uses: crowdin/github-action@v3.0.2
         with:
           config: crowdin.yml
@@ -60,6 +116,7 @@ jobs:
           crowdin_branch_name: develop
           upload_sources: false
           upload_translations: true
+          upload_language: ${{ matrix.language }}
           download_translations: false
           import_eq_suggestions: false
           # Merged here means reviewed here.

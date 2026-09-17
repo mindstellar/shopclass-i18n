@@ -8,10 +8,14 @@
  */
 import { readdir } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
+import { readFile } from 'node:fs/promises';
 import { DOMAINS, readPo, merge, writeCatalogue } from './lib.mjs';
 
 const TPL = 'src/templates';
 const TRANS = 'src/translations';
+// Each locale's plural rule; without it a re-merge would hand every locale the
+// template's two-form rule and npm run check would refuse the result.
+const plurals = JSON.parse(await readFile('scripts/plural-forms.json', 'utf8'));
 
 const only = process.argv.slice(2);
 const locales = (only.length ? only : (await readdir(TRANS, { withFileTypes: true }))
@@ -33,7 +37,7 @@ for (const locale of locales) {
         if (!templates[d]) continue;
         const po = `${dir}/${d}.po`;
         const existing = existsSync(po) ? await readPo(po) : { headers: {}, translations: {} };
-        const { catalogue, total, carried } = merge(templates[d], existing);
+        const { catalogue, total, carried } = merge(templates[d], existing, { pluralForms: plurals[locale] });
         await writeCatalogue(dir, d, catalogue);
         const pct = total ? Math.round((carried / total) * 100) : 0;
         parts.push(`${d} ${String(pct).padStart(3)}% (${carried}/${total})`);

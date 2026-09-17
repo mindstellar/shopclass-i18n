@@ -10,11 +10,13 @@
  */
 import { readdir, readFile } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
+import { readPo } from './lib.mjs';
 
 const TRANS = 'src/translations';
 const REQUIRED = ['locale.json', 'mail.json', 'core.po', 'messages.po', 'theme.po'];
 
 const srcMail = JSON.parse(await readFile('src/templates/mail.json', 'utf8'));
+const plurals = JSON.parse(await readFile('scripts/plural-forms.json', 'utf8'));
 const wanted = new Map(srcMail.template.map((t) => [t.fk_i_page_id, t]));
 const tokens = (s) => new Set((String(s).match(/{[A-Z_]+}/g) || []));
 
@@ -61,6 +63,32 @@ for (const locale of locales) {
         if (hits) {
             fail(locale, `${domain}.po looks mis-encoded (${hits.length} sequences, e.g. "${hits[0]}")`);
         }
+    }
+
+    // A catalogue whose header asks for three forms but holds two renders the wrong
+    // form for "2 объявления" and says nothing about it, so the count is checked
+    // rather than trusted. The header itself is owned by scripts/plural-forms.json.
+    const wantPlural = plurals[locale];
+    for (const domain of ['core', 'messages', 'theme']) {
+        const po = `${dir}/${domain}.po`;
+        if (!existsSync(po)) continue;
+        const cat = await readPo(po);
+        const header = cat.headers['plural-forms'] || cat.headers['Plural-Forms'] || '';
+        if (wantPlural && header !== wantPlural) {
+            fail(locale, `${domain}.po plural header is "${header || 'missing'}", expected "${wantPlural}"`);
+            continue;
+        }
+        const n = Number((/nplurals\s*=\s*(\d+)/.exec(header) || [])[1]) || 2;
+        let wrong = 0, blank = 0;
+        for (const group of Object.values(cat.translations)) {
+            for (const [msgid, e] of Object.entries(group)) {
+                if (!msgid || !e.msgid_plural) continue;
+                if (e.msgstr.length !== n) wrong++;
+                else if (e.msgstr.some((s) => s !== '') && e.msgstr.some((s) => s === '')) blank++;
+            }
+        }
+        if (wrong) fail(locale, `${domain}.po has ${wrong} plural entr${wrong === 1 ? 'y' : 'ies'} without ${n} form(s)`);
+        if (blank) warn(locale, `${domain}.po has ${blank} plural entr${blank === 1 ? 'y' : 'ies'} with some forms still empty`);
     }
 
     if (!existsSync(`${dir}/mail.json`)) continue;

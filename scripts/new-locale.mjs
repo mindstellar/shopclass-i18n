@@ -11,6 +11,8 @@
 import { mkdir, writeFile, readFile, access } from 'node:fs/promises';
 import { DOMAINS, readPo, merge, writeCatalogue } from './lib.mjs';
 
+const plurals = JSON.parse(await readFile('scripts/plural-forms.json', 'utf8'));
+
 const argv = process.argv.slice(2);
 const locale = argv[0];
 if (!locale || !/^[a-z]{2,3}_[A-Za-z]{2,4}$/.test(locale)) {
@@ -49,8 +51,10 @@ await writeFile(`${dir}/mail.json`, (await readFile('src/templates/mail.json', '
 
 for (const d of DOMAINS) {
     const tpl = await readPo(`src/templates/${d}.pot`);
-    const { catalogue } = merge(tpl, { headers: { language: locale }, translations: {} });
-    catalogue.headers.language = locale;
+    // A locale scripts/plural-forms.json does not list yet gets the template's rule
+    // and a failing npm run check, which is the prompt to add it there.
+    const { catalogue } = merge(tpl, { headers: { Language: locale }, translations: {} },
+        { pluralForms: plurals[locale] });
     await writeCatalogue(dir, d, catalogue);
 }
 

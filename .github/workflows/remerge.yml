@@ -19,6 +19,13 @@ on:
 permissions:
   contents: write
 
+# Shopclass pushes templates once per commit that touches them, so a burst of commits
+# starts a burst of runs. They queue, the same as bump-and-check, rather than race each
+# other to the push.
+concurrency:
+  group: remerge-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: false
+
 # This job commits to src/translations, which is the path bump-and-check watches.
 # It does not set that workflow off: GitHub does not raise events for pushes made
 # with the default GITHUB_TOKEN. The bump is therefore done here rather than left
@@ -63,4 +70,15 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add src/translations locale_list.json
           git commit -m "Re-merge translations against the updated templates"
-          git push
+          # A queued run is behind whatever the run before it pushed, and Crowdin can
+          # commit in between too. Rebase and retry rather than lose the re-merge.
+          for attempt in 1 2 3 4 5; do
+            if git push origin "HEAD:${GITHUB_REF_NAME}"; then
+              exit 0
+            fi
+            echo "push rejected, rebasing (attempt $attempt)"
+            git pull --rebase origin "${GITHUB_REF_NAME}" || exit 1
+            sleep $((attempt * 5))
+          done
+          echo "could not push the re-merge after 5 attempts"
+          exit 1

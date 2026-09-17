@@ -36,9 +36,16 @@ function meaning(buf) {
     const out = [];
     for (const [ctx, entries] of Object.entries(parsed.translations || {})) {
         for (const [msgid, e] of Object.entries(entries)) {
+            // The header entry is bookkeeping -- its lines can be reordered or a
+            // generator name can change without any site seeing a different word.
+            if (ctx === '' && msgid === '') continue;
             out.push(`${ctx}\u0004${msgid}\u0004${(e.msgstr || []).join('\u0001')}`);
         }
     }
+    // Except the plural rule: it decides which form a site shows, so a changed rule
+    // is a changed translation even when no msgstr moved.
+    const rule = Object.entries(parsed.headers || {}).find(([k]) => k.toLowerCase() === 'plural-forms');
+    out.push(`\u0000plural-forms\u0004${rule ? rule[1].replace(/\s+/g, '') : ''}`);
     return out.sort().join('\n');
 }
 

@@ -1,8 +1,26 @@
+# Four locales here predate Crowdin's codes and keep their historical names, because
+# sites already have them installed under those names. Without a mapping Crowdin
+# exports Arabic to ar_SA/, Hebrew to he_IL/, Japanese to ja_JP/ and Ukrainian to
+# uk_UA/ -- new folders with no locale.json, which npm run check rejects, while the
+# real locales receive nothing. The mapping is repeated rather than anchored: not
+# every Crowdin config reader follows YAML aliases.
 files:
   - source: /src/templates/*.pot
     translation: /src/translations/%locale_with_underscore%/%file_name%.po
+    languages_mapping:
+      locale_with_underscore:
+        ar: ar_SY
+        he: he_HE
+        ja: ja_JA
+        uk: uk_UK
   - source: /src/templates/mail.json
     translation: /src/translations/%locale_with_underscore%/%original_file_name%
+    languages_mapping:
+      locale_with_underscore:
+        ar: ar_SY
+        he: he_HE
+        ja: ja_JA
+        uk: uk_UK
     translatable_elements:
       - '$.template[*].s_title'
       - '$.template[*].s_description'

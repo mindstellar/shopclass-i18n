@@ -1,0 +1,68 @@
+# Sends translations changed here to Crowdin.
+#
+# Crowdin reads the templates from develop on its own, but it imports translations
+# from the repository only once, when the integration is first set up. After that its
+# own copy is what it exports, so a translation merged here directly -- a contributor's
+# pull request, a batch from scripts -- is quietly overwritten by Crowdin's next pull
+# request. Uploading on merge keeps Crowdin's copy in step with the repository.
+#
+# Needs two repository secrets: CROWDIN_PROJECT_ID and CROWDIN_PERSONAL_TOKEN (a token
+# scoped to this project). Until they exist the job skips rather than fails.
+name: Upload translations to Crowdin
+
+on:
+  push:
+    branches: [develop]
+    paths:
+      - 'src/translations/**/*.po'
+      - 'src/translations/**/mail.json'
+  workflow_dispatch:
+
+# One upload at a time; a second queues rather than interleaving imports.
+concurrency:
+  group: crowdin-upload
+  cancel-in-progress: false
+
+jobs:
+  upload:
+    runs-on: ubuntu-latest
+    # Two kinds of push carry nothing Crowdin lacks: Crowdin's own pull requests, and
+    # a re-merge, which only reshapes catalogues around templates Crowdin already read.
+    # Uploading after either costs half an hour of imports for no change.
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      (!contains(github.event.head_commit.message, 'New Crowdin updates') &&
+       !startsWith(github.event.head_commit.message, 'Re-merge translations'))
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Check the Crowdin secrets are set
+        id: secrets
+        env:
+          TOKEN: ${{ secrets.CROWDIN_PERSONAL_TOKEN }}
+          PROJECT: ${{ secrets.CROWDIN_PROJECT_ID }}
+        run: |
+          if [ -n "$TOKEN" ] && [ -n "$PROJECT" ]; then
+            echo "ready=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "ready=false" >> "$GITHUB_OUTPUT"
+            echo "::notice::CROWDIN_PERSONAL_TOKEN or CROWDIN_PROJECT_ID is not set; skipping the upload."
+          fi
+
+      - name: Upload translations
+        if: steps.secrets.outputs.ready == 'true'
+        uses: crowdin/github-action@v3.0.2
+        with:
+          config: crowdin.yml
+          # The integration keeps this project's files under a Crowdin branch named
+          # after the git branch.
+          crowdin_branch_name: develop
+          upload_sources: false
+          upload_translations: true
+          download_translations: false
+          import_eq_suggestions: false
+          # Merged here means reviewed here.
+          auto_approve_imported: true
+          project_id: ${{ secrets.CROWDIN_PROJECT_ID }}
+          token: ${{ secrets.CROWDIN_PERSONAL_TOKEN }}

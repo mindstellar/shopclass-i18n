@@ -28,11 +28,29 @@ locale_list.json        generated index of every locale here
 `master` serves stable Shopclass releases, `develop` serves prereleases. Which branch a
 site reads follows the version it runs.
 
+## Branches
+
+**All work happens on `develop`.** Shopclass publishes its templates to `develop` whenever its
+own `develop` changes them, so new strings reach translators while the release is still being
+built, not after it ships. Crowdin reads those templates from `develop`, and its translation
+pull requests target `develop`. Version bumps and re-merges run on `develop` only.
+
+**`master` is never edited directly.** At a Shopclass release, `develop` is merged into `master`
+as it stands — translations, templates and versions together. Because `master` has no commits
+of its own, that merge never conflicts, and stable sites see the same version numbers
+prerelease sites already saw, which only ever go up.
+
+Merge at the release, not before: `develop` may already carry strings for code a stable site
+does not run yet.
+
 ## Translating
 
 Most translation happens in Crowdin, which commits back here — you do not need to clone
-anything to translate. To work in the files directly, edit the `.po` for your language and
-run `npm run merge -- <locale>` to recompile the `.mo`.
+anything to translate. To work in the files directly, open a pull request against `develop`:
+edit the `.po` for your language and run `npm run merge -- <locale>` to recompile the `.mo`.
+
+Crowdin imports translations from this repository only once, so a change merged here is sent
+back to Crowdin by `crowdin-upload.yml`; otherwise Crowdin's next pull request would undo it.
 
 Never edit anything in `src/templates/`. It is generated from the Shopclass source; changes
 there are overwritten on the next sync.

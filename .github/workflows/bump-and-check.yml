@@ -4,6 +4,10 @@
 # bump a version -- which is why every locale sat at 1.0.2 while the translations
 # under them changed. This bumps whatever actually changed in the push, then
 # refuses anything that would be uninstallable.
+#
+# Versions move on develop only. master is never edited: at a Shopclass release it
+# takes develop as it stands, versions included. A bump committed on master would be a
+# commit develop lacks, and the next release merge would conflict on that very line.
 name: Bump and check
 
 on:
@@ -50,15 +54,15 @@ jobs:
         run: npm run check
 
       - name: Bump versions for locales this push changed
-        if: github.event_name == 'push'
+        if: github.event_name == 'push' && github.ref_name == 'develop'
         run: node scripts/bump.mjs --since HEAD~1
 
       - name: Rebuild the locale index
-        if: github.event_name == 'push'
+        if: github.event_name == 'push' && github.ref_name == 'develop'
         run: npm run build-list
 
       - name: Commit the bumps
-        if: github.event_name == 'push'
+        if: github.event_name == 'push' && github.ref_name == 'develop'
         run: |
           if git diff --quiet; then
             echo "Nothing to bump."

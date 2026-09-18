@@ -55,6 +55,26 @@ back to Crowdin by `crowdin-upload.yml`; otherwise Crowdin's next pull request w
 Never edit anything in `src/templates/`. It is generated from the Shopclass source; changes
 there are overwritten on the next sync.
 
+## Dates, currency and language names
+
+`scripts/locale-conventions.json` decides `short_name`, `direction`, `date_format` and
+`currency_format`; `npm run conventions` writes them into every `locale.json`. Editing a
+`locale.json` alone therefore does not last — the next run puts the convention back, which
+is what stopped five locales printing American date order.
+
+If a format is wrong for your language, say so in a pull request. Either change
+`scripts/locale-conventions.json` directly, or change your `locale.json` and run:
+
+```bash
+npm run conventions -- --adopt de_DE
+```
+
+which copies what your `locale.json` now says into the conventions file, where it sticks.
+While the two disagree, `npm run check` reports it rather than letting the difference
+vanish silently.
+
+Language names stay in English: the picker they appear in is the English-speaking admin's.
+
 ## Adding a language
 
 ```bash

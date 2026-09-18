@@ -1,0 +1,89 @@
+# Runs the translation guard on pull requests GitHub never tells us about.
+#
+# translation-guard.yml runs on the pull_request event, which covers anything a person
+# opens. Crowdin's pull requests raise no such event -- #51 sat for hours with no checks
+# at all, and closing and reopening it by hand changed nothing -- so a pull request that
+# empties translations would arrive looking exactly as safe as one that does not.
+#
+# This sweeps every open pull request whose branch Crowdin owns, runs the same script,
+# and writes the answer onto the head commit as a status, where it shows on the pull
+# request beside the other checks.
+name: Translation guard (scheduled)
+
+on:
+  schedule:
+    # Crowdin syncs about hourly; twice an hour is enough to meet each pull request.
+    - cron: '7,37 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  statuses: write
+  pull-requests: read
+
+jobs:
+  sweep:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Install dependencies
+        run: npm install --no-audit --no-fund
+
+      - name: Check every open Crowdin pull request
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -o pipefail
+          prs=$(gh pr list --repo "$GITHUB_REPOSITORY" --state open --limit 50 \
+                  --json number,headRefName,headRefOid,baseRefName \
+                  --jq '.[] | select(.headRefName | startswith("l10n") or startswith("l18n")) | @base64')
+          if [ -z "$prs" ]; then
+            echo "No open Crowdin pull requests."
+            exit 0
+          fi
+
+          failed=0
+          for row in $prs; do
+            pr=$(echo "$row" | base64 -d)
+            number=$(echo "$pr" | jq -r .number)
+            head=$(echo "$pr" | jq -r .headRefOid)
+            branch=$(echo "$pr" | jq -r .headRefName)
+            base=$(echo "$pr" | jq -r .baseRefName)
+            echo "::group::#$number $branch → $base"
+
+            git fetch -q origin "$base" "$branch"
+            if node scripts/diff-translations.mjs "origin/$base" "$head" | tee /tmp/out.txt; then
+              state=success
+              description="No translations lost"
+            else
+              state=failure
+              description="Empties translations — see the run log"
+              failed=1
+            fi
+            summary=$(head -1 /tmp/out.txt)
+
+            gh api "repos/$GITHUB_REPOSITORY/statuses/$head" \
+              -f state="$state" \
+              -f context='Translation guard' \
+              -f description="${summary:0:130}" \
+              -f target_url="$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID" >/dev/null
+            echo "#$number: $state — $summary"
+            {
+              echo "### #$number $branch"
+              echo
+              echo '```'
+              cat /tmp/out.txt
+              echo '```'
+            } >> "$GITHUB_STEP_SUMMARY"
+            echo "::endgroup::"
+          done
+          exit $failed

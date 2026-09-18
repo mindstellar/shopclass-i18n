@@ -17,6 +17,7 @@ const REQUIRED = ['locale.json', 'mail.json', 'core.po', 'messages.po', 'theme.p
 
 const srcMail = JSON.parse(await readFile('src/templates/mail.json', 'utf8'));
 const plurals = JSON.parse(await readFile('scripts/plural-forms.json', 'utf8'));
+const conventions = JSON.parse(await readFile('scripts/locale-conventions.json', 'utf8'));
 const wanted = new Map(srcMail.template.map((t) => [t.fk_i_page_id, t]));
 const tokens = (s) => new Set((String(s).match(/{[A-Z_]+}/g) || []));
 
@@ -50,6 +51,17 @@ for (const locale of locales) {
     }
     if (meta.direction && !['ltr', 'rtl'].includes(meta.direction)) {
         fail(locale, `direction "${meta.direction}" is not ltr or rtl`);
+    }
+
+    // scripts/locale-conventions.json decides these, and apply-conventions.mjs writes
+    // them back on its next run -- so a correction made here alone disappears without
+    // a word. Reported while the two disagree: either the conventions file is wrong
+    // and should adopt this (npm run conventions -- --adopt <locale>), or this is.
+    const want = conventions[locale];
+    for (const key of want ? ['short_name', 'direction', 'date_format', 'currency_format'] : []) {
+        if (meta[key] !== want[key]) {
+            warn(locale, `locale.json ${key} is ${JSON.stringify(meta[key])}, conventions say ${JSON.stringify(want[key])}`);
+        }
     }
 
     // UTF-8 read as Latin-1 leaves a recognisable trail. It is worth failing on:

@@ -1,6 +1,7 @@
 /**
- * Bring every locale.json in line with scripts/locale-conventions.json, and every
- * catalogue header in line with scripts/plural-forms.json.
+ * Bring every locale.json in line with scripts/locale-conventions.json, every
+ * catalogue header in line with scripts/plural-forms.json, and every mail.json's
+ * language field in line with the folder it sits in.
  *
  * Only the display conventions are touched -- name, author and version are the
  * maintainer's or the translator's. Run after editing either file.
@@ -61,6 +62,24 @@ async function applyPlurals(locale) {
 const locales = (await readdir(TRANS, { withFileTypes: true }))
     .filter((d) => d.isDirectory()).map((d) => d.name).sort();
 
+/**
+ * mail.json carries the locale code of the folder it is in, and Shopclass refuses a
+ * pack where the two disagree. It is not prose, so it is set here rather than left to
+ * a translator: in Crowdin the field is hidden, and a locale added later would
+ * otherwise arrive carrying en_US.
+ */
+async function applyMailLanguage(locale) {
+    const path = `${TRANS}/${locale}/mail.json`;
+    if (!existsSync(path)) return null;
+    const raw = await readFile(path, 'utf8');
+    const mail = JSON.parse(raw);
+    if (mail.language === locale) return null;
+    const was = mail.language;
+    mail.language = locale;
+    if (!dry) await writeFile(path, JSON.stringify(mail, null, 4) + '\n');
+    return `mail.json language: ${JSON.stringify(was)} -> ${JSON.stringify(locale)}`;
+}
+
 let changed = 0;
 for (const locale of locales) {
     let named = false;
@@ -71,6 +90,9 @@ for (const locale of locales) {
         name();
         for (const n of pluralNotes) console.log(`      ${n}`);
     }
+
+    const mailNote = await applyMailLanguage(locale);
+    if (mailNote) { name(); console.log(`      ${mailNote}`); }
 
     const want = conv[locale];
     if (!want) { console.log(`  ${locale}: no conventions recorded, left alone`); continue; }

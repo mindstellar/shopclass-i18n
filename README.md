@@ -86,6 +86,11 @@ exactly as it appears in the English source: Shopclass substitutes real values f
 when it sends. Dropping `{ITEM_URL}` does not raise an error — it sends a mail with the
 link missing.
 
+Only `s_title` and `s_description` are translated. The `fk_i_page_id` and `s_internal_name`
+fields are hidden in Crowdin, and the `language` field is set from the folder name by
+`npm run conventions` — Shopclass refuses a pack whose `mail.json` language disagrees with
+its folder, and that is not something to ask a translator for.
+
 `npm run check` reports any placeholder that has gone astray.
 
 ## Keeping up with Shopclass

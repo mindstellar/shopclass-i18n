@@ -45,15 +45,48 @@ does not run yet.
 
 ## Translating
 
-Most translation happens in Crowdin, which commits back here — you do not need to clone
-anything to translate. To work in the files directly, open a pull request against `develop`:
-edit the `.po` for your language and run `npm run merge -- <locale>` to recompile the `.mo`.
+Translation happens on Crowdin: **https://crowdin.com/project/shopclass**. Nothing to clone,
+nothing to install.
 
-Crowdin imports translations from this repository only once, so a change merged here is sent
-back to Crowdin by `crowdin-upload.yml`; otherwise Crowdin's next pull request would undo it.
+1. Open the project and sign in. Anyone can join; pick your language from the list.
+2. Open a file and translate. `core` is the admin panel, `messages` the notices people see,
+   `theme` the public site, `mail.json` the 21 emails Shopclass sends.
+3. Leave it. Your work is saved as you go, and reaches this repository on its own.
+
+New English strings appear on Crowdin as soon as Shopclass changes them, so a language can be
+ready before the release that needs it.
+
+### What to keep
+
+- **Placeholders stay exactly as they are**: `%s`, `%d`, `%1$s`, `{WEB_TITLE}`, `{ITEM_URL}`.
+  Shopclass puts real values there. You may move them within the sentence; `%s` and `%d` without
+  a number must keep their order. A lost `{ITEM_URL}` raises no error — it sends a mail with the
+  link missing.
+- **HTML stays**: translate the words between the tags, not the tags or their links.
+- **Plural forms**: Crowdin shows one box per form your language uses, and says which counts each
+  one covers. Russian's second box is for 2–4, not for everything above one. Fill every box.
+- Product names — Shopclass, PHP, cron, SMTP — stay as they are.
+
+### How your work reaches a site
+
+Crowdin opens a pull request into `develop` here, roughly hourly. Once it is merged, prerelease
+sites fetch from `develop`; stable sites get everything at the next Shopclass release, when
+`develop` is merged into `master`.
+
+### Prefer working in the files?
+
+Open a pull request against `develop`: edit the `.po` for your language and run
+`npm run merge -- <locale>` to recompile the `.mo`. It is sent up to Crowdin after the merge by
+`crowdin-upload.yml` — Crowdin imports translations from this repository only once, so without
+that its next pull request would undo your change.
 
 Never edit anything in `src/templates/`. It is generated from the Shopclass source; changes
 there are overwritten on the next sync.
+
+### A missing language
+
+If your language is not on the list, open an issue and it will be added — see
+*Adding a language* below for what a new locale needs.
 
 ## Dates, currency and language names
 

@@ -1,0 +1,67 @@
+# Refuses a pull request that empties translations already here.
+#
+# Crowdin's first pull request (#46) emptied 1,746 of them and left twelve plural
+# entries with a blank singular -- for a count of 1 a site would have rendered nothing,
+# not even English. Nothing else noticed: the files parsed and npm run check passed.
+#
+# What it allows, deliberately:
+#   - strings the templates dropped, and locales added or removed whole;
+#   - a plural entry resized because the locale's rule changed;
+#   - a translator clearing up to 25 bad strings by hand.
+# A larger wipe, or a plural entry losing a form under an unchanged rule, fails.
+# For a removal that is genuinely intended, add the label below and say why.
+name: Translation guard
+
+on:
+  pull_request:
+    paths:
+      - 'src/translations/**'
+
+jobs:
+  guard:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          # The base branch is needed to compare against.
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Install dependencies
+        run: npm install --no-audit --no-fund
+
+      - name: Compare against ${{ github.base_ref }}
+        id: diff
+        run: |
+          git fetch -q origin "${{ github.base_ref }}"
+          node scripts/diff-translations.mjs "origin/${{ github.base_ref }}" HEAD | tee /tmp/guard.txt
+        continue-on-error: true
+
+      - name: Explain the result
+        env:
+          LABELS: ${{ join(github.event.pull_request.labels.*.name, ',') }}
+        run: |
+          {
+            echo '### Translation guard'
+            echo
+            echo '```'
+            cat /tmp/guard.txt
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+
+          if [ "${{ steps.diff.outcome }}" = "success" ]; then
+            echo "No translations lost."
+            exit 0
+          fi
+          case ",$LABELS," in
+            *,translations-removed-on-purpose,*)
+              echo "::warning::This pull request empties translations; allowed by the translations-removed-on-purpose label."
+              exit 0 ;;
+          esac
+          echo "::error::This pull request empties translations that exist on ${{ github.base_ref }}. If that is intended, add the label 'translations-removed-on-purpose' and say why in the description."
+          exit 1

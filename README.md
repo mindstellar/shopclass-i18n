@@ -28,14 +28,85 @@ locale_list.json        generated index of every locale here
 `master` serves stable Shopclass releases, `develop` serves prereleases. Which branch a
 site reads follows the version it runs.
 
+## Branches
+
+**All work happens on `develop`.** Shopclass publishes its templates to `develop` whenever its
+own `develop` changes them, so new strings reach translators while the release is still being
+built, not after it ships. Crowdin reads those templates from `develop`, and its translation
+pull requests target `develop`. Version bumps and re-merges run on `develop` only.
+
+**`master` is never edited directly.** At a Shopclass release, `develop` is merged into `master`
+as it stands — translations, templates and versions together. Because `master` has no commits
+of its own, that merge never conflicts, and stable sites see the same version numbers
+prerelease sites already saw, which only ever go up.
+
+Merge at the release, not before: `develop` may already carry strings for code a stable site
+does not run yet.
+
 ## Translating
 
-Most translation happens in Crowdin, which commits back here — you do not need to clone
-anything to translate. To work in the files directly, edit the `.po` for your language and
-run `npm run merge -- <locale>` to recompile the `.mo`.
+Translation happens on Crowdin: **https://crowdin.com/project/shopclass**. Nothing to clone,
+nothing to install.
+
+1. Open the project and sign in. Anyone can join; pick your language from the list.
+2. Open a file and translate. `core` is the admin panel, `messages` the notices people see,
+   `theme` the public site, `mail.json` the 21 emails Shopclass sends.
+3. Leave it. Your work is saved as you go, and reaches this repository on its own.
+
+New English strings appear on Crowdin as soon as Shopclass changes them, so a language can be
+ready before the release that needs it.
+
+### What to keep
+
+- **Placeholders stay exactly as they are**: `%s`, `%d`, `%1$s`, `{WEB_TITLE}`, `{ITEM_URL}`.
+  Shopclass puts real values there. You may move them within the sentence; `%s` and `%d` without
+  a number must keep their order. A lost `{ITEM_URL}` raises no error — it sends a mail with the
+  link missing.
+- **HTML stays**: translate the words between the tags, not the tags or their links.
+- **Plural forms**: Crowdin shows one box per form your language uses, and says which counts each
+  one covers. Russian's second box is for 2–4, not for everything above one. Fill every box.
+- Product names — Shopclass, PHP, cron, SMTP — stay as they are.
+
+### How your work reaches a site
+
+Crowdin opens a pull request into `develop` here, roughly hourly. Once it is merged, prerelease
+sites fetch from `develop`; stable sites get everything at the next Shopclass release, when
+`develop` is merged into `master`.
+
+### Prefer working in the files?
+
+Open a pull request against `develop`: edit the `.po` for your language and run
+`npm run merge -- <locale>` to recompile the `.mo`. It is sent up to Crowdin after the merge by
+`crowdin-upload.yml` — Crowdin imports translations from this repository only once, so without
+that its next pull request would undo your change.
 
 Never edit anything in `src/templates/`. It is generated from the Shopclass source; changes
 there are overwritten on the next sync.
+
+### A missing language
+
+If your language is not on the list, open an issue and it will be added — see
+*Adding a language* below for what a new locale needs.
+
+## Dates, currency and language names
+
+`scripts/locale-conventions.json` decides `short_name`, `direction`, `date_format` and
+`currency_format`; `npm run conventions` writes them into every `locale.json`. Editing a
+`locale.json` alone therefore does not last — the next run puts the convention back, which
+is what stopped five locales printing American date order.
+
+If a format is wrong for your language, say so in a pull request. Either change
+`scripts/locale-conventions.json` directly, or change your `locale.json` and run:
+
+```bash
+npm run conventions -- --adopt de_DE
+```
+
+which copies what your `locale.json` now says into the conventions file, where it sticks.
+While the two disagree, `npm run check` reports it rather than letting the difference
+vanish silently.
+
+Language names stay in English: the picker they appear in is the English-speaking admin's.
 
 ## Adding a language
 
@@ -67,6 +138,11 @@ incomplete.
 exactly as it appears in the English source: Shopclass substitutes real values for them
 when it sends. Dropping `{ITEM_URL}` does not raise an error — it sends a mail with the
 link missing.
+
+Only `s_title` and `s_description` are translated. The `fk_i_page_id` and `s_internal_name`
+fields are hidden in Crowdin, and the `language` field is set from the folder name by
+`npm run conventions` — Shopclass refuses a pack whose `mail.json` language disagrees with
+its folder, and that is not something to ask a translator for.
 
 `npm run check` reports any placeholder that has gone astray.
 

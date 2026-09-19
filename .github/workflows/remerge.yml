@@ -7,11 +7,14 @@
 #
 # Existing translations survive wherever the English is unchanged. Strings the
 # source dropped are removed.
+#
+# develop only: Shopclass pushes templates to develop, translators work there, and
+# master receives the result at release. See "Branches" in the README.
 name: Re-merge translations
 
 on:
   push:
-    branches: [master, develop]
+    branches: [develop]
     paths:
       - 'src/templates/**'
   workflow_dispatch:

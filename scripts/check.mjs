@@ -10,7 +10,7 @@
  */
 import { readdir, readFile } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
-import { readPo } from './lib.mjs';
+import { htmlProblems, readPo } from './lib.mjs';
 
 const TRANS = 'src/translations';
 const REQUIRED = ['locale.json', 'mail.json', 'core.po', 'messages.po', 'theme.po'];
@@ -122,11 +122,31 @@ for (const locale of locales) {
         for (const tok of tokens(src.s_description)) {
             if (!tokens(t.s_description).has(tok)) warn(locale, `template ${id} body lost ${tok}`);
         }
+        // Broken markup here sends a mail with half a sentence missing. It is still
+        // the translator's text to repair, so it is reported and not rewritten --
+        // and a fault the English source already has is not pinned on the locale.
+        for (const field of ['s_title', 's_description']) {
+            const inherited = new Set(htmlProblems(src[field]).map((p) => p.code));
+            for (const p of htmlProblems(t[field])) {
+                if (inherited.has(p.code)) continue;
+                warn(locale, `template ${id} ${field === 's_title' ? 'title' : 'body'} HTML: ${p.detail}`);
+            }
+        }
+    }
+}
+
+// The same faults in src/templates/mail.json reach every locale at once, so they
+// are named once here rather than 32 times above. Fixing them is upstream work.
+for (const src of wanted.values()) {
+    for (const field of ['s_title', 's_description']) {
+        for (const p of htmlProblems(src[field])) {
+            warn('src/templates', `template ${src.fk_i_page_id} ${field === 's_title' ? 'title' : 'body'} HTML: ${p.detail}`);
+        }
     }
 }
 
 const summary = `${locales.length} locales checked`;
 console.log(failures
     ? `\n${summary}: ${failures} blocking, ${warnings} to review`
-    : `\nOK: ${summary}, ${warnings} placeholder(s) to review`);
+    : `\nOK: ${summary}, ${warnings} to review`);
 process.exit(failures ? 1 : 0);

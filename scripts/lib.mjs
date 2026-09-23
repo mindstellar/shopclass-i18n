@@ -107,3 +107,55 @@ export async function writeCatalogue(dir, domain, catalogue) {
     await writeFile(`${dir}/${domain}.po`, gettextParser.po.compile(catalogue));
     await writeFile(`${dir}/${domain}.mo`, gettextParser.mo.compile(catalogue));
 }
+
+/** Tags that carry no closing partner, so an unmatched one is not a defect. */
+const VOID_TAGS = new Set(['area', 'br', 'col', 'hr', 'img', 'input', 'link', 'meta', 'source']);
+const TAG = /^<(\/?)([A-Za-z][A-Za-z0-9]*)((?:\s+[A-Za-z_:][-A-Za-z0-9_:.]*(?:\s*=\s*(?:"[^"]*"|'[^']*'|[^\s"'<>`]+))?)*)\s*(\/?)>/;
+
+/**
+ * Find the HTML in a mail body that a mail client will not render as written.
+ *
+ * These bodies are translated as plain text, so a tag can lose its ">" and
+ * swallow the sentence after it ("</a के बारे में ... >"), or gain a space
+ * ("</ p>") and never close its paragraph. Both survive a diff and a JSON parse
+ * and only show up in a sent mail, which nobody reads twice.
+ *
+ * Only well-formedness is judged. Which tags a translator uses, and how many,
+ * is their choice -- a body that is valid but shaped unlike the source is fine.
+ *
+ * Returns a list of { code, detail }; code is stable enough to compare two
+ * bodies by, detail quotes the text so a human can find it.
+ */
+export function htmlProblems(html) {
+    const problems = [];
+    const open = [];
+    const quote = (i) => JSON.stringify(String(html).slice(i, i + 28));
+    const text = String(html);
+
+    for (let i = text.indexOf('<'); i !== -1; i = text.indexOf('<', i + 1)) {
+        const m = TAG.exec(text.slice(i));
+        if (!m) {
+            problems.push({ code: 'malformed', detail: `malformed tag at ${quote(i)}` });
+            continue;
+        }
+        const [, closing, written, , selfClosing] = m;
+        const name = written.toLowerCase();
+        if (selfClosing || VOID_TAGS.has(name)) continue;
+        if (!closing) { open.push(name); continue; }
+        if (open[open.length - 1] === name) { open.pop(); continue; }
+        if (!open.includes(name)) {
+            problems.push({ code: `stray:${name}`, detail: `stray </${written}> at ${quote(i)}` });
+            continue;
+        }
+        // A closer for something further down the stack leaves everything above it open.
+        while (open[open.length - 1] !== name) {
+            const lost = open.pop();
+            problems.push({ code: `unclosed:${lost}`, detail: `<${lost}> is never closed` });
+        }
+        open.pop();
+    }
+    for (const name of open.reverse()) {
+        problems.push({ code: `unclosed:${name}`, detail: `<${name}> is never closed` });
+    }
+    return problems;
+}

@@ -22,10 +22,6 @@ msgstr " または、コミュニティディスカッションで質問する�
 msgid " is available"
 msgstr " が利用可能です"
 
-#: oc-admin/themes/modern/tools/jobs.php
-msgid "#"
-msgstr ""
-
 #: oc-admin/themes/modern/parts/ui.php
 msgid "%1$s &raquo; %2$s"
 msgstr "%1$s &raquo; %2$s"
@@ -141,7 +137,11 @@ msgid "%d change"
 msgid_plural "%d changes"
 msgstr[0] "%d件の変更"
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-includes/osclass/classes/job/JobWorker.php
+msgid "%d continuing"
+msgstr ""
+
+#: oc-includes/osclass/helpers/hAdminUi.php
 msgid "%d day"
 msgid_plural "%d days"
 msgstr[0] "%d日"
@@ -149,6 +149,10 @@ msgstr[0] "%d日"
 #: oc-admin/themes/modern/functions.php
 msgid "%d days"
 msgstr "%d日"
+
+#: oc-includes/osclass/classes/job/JobWorker.php
+msgid "%d done"
+msgstr ""
 
 #: oc-admin/themes/modern/fields/index.php
 msgid "%d fields from before Forms are attached straight to categories."
@@ -158,7 +162,11 @@ msgstr "フォーム以前の%d個のフィールドは、カテゴリーに直�
 msgid "%d files"
 msgstr "%d件のファイル"
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-includes/osclass/classes/job/JobWorker.php
+msgid "%d gave up"
+msgstr ""
+
+#: oc-includes/osclass/helpers/hAdminUi.php
 msgid "%d hour"
 msgid_plural "%d hours"
 msgstr[0] "%d時間"
@@ -169,7 +177,7 @@ msgid "%d listing"
 msgid_plural "%d listings"
 msgstr[0] "%d件の広告"
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-includes/osclass/helpers/hAdminUi.php
 msgid "%d minute"
 msgid_plural "%d minutes"
 msgstr[0] "%d分"
@@ -196,6 +204,10 @@ msgstr "%d件の送信データ"
 msgid "%d things need fixing before this can be saved."
 msgstr ""
 
+#: oc-includes/osclass/classes/job/JobWorker.php
+msgid "%d to retry"
+msgstr ""
+
 #: oc-admin/themes/modern/parts/ui.php
 #: oc-includes/osclass/helpers/hAdminUi.php
 msgid "%d unsaved changes"
@@ -211,6 +223,7 @@ msgid "%s (plugin not installed)"
 msgstr "%s (プラグインがインストールされていません)"
 
 #: oc-admin/themes/modern/tools/system-info.php
+#: oc-includes/osclass/helpers/hAdminUi.php
 msgid "%s ago"
 msgstr "%s前"
 
@@ -482,6 +495,14 @@ msgstr "3文字のISO 4217コード（例: USD、EUR）。"
 msgid "A 3-letter ISO 4217 code, e.g. USD."
 msgstr "3文字のISO 4217コード（例: USD）。"
 
+#: oc-includes/osclass/classes/admin/form/SpamSettingsForm.php
+msgid "A block ends once the failures are older than this."
+msgstr ""
+
+#: oc-admin/themes/modern/settings/spamNbots.php
+msgid "A captcha is set up above, so the per-account limit is off. "
+msgstr ""
+
 #: oc-admin/themes/modern/tools/system-info.php
 msgid ""
 "A checked view of the environment Shopclass is running on: what it needs, "
@@ -556,6 +577,10 @@ msgstr "アクセスキー"
 #: oc-includes/osclass/classes/Breadcrumb.php
 msgid "Account"
 msgstr "アカウント"
+
+#: oc-admin/themes/modern/settings/spamNbots.php
+msgid "Account, %s"
+msgstr ""
 
 #: oc-includes/osclass/installer/basic_data.php
 msgid "Accounting - Finance"
@@ -843,6 +868,12 @@ msgstr "住所：3文字以上"
 msgid "Address: no more than 100 characters"
 msgstr "住所：100文字以下"
 
+#: oc-admin/themes/modern/settings/spamNbots.php
+msgid ""
+"Addresses and accounts with failures in the last %d minutes. Unblock one to "
+"let it try again at once."
+msgstr ""
+
 #: oc-includes/osclass/emails.php
 msgid "Admin"
 msgstr "管理者"
@@ -854,6 +885,14 @@ msgstr "管理者アカウント"
 #: oc-admin/themes/modern/users/settings.php
 msgid "Admin notifications"
 msgstr "管理者通知"
+
+#: oc-admin/themes/modern/settings/spamNbots.php
+msgid "Admin panel"
+msgstr ""
+
+#: oc-admin/themes/modern/settings/spamNbots.php
+msgid "Admin password reset"
+msgstr ""
 
 #: oc-admin/themes/modern/parts/header.php
 msgid "Admin sections"
@@ -887,6 +926,10 @@ msgstr "管理者"
 msgid "Admins manage the whole panel; moderators only handle listings and stats."
 msgstr "管理者はパネル全体を管理し、モデレーターは広告と統計のみを扱います。"
 
+#: oc-includes/osclass/classes/storage/StorageJobs.php
+msgid "Adopt a file already in remote storage"
+msgstr ""
+
 #: oc-admin/themes/modern/settings/storage.php
 msgid "Adopt existing Better S3 images"
 msgstr "既存のBetter S3画像を取り込む"
@@ -916,6 +959,12 @@ msgstr "広告、PR"
 
 #: oc-admin/themes/modern/items/settings.php
 msgid "After"
+msgstr ""
+
+#: oc-admin/themes/modern/settings/spamNbots.php
+msgid ""
+"After too many failed sign-ins, Shopclass blocks that address or account "
+"for a "
 msgstr ""
 
 #: oc-admin/themes/modern/fields/index.php
@@ -1337,14 +1386,6 @@ msgstr "次へ添付:"
 msgid "Attachments"
 msgstr "添付ファイル"
 
-#: oc-includes/osclass/classes/admin/form/SpamSettingsForm.php
-msgid "Attempts per account"
-msgstr "アカウントあたりの試行回数"
-
-#: oc-includes/osclass/classes/admin/form/SpamSettingsForm.php
-msgid "Attempts per address"
-msgstr "アドレスあたりの試行回数"
-
 #: oc-includes/osclass/helpers/hUtils.php
 msgid "Aug"
 msgstr "8月"
@@ -1599,8 +1640,16 @@ msgstr "請求設定"
 msgid "Block"
 msgstr "ブロック"
 
+#: oc-admin/themes/modern/settings/spamNbots.php
+msgid "Block ends"
+msgstr ""
+
 #: oc-includes/osclass/classes/controller/admin/CAdminItems.php
 msgid "Block listing"
+msgstr ""
+
+#: oc-includes/osclass/classes/admin/form/SpamSettingsForm.php
+msgid "Block sign-ins after too many failures"
 msgstr ""
 
 #: oc-admin/themes/modern/tools/maintenance.php
@@ -1612,6 +1661,7 @@ msgid "Block this listing?"
 msgstr ""
 
 #: oc-admin/themes/modern/comments/frm.php
+#: oc-admin/themes/modern/settings/spamNbots.php
 #: oc-includes/osclass/classes/controller/admin/CAdminItems.php
 #: oc-includes/osclass/classes/datatables/CommentsDataTable.php
 #: oc-includes/osclass/classes/datatables/ItemsDataTable.php
@@ -1623,7 +1673,7 @@ msgstr "ブロックされました"
 msgid "Blocked keywords"
 msgstr "ブロックされたキーワード"
 
-#: oc-admin/themes/modern/tools/cleanup.php
+#: oc-includes/osclass/classes/Cleanup.php
 msgid "Blocked listings"
 msgstr "ブロックされた広告"
 
@@ -1651,6 +1701,10 @@ msgstr "右下"
 
 #: oc-includes/osclass/classes/admin/form/CommentSettingsForm.php
 msgid "Break comments into pages with"
+msgstr ""
+
+#: oc-includes/osclass/classes/storage/StorageJobs.php
+msgid "Bring a file back to this server"
 msgstr ""
 
 #: oc-admin/themes/modern/settings/storage.php
@@ -2161,9 +2215,25 @@ msgid "Classified ads in %s"
 msgstr "%sの広告"
 
 #: oc-admin/themes/modern/tools/cleanup.php
+#: oc-admin/themes/modern/tools/jobs.php
 #: oc-includes/osclass/classes/AdminMenu.php
+#: oc-includes/osclass/classes/job/CleanupJobs.php
 msgid "Cleanup"
 msgstr "クリーンアップ"
+
+#: oc-admin/themes/modern/tools/cleanup.php
+msgid ""
+"Cleanup is running in the background. Reload this page to see the counts go "
+"down."
+msgstr ""
+
+#: oc-includes/osclass/classes/job/CleanupJobs.php
+msgid "Cleanup removed %1$d: %2$s"
+msgstr ""
+
+#: oc-admin/themes/modern/tools/cleanup.php
+msgid "Cleanup runs in the background, one batch at a time, until nothing matches."
+msgstr ""
 
 #: oc-admin/themes/modern/items/reported.php
 #: oc-includes/osclass/classes/datatables/ItemsDataTable.php
@@ -2209,14 +2279,6 @@ msgstr "フィルターをクリア"
 #: oc-admin/themes/modern/tools/logs.php
 msgid "Clear log"
 msgstr "ログをクリア"
-
-#: oc-admin/themes/modern/settings/spamNbots.php
-msgid "Clear now"
-msgstr "今すぐクリア"
-
-#: oc-admin/themes/modern/settings/spamNbots.php
-msgid "Clear recorded attempts"
-msgstr "記録された試行をクリア"
 
 #: oc-admin/themes/modern/items/reported.php
 #: oc-includes/osclass/classes/datatables/ItemsDataTable.php
@@ -2523,6 +2585,10 @@ msgstr ""
 msgid "Continue with upgrade"
 msgstr "アップグレードを続ける"
 
+#: oc-includes/osclass/classes/search/AlertJobs.php
+msgid "Convert saved-search alerts"
+msgstr ""
+
 #: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
 msgid "Cooldown (hours)"
 msgstr "クールダウン（時間）"
@@ -2594,12 +2660,16 @@ msgid "Count crawler visits as views"
 msgstr "クローラーの訪問を閲覧数としてカウントする"
 
 #: oc-includes/osclass/classes/admin/form/SpamSettingsForm.php
-msgid "Count failed attempts and refuse further ones past the limits below"
-msgstr "失敗した試行回数をカウントし、以下の制限を超える試行を拒否する"
+msgid "Count failures from the last"
+msgstr ""
 
 #: oc-admin/themes/modern/tools/cleanup.php
 msgid "Count listing views"
 msgstr "広告の閲覧数をカウントする"
+
+#: oc-admin/themes/modern/settings/spamNbots.php
+msgid "Counting"
+msgstr ""
 
 #: oc-admin/themes/modern/settings/locations.php
 msgid ""
@@ -3051,6 +3121,10 @@ msgstr "<strong>%s</strong>を削除しますか？これによりそのカテ�
 msgid "Delete Plugin"
 msgstr "プラグインを削除"
 
+#: oc-includes/osclass/classes/storage/StorageJobs.php
+msgid "Delete a file from storage"
+msgstr ""
+
 #: oc-admin/themes/modern/admins/index.php
 msgid "Delete admin"
 msgstr "管理者を削除"
@@ -3197,6 +3271,10 @@ msgstr ""
 msgid "Deleted user"
 msgstr "削除されたユーザー"
 
+#: oc-admin/themes/modern/settings/spamNbots.php
+msgid "Deletes every recorded failure, yours too."
+msgstr ""
+
 #: oc-admin/themes/modern/categories/index.php
 msgid ""
 "Deleting a category also deletes every listing filed under it and its "
@@ -3248,6 +3326,8 @@ msgstr "Description: 必須"
 #: oc-admin/themes/modern/parts/market.php
 #: oc-admin/themes/modern/parts/package-ui.php
 #: oc-admin/themes/modern/settings/locations/form.php
+#: oc-admin/themes/modern/tools/cleanup.php
+#: oc-admin/themes/modern/tools/jobs.php
 #: oc-includes/osclass/classes/datatables/LogsDataTable.php
 msgid "Details"
 msgstr "詳細"
@@ -3628,6 +3708,10 @@ msgstr "Emailアドレス: このフィールドは必項です。"
 msgid "Emails templates"
 msgstr "メールテンプレート"
 
+#: oc-includes/osclass/classes/job/CategoryJobs.php
+msgid "Empty and delete a category"
+msgstr ""
+
 #: oc-admin/themes/modern/categories/index.php
 #: oc-admin/themes/modern/plugins/index.php
 #: oc-admin/themes/modern/users/frm.php
@@ -3695,8 +3779,12 @@ msgid "Enabled for the public website"
 msgstr "公開ウェブサイトで有効"
 
 #: oc-admin/themes/modern/tools/cleanup.php
-msgid "Enabled rules also run automatically once a day."
-msgstr "有効なルールは、1日に1回自動的にも実行されます。"
+msgid "Enabled rules run once a day."
+msgstr ""
+
+#: oc-admin/themes/modern/tools/cleanup.php
+msgid "Enabled rules run once a day. The last cleanup finished %s."
+msgstr ""
 
 #: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
 msgid "Enabled with a price of 0 means every seller can feature a listing for free."
@@ -3898,7 +3986,7 @@ msgstr "掲載期限"
 msgid "Expired"
 msgstr "期限切れ"
 
-#: oc-admin/themes/modern/tools/cleanup.php
+#: oc-includes/osclass/classes/Cleanup.php
 msgid "Expired listings"
 msgstr "期限切れの広告"
 
@@ -3932,19 +4020,19 @@ msgid "Failed"
 msgstr "失敗"
 
 #: oc-admin/themes/modern/settings/spamNbots.php
-msgid ""
-"Failed sign-ins and password-reset requests are counted per visitor address "
-"and per account "
-msgstr "ログイン失敗とパスワードリセットのリクエストは、訪問者アドレスごとおよびアカウントごとにカウントされます "
+msgid "Failed sign-ins right now"
+msgstr ""
 
-#: oc-includes/osclass/classes/admin/form/SpamSettingsForm.php
-msgid ""
-"Failures against one account name, from anywhere. This is what catches "
-"guessing "
+#: oc-admin/themes/modern/settings/spamNbots.php
+msgid "Failures"
 msgstr ""
 
 #: oc-includes/osclass/classes/admin/form/SpamSettingsForm.php
-msgid "Failures from one visitor address, across every account it tried. Keep this "
+msgid "Failures per IP address"
+msgstr ""
+
+#: oc-includes/osclass/classes/admin/form/SpamSettingsForm.php
+msgid "Failures per account"
 msgstr ""
 
 #: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
@@ -4000,6 +4088,10 @@ msgstr "フィールド"
 #: oc-includes/osclass/classes/datatables/MediaDataTable.php
 msgid "File"
 msgstr "ファイル"
+
+#: oc-includes/osclass/classes/storage/StorageJobs.php
+msgid "File #%d"
+msgstr ""
 
 #: oc-admin/themes/modern/tools/import.php
 msgid "File (.sql)"
@@ -4172,6 +4264,10 @@ msgstr "友達を探す（一緒に何かの活動をする）"
 #: oc-includes/osclass/helpers/hItems.php
 msgid "From"
 msgstr "差出人:"
+
+#: oc-includes/osclass/classes/admin/form/SpamSettingsForm.php
+msgid "From any address. This catches guessing spread over many addresses."
+msgstr ""
 
 #: oc-admin/themes/modern/items/reported.php
 msgid ""
@@ -4442,10 +4538,6 @@ msgstr "住宅の交換"
 msgid "How Shopclass talks to the database — the site cannot run without it."
 msgstr "Shopclassがデータベースと通信する方法 — これがないとサイトは動作しません。"
 
-#: oc-includes/osclass/classes/admin/form/SpamSettingsForm.php
-msgid "How far back failures are counted, and so how long a refusal lasts."
-msgstr ""
-
 #: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
 msgid "How long a listing must wait before it can be bumped again."
 msgstr "広告を再度バンプできるようになるまでの待機時間。"
@@ -4510,7 +4602,12 @@ msgid "IP Address: %s"
 msgstr "ＩＰアドレス； %s"
 
 #: oc-admin/themes/modern/items/frm.php
+#: oc-admin/themes/modern/settings/spamNbots.php
 msgid "IP address"
+msgstr ""
+
+#: oc-admin/themes/modern/settings/spamNbots.php
+msgid "IP address or account"
 msgstr ""
 
 #: oc-includes/osclass/classes/admin/form/BanRuleForm.php
@@ -4980,6 +5077,10 @@ msgstr "アイテムの有効期限"
 msgid "Items"
 msgstr "アイテム"
 
+#: oc-admin/themes/modern/tools/cleanup.php
+msgid "Items removed per batch"
+msgstr ""
+
 #: oc-includes/osclass/classes/search/AlertStore.php
 msgid "Its location or user filter was in an unknown form."
 msgstr ""
@@ -5007,6 +5108,10 @@ msgstr "この手順を完了するにはJavaScriptが必要です。"
 #: oc-includes/osclass/installer/basic_data.php
 msgid "Jewelry - Watches"
 msgstr "宝石、時計"
+
+#: oc-admin/themes/modern/tools/jobs.php
+msgid "Job"
+msgstr ""
 
 #: oc-includes/osclass/installer/basic_data.php
 msgid "Jobs"
@@ -5062,6 +5167,10 @@ msgstr ""
 msgid "Keep the photo at its full size."
 msgstr ""
 
+#: oc-includes/osclass/classes/admin/form/SpamSettingsForm.php
+msgid "Keep this high: many people can share one address at an office or on mobile."
+msgstr ""
+
 #: oc-admin/themes/modern/tools/system-info.php
 msgid "Keeps compiled PHP in memory instead of recompiling every request."
 msgstr "リクエストごとにPHPを再コンパイルするのではなく、コンパイル済みのPHPをメモリ内に保持します。"
@@ -5069,12 +5178,6 @@ msgstr "リクエストごとにPHPを再コンパイルするのではなく、
 #: oc-admin/themes/modern/tools/cache.php
 msgid "Keeps data between requests"
 msgstr "リクエスト間でデータを保持する"
-
-#: oc-admin/themes/modern/tools/cleanup.php
-msgid ""
-"Keeps each run bounded so it never times out; run again to clear a larger "
-"backlog."
-msgstr "タイムアウトを防ぐため各実行を制限します。未処理分をさらに処理するには、再度実行してください。"
 
 #: oc-admin/themes/modern/tools/cache.php
 msgid ""
@@ -5298,10 +5401,6 @@ msgstr "広告により多くの写真を掲載できるようにする"
 msgid "Let long jobs finish"
 msgstr "時間のかかるジョブを完了できるようにする"
 
-#: oc-admin/themes/modern/settings/spamNbots.php
-msgid "Lets anyone currently refused try again straight away, including you."
-msgstr ""
-
 #: oc-admin/themes/modern/settings/locations/preview.php
 msgid "Level"
 msgstr ""
@@ -5309,10 +5408,6 @@ msgstr ""
 #: oc-includes/osclass/classes/AdminMenu.php
 msgid "Library"
 msgstr "ライブラリ"
-
-#: oc-includes/osclass/classes/admin/form/SpamSettingsForm.php
-msgid "Limit sign-in attempts"
-msgstr "サインイン試行回数の制限"
 
 #: oc-includes/osclass/classes/EmailVariables.php
 msgid "Link for account validation."
@@ -5522,8 +5617,8 @@ msgid "Listings that are disabled/blocked."
 msgstr "無効化またはブロックされている広告です。"
 
 #: oc-admin/themes/modern/tools/cleanup.php
-msgid "Listings visitors have flagged as spam."
-msgstr "訪問者がスパムとしてマークした広告です。"
+msgid "Listings visitors have flagged as spam, unchanged since."
+msgstr ""
 
 #: oc-admin/themes/modern/stats/items.php
 msgid "Listings' views"
@@ -5892,10 +5987,6 @@ msgstr "最大アップロードサイズ"
 msgid "Maximum"
 msgstr "最大値"
 
-#: oc-admin/themes/modern/tools/cleanup.php
-msgid "Maximum items removed per run"
-msgstr "1回の実行で削除する最大アイテム数"
-
 #: oc-includes/osclass/classes/admin/form/MediaSettingsForm.php
 msgid "Maximum size"
 msgstr "最大サイズ"
@@ -6080,6 +6171,10 @@ msgstr "最多ダウンロード"
 #: oc-includes/osclass/installer/basic_data.php
 msgid "Motorcycles"
 msgstr "バイク、オートバイ"
+
+#: oc-includes/osclass/classes/storage/StorageJobs.php
+msgid "Move a file to remote storage"
+msgstr ""
 
 #: oc-admin/themes/modern/fields/index.php
 msgid "Move into forms"
@@ -6393,6 +6488,10 @@ msgstr "まだ管理者はいません"
 msgid "No alerts yet"
 msgstr "まだアラートはありません"
 
+#: oc-admin/themes/modern/tools/jobs.php
+msgid "No background work has run yet."
+msgstr ""
+
 #: oc-includes/osclass/classes/market/Installer.php
 msgid "No backup was found to roll back to."
 msgstr "ロールバックするためのバックアップが見つかりませんでした。"
@@ -6474,6 +6573,10 @@ msgstr "メールテンプレートはありません"
 #: oc-admin/themes/modern/tools/logs.php
 msgid "No entries match your filter."
 msgstr "指定したフィルターに合致するエントリはありません。"
+
+#: oc-admin/themes/modern/settings/spamNbots.php
+msgid "No failed sign-ins. Nobody is blocked."
+msgstr ""
 
 #: oc-admin/themes/modern/fields/index.php
 msgid "No fields yet. Create one to get started."
@@ -6758,6 +6861,10 @@ msgid ""
 "you have now."
 msgstr ""
 
+#: oc-admin/themes/modern/tools/cleanup.php
+msgid "Nothing has been cleaned up yet."
+msgstr ""
+
 #: oc-admin/themes/modern/media/index.php
 msgid "Nothing has been uploaded under this filter yet."
 msgstr "このフィルターに該当するアップロードはまだありません。"
@@ -6771,7 +6878,7 @@ msgid "Nothing here yet"
 msgstr "こちらにはまだ何もありません"
 
 #: oc-admin/themes/modern/tools/jobs.php
-msgid "Nothing here."
+msgid "Nothing is waiting. Finished work is listed under Recent activity."
 msgstr ""
 
 #: oc-admin/themes/modern/settings/locations/list.php
@@ -7318,6 +7425,10 @@ msgstr "パーソナル"
 msgid "Phone"
 msgstr "電話番号"
 
+#: oc-includes/osclass/classes/storage/StorageJobs.php
+msgid "Photo #%1$d of listing #%2$d"
+msgstr ""
+
 #: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
 msgid "Photo cap"
 msgstr "写真枚数の上限"
@@ -7547,12 +7658,6 @@ msgstr "Google reCAPTCHAまたはCloudflare Turnstileを使用して、自動化
 msgid "Provider"
 msgstr "プロバイダー"
 
-#: oc-includes/osclass/classes/admin/form/SpamSettingsForm.php
-msgid ""
-"Pruned by the daily cron. Only the window above affects the limits; the "
-"rest is "
-msgstr ""
-
 #: oc-includes/osclass/helpers/hUtils.php
 msgid "Public Profile"
 msgstr "公開プロフィール"
@@ -7599,6 +7704,10 @@ msgstr ""
 msgid "Question about your listing"
 msgstr "広告に関してお問い合わせ"
 
+#: oc-admin/themes/modern/tools/jobs.php
+msgid "Queue"
+msgstr ""
+
 #: oc-admin/themes/modern/settings/storage.php
 msgid "Queue downloads"
 msgstr "ダウンロードをキューに入れる"
@@ -7606,6 +7715,10 @@ msgstr "ダウンロードをキューに入れる"
 #: oc-admin/themes/modern/settings/storage.php
 msgid "Queue every local image for upload?"
 msgstr "すべてのローカル画像をアップロード用にキューに入れますか？"
+
+#: oc-includes/osclass/classes/storage/StorageJobs.php
+msgid "Queue files for a storage move"
+msgstr ""
 
 #: oc-admin/themes/modern/settings/storage.php
 msgid "Queue uploads"
@@ -7679,6 +7792,10 @@ msgstr "不動産"
 msgid "Real estate"
 msgstr "不動産"
 
+#: oc-includes/osclass/classes/storage/StorageJobs.php
+msgid "Rebuild photo sizes"
+msgstr ""
+
 #: oc-includes/osclass/classes/AdminMenu.php
 msgid "Recalculate category stats"
 msgstr "カテゴリ統計を再計算"
@@ -7691,9 +7808,14 @@ msgstr ""
 msgid "Received"
 msgstr "受信日時"
 
+#: oc-admin/themes/modern/tools/jobs.php
 #: oc-admin/themes/modern/tools/logs.php
 msgid "Recent activity"
 msgstr "最近のアクティビティ"
+
+#: oc-admin/themes/modern/tools/cleanup.php
+msgid "Recent cleanups"
+msgstr ""
 
 #: oc-admin/themes/modern/parts/market.php
 msgid "Recently updated"
@@ -7937,8 +8059,8 @@ msgstr "報告閾値"
 
 #: oc-admin/themes/modern/items/reported.php
 #: oc-admin/themes/modern/main/index.php
-#: oc-admin/themes/modern/tools/cleanup.php
 #: oc-includes/osclass/classes/AdminMenu.php
+#: oc-includes/osclass/classes/Cleanup.php
 msgid "Reported listings"
 msgstr "報告をうけた広告"
 
@@ -7999,6 +8121,7 @@ msgid "Resend the activation to"
 msgstr "アクティベーションを再送"
 
 #: oc-admin/themes/modern/parts/ui.php
+#: oc-admin/themes/modern/settings/spamNbots.php
 #: oc-admin/themes/modern/tools/logs.php
 msgid "Reset"
 msgstr "リセット"
@@ -8065,6 +8188,7 @@ msgstr "今すぐクリーンアップを実行しますか？"
 msgid "Run waiting jobs now"
 msgstr ""
 
+#: oc-admin/themes/modern/tools/cleanup.php
 #: oc-admin/themes/modern/tools/jobs.php
 msgid "Running"
 msgstr ""
@@ -8910,6 +9034,10 @@ msgstr "サインアウト"
 msgid "Sign-in details"
 msgstr ""
 
+#: oc-includes/osclass/classes/admin/form/SpamSettingsForm.php
+msgid "Sign-in limits"
+msgstr ""
+
 #: oc-admin/themes/modern/settings/spamNbots.php
 #: oc-includes/osclass/classes/admin/form/SpamSettingsForm.php
 msgid "Sign-in protection"
@@ -9047,7 +9175,7 @@ msgstr "スパム"
 msgid "Spam and bots"
 msgstr "スパムとボット"
 
-#: oc-admin/themes/modern/tools/cleanup.php
+#: oc-includes/osclass/classes/Cleanup.php
 msgid "Spam listings"
 msgstr "スパム広告"
 
@@ -9072,6 +9200,7 @@ msgstr ""
 msgid "Stable, release candidates and betas"
 msgstr ""
 
+#: oc-admin/themes/modern/settings/spamNbots.php
 #: oc-admin/themes/modern/tools/jobs.php
 msgid "State"
 msgstr ""
@@ -9360,12 +9489,6 @@ msgid ""
 "before turning on "
 msgstr "<strong>Better S3</strong>プラグインは現在アクティブです。次を有効にする前に無効にしてください "
 
-#: oc-admin/themes/modern/settings/spamNbots.php
-msgid ""
-"The account limit is skipped while a captcha provider is configured above, "
-"because every "
-msgstr "上記でCAPTCHAプロバイダーが設定されている場合、アカウント制限はスキップされます。なぜなら、すべての "
-
 #: oc-admin/themes/modern/appearance/index.php
 msgid "The active theme extends this one. Deleting it would leave "
 msgstr ""
@@ -9443,6 +9566,10 @@ msgid ""
 "The daily task deletes entries older than this. Set to 0 to keep them "
 "forever."
 msgstr "デイリータスクは、これより古いエントリを削除します。無期限に保持する場合は0に設定してください。"
+
+#: oc-includes/osclass/classes/admin/form/SpamSettingsForm.php
+msgid "The daily task deletes older records. 0 keeps them forever."
+msgstr ""
 
 #: oc-includes/osclass/installer/gui/install-database.php
 msgid "The database Shopclass should use."
@@ -9956,10 +10083,8 @@ msgstr "これにより、広告とその写真が完全に削除されます。
 #: oc-admin/themes/modern/tools/cleanup.php
 msgid ""
 "This permanently deletes the matching listings and users for every enabled "
-"rule (up to the per-run limit). This can't be undone."
+"rule. It runs in the background. This can't be undone."
 msgstr ""
-"これにより、有効になっているすべてのルールについて（1"
-"回あたりの上限まで）、該当する広告およびユーザーが完全に削除されます。この操作は取り消しできません。"
 
 #: oc-admin/themes/modern/fields/submissions.php
 msgid "This permanently deletes the submission. Continue?"
@@ -10061,6 +10186,12 @@ msgstr "このフィールドで検索できるようにチェック"
 #: oc-admin/themes/modern/fields/iframe.php
 msgid "Tick to open links in new tab"
 msgstr "新しいタブでリンクを開くにはチェック"
+
+#: oc-admin/themes/modern/tools/cleanup.php
+msgid ""
+"Tick what to clean and how old it must be. Everything removed is gone for "
+"good."
+msgstr ""
 
 #: oc-includes/osclass/installer/basic_data.php
 msgid "Tickets"
@@ -10381,15 +10512,16 @@ msgstr "パッケージファイルを解凍できません。"
 msgid "Unable to upgrade Database"
 msgstr "データベースをアップグレードできません"
 
-#: oc-admin/themes/modern/tools/cleanup.php
+#: oc-includes/osclass/classes/Cleanup.php
 msgid "Unactivated listings"
 msgstr "未アクティベートの広告"
 
-#: oc-admin/themes/modern/tools/cleanup.php
+#: oc-includes/osclass/classes/Cleanup.php
 msgid "Unactivated users"
 msgstr "アクティベートされていないユーザー"
 
 #: oc-admin/themes/modern/comments/frm.php
+#: oc-admin/themes/modern/settings/spamNbots.php
 #: oc-includes/osclass/classes/controller/admin/CAdminItemComments.php
 #: oc-includes/osclass/classes/controller/admin/CAdminItems.php
 #: oc-includes/osclass/classes/controller/admin/CAdminUsers.php
@@ -10398,6 +10530,10 @@ msgstr "アクティベートされていないユーザー"
 #: oc-includes/osclass/classes/datatables/UsersDataTable.php
 msgid "Unblock"
 msgstr "ブロックしない"
+
+#: oc-admin/themes/modern/settings/spamNbots.php
+msgid "Unblock everyone"
+msgstr ""
 
 #: oc-includes/osclass/classes/controller/admin/CAdminItems.php
 msgid "Unblock listing"
@@ -11020,7 +11156,11 @@ msgid "Waiting"
 msgstr ""
 
 #: oc-admin/themes/modern/tools/jobs.php
-msgid "Waiting jobs also run on every cron tick."
+msgid "Waiting jobs run on every cron tick, but cron has not run yet."
+msgstr ""
+
+#: oc-admin/themes/modern/tools/jobs.php
+msgid "Waiting jobs run on every cron tick. Cron last ran %s."
 msgstr ""
 
 #: oc-admin/themes/modern/items/settings.php
@@ -11092,6 +11232,7 @@ msgid "Web title"
 msgstr "Web title"
 
 #: oc-admin/themes/modern/plugins/index.php
+#: oc-admin/themes/modern/settings/spamNbots.php
 #: oc-admin/themes/modern/users/frm.php
 msgid "Website"
 msgstr "ウェブサイト"
@@ -11099,6 +11240,10 @@ msgstr "ウェブサイト"
 #: oc-admin/themes/modern/tools/system-info.php
 msgid "Website URL"
 msgstr "ウェブサイトのURL"
+
+#: oc-admin/themes/modern/settings/spamNbots.php
+msgid "Website password reset"
+msgstr ""
 
 #: oc-includes/osclass/helpers/hUtils.php
 msgid "Wed"
@@ -11133,6 +11278,12 @@ msgstr "「ダウンロード」の意味"
 msgid "What a buyer can choose at checkout — a price, a currency and how many "
 msgstr "購入者がチェックアウト時に選択できるもの — 価格、通貨、そしていくつの "
 
+#: oc-admin/themes/modern/tools/jobs.php
+msgid ""
+"What background work did, newest first. The full history is in the <a "
+"href=\"%s\">activity log</a>."
+msgstr ""
+
 #: oc-admin/themes/modern/billing/order.php
 #: oc-admin/themes/modern/billing/wallet.php
 msgid "What happened"
@@ -11161,6 +11312,11 @@ msgstr ".htaccessファイルの見た目は次のようになります。"
 #: oc-admin/themes/modern/upgrade/index.php
 msgid "What's new"
 msgstr "新機能"
+
+#: oc-admin/themes/modern/tools/cleanup.php
+#: oc-admin/themes/modern/tools/jobs.php
+msgid "When"
+msgstr ""
 
 #: oc-admin/themes/modern/users/settings.php
 msgid "When a new user is registered"
@@ -11215,10 +11371,6 @@ msgstr "ウィジェットの種類"
 msgid "Widgets"
 msgstr "ウィジェット"
 
-#: oc-includes/osclass/classes/admin/form/SpamSettingsForm.php
-msgid "Window"
-msgstr "期間"
-
 #: oc-admin/themes/modern/pages/index.php
 msgid ""
 "With Shopclass you can create static pages on which information can be "
@@ -11239,6 +11391,10 @@ msgstr "女性を探している女性"
 
 #: oc-admin/themes/modern/tools/jobs.php
 msgid "Work that is too slow to do while somebody waits — emptying a large "
+msgstr ""
+
+#: oc-admin/themes/modern/tools/jobs.php
+msgid "Worker run"
 msgstr ""
 
 #: oc-includes/osclass/classes/market/Compatibility.php
@@ -11621,6 +11777,10 @@ msgstr "より"
 msgid "images per listing"
 msgstr ""
 
+#: oc-includes/osclass/helpers/hAdminUi.php
+msgid "in %s"
+msgstr ""
+
 #: oc-admin/themes/modern/tools/system-info.php
 msgid "installed"
 msgstr "インストール済み"
@@ -11645,7 +11805,7 @@ msgstr "より小さい"
 msgid "is not"
 msgstr "ではない"
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-includes/osclass/helpers/hAdminUi.php
 msgid "just now"
 msgstr "たった今"
 

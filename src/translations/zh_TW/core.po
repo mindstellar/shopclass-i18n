@@ -14,6 +14,10 @@ msgstr ""
 msgid " is available"
 msgstr " 可用"
 
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "%1$d entries, %2$s"
+msgstr ""
+
 #: oc-includes/osclass/classes/controller/admin/CAdminTools.php
 msgid "%1$d linked folder was skipped: %2$s (it points outside oc-content)."
 msgid_plural "%1$d linked folders were skipped: %2$s (they point outside oc-content)."
@@ -41,15 +45,11 @@ msgstr[0] ""
 msgid "%1$s credits held across %2$s accounts"
 msgstr "%2$s 個帳號共持有 %1$s 點數"
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "%1$s entries, %2$s"
-msgstr "%1$s 筆條目，%2$s"
-
 #: oc-includes/osclass/functions.php
 msgid "%1$s in %2$s"
 msgstr "%2$s 的 %1$s"
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid ""
 "%1$s is older than Shopclass supports. Ask your host for MySQL %2$s or "
 "MariaDB %3$s or newer."
@@ -75,16 +75,16 @@ msgstr ""
 msgid "%1$s orders · %2$s paid · %3$s awaiting payment"
 msgstr "%1$s 筆訂單 · %2$s 筆已付款 · %3$s 筆待付款"
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "%1$s per file, %2$s per request."
-msgstr "每個檔案 %1$s，每次請求 %2$s。"
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "%1$s per file · %2$s per request"
+msgstr ""
 
 #: oc-admin/themes/modern/settings/locations/list.php
 msgid "%1$s region starting with “%2$s”"
 msgid_plural "%1$s regions starting with “%2$s”"
 msgstr[0] ""
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-admin/themes/modern/tools/system-info/server.php
 msgid ""
 "%1$s surfaces errors while you diagnose a problem; %2$s sends them to a log "
 "file instead of the page. Both belong off on a live site."
@@ -146,7 +146,7 @@ msgstr[0] "%d 項變更"
 msgid "%d continuing"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "%d database update is waiting."
 msgid_plural "%d database updates are waiting."
 msgstr[0] ""
@@ -160,14 +160,14 @@ msgstr[0] "%d 天"
 msgid "%d days"
 msgstr "%d 天"
 
-#: oc-admin/themes/modern/tools/database.php
-msgid "%d difference Repair can fix."
-msgid_plural "%d differences Repair can fix."
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "%d difference in the database needs a closer look."
+msgid_plural "%d differences in the database need a closer look."
 msgstr[0] ""
 
-#: oc-admin/themes/modern/tools/database.php
-msgid "%d difference needs a closer look."
-msgid_plural "%d differences need a closer look."
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "%d difference in the database that Repair can fix."
+msgid_plural "%d differences in the database that Repair can fix."
 msgstr[0] ""
 
 #: oc-includes/osclass/classes/job/JobWorker.php
@@ -211,6 +211,10 @@ msgstr[0] "還有 %d 項變更"
 msgid "%d per page"
 msgstr "每頁 %d 個"
 
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "%d s"
+msgstr ""
+
 #: oc-admin/themes/modern/categories/index.php
 msgid "%d subcategory"
 msgid_plural "%d subcategories"
@@ -220,7 +224,7 @@ msgstr[0] "%d 個子分類"
 msgid "%d submissions"
 msgstr "%d 筆提交"
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "%d table"
 msgid_plural "%d tables"
 msgstr[0] ""
@@ -243,11 +247,15 @@ msgid "%d widget"
 msgid_plural "%d widgets"
 msgstr[0] "%d 個小工具"
 
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "%s (not installed)"
+msgstr ""
+
 #: oc-admin/themes/modern/billing/order.php
 msgid "%s (plugin not installed)"
 msgstr "%s（未安裝外掛）"
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 #: oc-includes/osclass/helpers/hAdminUi.php
 msgid "%s ago"
 msgstr "%s 前"
@@ -337,12 +345,6 @@ msgstr ""
 #: oc-includes/osclass/classes/ImageProcessing.php
 msgid "%s is not readable!"
 msgstr "%s 無法讀取！"
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid ""
-"%s is on. That is for development — on a live site it exposes internal "
-"detail and slows requests. Turn it off in config.php."
-msgstr "%s 已開啟。這是供開發使用——在正式上線的網站上，這會暴露內部詳細資訊並降低請求速度。請在 config.php 中將其關閉。"
 
 #: oc-includes/osclass/classes/forms/FieldValidator.php
 msgid "%s is required."
@@ -534,9 +536,9 @@ msgstr ""
 
 #: oc-admin/themes/modern/tools/system-info.php
 msgid ""
-"A checked view of the environment Shopclass is running on: what it needs, "
-"what it can and cannot do, and where a quiet misconfiguration would bite."
-msgstr "Shopclass 執行環境的檢查檢視：所需項目、能做與不能做的事，以及不易察覺的設定錯誤可能在何處造成影響。"
+"A checked view of your site: what needs doing, the database, and the server "
+"it runs on."
+msgstr ""
 
 #: oc-includes/osclass/classes/admin/form/CommentSettingsForm.php
 msgid "A comment is being held for moderation"
@@ -573,7 +575,7 @@ msgid ""
 "credits."
 msgstr "方案是買家在結帳時選擇的項目。新增方案即可開始販售點數。"
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid ""
 "A plugin or someone on your team added these. Shopclass does not need them, "
 "and Repair leaves them alone. Delete one only if you are sure nothing uses "
@@ -583,6 +585,11 @@ msgstr ""
 #: oc-admin/themes/modern/tools/logs.php
 msgid "A record of admin and listing activity — who did what, and when. "
 msgstr "管理與廣告清單活動的記錄 — 誰在何時做了什麼。 "
+
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "A required PHP extension is missing: %s."
+msgid_plural "Required PHP extensions are missing: %s."
+msgstr[0] ""
 
 #: oc-admin/themes/modern/tools/backup.php
 msgid "A safety copy of today's database is saved first."
@@ -830,7 +837,7 @@ msgstr "添加區域"
 msgid "Add theme"
 msgstr "添加主題"
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-admin/themes/modern/tools/system-info/server.php
 msgid "Add these near the top of %1$s, above its closing %2$s."
 msgstr "將這些內容新增至 %1$s 頂端附近，位於其結尾 %2$s 的上方。"
 
@@ -928,7 +935,7 @@ msgid ""
 "let it try again at once."
 msgstr ""
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid ""
 "Adds what is missing and fixes column types. Extra columns and indexes are "
 "left alone."
@@ -1107,6 +1114,10 @@ msgstr ""
 msgid "All credits"
 msgstr "所有點數"
 
+#: oc-admin/themes/modern/tools/system-info/server.php
+msgid "All loaded PHP extensions (%d)"
+msgstr ""
+
 #: oc-admin/themes/modern/billing/package.php
 msgid "All packages"
 msgstr "所有方案"
@@ -1129,7 +1140,7 @@ msgstr ""
 msgid "Allow attached files in contact publisher form"
 msgstr "允許在聯繫發行者表單中附加檔"
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-admin/themes/modern/tools/system-info/server.php
 msgid "Allow bigger photo uploads"
 msgstr "允許上傳更大的相片"
 
@@ -1622,11 +1633,15 @@ msgstr ""
 msgid "Backup saved: %1$s, %2$s, %3$s."
 msgstr ""
 
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "Backups folder"
+msgstr ""
+
 #: oc-admin/themes/modern/tools/backup.php
 msgid "Backups you save on the server are listed here. Downloads are not kept."
 msgstr ""
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-admin/themes/modern/tools/system-info/server.php
 msgid "Backups, imports and upgrades run inside %s. Raise it if they time out."
 msgstr "備份、匯入與升級都在 %s 中執行。若逾時請調高此數值。"
 
@@ -1870,10 +1885,6 @@ msgstr "CD - 燒錄器"
 msgid "Cache"
 msgstr "快取"
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Caching through the %s driver."
-msgstr "透過 %s 驅動程式進行快取。"
-
 #: oc-admin/themes/modern/tools/category.php
 msgid "Calculate category stats"
 msgstr "計算分類統計"
@@ -2070,7 +2081,7 @@ msgstr "變動"
 msgid "Change advanced configuration of your Shopclass. "
 msgstr "變更您的 Shopclass 進階設定。 "
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid "Change made"
 msgstr ""
 
@@ -2127,10 +2138,6 @@ msgstr ""
 msgid "Changing the category changes which details apply below."
 msgstr ""
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Check"
-msgstr "檢查"
-
 #: oc-includes/osclass/installer/gui/install.php
 msgid "Check again"
 msgstr "重新檢查"
@@ -2143,7 +2150,7 @@ msgstr ""
 msgid "Check all"
 msgstr "檢查所有"
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid "Check and repair"
 msgstr ""
 
@@ -2412,6 +2419,10 @@ msgstr "Cloudflare Turnstile"
 msgid "Code"
 msgstr "法典"
 
+#: oc-admin/themes/modern/tools/backup.php
+msgid "Code from your app, or a backup code"
+msgstr ""
+
 #: oc-admin/themes/modern/parts/header.php
 msgid "Collapse"
 msgstr "收合"
@@ -2432,11 +2443,11 @@ msgstr "折疊或展開此表單"
 msgid "Collapse or expand this section"
 msgstr "收合或展開此區段"
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid "Column differs in whether it can be empty"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid "Column has a different type"
 msgstr ""
 
@@ -2652,12 +2663,9 @@ msgid "Contact, feed &amp; language"
 msgstr "連絡我們、訂閱 &amp; 語言"
 
 #: oc-includes/osclass/classes/AdminMenu.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "Content"
 msgstr "內容"
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Content path"
-msgstr "內容路徑"
 
 #: oc-includes/osclass/installer/gui/install-database.php
 #: oc-includes/osclass/installer/gui/install.php
@@ -2715,11 +2723,11 @@ msgstr "無法檢查更新"
 msgid "Could not reach the catalog: %s."
 msgstr "無法連線至目錄：%s。"
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "Could not read the database structure: %s"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid "Could not read the schema: %s"
 msgstr ""
 
@@ -2878,13 +2886,21 @@ msgstr "點數是使用者在付費功能上花費的點數。當訂單 "
 msgid "Credits — %s"
 msgstr "點數 — %s"
 
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "Cron"
+msgstr ""
+
 #: oc-includes/osclass/classes/admin/form/MainSettingsForm.php
 msgid "Cron Settings"
 msgstr "克朗設置"
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Cron has run recently — update checks, alerts and cleanup are firing."
-msgstr "Cron 最近已執行——更新檢查、通知與清理正在觸發。"
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "Cron has never run. Update checks, alert emails and cleanup wait for it."
+msgstr ""
+
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "Cron has not run for %s."
+msgstr ""
 
 #: oc-admin/themes/modern/settings/billing.php
 #: oc-admin/themes/modern/settings/currencies.php
@@ -2922,10 +2938,6 @@ msgstr "貨幣符號"
 #: oc-includes/osclass/classes/form/ItemForm.php
 msgid "Currency: make your selection"
 msgstr "貨幣：使用您的選擇"
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Current PHP values"
-msgstr "目前的 PHP 數值"
 
 #: oc-admin/themes/modern/users/frm.php
 msgid "Current avatar"
@@ -3020,8 +3032,8 @@ msgid "Data"
 msgstr ""
 
 #: oc-admin/themes/modern/tools/backup.php
-#: oc-admin/themes/modern/tools/database.php
-#: oc-includes/osclass/classes/AdminMenu.php
+#: oc-admin/themes/modern/tools/system-info.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 #: oc-includes/osclass/classes/backup/BackupJobs.php
 msgid "Database"
 msgstr ""
@@ -3046,15 +3058,11 @@ msgstr ""
 msgid "Database name"
 msgstr "資料庫名稱"
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Database server"
-msgstr "資料庫伺服器"
-
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid "Database update"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "Database version"
 msgstr ""
 
@@ -3118,9 +3126,13 @@ msgstr "停用"
 msgid "Dead-lettered jobs (past the retry ceiling):"
 msgstr "死信工作（超過重試上限）："
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "Debug mode"
 msgstr "除錯模式"
+
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "Debug mode is on. On a live site it shows internal details and slows pages."
+msgstr ""
 
 #: oc-includes/osclass/helpers/hUtils.php
 msgid "Dec"
@@ -3461,12 +3473,6 @@ msgstr "詳細資料"
 msgid "Details: %s"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid ""
-"Detects the true type of an uploaded file. Without it, upload validation is "
-"weaker."
-msgstr "偵測上傳檔案的真實類型。缺少此功能時，上傳驗證強度會降低。"
-
 #: oc-admin/themes/modern/languages/frm.php
 msgid "Direction"
 msgstr "方向"
@@ -3522,7 +3528,7 @@ msgstr "文件"
 msgid "Documentation on date and time formatting"
 msgstr "日期和時間格式的文件"
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 #: oc-includes/osclass/installer/gui/install.php
 msgid "Done"
 msgstr "完成"
@@ -3931,10 +3937,6 @@ msgstr "開啟且價格為 0 意味著每位賣家都可以提高其 "
 msgid "Encryption"
 msgstr "加密"
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Encrypts outgoing mail over TLS and secures tokens."
-msgstr "透過 TLS 加密外寄郵件並保護權杖安全。"
-
 #: oc-includes/osclass/classes/admin/form/StorageSettingsForm.php
 msgid "Endpoint"
 msgstr "端點"
@@ -4003,10 +4005,6 @@ msgstr "輸入您的電子郵件地址"
 msgid "Entries"
 msgstr "項目"
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Environment"
-msgstr "環境"
-
 #: oc-includes/osclass/functions.php
 msgid "Error"
 msgstr "錯誤"
@@ -4026,10 +4024,6 @@ msgstr "活動服務"
 #: oc-includes/osclass/installer/basic_data.php
 msgid "Events"
 msgstr "商業活動"
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Every ajax response, and every stored preference."
-msgstr "每個 AJAX 回應，以及每個儲存的偏好設定。"
 
 #: oc-admin/themes/modern/billing/wallet.php
 msgid "Every change to this balance is written down here and never edited, "
@@ -4078,11 +4072,11 @@ msgstr ""
 msgid "Everything Else"
 msgstr "拍賣品"
 
-#: oc-admin/themes/modern/tools/database.php
-msgid "Everything about your database in one place: its state, waiting updates, "
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "Everything looks fine."
 msgstr ""
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid "Everything matches. Nothing to repair."
 msgstr ""
 
@@ -4148,7 +4142,11 @@ msgstr ""
 msgid "Expires after"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "Extensions"
+msgstr ""
+
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid "Extra column"
 msgstr ""
 
@@ -4156,11 +4154,11 @@ msgstr ""
 msgid "Extra days"
 msgstr "額外天數"
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid "Extra index"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid "Extra items: nothing to do"
 msgstr ""
 
@@ -4178,7 +4176,7 @@ msgstr "額外名額"
 
 #: oc-admin/themes/modern/billing/index.php
 #: oc-admin/themes/modern/billing/order.php
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid "Failed"
 msgstr "失敗"
 
@@ -4226,16 +4224,6 @@ msgstr "飼料"
 msgid "Feedback"
 msgstr "反饋"
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid ""
-"Fetches update checks and talks to the market and remote services. Without "
-"it, those downloads fail."
-msgstr "取得更新檢查，並與市集及遠端服務通訊。若沒有它，這些下載將會失敗。"
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Fewer uploads allowed than photos offered"
-msgstr "允許的上傳數量少於提供的相片數量"
-
 #: oc-admin/themes/modern/fields/submissions.php
 msgid "Field"
 msgstr "欄位"
@@ -4248,7 +4236,7 @@ msgstr "無法新增欄位"
 msgid "Fields"
 msgstr "欄位"
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 #: oc-includes/osclass/classes/datatables/MediaDataTable.php
 msgid "File"
 msgstr "檔案"
@@ -4280,6 +4268,14 @@ msgstr ""
 
 #: oc-admin/themes/modern/tools/backup.php
 msgid "Files added since the backup are left in place."
+msgstr ""
+
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "Files and storage"
+msgstr ""
+
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "Files per request"
 msgstr ""
 
 #: oc-includes/osclass/install-functions.php
@@ -4379,6 +4375,10 @@ msgstr "表單"
 msgid "Form could not be created"
 msgstr "無法建立表單"
 
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "Form fields per request"
+msgstr ""
+
 #: oc-admin/themes/modern/fields/index.php
 #: oc-admin/themes/modern/fields/submissions.php
 #: oc-includes/osclass/classes/AdminMenu.php
@@ -4395,13 +4395,16 @@ msgid "Free"
 msgstr "免費"
 
 #: oc-admin/themes/modern/main/index.php
-#: oc-admin/themes/modern/tools/system-info.php
 msgid "Free disk space"
 msgstr "可用磁碟空間"
 
 #: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
 msgid "Free listings per seller"
 msgstr "每位賣家免費廣告清單"
+
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "Free space"
+msgstr ""
 
 #: oc-includes/osclass/classes/admin/form/MediaSettingsForm.php
 msgid ""
@@ -4461,10 +4464,6 @@ msgstr "在這裡，您可以編輯或刪除依使用者別的清單報告 (垃�
 msgid "From the Cloudflare dashboard &raquo; Turnstile."
 msgstr "從 Cloudflare 儀表板 &raquo; Turnstile。"
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "GD"
-msgstr "GD"
-
 #: oc-includes/osclass/install-functions.php
 msgid "GD extension for PHP"
 msgstr "PHP 的 GD 擴展"
@@ -4472,16 +4471,6 @@ msgstr "PHP 的 GD 擴展"
 #: oc-includes/osclass/install-functions.php
 msgid "GD extension is required. How to "
 msgstr "需要 GD 擴充功能。如何 "
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid ""
-"GD is resizing your photos. It works and is fully supported — but it cannot "
-"read some formats (animated GIF frames, CMYK JPEGs) and resizes at lower "
-"quality than Imagick. On a photo-heavy site, installing the Imagick "
-"extension is worth it."
-msgstr ""
-"GD 正在調整您的相片大小。它能正常運作且受到完整支援——但它無法讀取某些格式（動畫 GIF 影格、CMYK JPEG），且調整大小後的品質低於 "
-"Imagick。在相片繁多的網站上，安裝 Imagick 擴充功能是值得的。"
 
 #: oc-includes/osclass/classes/admin/form/MailServerSettingsForm.php
 msgid "GMail Server"
@@ -4563,10 +4552,6 @@ msgstr "分組欄位會從群組繼承分類，並顯示為一個區段。"
 #: oc-admin/themes/modern/appearance/add_widget.php
 msgid "HTML Code for the Widget"
 msgstr "小部件的 HTML 代碼"
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Handles non-Latin text throughout the site."
-msgstr "處理全站的非拉丁文字。"
 
 #: oc-includes/osclass/installer/basic_data.php
 msgid "Health - Beauty"
@@ -4712,10 +4697,6 @@ msgstr "房屋 - 房屋出售"
 msgid "Housing Swap"
 msgstr "房屋交換"
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "How Shopclass talks to the database — the site cannot run without it."
-msgstr "Shopclass 與資料庫通訊的方式——沒有它網站將無法運作。"
-
 #: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
 msgid "How long a listing must wait before it can be bumped again."
 msgstr "清單必須等待多久才能再次推頂。"
@@ -4723,10 +4704,6 @@ msgstr "清單必須等待多久才能再次推頂。"
 #: oc-includes/osclass/classes/admin/form/StorageSettingsForm.php
 msgid "How long a signed URL stays valid (60-604800)."
 msgstr ""
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "How long one request may run. Backups and imports must finish inside it."
-msgstr "單一請求可執行的時間長度。備份與匯入必須在此時間內完成。"
 
 #: oc-includes/osclass/classes/admin/form/LatestSearchSettingsForm.php
 msgid "How long queries are stored"
@@ -4736,38 +4713,29 @@ msgstr "存儲查詢的時間"
 msgid "How many credits"
 msgstr "點數數量"
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid ""
-"How many files can ride in one upload — your photos-per-listing has to fit "
-"under this."
-msgstr "單次上傳可包含的檔案數量——每個清單的相片數量必須低於此限制。"
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid ""
-"How many form fields one request may carry. Large category trees and "
-"settings forms can approach it."
-msgstr "單一請求可攜帶的表單欄位數量。大型分類樹和設定表單可能會接近此上限。"
-
 #: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
 msgid "How many of a seller's listings may be live "
 msgstr "賣家可以有多少筆刊登中的廣告清單 "
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid ""
-"How much memory one request may use. Resizing a big photo is the hungriest "
-"thing Shopclass does."
-msgstr "單一請求可使用的記憶體數量。調整大相片尺寸是 Shopclass 最耗費記憶體的操作。"
 
 #: oc-includes/osclass/classes/admin/form/MediaSettingsForm.php
 msgid "How new photos are saved. "
 msgstr ""
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "How to change things"
-msgstr "如何進行變更"
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "How to change it"
+msgstr ""
+
+#: oc-admin/themes/modern/tools/system-info/server.php
+msgid "How to change these settings"
+msgstr ""
 
 #: oc-admin/themes/modern/tools/backup.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "How to close it"
+msgstr ""
+
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "How to set up cron"
 msgstr ""
 
 #: oc-includes/osclass/installer/basic_data.php
@@ -4845,9 +4813,9 @@ msgstr "如果您想更改密碼，請鍵入新密碼。否則，請留空"
 msgid "Image"
 msgstr "圖像"
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Image processing"
-msgstr "影像處理"
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "Image library"
+msgstr ""
 
 #: oc-includes/osclass/classes/admin/form/MediaSettingsForm.php
 msgid "Image sizes"
@@ -4861,21 +4829,17 @@ msgstr "圖像魔術"
 msgid "ImageMagick library is not loaded"
 msgstr "圖像磁性庫未載入"
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Imagick"
-msgstr "Imagick"
-
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid ""
-"Imagick is installed and selected — the preferred library. It reads more "
-"formats and produces higher-quality resizes than GD."
-msgstr "Imagick 已安裝且已選用——這是偏好的函式庫。它支援讀取更多格式，且調整大小後的品質比 GD 更高。"
+"Imagick is installed but not selected. It resizes at higher quality: turn "
+"it on under Settings > Media."
+msgstr ""
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid ""
-"Imagick is installed but not selected, so GD is doing the work. Imagick "
-"handles more formats and resizes at higher quality — switch to it under %s."
-msgstr "Imagick 已安裝但未選用，因此目前由 GD 進行處理。Imagick 能處理更多格式，且調整大小的品質更高——請在 %s 切換至 Imagick。"
+"Imagick reads more formats and resizes at higher quality. It is worth "
+"installing on a photo-heavy site."
+msgstr ""
 
 #: oc-admin/themes/modern/languages/index.php
 #: oc-admin/themes/modern/settings/keywordBlock.php
@@ -4940,7 +4904,7 @@ msgstr "在 %d 個表單中"
 msgid "In %s"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-admin/themes/modern/tools/system-info/server.php
 msgid "In config.php"
 msgstr "在 config.php 中"
 
@@ -4948,7 +4912,7 @@ msgstr "在 config.php 中"
 msgid "In every email"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-admin/themes/modern/tools/system-info/server.php
 msgid "In php.ini"
 msgstr "在 php.ini 中"
 
@@ -5024,17 +4988,9 @@ msgstr "包含頁面"
 msgid "Include regions"
 msgstr "包含地區"
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid "Index has different columns"
 msgstr ""
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Info"
-msgstr "資訊"
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Input validation across the core."
-msgstr "核心系統各處的輸入驗證。"
 
 #: oc-admin/themes/modern/parts/market.php
 #: oc-admin/themes/modern/plugins/index.php
@@ -5065,7 +5021,7 @@ msgid ""
 "date. Importing never deletes a location that holds listings."
 msgstr ""
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-admin/themes/modern/tools/system-info/server.php
 msgid "Install a missing extension"
 msgstr "安裝缺少的擴充功能"
 
@@ -5083,11 +5039,11 @@ msgstr "安裝或解除安裝您系統中可用的外掛。在某些情況下，
 msgid "Install security updates by themselves."
 msgstr ""
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-admin/themes/modern/tools/system-info/server.php
 msgid ""
 "Install the OS package (for example %1$s or %2$s), make sure an %3$s line "
-"is present, and restart PHP. The Overview tab will flip to “installed”."
-msgstr "安裝作業系統套件（例如 %1$s 或 %2$s），確認有 %3$s 這一行，然後重新啟動 PHP。「總覽」分頁將會切換為「已安裝」。"
+"is present, and restart PHP. This page then lists it as installed."
+msgstr ""
 
 #: oc-includes/osclass/installer/gui/install.php
 msgid "Installation progress"
@@ -5106,10 +5062,6 @@ msgstr "已安裝"
 #: oc-admin/themes/modern/settings/locations/preview.php
 msgid "Installing…"
 msgstr "正在安裝…"
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Installs and updates plugins and themes, and builds backups."
-msgstr "安裝與更新外掛和主題，並建立備份。"
 
 #: oc-admin/themes/modern/emails/frm.php
 #: oc-admin/themes/modern/pages/frm.php
@@ -5266,10 +5218,6 @@ msgstr ""
 msgid "Its saved search could not be read."
 msgstr ""
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "JSON"
-msgstr "JSON"
-
 #: oc-includes/osclass/helpers/hUtils.php
 msgid "Jan"
 msgstr "一月"
@@ -5347,10 +5295,6 @@ msgstr ""
 #: oc-includes/osclass/classes/admin/form/SpamSettingsForm.php
 msgid "Keep this high: many people can share one address at an office or on mobile."
 msgstr ""
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Keeps compiled PHP in memory instead of recompiling every request."
-msgstr "將編譯後的 PHP 保留在記憶體中，而非在每次請求時重新編譯。"
 
 #: oc-admin/themes/modern/tools/cache.php
 msgid "Keeps data between requests"
@@ -5438,20 +5382,6 @@ msgstr "語言更新"
 msgid "Languages"
 msgstr "語言"
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Largest single file a visitor can upload."
-msgstr "訪客可上傳的單一檔案大小上限。"
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Largest single upload"
-msgstr "單一檔案上傳上限"
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid ""
-"Largest whole request. Must be at least upload_max_filesize, ideally a "
-"little more."
-msgstr "整個請求的大小上限。必須至少為 upload_max_filesize，理想情況下應稍大一些。"
-
 #: oc-admin/themes/modern/stats/comments.php
 #: oc-admin/themes/modern/stats/items.php
 #: oc-admin/themes/modern/stats/reports.php
@@ -5476,6 +5406,10 @@ msgstr "最近 10 週"
 #: oc-admin/themes/modern/users/frm.php
 msgid "Last access"
 msgstr "最後訪問"
+
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "Last backup"
+msgstr ""
 
 #: oc-admin/themes/modern/billing/credits.php
 msgid "Last change"
@@ -5570,11 +5504,11 @@ msgstr "請將此欄位留空"
 msgid "Legal"
 msgstr "法律"
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-admin/themes/modern/tools/system-info/server.php
 msgid "Let a listing carry more photos"
 msgstr "讓清單可容納更多相片"
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-admin/themes/modern/tools/system-info/server.php
 msgid "Let long jobs finish"
 msgstr "讓耗時較長的工作順利完成"
 
@@ -5729,6 +5663,17 @@ msgstr "廣告清單規則"
 msgid "Listings"
 msgstr "廣告清單"
 
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid ""
+"Listings allow %1$d photos, but PHP takes only %2$d files per request and "
+"drops the rest."
+msgstr ""
+
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "Listings allow %d photo."
+msgid_plural "Listings allow %d photos."
+msgstr[0] ""
+
 #: oc-admin/themes/modern/settings/keywordBlock.php
 msgid ""
 "Listings already flagged by this keyword stay as they are; only future "
@@ -5812,10 +5757,6 @@ msgstr ""
 #: oc-admin/themes/modern/parts/package-ui.php
 msgid "Live"
 msgstr ""
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Loaded PHP extensions"
-msgstr "已載入的 PHP 擴充功能"
 
 #: oc-admin/themes/modern/parts/market.php
 msgid "Loading details…"
@@ -5901,10 +5842,6 @@ msgstr "登入"
 msgid "Logout"
 msgstr "登出"
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Long tasks such as backups and imports must finish inside this."
-msgstr "像備份與匯入這類耗時工作必須在此時間內完成。"
-
 #: oc-includes/osclass/installer/basic_data.php
 msgid "Lost And Found"
 msgstr "失物招領"
@@ -5945,8 +5882,8 @@ msgstr ""
 msgid "Maintenance"
 msgstr "保養"
 
-#: oc-admin/themes/modern/tools/system-info.php
 #: oc-includes/osclass/classes/AdminMenu.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "Maintenance mode"
 msgstr "維護模式"
 
@@ -5954,11 +5891,14 @@ msgstr "維護模式"
 msgid "Maintenance mode is on — only signed-in admins can see the site right now."
 msgstr "保養模式已開啟 — 目前只有已登入的管理員才能瀏覽此網站。"
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid ""
-"Maintenance mode is on, but the public site is not blocked. Visitors can "
-"still use the site and see a banner. Remove the %s file to hide it, or "
-"enable lockout under Tools → Maintenance."
+"Maintenance mode is on, but visitors can still use the site and see a "
+"banner."
+msgstr ""
+
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "Maintenance mode is on. Visitors see the maintenance page."
 msgstr ""
 
 #: oc-admin/themes/modern/tools/maintenance.php
@@ -5966,6 +5906,7 @@ msgid "Maintenance mode is: <strong>%s</strong>"
 msgstr "維護模式：<strong>%s</strong>"
 
 #: oc-admin/themes/modern/tools/backup.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 #: oc-includes/osclass/classes/backup/BackupJobs.php
 msgid "Make a backup"
 msgstr ""
@@ -6165,10 +6106,6 @@ msgstr ""
 msgid "Matching now"
 msgstr "目前符合"
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Max execution time"
-msgstr "最大執行時間"
-
 #: oc-admin/themes/modern/fields/iframe.php
 msgid "Max length"
 msgstr "最大長度"
@@ -6196,7 +6133,6 @@ msgstr "五月"
 #: oc-admin/themes/modern/media/index.php
 #: oc-admin/themes/modern/parts/media-picker.php
 #: oc-admin/themes/modern/settings/media.php
-#: oc-admin/themes/modern/tools/system-info.php
 #: oc-includes/osclass/classes/AdminMenu.php
 msgid "Media"
 msgstr "媒體"
@@ -6211,16 +6147,12 @@ msgstr "媒體設置"
 msgid "Media library"
 msgstr "媒體庫"
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Media settings"
-msgstr "媒體設定"
-
 #: oc-admin/themes/modern/tools/cache.php
 msgid "Memory"
 msgstr "記憶體"
 
 #: oc-admin/themes/modern/main/index.php
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "Memory limit"
 msgstr "記憶體限制"
 
@@ -6283,19 +6215,19 @@ msgstr "未命中"
 msgid "Missing"
 msgstr "缺少"
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid "Missing column"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid "Missing index"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid "Missing primary key"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid "Missing table"
 msgstr ""
 
@@ -6554,7 +6486,7 @@ msgid ""
 "reCAPTCHA/Turnstile; otherwise no challenge is shown."
 msgstr "需要在 設定 &raquo; reCAPTCHA/Turnstile 下設定 CAPTCHA 提供者；否則不會顯示任何驗證。"
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid "Needs a closer look"
 msgstr ""
 
@@ -6568,12 +6500,11 @@ msgstr ""
 msgid "Needs setting up"
 msgstr "需要設定"
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid ""
-"Neither Imagick nor GD is installed, so no uploaded photo can be resized "
-"and image uploads fail. Install the GD extension at minimum; Imagick is "
-"better still."
-msgstr "未安裝 Imagick 也未安裝 GD，因此無法調整上傳相片的尺寸，且圖片上傳會失敗。請至少安裝 GD 擴充套件；Imagick 更好。"
+"Neither Imagick nor GD is installed, so photos cannot be resized and image "
+"uploads fail."
+msgstr ""
 
 #: oc-admin/themes/modern/items/frm.php
 #: oc-includes/osclass/classes/controller/admin/CAdminItems.php
@@ -6589,7 +6520,7 @@ msgstr "永不過期"
 msgid "New"
 msgstr "新"
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid ""
 "New Shopclass files are in place, but the database has not caught up yet. "
 "Run these updates to finish."
@@ -6716,6 +6647,14 @@ msgstr "目前尚無通知"
 msgid "No background work has run yet."
 msgstr ""
 
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "No backup has been saved on the server yet."
+msgstr ""
+
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "No backup in the last 30 days."
+msgstr ""
+
 #: oc-includes/osclass/classes/market/Installer.php
 msgid "No backup was found to roll back to."
 msgstr "找不到可還原的備份。"
@@ -6778,12 +6717,6 @@ msgstr ""
 msgid "No credits moved yet"
 msgstr "尚無點數變動"
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid ""
-"No cron run has been recorded. Update checks, alert emails and cleanup "
-"depend on it. Schedule %s to run regularly."
-msgstr "未記錄到 cron 執行。更新檢查、通知電子郵件與清理作業均仰賴它。請排程定期執行 %s。"
-
 #: oc-includes/osclass/classes/controller/admin/ajax/CAdminAjax.php
 msgid "No details are available for this package yet."
 msgstr "目前尚無此套件的詳細資訊。"
@@ -6833,10 +6766,6 @@ msgstr "沒有網際網路連線。您可以繼續操作，並稍後從管理面
 #: oc-admin/themes/modern/languages/index.php
 msgid "No languages yet"
 msgstr "尚無語言"
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "No limit — whatever runs long, runs."
-msgstr "無限制——無論執行多久都會繼續執行。"
 
 #: oc-admin/themes/modern/settings/locations/form.php
 msgid "No listings are placed there."
@@ -6901,15 +6830,6 @@ msgstr "目前尚無頁面"
 #: oc-admin/themes/modern/settings/billing.php
 msgid "No payment methods installed"
 msgstr "未安裝任何付款方式"
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid ""
-"No persistent cache configured, so per-request work is recomputed each "
-"time. Set %1$s in config.php to a driver such as %2$s or %3$s for a real "
-"speed-up on a busy site."
-msgstr ""
-"未設定持久快取，因此每次請求的工作都會重新計算。請在 config.php 中將 %1$s 設定為如 %2$s 或 %3$s "
-"的驅動程式，即可在繁忙的網站上獲得實質的加速效果。"
 
 #: oc-admin/themes/modern/plugins/index.php
 msgid "No plugins installed"
@@ -7047,12 +6967,6 @@ msgstr "不連動"
 msgid "Not compatible"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid ""
-"Not enabled. PHP recompiles every file on every request. It is the cheapest "
-"performance win available, and it is one ini line."
-msgstr "未啟用。PHP 在每次請求時都會重新編譯每個檔案。這是成本最低的效能提升方式，而且只需一行 ini 設定。"
-
 #: oc-includes/osclass/classes/backup/Builder.php
 msgid ""
 "Not enough space on the server: needs about %1$s, %2$s free. Nothing was "
@@ -7132,7 +7046,7 @@ msgstr ""
 msgid "Nothing needed changing."
 msgstr "沒有任何需要變更的地方。"
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid "Nothing needed repairing."
 msgstr ""
 
@@ -7148,7 +7062,7 @@ msgstr ""
 msgid "Nothing was saved."
 msgstr ""
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info.php
 msgid "Nothing was waiting. The database is up to date."
 msgstr ""
 
@@ -7211,21 +7125,21 @@ msgstr "新訂戶數"
 msgid "OFF"
 msgstr "關"
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "OK"
-msgstr "正常"
-
 #: oc-admin/themes/modern/items/index.php
 #: oc-admin/themes/modern/tools/maintenance.php
 #: oc-admin/themes/modern/users/index.php
 msgid "ON"
 msgstr "開"
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "OPcache"
 msgstr "OPcache"
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "OPcache is off, so PHP recompiles every file on every request."
+msgstr ""
+
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "Object cache"
 msgstr "物件快取"
 
@@ -7238,7 +7152,6 @@ msgid "October"
 msgstr "十月"
 
 #: oc-admin/themes/modern/admins/two_factor.php
-#: oc-admin/themes/modern/tools/system-info.php
 msgid "Off"
 msgstr "關閉"
 
@@ -7251,16 +7164,6 @@ msgid ""
 "Off by default: a match is quarantined (flagged spam and hidden) so it can "
 "be "
 msgstr ""
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Off, as it should be on a live site."
-msgstr "關閉，在正式網站上理應如此。"
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid ""
-"Off. Some remote fetches fall back to cURL; update and market features rely "
-"on one of the two being available."
-msgstr "關閉。部分遠端擷取會改用 cURL；更新與市集功能仰賴兩者之一可用。"
 
 #: oc-admin/themes/modern/stats/reports.php
 #: oc-includes/osclass/classes/datatables/ItemsDataTable.php
@@ -7326,6 +7229,10 @@ msgstr[0] "已刪除 %s 個位置"
 msgid "One week"
 msgstr "一周"
 
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "Only %s of disk space is left. Uploads and backups fail when it runs out."
+msgstr ""
+
 #: oc-admin/themes/modern/items/settings.php
 msgid "Only allow registered users to contact publisher"
 msgstr "僅允許註冊用戶聯繫發佈商"
@@ -7380,10 +7287,6 @@ msgstr "開啟您的管理面板"
 msgid "Open your authenticator app and scan the QR code."
 msgstr ""
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "OpenSSL"
-msgstr "OpenSSL"
-
 #: oc-admin/themes/modern/items/settings.php
 msgid "OpenStreetMaps"
 msgstr "開放街道圖"
@@ -7392,7 +7295,7 @@ msgstr "開放街道圖"
 msgid "OpenStreetMaps key"
 msgstr "打開街道馬普斯鍵"
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "Operating system"
 msgstr "作業系統"
 
@@ -7477,25 +7380,28 @@ msgstr ""
 msgid "Overview"
 msgstr "總覽"
 
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "PHP"
+msgstr ""
+
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "PHP %s is past end of life and gets no security fixes. Move to PHP 8."
+msgstr ""
+
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "PHP %s is too old. Shopclass is built and tested against PHP 8.0 and up."
+msgstr ""
+
 #: oc-admin/themes/modern/parts/market.php
 msgid "PHP %s or newer"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid ""
-"PHP rejects the whole request before it looks at the file, so the %1$s you "
-"advertise is unreachable — an upload over %2$s fails with an empty form. "
-"Raise %3$s above %4$s."
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "PHP and web server"
 msgstr ""
-"PHP 在檢查檔案前就會拒絕整個請求，因此您標示的 %1$s 無法達到——超過 %2$s 的上傳會因表單為空而失敗。請將 %3$s 調高至大於 "
-"%4$s。"
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "PHP settings &amp; help"
-msgstr "PHP 設定 &amp; 說明"
 
 #: oc-admin/themes/modern/main/index.php
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "PHP version"
 msgstr "PHP 版本"
 
@@ -7611,6 +7517,10 @@ msgstr "停車位"
 msgid "Password"
 msgstr "密碼"
 
+#: oc-admin/themes/modern/settings/spamNbots.php
+msgid "Password check before a restore"
+msgstr ""
+
 #: oc-includes/osclass/classes/form/AdminForm.php
 #: oc-includes/osclass/classes/form/UserForm.php
 msgid "Password: enter at least 5 characters"
@@ -7638,7 +7548,7 @@ msgstr ""
 msgid "Path-style URLs"
 msgstr "路徑樣式 URL"
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "Paths"
 msgstr "路徑"
 
@@ -7708,6 +7618,10 @@ msgstr ""
 msgid "Photo quality"
 msgstr ""
 
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "Photo storage"
+msgstr ""
+
 #: oc-admin/themes/modern/items/frm.php
 #: oc-includes/osclass/classes/admin/ui/PhotoGrid.php
 msgid "Photos"
@@ -7728,10 +7642,6 @@ msgid ""
 "Photos live in your S3 bucket and are not copied. They stay there. Turn on "
 "versioning in the bucket to keep old copies."
 msgstr ""
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Photos per listing"
-msgstr "每個清單的相片數"
 
 #: oc-admin/themes/modern/tools/backup.php
 msgid "Photos, plugins, themes, languages"
@@ -7802,6 +7712,7 @@ msgstr "外掛更新"
 #: oc-admin/themes/modern/plugins/index.php
 #: oc-admin/themes/modern/plugins/view.php
 #: oc-includes/osclass/classes/AdminMenu.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "Plugins"
 msgstr "外掛"
 
@@ -7815,15 +7726,11 @@ msgid ""
 "Browse, or upload its zip file."
 msgstr ""
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Plugins path"
-msgstr "外掛路徑"
-
 #: oc-admin/themes/modern/parts/market.php
 msgid "Plugins updated."
 msgstr "外掛已更新。"
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-admin/themes/modern/tools/system-info/server.php
 msgid ""
 "Point %1$s at an installed driver (for example %2$s or %3$s) so category "
 "trees, user data and search stop being recomputed on every request; %4$s "
@@ -7837,7 +7744,7 @@ msgstr ""
 msgid "Position"
 msgstr "位置"
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "Preferences"
 msgstr "偏好設定"
 
@@ -7853,7 +7760,7 @@ msgstr "使用所選提供者的起始設定預先填入下方的連線欄位。
 msgid "Premium"
 msgstr "額外費用"
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid "Press Repair to fix them. Take a backup first."
 msgstr ""
 
@@ -7911,10 +7818,6 @@ msgstr "定價"
 #: oc-includes/osclass/classes/form/ItemForm.php
 msgid "Primary"
 msgstr "主要"
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Problem"
-msgstr "問題"
 
 #: oc-admin/themes/modern/plugins/index.php
 #: oc-includes/osclass/classes/controller/admin/CAdminPlugins.php
@@ -8031,15 +7934,15 @@ msgstr "RSS 顯示"
 msgid "RVs - Campers - Caravans"
 msgstr "RV 車 - 露營車 - 大型休旅車"
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-admin/themes/modern/tools/system-info/server.php
 msgid "Raise %1$s and %2$s together, keeping post at least as large as upload:"
 msgstr "同時提高 %1$s 與 %2$s，並保持 post 至少與 upload 一樣大："
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-admin/themes/modern/tools/system-info/server.php
 msgid "Raise %s to at least the number of photos per listing you allow in Settings."
 msgstr "將 %s 調高至至少達到您在設定中允許每個清單的相片數。"
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-admin/themes/modern/tools/system-info/server.php
 msgid "Raise memory without touching php.ini"
 msgstr "在不修改 php.ini 的情況下提高記憶體"
 
@@ -8054,10 +7957,6 @@ msgstr "已讀"
 #: oc-admin/themes/modern/upgrade/index.php
 msgid "Read the full release notes on GitHub"
 msgstr "在 GitHub 上閱讀完整的版本說明"
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Read-only, as it should be after install."
-msgstr "唯讀，安裝後理應如此。"
 
 #: oc-admin/themes/modern/settings/locations.php
 msgid ""
@@ -8250,6 +8149,10 @@ msgstr "請記住，對於您可能遇到的任何疑問，您可以查閱我們
 msgid "Remember to enable cookies for the subdomains too."
 msgstr "請記住，為子域的餅乾也啟用。"
 
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "Remote downloads (allow_url_fopen)"
+msgstr ""
+
 #: oc-admin/themes/modern/functions.php
 #: oc-admin/themes/modern/settings/sitemap.php
 #: oc-includes/osclass/classes/admin/ui/PhotoGrid.php
@@ -8310,26 +8213,26 @@ msgstr "重新排序欄位：使用方向鍵"
 msgid "Reorder widget %s. Drag, or focus and press the up"
 msgstr "重新排序小工具 %s。拖曳，或聚焦並按下向上"
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 #: oc-includes/osclass/installer/basic_data.php
 msgid "Repair"
 msgstr "修理"
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid "Repair can fix these"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid ""
 "Repair does not change these. Ask for help before changing the table by "
 "hand."
 msgstr ""
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid "Repair result"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid "Repair the database?"
 msgstr ""
 
@@ -8395,10 +8298,6 @@ msgstr "MinIO 與多數自行託管設定所必需；AWS 請保持關閉。"
 #: oc-admin/themes/modern/fields/iframe.php
 msgid "Required only when…"
 msgstr "僅在以下情況為必填…"
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Requirements"
-msgstr "需求"
 
 #: oc-admin/themes/modern/parts/market.php
 msgid "Requires"
@@ -8473,6 +8372,10 @@ msgid "Restore from this file"
 msgstr ""
 
 #: oc-admin/themes/modern/tools/backup.php
+msgid "Restore is turned off on this site. Use the command line."
+msgstr ""
+
+#: oc-admin/themes/modern/tools/backup.php
 msgid "Restore this backup?"
 msgstr ""
 
@@ -8498,7 +8401,7 @@ msgstr ""
 msgid "Restrictions"
 msgstr "限制"
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid "Result"
 msgstr ""
 
@@ -8542,19 +8445,20 @@ msgstr "立即執行清理"
 msgid "Run cleanup now?"
 msgstr "立即執行清理？"
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid "Run database update"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "Run it"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid "Run the database update first. Most of these will then be gone."
 msgstr ""
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info.php
 msgid "Run the database update?"
 msgstr ""
 
@@ -8572,6 +8476,14 @@ msgid ""
 "Runs a small write/read/delete probe against the saved connection settings "
 "above."
 msgstr "針對上方儲存的連線設定執行小型的寫入/讀取/刪除探測。"
+
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "S3 bucket \"%s\""
+msgstr ""
+
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "S3 bucket \"%s\" (local copies kept)"
+msgstr ""
 
 #: oc-includes/osclass/classes/admin/form/MailServerSettingsForm.php
 msgid "SMTP"
@@ -8718,9 +8630,9 @@ msgstr ""
 msgid "Saving…"
 msgstr "儲存中…"
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Scheduled tasks (cron)"
-msgstr "排程工作 (cron)"
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "Scheduled tasks and cache"
+msgstr ""
 
 #: oc-admin/themes/modern/parts/market.php
 msgid "Screenshots"
@@ -8888,7 +8800,7 @@ msgstr "查看網站上有多少清單被舉報為垃圾、過期及重複等。
 msgid "See the job"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "See the list"
 msgstr ""
 
@@ -9088,13 +9000,18 @@ msgstr "透過有時效限制的已簽署 URL 提供檔案。"
 
 #: oc-admin/themes/modern/tools/backup.php
 #: oc-admin/themes/modern/tools/cache.php
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "Server"
 msgstr "伺服器"
 
 #: oc-includes/osclass/installer/gui/install.php
 msgid "Server checklist"
 msgstr "伺服器檢查清單"
+
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "Server details"
+msgstr ""
 
 #: oc-includes/AjaxUploader.php
 msgid "Server error. Upload directory isn't writable."
@@ -9141,7 +9058,7 @@ msgstr "設定我的網站"
 msgid "Set up payments"
 msgstr "設定付款"
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "Set up real-IP forwarding"
 msgstr ""
 
@@ -9179,11 +9096,11 @@ msgstr "正在設定您的網站… 在共享主機上這可能需要一分鐘 �
 #: oc-admin/themes/modern/settings/sitemap.php
 #: oc-admin/themes/modern/settings/spamNbots.php
 #: oc-admin/themes/modern/settings/storage.php
-#: oc-admin/themes/modern/tools/system-info.php
 #: oc-admin/themes/modern/users/ban.php
 #: oc-admin/themes/modern/users/index.php
 #: oc-admin/themes/modern/users/settings.php
 #: oc-includes/osclass/classes/AdminMenu.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 #: oc-includes/osclass/classes/controller/admin/CAdminMedia.php
 #: oc-includes/osclass/gui/admin/settings-page.php
 msgid "Settings"
@@ -9206,6 +9123,10 @@ msgstr "安裝程式無法儲存網站語言。資料庫使用者可能無法 "
 #: oc-admin/themes/modern/items/settings.php
 msgid "Share listing"
 msgstr "分享清單"
+
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "Shopclass"
+msgstr ""
 
 #: oc-includes/osclass/functions.php
 msgid "Shopclass "
@@ -9237,19 +9158,9 @@ msgid ""
 "safe, and the site rebuilds what it needs on the next request."
 msgstr "Shopclass 使用 %s 進行快取。快取只會保留複本 — 清除它是安全的，網站會在下一次請求時重新建立所需的內容。"
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Shopclass can write to %s."
-msgstr "Shopclass 可以寫入 %s。"
-
 #: oc-includes/osclass/installer/gui/install.php
 msgid "Shopclass can't reach its database."
 msgstr ""
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid ""
-"Shopclass cannot write to %s, so no photo or file upload can be saved. Fix "
-"the folder permissions so the web server user can write to it."
-msgstr "Shopclass 無法寫入 %s，因此無法儲存上傳的相片或檔案。請修正資料夾權限，以讓網頁伺服器使用者能夠寫入。"
 
 #: oc-admin/themes/modern/parts/market.php
 msgid "Shopclass checks once a day. Check now if you are expecting something."
@@ -9259,13 +9170,9 @@ msgstr ""
 msgid "Shopclass doesn't check the watermark image size"
 msgstr "Shopclass 不會檢查浮水印圖片尺寸"
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid "Shopclass expects"
 msgstr ""
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Shopclass health"
-msgstr "Shopclass 健康狀態"
 
 #: oc-includes/osclass/classes/upgrade/AutoSecurityUpdate.php
 msgid ""
@@ -9290,14 +9197,6 @@ msgstr ""
 msgid "Shopclass is already installed here."
 msgstr "Shopclass 已經安裝在此處。"
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid ""
-"Shopclass lets a seller attach %1$s photos to a listing, but PHP accepts "
-"only %2$s files per request and drops the rest. Raise %3$s to at least %4$s."
-msgstr ""
-"Shopclass 允許賣家在清單附加 %1$s 張相片，但 PHP 每次請求僅接受 %2$s 個檔案並會捨棄其餘檔案。請將 %3$s 調高至至少 "
-"%4$s。"
-
 #: oc-includes/osclass/install-functions.php
 msgid "Shopclass needs MySQL 5.7.5 or newer, or MariaDB 10.2 or newer. "
 msgstr ""
@@ -9305,20 +9204,6 @@ msgstr ""
 #: oc-admin/themes/modern/settings/billing.php
 msgid "Shopclass never handles card details itself. To take payments, install a "
 msgstr "Shopclass 本身不會處理信用卡資料。若要接受付款，請安裝 "
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid ""
-"Shopclass offers %1$s photos per listing; PHP accepts %2$s files per "
-"request."
-msgstr "Shopclass 為每個清單提供 %1$s 張相片；PHP 每次請求接受 %2$s 個檔案。"
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid ""
-"Shopclass runs, but PHP 7.x is past end of life and no longer gets security "
-"fixes. Shopclass targets PHP 8.0 and up — move to PHP 8."
-msgstr ""
-"Shopclass 可以運作，但 PHP 7.x 已終止支援且不再獲得安全性修復。Shopclass 以 PHP 8.0 及以上版本為目標——請升級至 "
-"PHP 8。"
 
 #: oc-includes/osclass/classes/upgrade/AutoSecurityUpdate.php
 msgid ""
@@ -9331,8 +9216,7 @@ msgid "Shopclass upgraded successfully."
 msgstr "Shopclass 已成功升級。"
 
 #: oc-admin/themes/modern/main/index.php
-#: oc-admin/themes/modern/tools/database.php
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "Shopclass version"
 msgstr "Shopclass 版本"
 
@@ -9492,7 +9376,7 @@ msgstr "網站地圖設定"
 #: oc-admin/themes/modern/media/index.php
 #: oc-admin/themes/modern/parts/market.php
 #: oc-admin/themes/modern/tools/backup.php
-#: oc-admin/themes/modern/tools/database.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "Size"
 msgstr "大小"
 
@@ -9571,10 +9455,6 @@ msgstr "來源"
 msgid "Source id"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Space left on the uploads volume."
-msgstr "上傳儲存區的剩餘空間。"
-
 #: oc-admin/themes/modern/fields/submissions.php
 #: oc-admin/themes/modern/items/index.php
 #: oc-admin/themes/modern/stats/reports.php
@@ -9648,7 +9528,6 @@ msgstr "統計"
 #: oc-admin/themes/modern/settings/locations/form.php
 #: oc-admin/themes/modern/settings/locations/list.php
 #: oc-admin/themes/modern/tools/cache.php
-#: oc-admin/themes/modern/tools/database.php
 #: oc-includes/osclass/classes/admin/ui/Editor.php
 #: oc-includes/osclass/classes/datatables/CommentsDataTable.php
 #: oc-includes/osclass/classes/datatables/ItemsDataTable.php
@@ -9686,7 +9565,7 @@ msgstr ""
 msgid "Step 4 of 4: Updates and cache"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid "Still to do"
 msgstr ""
 
@@ -9776,17 +9655,13 @@ msgstr "星期日"
 msgid "Support"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Supported."
-msgstr "已支援。"
-
 #: oc-admin/themes/modern/emails/frm.php
 msgid ""
 "Swapped for real values when the email is sent. Click one to add it at the "
 "cursor."
 msgstr ""
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-admin/themes/modern/tools/system-info/server.php
 msgid "Switch debugging on"
 msgstr "開啟偵錯"
 
@@ -9819,15 +9694,16 @@ msgstr "系統資訊"
 msgid "System status"
 msgstr "系統狀態"
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid "Table"
 msgstr ""
 
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 #: oc-includes/osclass/installer/gui/install-database.php
 msgid "Table prefix"
 msgstr "表前綴"
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid "Take a backup first."
 msgstr ""
 
@@ -10043,7 +9919,7 @@ msgstr "此分類及其下層分類已開啟"
 msgid "The category is too large to delete at once. It has been hidden"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-admin/themes/modern/tools/system-info/server.php
 msgid ""
 "The cheapest speed-up there is — PHP stops recompiling every file on every "
 "request."
@@ -10077,7 +9953,7 @@ msgstr ""
 msgid "The database Shopclass should use."
 msgstr "Shopclass 應該使用的資料庫。"
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info.php
 msgid "The database is updated. %d update ran."
 msgid_plural "The database is updated. %d updates ran."
 msgstr[0] ""
@@ -10092,7 +9968,7 @@ msgstr "資料庫傳回未預期的錯誤（代碼 %s）。您的主機支援團
 msgid "The database server rejected that username and password. Re-copy them from "
 msgstr "資料庫伺服器拒絕了該使用者名稱和密碼。請重新從 "
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info.php
 #: oc-includes/osclass/classes/backup/BackupJobs.php
 #: oc-includes/osclass/classes/upgrade/AutoSecurityUpdate.php
 msgid "The database update failed."
@@ -10148,13 +10024,6 @@ msgstr "安裝目錄無法寫入。"
 msgid "The key you entered is invalid. Please double-check it"
 msgstr "您輸入的 Akismet API Key 是無效的，請確認後再輸入。"
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid ""
-"The last cron run was %s ago — longer than a day, so it is probably no "
-"longer scheduled. Update checks, alerts and cleanup have stopped until it "
-"runs again."
-msgstr "上次執行 cron 是在 %s 前——已超過一天，因此可能已不再排程。在再次執行之前，更新檢查、通知與清理皆已停止。"
-
 #: oc-admin/themes/modern/settings/locations.php
 msgid "The list could not be loaded. Check your connection and try again."
 msgstr ""
@@ -10173,6 +10042,10 @@ msgstr ""
 
 #: oc-admin/themes/modern/settings/locations/data.php
 msgid "The location catalog could not be reached"
+msgstr ""
+
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "The memory limit is %s. Resizing a large photo needs at least 128 MB."
 msgstr ""
 
 #: oc-admin/themes/modern/settings/locations/preview.php
@@ -10278,7 +10151,7 @@ msgid ""
 "still see the maintenance page."
 msgstr ""
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid ""
 "The same update the command line runs with db:upgrade. On a large site it "
 "can take a few minutes."
@@ -10296,9 +10169,9 @@ msgstr "搜尋頁面顯示：這是必填欄位"
 msgid "The search page shows: this field must only contain numeric characters"
 msgstr "搜尋頁面顯示：這個欄位只接受數字字元"
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "The server clock zone used for listing and stat dates."
-msgstr "用於清單與統計日期的伺服器時區。"
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "The server meets what Shopclass needs."
+msgstr ""
 
 #: oc-admin/themes/modern/settings/locations.php
 msgid ""
@@ -10315,12 +10188,6 @@ msgid ""
 "The site falls back to the default language for any content that relied on "
 "this one."
 msgstr "對於任何依賴此語言的內容，網站都會改用預設語言。"
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid ""
-"The site is in maintenance mode — visitors see the maintenance page (HTTP "
-"503). Remove the %s file to bring it back."
-msgstr ""
 
 #: oc-admin/themes/modern/settings/sitemap.php
 msgid ""
@@ -10384,6 +10251,10 @@ msgstr "升級尚未完成"
 msgid "The upload failed. Try again."
 msgstr ""
 
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "The uploads folder cannot be written to. Photos cannot be saved."
+msgstr ""
+
 #: oc-includes/osclass/install-functions.php
 msgid "The user connected, but isn't allowed to write to this database. Grant it "
 msgstr "使用者已連線，但無權寫入此資料庫。請授予其 "
@@ -10421,12 +10292,9 @@ msgid "Theme updates"
 msgstr "佈景主題更新"
 
 #: oc-admin/themes/modern/appearance/index.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "Themes"
 msgstr "主題"
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Themes path"
-msgstr "佈景主題路徑"
 
 #: oc-admin/themes/modern/parts/market.php
 msgid "Themes updated."
@@ -10509,7 +10377,7 @@ msgstr "這項操作無法停止，您確定要繼續？"
 msgid "This action cannot be done because it is a demo site"
 msgstr "這個操作無法完成，因為這是範例網站"
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid ""
 "This adds what is missing and fixes column types. It does not touch extra "
 "columns or indexes, and it can take a while on a large site. Take a backup "
@@ -10520,7 +10388,7 @@ msgstr ""
 msgid "This admin signs in with a code from an authenticator app."
 msgstr ""
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info.php
 msgid ""
 "This applies the waiting updates in order. Keep the page open until it "
 "finishes. Take a backup first."
@@ -10754,12 +10622,6 @@ msgstr "這將移除儲存的通知；當有新的清單符合條件時，使用
 msgid "This removes the widget from its section immediately and cannot be undone."
 msgstr "這會立即將小工具從其區段中移除，且無法復原。"
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid ""
-"This request's address matches every forwarding header sent with it — no "
-"proxy misconfiguration detected."
-msgstr ""
-
 #: oc-admin/themes/modern/tools/backup.php
 msgid "This server accepts files up to %s."
 msgstr ""
@@ -10845,6 +10707,11 @@ msgstr "時間"
 msgid "Time format"
 msgstr ""
 
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "Time limit"
+msgstr ""
+
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 #: oc-includes/osclass/classes/admin/form/MainSettingsForm.php
 msgid "Timezone"
 msgstr "時區"
@@ -10925,14 +10792,9 @@ msgstr "圖片數量過多。上限為 {limit}。"
 msgid "Too many locations selected"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Too old. Shopclass is built and tested against PHP 8.0 and up."
-msgstr "版本過舊。Shopclass 是針對 PHP 8.0 及以上版本建置與測試的。"
-
 #: oc-admin/themes/modern/tools/backup.php
 #: oc-admin/themes/modern/tools/cache.php
 #: oc-admin/themes/modern/tools/cleanup.php
-#: oc-admin/themes/modern/tools/database.php
 #: oc-admin/themes/modern/tools/jobs.php
 #: oc-admin/themes/modern/tools/logs.php
 #: oc-admin/themes/modern/tools/maintenance.php
@@ -11020,11 +10882,11 @@ msgstr ""
 msgid "Turn on"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-admin/themes/modern/tools/system-info/server.php
 msgid "Turn on OPcache"
 msgstr "開啟 OPcache"
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-admin/themes/modern/tools/system-info/server.php
 msgid "Turn on a persistent object cache"
 msgstr "開啟持久物件快取"
 
@@ -11066,7 +10928,7 @@ msgstr "Turnstile 網站金鑰與 Turnstile 密鑰"
 msgid "Tutoring - Private Lessons"
 msgstr "家教 - 私人課程"
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-admin/themes/modern/tools/system-info/server.php
 msgid ""
 "Two files hold these settings. PHP's own limits live in %1$s%2$s; "
 "Shopclass's own behaviour lives in %3$s in the site root%4$s. Edit the "
@@ -11194,18 +11056,6 @@ msgid ""
 "banner. The choice is kept when maintenance mode is turned off."
 msgstr ""
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid ""
-"Under 128M. Resizing a large photo is the most memory-hungry thing "
-"Shopclass does, and this is where it fails first."
-msgstr "低於 128M。調整大型相片尺寸是 Shopclass 最耗費記憶體的操作，也是最先發生失敗的地方。"
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid ""
-"Under 512MB left on the uploads volume. When it fills, uploads and backups "
-"start failing."
-msgstr "上傳儲存區剩餘空間低於 512MB。一旦空間用盡，上傳與備份將開始失敗。"
-
 #: oc-admin/themes/modern/fields/iframe.php
 msgid "Ungrouped"
 msgstr "未分組"
@@ -11256,7 +11106,7 @@ msgstr ""
 
 #: oc-admin/themes/modern/plugins/configuration.php
 #: oc-admin/themes/modern/settings/locations/data.php
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 #: oc-includes/osclass/classes/controller/admin/CAdminLanguages.php
 msgid "Update"
 msgstr "更新"
@@ -11404,6 +11254,10 @@ msgstr "上傳"
 msgid "Upload language"
 msgstr "上傳語言"
 
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "Upload limits"
+msgstr ""
+
 #: oc-includes/osclass/classes/controller/admin/ajax/CAdminAjax.php
 msgid "Upload target not allowed"
 msgstr "不允許的上傳目標"
@@ -11412,17 +11266,13 @@ msgstr "不允許的上傳目標"
 msgid "Uploaded"
 msgstr "已上傳"
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Uploads &amp; storage"
-msgstr "上傳 &amp; 儲存"
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "Uploads"
+msgstr ""
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Uploads folder is writable"
-msgstr "Uploads 資料夾可寫入"
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Uploads path"
-msgstr "上傳路徑"
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "Uploads folder"
+msgstr ""
 
 #: oc-admin/themes/modern/tools/cache.php
 msgid "Uptime"
@@ -11779,15 +11629,15 @@ msgstr "查看您的網站"
 msgid "Views"
 msgstr "點閱"
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "Visitor addresses"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid ""
-"Visitor addresses look wrong. Your site seems to be behind a proxy (%1$s), "
-"so every visitor appears to come from %2$s. Sign-in protection and IP bans "
-"cannot tell visitors apart. Ask your host to set up real-IP forwarding."
+"Visitor addresses look wrong: the site is behind a proxy (%1$s), so every "
+"visitor seems to come from %2$s. Sign-in protection and IP bans cannot tell "
+"visitors apart."
 msgstr ""
 
 #: oc-admin/themes/modern/tools/maintenance.php
@@ -11872,7 +11722,7 @@ msgid ""
 "you use watermarks."
 msgstr "我們強烈建議您在使用浮浮水印時保持\"保持原始圖像\"選項的活躍性。"
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "Web server"
 msgstr "網頁伺服器"
 
@@ -11883,10 +11733,11 @@ msgstr "網路標題"
 #: oc-admin/themes/modern/plugins/index.php
 #: oc-admin/themes/modern/settings/spamNbots.php
 #: oc-admin/themes/modern/users/frm.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "Website"
 msgstr "網站"
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "Website URL"
 msgstr "網站 URL"
 
@@ -11916,8 +11767,8 @@ msgid "Welcome to Shopclass"
 msgstr "歡迎使用 Shopclass"
 
 #: oc-admin/themes/modern/tools/backup.php
-#: oc-admin/themes/modern/tools/database.php
 #: oc-admin/themes/modern/tools/jobs.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid "What"
 msgstr ""
 
@@ -11973,7 +11824,7 @@ msgstr ""
 msgid "When a new user is registered"
 msgstr "註冊新用戶時"
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-admin/themes/modern/tools/system-info/server.php
 msgid ""
 "When you cannot edit php.ini, Shopclass will lift PHP's memory limit up to "
 "%s on its own at start-up."
@@ -12167,6 +12018,7 @@ msgid "Your backup is ready: %1$s, %2$s, %3$s."
 msgstr ""
 
 #: oc-admin/themes/modern/tools/backup.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid ""
 "Your backups folder is open to the web. Anyone who guesses a file name "
 "could download a backup."
@@ -12188,11 +12040,11 @@ msgstr "您目前的密碼"
 msgid "Your database already matched this version of Shopclass."
 msgstr "您的資料庫已經符合此版本的 Shopclass。"
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid "Your database has"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid "Your database has every table, column and index Shopclass expects."
 msgstr ""
 
@@ -12206,7 +12058,7 @@ msgstr ""
 msgid "Your database is up to date"
 msgstr "您的資料庫已是最新版本"
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "Your database is up to date and healthy."
 msgstr ""
 
@@ -12244,6 +12096,10 @@ msgstr "您的姓名：這是必填欄位"
 
 #: oc-includes/osclass/functions.php
 msgid "Your orders"
+msgstr ""
+
+#: oc-admin/themes/modern/tools/backup.php
+msgid "Your password"
 msgstr ""
 
 #: oc-admin/themes/modern/fields/index.php
@@ -12326,15 +12182,19 @@ msgstr ""
 msgid "[%s] Your admin password is known to someone else"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "allow_url_fopen"
-msgstr "allow_url_fopen"
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "all %d required are installed"
+msgstr ""
+
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "all seen as %s (behind a proxy)"
+msgstr ""
 
 #: oc-includes/osclass/helpers/hUtils.php
 msgid "am"
 msgstr "上午"
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "as reported"
 msgstr ""
 
@@ -12346,19 +12206,11 @@ msgstr "至多"
 msgid "becomes"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "behind a proxy"
-msgstr ""
-
 #: oc-admin/themes/modern/appearance/index.php
 #: oc-admin/themes/modern/parts/market.php
 #: oc-admin/themes/modern/plugins/index.php
 msgid "by %s"
 msgstr "由 %s"
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "cURL"
-msgstr "cURL"
 
 #: oc-includes/osclass/install-functions.php
 msgid "cURL extension for PHP"
@@ -12385,34 +12237,26 @@ msgstr ""
 msgid "config-sample.php doesn't exist. Check if everything is "
 msgstr "config-sample.php 不存在。請檢查是否一切都已 "
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid ""
-"config.php is writable by the web server. It holds your database "
-"credentials and does not need to be writable after install — make it "
-"read-only."
-msgstr "config.php 可被網頁伺服器寫入。它儲存了您的資料庫憑證，在安裝後不需要具備寫入權限——請將其設為唯讀。"
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "config.php permissions"
-msgstr "config.php 權限"
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid ""
-"config.php sets %1$s, but that driver is not available — so the cache "
-"silently falls back to per-request and every page recomputes its data. "
-"Install the matching extension, or remove the setting."
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "config.php"
 msgstr ""
-"config.php 設定了 "
-"%1$s，但該驅動程式無法使用——因此快取會靜默退回至按每次請求處理，每個頁面都會重新計算其資料。請安裝相應的擴充套件，或移除該設定。"
+
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid ""
+"config.php asks for the %s object cache, but that driver is not installed, "
+"so nothing is cached."
+msgstr ""
+
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid ""
+"config.php can be written by the web server. It holds your database "
+"password; make it read-only."
+msgstr ""
 
 #: oc-admin/themes/modern/billing/order.php
 #: oc-admin/themes/modern/billing/wallet.php
 msgid "credits"
 msgstr "點數"
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "ctype"
-msgstr "ctype"
 
 #: oc-admin/themes/modern/items/settings.php
 #: oc-admin/themes/modern/tools/cleanup.php
@@ -12431,10 +12275,6 @@ msgid ""
 "package."
 msgstr "不存在，下載和提取包時會發生未知錯誤。"
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "enabled"
-msgstr "啟用"
-
 #: oc-includes/osclass/classes/controller/admin/CAdminItems.php
 msgid "expired"
 msgstr ""
@@ -12451,10 +12291,6 @@ msgstr "擷取元素內容"
 msgid "extract this"
 msgstr "擷取此內容"
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "fileinfo"
-msgstr "fileinfo"
-
 #: oc-includes/osclass/classes/form/FieldForm.php
 msgid "from"
 msgstr "從"
@@ -12466,10 +12302,6 @@ msgstr ""
 #: oc-includes/osclass/helpers/hAdminUi.php
 msgid "in %s"
 msgstr ""
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "installed"
-msgstr "已安裝"
 
 #: oc-admin/themes/modern/fields/iframe.php
 msgid "is"
@@ -12507,30 +12339,25 @@ msgstr "清單最多"
 msgid "made before a restore"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "mbstring"
-msgstr "mbstring"
-
 #: oc-includes/osclass/classes/admin/form/SpamSettingsForm.php
 msgid "minutes"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/database.php
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid "missing"
 msgstr "缺少"
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "mysqli"
-msgstr "mysqli"
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "missing: %s"
+msgstr ""
 
 #: oc-includes/osclass/classes/admin/form/MainSettingsForm.php
 msgid "never"
 msgstr "永不"
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "never run"
-msgstr "從未執行"
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "never ran"
+msgstr ""
 
 #: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
 msgid "nginx does not read .htaccess files. Add the "
@@ -12541,28 +12368,57 @@ msgstr "nginx 不會讀取 .htaccess 檔案。請新增 "
 msgid "no action defined"
 msgstr "沒有定義這項操作"
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "none"
+msgstr ""
+
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "none (worked out on every request)"
+msgstr ""
+
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "none loaded"
+msgstr ""
+
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "none saved on the server"
+msgstr ""
+
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "not checked yet"
+msgstr ""
+
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "not reachable from the web"
+msgstr ""
+
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "not set"
 msgstr "未設定"
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "off"
 msgstr "關閉"
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "on"
 msgstr "開啟"
 
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 #: oc-includes/osclass/classes/backup/BackupJobs.php
 msgid "on the server"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "on this server"
+msgstr ""
+
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "on, banner only"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "on, locked"
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "on, site closed"
 msgstr ""
 
 #: oc-includes/osclass/installer/basic_data.php
@@ -12573,9 +12429,9 @@ msgstr "service@topinfo.com.tw"
 msgid "password: %s"
 msgstr "密碼：%s"
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "per-request"
-msgstr "每次請求"
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "php.ini"
+msgstr ""
 
 #: oc-admin/themes/modern/parts/market.php
 msgid "plugins"
@@ -12585,9 +12441,11 @@ msgstr "外掛"
 msgid "pm"
 msgstr "下午"
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "post_max_size is smaller than upload_max_filesize"
-msgstr "post_max_size 小於 upload_max_filesize"
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid ""
+"post_max_size (%1$s) is smaller than upload_max_filesize (%2$s), so uploads "
+"over %1$s fail with an empty form."
+msgstr ""
 
 #: oc-includes/osclass/classes/admin/form/CommentSettingsForm.php
 msgid "previously approved comments"
@@ -12599,6 +12457,10 @@ msgstr ""
 
 #: oc-includes/osclass/classes/admin/form/LatestSearchSettingsForm.php
 msgid "queries"
+msgstr ""
+
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "ran %s ago"
 msgstr ""
 
 #: oc-includes/osclass/classes/admin/form/SpamSettingsForm.php
@@ -12617,7 +12479,11 @@ msgstr "reCAPTCHA 網站金鑰與 reCAPTCHA 密鑰"
 msgid "reCAPTCHA version"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "reachable from the web"
+msgstr ""
+
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "read-only"
 msgstr "唯讀"
 
@@ -12678,25 +12544,18 @@ msgstr "到"
 msgid "to download"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "unavailable"
-msgstr "無法使用"
-
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "unknown"
 msgstr "未知"
 
 #: oc-admin/themes/modern/tools/system-info.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "unlimited"
 msgstr "無限制"
 
 #: oc-includes/osclass/emails.php
 msgid "unsubscribe alert"
 msgstr "取消訂閱通知"
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "unsupported"
-msgstr "不支援"
 
 #: oc-includes/osclass/install-functions.php
 msgid "username: %s"
@@ -12710,13 +12569,9 @@ msgstr ""
 msgid "widgets"
 msgstr "小工具"
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "writable"
 msgstr "可寫入"
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "zip"
-msgstr "zip"
 
 #: oc-includes/osclass/emails.php
 msgid "{WEB_TITLE} - We failed trying to upgrade your site to Shopclass {VERSION}"
@@ -12758,7 +12613,7 @@ msgstr ""
 msgid "{n} photos."
 msgstr ""
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-admin/themes/modern/tools/system-info/server.php
 msgid "— PHP limits"
 msgstr "— PHP 限制"
 
@@ -12766,6 +12621,6 @@ msgstr "— PHP 限制"
 msgid "— Select a form —"
 msgstr "— 請選擇表單 —"
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-admin/themes/modern/tools/system-info/server.php
 msgid "— Shopclass"
 msgstr "— Shopclass"

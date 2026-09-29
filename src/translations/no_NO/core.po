@@ -14,6 +14,10 @@ msgstr ""
 msgid " is available"
 msgstr " er tilgjengelig"
 
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "%1$d entries, %2$s"
+msgstr ""
+
 #: oc-includes/osclass/classes/controller/admin/CAdminTools.php
 msgid "%1$d linked folder was skipped: %2$s (it points outside oc-content)."
 msgid_plural "%1$d linked folders were skipped: %2$s (they point outside oc-content)."
@@ -44,15 +48,11 @@ msgstr[1] ""
 msgid "%1$s credits held across %2$s accounts"
 msgstr "%1$s kreditter fordelt på %2$s kontoer"
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "%1$s entries, %2$s"
-msgstr "%1$s oppføringer, %2$s"
-
 #: oc-includes/osclass/functions.php
 msgid "%1$s in %2$s"
 msgstr "%1$s i %2$s"
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid ""
 "%1$s is older than Shopclass supports. Ask your host for MySQL %2$s or "
 "MariaDB %3$s or newer."
@@ -78,9 +78,9 @@ msgstr ""
 msgid "%1$s orders · %2$s paid · %3$s awaiting payment"
 msgstr "%1$s bestillinger · %2$s betalt · %3$s venter på betaling"
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "%1$s per file, %2$s per request."
-msgstr "%1$s per fil, %2$s per forespørsel."
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "%1$s per file · %2$s per request"
+msgstr ""
 
 #: oc-admin/themes/modern/settings/locations/list.php
 msgid "%1$s region starting with “%2$s”"
@@ -88,7 +88,7 @@ msgid_plural "%1$s regions starting with “%2$s”"
 msgstr[0] ""
 msgstr[1] ""
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-admin/themes/modern/tools/system-info/server.php
 msgid ""
 "%1$s surfaces errors while you diagnose a problem; %2$s sends them to a log "
 "file instead of the page. Both belong off on a live site."
@@ -155,7 +155,7 @@ msgstr[1] "%d endringer"
 msgid "%d continuing"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "%d database update is waiting."
 msgid_plural "%d database updates are waiting."
 msgstr[0] ""
@@ -171,15 +171,15 @@ msgstr[1] "%d dager"
 msgid "%d days"
 msgstr "%d dager"
 
-#: oc-admin/themes/modern/tools/database.php
-msgid "%d difference Repair can fix."
-msgid_plural "%d differences Repair can fix."
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "%d difference in the database needs a closer look."
+msgid_plural "%d differences in the database need a closer look."
 msgstr[0] ""
 msgstr[1] ""
 
-#: oc-admin/themes/modern/tools/database.php
-msgid "%d difference needs a closer look."
-msgid_plural "%d differences need a closer look."
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "%d difference in the database that Repair can fix."
+msgid_plural "%d differences in the database that Repair can fix."
 msgstr[0] ""
 msgstr[1] ""
 
@@ -228,6 +228,10 @@ msgstr[1] "%d flere endringer"
 msgid "%d per page"
 msgstr "%d per side"
 
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "%d s"
+msgstr ""
+
 #: oc-admin/themes/modern/categories/index.php
 msgid "%d subcategory"
 msgid_plural "%d subcategories"
@@ -238,7 +242,7 @@ msgstr[1] "%d underkategorier"
 msgid "%d submissions"
 msgstr "%d innsendinger"
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "%d table"
 msgid_plural "%d tables"
 msgstr[0] ""
@@ -263,11 +267,15 @@ msgid_plural "%d widgets"
 msgstr[0] "%d widget"
 msgstr[1] "%d widgeter"
 
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "%s (not installed)"
+msgstr ""
+
 #: oc-admin/themes/modern/billing/order.php
 msgid "%s (plugin not installed)"
 msgstr "%s (plugin er ikke installert)"
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 #: oc-includes/osclass/helpers/hAdminUi.php
 msgid "%s ago"
 msgstr "%s siden"
@@ -359,14 +367,6 @@ msgstr ""
 #: oc-includes/osclass/classes/ImageProcessing.php
 msgid "%s is not readable!"
 msgstr "%s er ikke lesbar!"
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid ""
-"%s is on. That is for development — on a live site it exposes internal "
-"detail and slows requests. Turn it off in config.php."
-msgstr ""
-"%s er aktivert. Dette er ment for utvikling – på en aktiv nettside kan det "
-"avsløre interne detaljer og redusere hastigheten. Slå det av i config.php."
 
 #: oc-includes/osclass/classes/forms/FieldValidator.php
 msgid "%s is required."
@@ -567,12 +567,9 @@ msgstr ""
 
 #: oc-admin/themes/modern/tools/system-info.php
 msgid ""
-"A checked view of the environment Shopclass is running on: what it needs, "
-"what it can and cannot do, and where a quiet misconfiguration would bite."
+"A checked view of your site: what needs doing, the database, and the server "
+"it runs on."
 msgstr ""
-"En kontrollert oversikt over miljøet Shopclass kjører i: hva det trenger, "
-"hva det kan og ikke kan gjøre, og hvor en stille feilkonfigurasjon kan slå "
-"til."
 
 #: oc-includes/osclass/classes/admin/form/CommentSettingsForm.php
 msgid "A comment is being held for moderation"
@@ -613,7 +610,7 @@ msgstr ""
 "En pakke er noe en kjøper velger ved kassen. Legg til én for å begynne å "
 "selge kreditter."
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid ""
 "A plugin or someone on your team added these. Shopclass does not need them, "
 "and Repair leaves them alone. Delete one only if you are sure nothing uses "
@@ -625,6 +622,12 @@ msgid "A record of admin and listing activity — who did what, and when. "
 msgstr ""
 "En oversikt over administrator- og annonseaktivitet – hvem gjorde hva, og "
 "når. "
+
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "A required PHP extension is missing: %s."
+msgid_plural "Required PHP extensions are missing: %s."
+msgstr[0] ""
+msgstr[1] ""
 
 #: oc-admin/themes/modern/tools/backup.php
 msgid "A safety copy of today's database is saved first."
@@ -880,7 +883,7 @@ msgstr "Legg til region"
 msgid "Add theme"
 msgstr "Legg til tema"
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-admin/themes/modern/tools/system-info/server.php
 msgid "Add these near the top of %1$s, above its closing %2$s."
 msgstr "Legg disse nær toppen av %1$s, over den avsluttende %2$s."
 
@@ -988,7 +991,7 @@ msgid ""
 "let it try again at once."
 msgstr ""
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid ""
 "Adds what is missing and fixes column types. Extra columns and indexes are "
 "left alone."
@@ -1173,6 +1176,10 @@ msgstr ""
 msgid "All credits"
 msgstr "Alle kreditter"
 
+#: oc-admin/themes/modern/tools/system-info/server.php
+msgid "All loaded PHP extensions (%d)"
+msgstr ""
+
 #: oc-admin/themes/modern/billing/package.php
 msgid "All packages"
 msgstr "Alle pakker"
@@ -1195,7 +1202,7 @@ msgstr ""
 msgid "Allow attached files in contact publisher form"
 msgstr "Tillat vedlagte filer i kontaktpubliseringsskjema"
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-admin/themes/modern/tools/system-info/server.php
 msgid "Allow bigger photo uploads"
 msgstr "Tillat større bildeopplastinger"
 
@@ -1712,11 +1719,15 @@ msgstr ""
 msgid "Backup saved: %1$s, %2$s, %3$s."
 msgstr ""
 
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "Backups folder"
+msgstr ""
+
 #: oc-admin/themes/modern/tools/backup.php
 msgid "Backups you save on the server are listed here. Downloads are not kept."
 msgstr ""
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-admin/themes/modern/tools/system-info/server.php
 msgid "Backups, imports and upgrades run inside %s. Raise it if they time out."
 msgstr ""
 "Sikkerhetskopiering, import og oppgraderinger utføres inne i %s. Øk verdien "
@@ -1974,10 +1985,6 @@ msgstr "CD'er - Plater "
 msgid "Cache"
 msgstr "Cache"
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Caching through the %s driver."
-msgstr "Hurtigbufring via %s-driveren."
-
 #: oc-admin/themes/modern/tools/category.php
 msgid "Calculate category stats"
 msgstr "Beregn kategoristatistikk"
@@ -2176,7 +2183,7 @@ msgstr "Endring"
 msgid "Change advanced configuration of your Shopclass. "
 msgstr "Endre avanserte innstillinger for din Shopclass. "
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid "Change made"
 msgstr ""
 
@@ -2237,10 +2244,6 @@ msgstr ""
 msgid "Changing the category changes which details apply below."
 msgstr ""
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Check"
-msgstr "Sjekk"
-
 #: oc-includes/osclass/installer/gui/install.php
 msgid "Check again"
 msgstr "Sjekk igjen"
@@ -2253,7 +2256,7 @@ msgstr ""
 msgid "Check all"
 msgstr "Velg alle"
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid "Check and repair"
 msgstr ""
 
@@ -2524,6 +2527,10 @@ msgstr "Cloudflare Turnstile"
 msgid "Code"
 msgstr "Kode"
 
+#: oc-admin/themes/modern/tools/backup.php
+msgid "Code from your app, or a backup code"
+msgstr ""
+
 #: oc-admin/themes/modern/parts/header.php
 msgid "Collapse"
 msgstr "Skjul"
@@ -2544,11 +2551,11 @@ msgstr "Skjul eller vis dette skjemaet"
 msgid "Collapse or expand this section"
 msgstr "Skjul eller vis denne seksjonen"
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid "Column differs in whether it can be empty"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid "Column has a different type"
 msgstr ""
 
@@ -2770,12 +2777,9 @@ msgid "Contact, feed &amp; language"
 msgstr "Kontakt, feed &amp; språk"
 
 #: oc-includes/osclass/classes/AdminMenu.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "Content"
 msgstr "Innhold"
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Content path"
-msgstr "Innholdssti"
 
 #: oc-includes/osclass/installer/gui/install-database.php
 #: oc-includes/osclass/installer/gui/install.php
@@ -2835,11 +2839,11 @@ msgstr "Kunne ikke sjekke etter oppdateringer"
 msgid "Could not reach the catalog: %s."
 msgstr "Kunne ikke få tilgang til katalogen: %s."
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "Could not read the database structure: %s"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid "Could not read the schema: %s"
 msgstr ""
 
@@ -3004,15 +3008,21 @@ msgstr ""
 msgid "Credits — %s"
 msgstr "Kreditter — %s"
 
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "Cron"
+msgstr ""
+
 #: oc-includes/osclass/classes/admin/form/MainSettingsForm.php
 msgid "Cron Settings"
 msgstr "Cron Innstillinger"
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Cron has run recently — update checks, alerts and cleanup are firing."
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "Cron has never run. Update checks, alert emails and cleanup wait for it."
 msgstr ""
-"Cron har kjørt nylig – oppdateringssjekker, varslinger og rydding blir "
-"utført."
+
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "Cron has not run for %s."
+msgstr ""
 
 #: oc-admin/themes/modern/settings/billing.php
 #: oc-admin/themes/modern/settings/currencies.php
@@ -3050,10 +3060,6 @@ msgstr "Valuta symbol"
 #: oc-includes/osclass/classes/form/ItemForm.php
 msgid "Currency: make your selection"
 msgstr "Velg valuta"
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Current PHP values"
-msgstr "Nåværende PHP-verdier"
 
 #: oc-admin/themes/modern/users/frm.php
 msgid "Current avatar"
@@ -3148,8 +3154,8 @@ msgid "Data"
 msgstr ""
 
 #: oc-admin/themes/modern/tools/backup.php
-#: oc-admin/themes/modern/tools/database.php
-#: oc-includes/osclass/classes/AdminMenu.php
+#: oc-admin/themes/modern/tools/system-info.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 #: oc-includes/osclass/classes/backup/BackupJobs.php
 msgid "Database"
 msgstr ""
@@ -3174,15 +3180,11 @@ msgstr ""
 msgid "Database name"
 msgstr "Database navn"
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Database server"
-msgstr "Databaseserver"
-
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid "Database update"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "Database version"
 msgstr ""
 
@@ -3248,9 +3250,13 @@ msgstr ""
 "Oppgaver som ikke har blitt utført etter flere forsøk (etter at maksimum "
 "antall forsøk er nådd):"
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "Debug mode"
 msgstr "Feilsøkingsmodus"
+
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "Debug mode is on. On a live site it shows internal details and slows pages."
+msgstr ""
 
 #: oc-includes/osclass/helpers/hUtils.php
 msgid "Dec"
@@ -3604,14 +3610,6 @@ msgstr "Detaljer"
 msgid "Details: %s"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid ""
-"Detects the true type of an uploaded file. Without it, upload validation is "
-"weaker."
-msgstr ""
-"Oppdager den faktiske typen til en opplastet fil. Uten den er valideringen "
-"av opplastinger svakere."
-
 #: oc-admin/themes/modern/languages/frm.php
 msgid "Direction"
 msgstr "Retning"
@@ -3667,7 +3665,7 @@ msgstr "Dokumentasjon"
 msgid "Documentation on date and time formatting"
 msgstr "Dokumentasjon på dato og tidsformatering"
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 #: oc-includes/osclass/installer/gui/install.php
 msgid "Done"
 msgstr "Ferdig"
@@ -4094,10 +4092,6 @@ msgstr "Aktivert med en pris på 0 betyr at alle selgere kan øke sine "
 msgid "Encryption"
 msgstr "Kryptering"
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Encrypts outgoing mail over TLS and secures tokens."
-msgstr "Krypterer utgående e-post via TLS og beskytter tokens."
-
 #: oc-includes/osclass/classes/admin/form/StorageSettingsForm.php
 msgid "Endpoint"
 msgstr "Endepunkt"
@@ -4169,10 +4163,6 @@ msgstr "Din e-postadresse"
 msgid "Entries"
 msgstr "Oppføringer"
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Environment"
-msgstr "Miljø"
-
 #: oc-includes/osclass/functions.php
 msgid "Error"
 msgstr "Feil"
@@ -4192,10 +4182,6 @@ msgstr "Fritids arrangementer"
 #: oc-includes/osclass/installer/basic_data.php
 msgid "Events"
 msgstr "Hendelser"
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Every ajax response, and every stored preference."
-msgstr "Hver Ajax-respons, og alle lagrede preferanser."
 
 #: oc-admin/themes/modern/billing/wallet.php
 msgid "Every change to this balance is written down here and never edited, "
@@ -4248,11 +4234,11 @@ msgstr ""
 msgid "Everything Else"
 msgstr "Alt mulig annet "
 
-#: oc-admin/themes/modern/tools/database.php
-msgid "Everything about your database in one place: its state, waiting updates, "
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "Everything looks fine."
 msgstr ""
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid "Everything matches. Nothing to repair."
 msgstr ""
 
@@ -4318,7 +4304,11 @@ msgstr ""
 msgid "Expires after"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "Extensions"
+msgstr ""
+
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid "Extra column"
 msgstr ""
 
@@ -4326,11 +4316,11 @@ msgstr ""
 msgid "Extra days"
 msgstr "Ekstra dager"
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid "Extra index"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid "Extra items: nothing to do"
 msgstr ""
 
@@ -4348,7 +4338,7 @@ msgstr "Ekstra plasser"
 
 #: oc-admin/themes/modern/billing/index.php
 #: oc-admin/themes/modern/billing/order.php
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid "Failed"
 msgstr "Mislykket"
 
@@ -4396,18 +4386,6 @@ msgstr "MATE"
 msgid "Feedback"
 msgstr "Tilbakemelding"
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid ""
-"Fetches update checks and talks to the market and remote services. Without "
-"it, those downloads fail."
-msgstr ""
-"Henter oppdateringssjekker og kommuniserer med markedet og eksterne "
-"tjenester. Uten dette vil nedlastingene mislykkes."
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Fewer uploads allowed than photos offered"
-msgstr "Færre opplastinger tillatt enn antall bilder som er tilgjengelige"
-
 #: oc-admin/themes/modern/fields/submissions.php
 msgid "Field"
 msgstr "Felt"
@@ -4420,7 +4398,7 @@ msgstr "Det var ikke mulig å legge til feltet"
 msgid "Fields"
 msgstr "Felter"
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 #: oc-includes/osclass/classes/datatables/MediaDataTable.php
 msgid "File"
 msgstr "Fil"
@@ -4452,6 +4430,14 @@ msgstr ""
 
 #: oc-admin/themes/modern/tools/backup.php
 msgid "Files added since the backup are left in place."
+msgstr ""
+
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "Files and storage"
+msgstr ""
+
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "Files per request"
 msgstr ""
 
 #: oc-includes/osclass/install-functions.php
@@ -4551,6 +4537,10 @@ msgstr "Skjema"
 msgid "Form could not be created"
 msgstr "Det var ikke mulig å opprette skjemaet"
 
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "Form fields per request"
+msgstr ""
+
 #: oc-admin/themes/modern/fields/index.php
 #: oc-admin/themes/modern/fields/submissions.php
 #: oc-includes/osclass/classes/AdminMenu.php
@@ -4567,13 +4557,16 @@ msgid "Free"
 msgstr "Gratis"
 
 #: oc-admin/themes/modern/main/index.php
-#: oc-admin/themes/modern/tools/system-info.php
 msgid "Free disk space"
 msgstr "Ledig lagringsplass"
 
 #: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
 msgid "Free listings per seller"
 msgstr "Gratis annonser per selger"
+
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "Free space"
+msgstr ""
 
 #: oc-includes/osclass/classes/admin/form/MediaSettingsForm.php
 msgid ""
@@ -4636,10 +4629,6 @@ msgstr ""
 msgid "From the Cloudflare dashboard &raquo; Turnstile."
 msgstr "Fra Cloudflares dashbord &raquo; Turnstile."
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "GD"
-msgstr "GD"
-
 #: oc-includes/osclass/install-functions.php
 msgid "GD extension for PHP"
 msgstr "GD-utvidelse for PHP"
@@ -4647,18 +4636,6 @@ msgstr "GD-utvidelse for PHP"
 #: oc-includes/osclass/install-functions.php
 msgid "GD extension is required. How to "
 msgstr "GD-utvidelsen er påkrevd. Hvordan "
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid ""
-"GD is resizing your photos. It works and is fully supported — but it cannot "
-"read some formats (animated GIF frames, CMYK JPEGs) and resizes at lower "
-"quality than Imagick. On a photo-heavy site, installing the Imagick "
-"extension is worth it."
-msgstr ""
-"GD endrer størrelsen på bildene dine. Dette fungerer, og er fullt støttet – "
-"men det kan ikke lese visse formater (animerte GIF-bilder, CMYK-JPEG-filer) "
-"og endrer størrelsen på bildene med lavere kvalitet enn Imagick. På en "
-"nettside med mange bilder, er det verdt å installere Imagick-utvidelsen."
 
 #: oc-includes/osclass/classes/admin/form/MailServerSettingsForm.php
 msgid "GMail Server"
@@ -4744,12 +4721,6 @@ msgstr ""
 #: oc-admin/themes/modern/appearance/add_widget.php
 msgid "HTML Code for the Widget"
 msgstr "HTML kode for widget"
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Handles non-Latin text throughout the site."
-msgstr ""
-"Støtter tekst på språk som ikke er basert på det latinske alfabetet, "
-"gjennom hele nettstedet."
 
 #: oc-includes/osclass/installer/basic_data.php
 msgid "Health - Beauty"
@@ -4900,12 +4871,6 @@ msgstr "Hus - Leiligheter for salg"
 msgid "Housing Swap"
 msgstr "Husvask "
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "How Shopclass talks to the database — the site cannot run without it."
-msgstr ""
-"Hvordan Shopclass kommuniserer med databasen – nettstedet kan ikke fungere "
-"uten den."
-
 #: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
 msgid "How long a listing must wait before it can be bumped again."
 msgstr "Hvor lenge en annonse må vente før den kan flyttes opp igjen."
@@ -4913,12 +4878,6 @@ msgstr "Hvor lenge en annonse må vente før den kan flyttes opp igjen."
 #: oc-includes/osclass/classes/admin/form/StorageSettingsForm.php
 msgid "How long a signed URL stays valid (60-604800)."
 msgstr ""
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "How long one request may run. Backups and imports must finish inside it."
-msgstr ""
-"Hvor lenge en forespørsel kan vare. Sikkerhetskopier og importer må "
-"fullføres innenfor denne tidsrammen."
 
 #: oc-includes/osclass/classes/admin/form/LatestSearchSettingsForm.php
 msgid "How long queries are stored"
@@ -4928,44 +4887,29 @@ msgstr "Hvor lange spørringer lagres"
 msgid "How many credits"
 msgstr "Hvor mange kreditter"
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid ""
-"How many files can ride in one upload — your photos-per-listing has to fit "
-"under this."
-msgstr ""
-"Hvor mange filer kan lastes opp i én gang – antall bilder per annonse må "
-"passe inn under denne grensen."
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid ""
-"How many form fields one request may carry. Large category trees and "
-"settings forms can approach it."
-msgstr ""
-"Hvor mange skjemafelt én forespørsel kan inneholde. Store kategoritrær og "
-"innstillingsskjemaer kan nærme seg denne grensen."
-
 #: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
 msgid "How many of a seller's listings may be live "
 msgstr "Hvor mange annonser fra en selger kan være aktive "
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid ""
-"How much memory one request may use. Resizing a big photo is the hungriest "
-"thing Shopclass does."
-msgstr ""
-"Hvor mye minne én forespørsel kan bruke. Å endre størrelsen på et stort "
-"bilde er det mest ressurskrevende Shopclass gjør."
 
 #: oc-includes/osclass/classes/admin/form/MediaSettingsForm.php
 msgid "How new photos are saved. "
 msgstr ""
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "How to change things"
-msgstr "Hvordan man kan endre ting"
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "How to change it"
+msgstr ""
+
+#: oc-admin/themes/modern/tools/system-info/server.php
+msgid "How to change these settings"
+msgstr ""
 
 #: oc-admin/themes/modern/tools/backup.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "How to close it"
+msgstr ""
+
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "How to set up cron"
 msgstr ""
 
 #: oc-includes/osclass/installer/basic_data.php
@@ -5045,9 +4989,9 @@ msgstr "Hvis du vil endre passordet, skriver du et nytt. Ellers lar du det stå 
 msgid "Image"
 msgstr "Bilde"
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Image processing"
-msgstr "Bildebehandling"
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "Image library"
+msgstr ""
 
 #: oc-includes/osclass/classes/admin/form/MediaSettingsForm.php
 msgid "Image sizes"
@@ -5061,26 +5005,17 @@ msgstr "ImageMagick"
 msgid "ImageMagick library is not loaded"
 msgstr "ImageMagick bibliotek er ikke lastet"
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Imagick"
-msgstr "Imagick"
-
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid ""
-"Imagick is installed and selected — the preferred library. It reads more "
-"formats and produces higher-quality resizes than GD."
+"Imagick is installed but not selected. It resizes at higher quality: turn "
+"it on under Settings > Media."
 msgstr ""
-"Imagick er installert og valgt – det foretrukne biblioteket. Det kan lese "
-"flere formater og generere bilder med høyere kvalitet ved skalering enn GD."
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid ""
-"Imagick is installed but not selected, so GD is doing the work. Imagick "
-"handles more formats and resizes at higher quality — switch to it under %s."
+"Imagick reads more formats and resizes at higher quality. It is worth "
+"installing on a photo-heavy site."
 msgstr ""
-"Imagick er installert, men ikke valgt som standard. Derfor brukes GD. "
-"Imagick kan håndtere flere formater og skalere bildene med høyere kvalitet "
-"– bytt til Imagick under %s."
 
 #: oc-admin/themes/modern/languages/index.php
 #: oc-admin/themes/modern/settings/keywordBlock.php
@@ -5149,7 +5084,7 @@ msgstr "I %d skjemaer"
 msgid "In %s"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-admin/themes/modern/tools/system-info/server.php
 msgid "In config.php"
 msgstr "I config.php"
 
@@ -5157,7 +5092,7 @@ msgstr "I config.php"
 msgid "In every email"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-admin/themes/modern/tools/system-info/server.php
 msgid "In php.ini"
 msgstr "I php.ini-filen"
 
@@ -5239,17 +5174,9 @@ msgstr "Inkluder sider"
 msgid "Include regions"
 msgstr "Inkluder fylker"
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid "Index has different columns"
 msgstr ""
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Info"
-msgstr "Informasjon"
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Input validation across the core."
-msgstr "Validering av inndata i hele systemet."
 
 #: oc-admin/themes/modern/parts/market.php
 #: oc-admin/themes/modern/plugins/index.php
@@ -5280,7 +5207,7 @@ msgid ""
 "date. Importing never deletes a location that holds listings."
 msgstr ""
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-admin/themes/modern/tools/system-info/server.php
 msgid "Install a missing extension"
 msgstr "Installer en manglende utvidelse"
 
@@ -5300,14 +5227,11 @@ msgstr ""
 msgid "Install security updates by themselves."
 msgstr ""
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-admin/themes/modern/tools/system-info/server.php
 msgid ""
 "Install the OS package (for example %1$s or %2$s), make sure an %3$s line "
-"is present, and restart PHP. The Overview tab will flip to “installed”."
+"is present, and restart PHP. This page then lists it as installed."
 msgstr ""
-"Installer operativsystempakken (f.eks. %1$s eller %2$s), sørg for at det er "
-"en %3$s-linje til stede, og start PHP på nytt. Oversiktsfanen vil vise "
-"\"installert\"."
 
 #: oc-includes/osclass/installer/gui/install.php
 msgid "Installation progress"
@@ -5326,12 +5250,6 @@ msgstr "Installert"
 #: oc-admin/themes/modern/settings/locations/preview.php
 msgid "Installing…"
 msgstr "Installerer …"
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Installs and updates plugins and themes, and builds backups."
-msgstr ""
-"Installerer og oppdaterer tilleggsprogrammer og temaer, samt lager "
-"sikkerhetskopier."
 
 #: oc-admin/themes/modern/emails/frm.php
 #: oc-admin/themes/modern/pages/frm.php
@@ -5490,10 +5408,6 @@ msgstr ""
 msgid "Its saved search could not be read."
 msgstr ""
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "JSON"
-msgstr "JSON"
-
 #: oc-includes/osclass/helpers/hUtils.php
 msgid "Jan"
 msgstr "jan"
@@ -5573,12 +5487,6 @@ msgstr ""
 #: oc-includes/osclass/classes/admin/form/SpamSettingsForm.php
 msgid "Keep this high: many people can share one address at an office or on mobile."
 msgstr ""
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Keeps compiled PHP in memory instead of recompiling every request."
-msgstr ""
-"Beholder den kompilerte PHP-koden i minnet i stedet for å kompilere den på "
-"nytt for hver forespørsel."
 
 #: oc-admin/themes/modern/tools/cache.php
 msgid "Keeps data between requests"
@@ -5671,22 +5579,6 @@ msgstr "Språkoppdateringer"
 msgid "Languages"
 msgstr "Språk"
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Largest single file a visitor can upload."
-msgstr "Største enkeltfil som en bruker kan laste opp."
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Largest single upload"
-msgstr "Største enkeltstående opplasting"
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid ""
-"Largest whole request. Must be at least upload_max_filesize, ideally a "
-"little more."
-msgstr ""
-"Størrelse på hele forespørselen. Må være minst upload_max_filesize, helst "
-"litt mer."
-
 #: oc-admin/themes/modern/stats/comments.php
 #: oc-admin/themes/modern/stats/items.php
 #: oc-admin/themes/modern/stats/reports.php
@@ -5711,6 +5603,10 @@ msgstr "Siste 10 uker"
 #: oc-admin/themes/modern/users/frm.php
 msgid "Last access"
 msgstr "Sist tilgang"
+
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "Last backup"
+msgstr ""
 
 #: oc-admin/themes/modern/billing/credits.php
 msgid "Last change"
@@ -5807,11 +5703,11 @@ msgstr "La dette feltet stå tomt"
 msgid "Legal"
 msgstr "Lovlig"
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-admin/themes/modern/tools/system-info/server.php
 msgid "Let a listing carry more photos"
 msgstr "La en annonse inneholde flere bilder"
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-admin/themes/modern/tools/system-info/server.php
 msgid "Let long jobs finish"
 msgstr "La lange oppgaver fullføres"
 
@@ -5966,6 +5862,18 @@ msgstr "Annonse URL"
 msgid "Listings"
 msgstr "Annonser"
 
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid ""
+"Listings allow %1$d photos, but PHP takes only %2$d files per request and "
+"drops the rest."
+msgstr ""
+
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "Listings allow %d photo."
+msgid_plural "Listings allow %d photos."
+msgstr[0] ""
+msgstr[1] ""
+
 #: oc-admin/themes/modern/settings/keywordBlock.php
 msgid ""
 "Listings already flagged by this keyword stay as they are; only future "
@@ -6060,10 +5968,6 @@ msgstr ""
 msgid "Live"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Loaded PHP extensions"
-msgstr "Aktiverte PHP-utvidelser"
-
 #: oc-admin/themes/modern/parts/market.php
 msgid "Loading details…"
 msgstr "Laster inn detaljer…"
@@ -6148,12 +6052,6 @@ msgstr "Logg inn"
 msgid "Logout"
 msgstr "Logg ut"
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Long tasks such as backups and imports must finish inside this."
-msgstr ""
-"Lange oppgaver som sikkerhetskopiering og import må fullføres innenfor "
-"denne tidsrammen."
-
 #: oc-includes/osclass/installer/basic_data.php
 msgid "Lost And Found"
 msgstr "Mistet og funnet "
@@ -6194,8 +6092,8 @@ msgstr ""
 msgid "Maintenance"
 msgstr "Vedlikehold"
 
-#: oc-admin/themes/modern/tools/system-info.php
 #: oc-includes/osclass/classes/AdminMenu.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "Maintenance mode"
 msgstr "Vedlikeholdsmodus"
 
@@ -6205,11 +6103,14 @@ msgstr ""
 "Vedlikeholdsmodus er på — kun påloggede administratorer kan se nettsiden "
 "akkurat nå."
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid ""
-"Maintenance mode is on, but the public site is not blocked. Visitors can "
-"still use the site and see a banner. Remove the %s file to hide it, or "
-"enable lockout under Tools → Maintenance."
+"Maintenance mode is on, but visitors can still use the site and see a "
+"banner."
+msgstr ""
+
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "Maintenance mode is on. Visitors see the maintenance page."
 msgstr ""
 
 #: oc-admin/themes/modern/tools/maintenance.php
@@ -6217,6 +6118,7 @@ msgid "Maintenance mode is: <strong>%s</strong>"
 msgstr "Vedlikeholdsmodus er: <strong>%s</strong>"
 
 #: oc-admin/themes/modern/tools/backup.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 #: oc-includes/osclass/classes/backup/BackupJobs.php
 msgid "Make a backup"
 msgstr ""
@@ -6429,10 +6331,6 @@ msgstr ""
 msgid "Matching now"
 msgstr "Samsvarer nå"
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Max execution time"
-msgstr "Maksimal kjøretid"
-
 #: oc-admin/themes/modern/fields/iframe.php
 msgid "Max length"
 msgstr "Maksimal lengde"
@@ -6460,7 +6358,6 @@ msgstr "Mai"
 #: oc-admin/themes/modern/media/index.php
 #: oc-admin/themes/modern/parts/media-picker.php
 #: oc-admin/themes/modern/settings/media.php
-#: oc-admin/themes/modern/tools/system-info.php
 #: oc-includes/osclass/classes/AdminMenu.php
 msgid "Media"
 msgstr "Medier"
@@ -6475,16 +6372,12 @@ msgstr "Media innstillinger"
 msgid "Media library"
 msgstr "Mediebibliotek"
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Media settings"
-msgstr "Innstillinger for media"
-
 #: oc-admin/themes/modern/tools/cache.php
 msgid "Memory"
 msgstr "Hukommelse"
 
 #: oc-admin/themes/modern/main/index.php
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "Memory limit"
 msgstr "Minnebegrensning"
 
@@ -6547,19 +6440,19 @@ msgstr "Bom"
 msgid "Missing"
 msgstr "Mangler"
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid "Missing column"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid "Missing index"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid "Missing primary key"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid "Missing table"
 msgstr ""
 
@@ -6829,7 +6722,7 @@ msgstr ""
 "Krever en CAPTCHA-leverandør konfigurert under Innstillinger &raquo; "
 "reCAPTCHA/Turnstile; ellers vises ingen utfordring."
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid "Needs a closer look"
 msgstr ""
 
@@ -6843,15 +6736,11 @@ msgstr ""
 msgid "Needs setting up"
 msgstr "Må konfigureres"
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid ""
-"Neither Imagick nor GD is installed, so no uploaded photo can be resized "
-"and image uploads fail. Install the GD extension at minimum; Imagick is "
-"better still."
+"Neither Imagick nor GD is installed, so photos cannot be resized and image "
+"uploads fail."
 msgstr ""
-"Verken Imagick eller GD er installert, så ingen opplastede bilder kan "
-"endres i størrelse, og bildene kan ikke lastes opp. Installer GD-utvidelsen "
-"som minimum; Imagick er enda bedre."
 
 #: oc-admin/themes/modern/items/frm.php
 #: oc-includes/osclass/classes/controller/admin/CAdminItems.php
@@ -6867,7 +6756,7 @@ msgstr "Utgår aldri"
 msgid "New"
 msgstr "Ny"
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid ""
 "New Shopclass files are in place, but the database has not caught up yet. "
 "Run these updates to finish."
@@ -6994,6 +6883,14 @@ msgstr "Ingen varsler foreløpig"
 msgid "No background work has run yet."
 msgstr ""
 
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "No backup has been saved on the server yet."
+msgstr ""
+
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "No backup in the last 30 days."
+msgstr ""
+
 #: oc-includes/osclass/classes/market/Installer.php
 msgid "No backup was found to roll back to."
 msgstr "Det ble ikke funnet noen sikkerhetskopi å rulle tilbake til."
@@ -7056,15 +6953,6 @@ msgstr ""
 msgid "No credits moved yet"
 msgstr "Ingen kreditter er flyttet ennå"
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid ""
-"No cron run has been recorded. Update checks, alert emails and cleanup "
-"depend on it. Schedule %s to run regularly."
-msgstr ""
-"Ingen kjøring av cron-oppgaven er registrert. Oppdateringssjekker, "
-"varslings-e-poster og rydding er avhengig av dette. Planlegg at %s skal "
-"kjøre regelmessig."
-
 #: oc-includes/osclass/classes/controller/admin/ajax/CAdminAjax.php
 msgid "No details are available for this package yet."
 msgstr "Ingen detaljer er tilgjengelige for denne pakken ennå."
@@ -7118,10 +7006,6 @@ msgstr ""
 #: oc-admin/themes/modern/languages/index.php
 msgid "No languages yet"
 msgstr "Ingen språk ennå"
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "No limit — whatever runs long, runs."
-msgstr "Ingen begrensninger – det som varer lenge, vil fortsette."
 
 #: oc-admin/themes/modern/settings/locations/form.php
 msgid "No listings are placed there."
@@ -7186,16 +7070,6 @@ msgstr "Ingen sider ennå"
 #: oc-admin/themes/modern/settings/billing.php
 msgid "No payment methods installed"
 msgstr "Ingen betalingsmetoder er installert"
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid ""
-"No persistent cache configured, so per-request work is recomputed each "
-"time. Set %1$s in config.php to a driver such as %2$s or %3$s for a real "
-"speed-up on a busy site."
-msgstr ""
-"Ingen permanent cache er konfigurert, så arbeidet for hver forespørsel "
-"beregnes på nytt hver gang. Sett %1$s i config.php til en driver som %2$s "
-"eller %3$s for en reell hastighetsforbedring på et travelt nettsted."
 
 #: oc-admin/themes/modern/plugins/index.php
 msgid "No plugins installed"
@@ -7335,15 +7209,6 @@ msgstr "Ikke kaskaderende"
 msgid "Not compatible"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid ""
-"Not enabled. PHP recompiles every file on every request. It is the cheapest "
-"performance win available, and it is one ini line."
-msgstr ""
-"Ikke aktivert. PHP kompilerer alle filer ved hver forespørsel. Dette er den "
-"billigste måten å oppnå ytelsesforbedringer på, og det krever kun én linje "
-"i konfigurasjonsfilen."
-
 #: oc-includes/osclass/classes/backup/Builder.php
 msgid ""
 "Not enough space on the server: needs about %1$s, %2$s free. Nothing was "
@@ -7425,7 +7290,7 @@ msgstr ""
 msgid "Nothing needed changing."
 msgstr "Ingenting trengte å endres."
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid "Nothing needed repairing."
 msgstr ""
 
@@ -7441,7 +7306,7 @@ msgstr ""
 msgid "Nothing was saved."
 msgstr ""
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info.php
 msgid "Nothing was waiting. The database is up to date."
 msgstr ""
 
@@ -7508,21 +7373,21 @@ msgstr "Antall nye abonnenter"
 msgid "OFF"
 msgstr "AV"
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "OK"
-msgstr "OK"
-
 #: oc-admin/themes/modern/items/index.php
 #: oc-admin/themes/modern/tools/maintenance.php
 #: oc-admin/themes/modern/users/index.php
 msgid "ON"
 msgstr "PÅ"
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "OPcache"
 msgstr "OPcache"
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "OPcache is off, so PHP recompiles every file on every request."
+msgstr ""
+
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "Object cache"
 msgstr "Objektcache"
 
@@ -7535,7 +7400,6 @@ msgid "October"
 msgstr "Oktober"
 
 #: oc-admin/themes/modern/admins/two_factor.php
-#: oc-admin/themes/modern/tools/system-info.php
 msgid "Off"
 msgstr "Av"
 
@@ -7548,18 +7412,6 @@ msgid ""
 "Off by default: a match is quarantined (flagged spam and hidden) so it can "
 "be "
 msgstr ""
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Off, as it should be on a live site."
-msgstr "Av, slik det bør være på et nettsted i drift."
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid ""
-"Off. Some remote fetches fall back to cURL; update and market features rely "
-"on one of the two being available."
-msgstr ""
-"Av. Enkelte eksterne henter faller tilbake på cURL; oppdaterings- og "
-"markedsfunksjoner er avhengige av at minst én av de to er tilgjengelig."
 
 #: oc-admin/themes/modern/stats/reports.php
 #: oc-includes/osclass/classes/datatables/ItemsDataTable.php
@@ -7628,6 +7480,10 @@ msgstr[1] "%s plasseringer har blitt slettet"
 msgid "One week"
 msgstr "Én uke"
 
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "Only %s of disk space is left. Uploads and backups fail when it runs out."
+msgstr ""
+
 #: oc-admin/themes/modern/items/settings.php
 msgid "Only allow registered users to contact publisher"
 msgstr "Tillat bare registrerte brukere å kontakte utgiveren"
@@ -7684,10 +7540,6 @@ msgstr "Åpne administrasjonspanelet"
 msgid "Open your authenticator app and scan the QR code."
 msgstr ""
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "OpenSSL"
-msgstr "OpenSSL"
-
 #: oc-admin/themes/modern/items/settings.php
 msgid "OpenStreetMaps"
 msgstr "OpenStreetMaps"
@@ -7696,7 +7548,7 @@ msgstr "OpenStreetMaps"
 msgid "OpenStreetMaps key"
 msgstr "OpenStreetMaps key"
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "Operating system"
 msgstr "Operativsystem"
 
@@ -7785,26 +7637,28 @@ msgstr ""
 msgid "Overview"
 msgstr "Oversikt"
 
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "PHP"
+msgstr ""
+
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "PHP %s is past end of life and gets no security fixes. Move to PHP 8."
+msgstr ""
+
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "PHP %s is too old. Shopclass is built and tested against PHP 8.0 and up."
+msgstr ""
+
 #: oc-admin/themes/modern/parts/market.php
 msgid "PHP %s or newer"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid ""
-"PHP rejects the whole request before it looks at the file, so the %1$s you "
-"advertise is unreachable — an upload over %2$s fails with an empty form. "
-"Raise %3$s above %4$s."
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "PHP and web server"
 msgstr ""
-"PHP avviser hele forespørselen før den ser på filen, så %1$s du annonserer "
-"er ikke tilgjengelig – en opplasting over %2$s mislykkes med et tomt "
-"skjema. Øk %3$s over %4$s."
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "PHP settings &amp; help"
-msgstr "PHP-innstillinger &amp; hjelp"
 
 #: oc-admin/themes/modern/main/index.php
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "PHP version"
 msgstr "PHP-versjon"
 
@@ -7924,6 +7778,10 @@ msgstr "Parkeringsplasser"
 msgid "Password"
 msgstr "Passord"
 
+#: oc-admin/themes/modern/settings/spamNbots.php
+msgid "Password check before a restore"
+msgstr ""
+
 #: oc-includes/osclass/classes/form/AdminForm.php
 #: oc-includes/osclass/classes/form/UserForm.php
 msgid "Password: enter at least 5 characters"
@@ -7953,7 +7811,7 @@ msgstr ""
 msgid "Path-style URLs"
 msgstr "Stibaserte URL-er"
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "Paths"
 msgstr "Veier"
 
@@ -8025,6 +7883,10 @@ msgstr ""
 msgid "Photo quality"
 msgstr ""
 
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "Photo storage"
+msgstr ""
+
 #: oc-admin/themes/modern/items/frm.php
 #: oc-includes/osclass/classes/admin/ui/PhotoGrid.php
 msgid "Photos"
@@ -8045,10 +7907,6 @@ msgid ""
 "Photos live in your S3 bucket and are not copied. They stay there. Turn on "
 "versioning in the bucket to keep old copies."
 msgstr ""
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Photos per listing"
-msgstr "Bilder per annonse"
 
 #: oc-admin/themes/modern/tools/backup.php
 msgid "Photos, plugins, themes, languages"
@@ -8123,6 +7981,7 @@ msgstr "Utvidelse-oppdateringer"
 #: oc-admin/themes/modern/plugins/index.php
 #: oc-admin/themes/modern/plugins/view.php
 #: oc-includes/osclass/classes/AdminMenu.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "Plugins"
 msgstr "Utvidelser"
 
@@ -8136,15 +7995,11 @@ msgid ""
 "Browse, or upload its zip file."
 msgstr ""
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Plugins path"
-msgstr "Sti til utvidelser"
-
 #: oc-admin/themes/modern/parts/market.php
 msgid "Plugins updated."
 msgstr "Utvidelser oppdatert."
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-admin/themes/modern/tools/system-info/server.php
 msgid ""
 "Point %1$s at an installed driver (for example %2$s or %3$s) so category "
 "trees, user data and search stop being recomputed on every request; %4$s "
@@ -8159,7 +8014,7 @@ msgstr ""
 msgid "Position"
 msgstr "Posisjon"
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "Preferences"
 msgstr "Preferanser"
 
@@ -8177,7 +8032,7 @@ msgstr ""
 msgid "Premium"
 msgstr "Premium"
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid "Press Repair to fix them. Take a backup first."
 msgstr ""
 
@@ -8235,10 +8090,6 @@ msgstr "Priser"
 #: oc-includes/osclass/classes/form/ItemForm.php
 msgid "Primary"
 msgstr "Primær"
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Problem"
-msgstr "Problem"
 
 #: oc-admin/themes/modern/plugins/index.php
 #: oc-includes/osclass/classes/controller/admin/CAdminPlugins.php
@@ -8359,15 +8210,15 @@ msgstr "RSS viser"
 msgid "RVs - Campers - Caravans"
 msgstr "RVs- Camping - Campingvogner"
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-admin/themes/modern/tools/system-info/server.php
 msgid "Raise %1$s and %2$s together, keeping post at least as large as upload:"
 msgstr "Øk %1$s og %2$s sammen, og sørg for at post er minst like stor som upload:"
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-admin/themes/modern/tools/system-info/server.php
 msgid "Raise %s to at least the number of photos per listing you allow in Settings."
 msgstr "Øk %s til minst antall bilder per annonse du tillater i innstillingene."
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-admin/themes/modern/tools/system-info/server.php
 msgid "Raise memory without touching php.ini"
 msgstr "Øk minnet uten å endre filen php.ini"
 
@@ -8382,10 +8233,6 @@ msgstr "Lest"
 #: oc-admin/themes/modern/upgrade/index.php
 msgid "Read the full release notes on GitHub"
 msgstr "Les de fullstendige utgivelsesnotatene på GitHub"
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Read-only, as it should be after install."
-msgstr "Kun lesemodus, slik det bør være etter installasjon."
 
 #: oc-admin/themes/modern/settings/locations.php
 msgid ""
@@ -8588,6 +8435,10 @@ msgstr ""
 msgid "Remember to enable cookies for the subdomains too."
 msgstr "Husk å aktivere informasjonskapsler for underdomenet også."
 
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "Remote downloads (allow_url_fopen)"
+msgstr ""
+
 #: oc-admin/themes/modern/functions.php
 #: oc-admin/themes/modern/settings/sitemap.php
 #: oc-includes/osclass/classes/admin/ui/PhotoGrid.php
@@ -8650,26 +8501,26 @@ msgstr "Omorganiser felt: bruk piltastene"
 msgid "Reorder widget %s. Drag, or focus and press the up"
 msgstr "Omorganiser widget %s. Dra, eller fokuser og trykk på opp"
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 #: oc-includes/osclass/installer/basic_data.php
 msgid "Repair"
 msgstr "Reparering"
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid "Repair can fix these"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid ""
 "Repair does not change these. Ask for help before changing the table by "
 "hand."
 msgstr ""
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid "Repair result"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid "Repair the database?"
 msgstr ""
 
@@ -8735,10 +8586,6 @@ msgstr "Kreves av MinIO og de fleste selvhostede oppsett; la stå av for AWS."
 #: oc-admin/themes/modern/fields/iframe.php
 msgid "Required only when…"
 msgstr "Kreves kun når…"
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Requirements"
-msgstr "Krav"
 
 #: oc-admin/themes/modern/parts/market.php
 msgid "Requires"
@@ -8813,6 +8660,10 @@ msgid "Restore from this file"
 msgstr ""
 
 #: oc-admin/themes/modern/tools/backup.php
+msgid "Restore is turned off on this site. Use the command line."
+msgstr ""
+
+#: oc-admin/themes/modern/tools/backup.php
 msgid "Restore this backup?"
 msgstr ""
 
@@ -8838,7 +8689,7 @@ msgstr ""
 msgid "Restrictions"
 msgstr "Restriksjoner"
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid "Result"
 msgstr ""
 
@@ -8884,19 +8735,20 @@ msgstr "Kjør opprydding nå"
 msgid "Run cleanup now?"
 msgstr "Kjøre opprydding nå?"
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid "Run database update"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "Run it"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid "Run the database update first. Most of these will then be gone."
 msgstr ""
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info.php
 msgid "Run the database update?"
 msgstr ""
 
@@ -8916,6 +8768,14 @@ msgid ""
 msgstr ""
 "Utfører en liten test for å sjekke skrive-, lese- og slettefunksjonaliteten "
 "mot de lagrede tilkoblingsinnstillingene ovenfor."
+
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "S3 bucket \"%s\""
+msgstr ""
+
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "S3 bucket \"%s\" (local copies kept)"
+msgstr ""
 
 #: oc-includes/osclass/classes/admin/form/MailServerSettingsForm.php
 msgid "SMTP"
@@ -9066,9 +8926,9 @@ msgstr ""
 msgid "Saving…"
 msgstr "Lagrer…"
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Scheduled tasks (cron)"
-msgstr "Planlagte oppgaver (cron)"
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "Scheduled tasks and cache"
+msgstr ""
 
 #: oc-admin/themes/modern/parts/market.php
 msgid "Screenshots"
@@ -9240,7 +9100,7 @@ msgstr ""
 msgid "See the job"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "See the list"
 msgstr ""
 
@@ -9440,13 +9300,18 @@ msgstr "Tilgjengeliggjør filer via signerte URL-er med begrenset gyldighetstid.
 
 #: oc-admin/themes/modern/tools/backup.php
 #: oc-admin/themes/modern/tools/cache.php
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "Server"
 msgstr "Server"
 
 #: oc-includes/osclass/installer/gui/install.php
 msgid "Server checklist"
 msgstr "Sjekkliste for server"
+
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "Server details"
+msgstr ""
 
 #: oc-includes/AjaxUploader.php
 msgid "Server error. Upload directory isn't writable."
@@ -9493,7 +9358,7 @@ msgstr "Sett opp nettsiden min"
 msgid "Set up payments"
 msgstr "Sett opp betalinger"
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "Set up real-IP forwarding"
 msgstr ""
 
@@ -9533,11 +9398,11 @@ msgstr ""
 #: oc-admin/themes/modern/settings/sitemap.php
 #: oc-admin/themes/modern/settings/spamNbots.php
 #: oc-admin/themes/modern/settings/storage.php
-#: oc-admin/themes/modern/tools/system-info.php
 #: oc-admin/themes/modern/users/ban.php
 #: oc-admin/themes/modern/users/index.php
 #: oc-admin/themes/modern/users/settings.php
 #: oc-includes/osclass/classes/AdminMenu.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 #: oc-includes/osclass/classes/controller/admin/CAdminMedia.php
 #: oc-includes/osclass/gui/admin/settings-page.php
 msgid "Settings"
@@ -9564,6 +9429,10 @@ msgstr ""
 #: oc-admin/themes/modern/items/settings.php
 msgid "Share listing"
 msgstr "Del annonse"
+
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "Shopclass"
+msgstr ""
 
 #: oc-includes/osclass/functions.php
 msgid "Shopclass "
@@ -9598,22 +9467,9 @@ msgstr ""
 "trygt å tømme den, og nettstedet gjenoppretter det den trenger ved neste "
 "forespørsel."
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Shopclass can write to %s."
-msgstr "Shopclass kan skrive til %s."
-
 #: oc-includes/osclass/installer/gui/install.php
 msgid "Shopclass can't reach its database."
 msgstr ""
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid ""
-"Shopclass cannot write to %s, so no photo or file upload can be saved. Fix "
-"the folder permissions so the web server user can write to it."
-msgstr ""
-"Shopclass kan ikke skrive til %s, så ingen bilder eller filer kan lagres. "
-"Rett opp tillatelsene for mappen, slik at webserver-brukeren kan skrive til "
-"den."
 
 #: oc-admin/themes/modern/parts/market.php
 msgid "Shopclass checks once a day. Check now if you are expecting something."
@@ -9623,13 +9479,9 @@ msgstr ""
 msgid "Shopclass doesn't check the watermark image size"
 msgstr "Shopclass sjekker ikke størrelsen på vannmerket"
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid "Shopclass expects"
 msgstr ""
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Shopclass health"
-msgstr "Shopclass-helse"
 
 #: oc-includes/osclass/classes/upgrade/AutoSecurityUpdate.php
 msgid ""
@@ -9654,15 +9506,6 @@ msgstr ""
 msgid "Shopclass is already installed here."
 msgstr "Shopclass er allerede installert her."
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid ""
-"Shopclass lets a seller attach %1$s photos to a listing, but PHP accepts "
-"only %2$s files per request and drops the rest. Raise %3$s to at least %4$s."
-msgstr ""
-"Shopclass lar en selger legge til %1$s bilder i en annonse, men PHP "
-"aksepterer kun %2$s filer per forespørsel og forkaster resten. Øk %3$s til "
-"minst %4$s."
-
 #: oc-includes/osclass/install-functions.php
 msgid "Shopclass needs MySQL 5.7.5 or newer, or MariaDB 10.2 or newer. "
 msgstr ""
@@ -9672,23 +9515,6 @@ msgid "Shopclass never handles card details itself. To take payments, install a 
 msgstr ""
 "Shopclass håndterer aldri kortinformasjon selv. For å ta imot betalinger, "
 "installer en "
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid ""
-"Shopclass offers %1$s photos per listing; PHP accepts %2$s files per "
-"request."
-msgstr ""
-"Shopclass tilbyr %1$s bilder per annonse; PHP aksepterer %2$s filer per "
-"forespørsel."
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid ""
-"Shopclass runs, but PHP 7.x is past end of life and no longer gets security "
-"fixes. Shopclass targets PHP 8.0 and up — move to PHP 8."
-msgstr ""
-"Shopclass kjører, men PHP 7.x har nådd slutten av sin levetid og får ikke "
-"lenger sikkerhetsoppdateringer. Shopclass er laget for PHP 8.0 og nyere – "
-"bytt til PHP 8."
 
 #: oc-includes/osclass/classes/upgrade/AutoSecurityUpdate.php
 msgid ""
@@ -9701,8 +9527,7 @@ msgid "Shopclass upgraded successfully."
 msgstr "Oppgraderingen av Shopclass var vellykket."
 
 #: oc-admin/themes/modern/main/index.php
-#: oc-admin/themes/modern/tools/database.php
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "Shopclass version"
 msgstr "Shopclass-versjon"
 
@@ -9862,7 +9687,7 @@ msgstr "Innstillinger for sitemap"
 #: oc-admin/themes/modern/media/index.php
 #: oc-admin/themes/modern/parts/market.php
 #: oc-admin/themes/modern/tools/backup.php
-#: oc-admin/themes/modern/tools/database.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "Size"
 msgstr "Størrelse"
 
@@ -9943,10 +9768,6 @@ msgstr "Kilde"
 msgid "Source id"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Space left on the uploads volume."
-msgstr "Plass som er ledig i filopplastingsområdet."
-
 #: oc-admin/themes/modern/fields/submissions.php
 #: oc-admin/themes/modern/items/index.php
 #: oc-admin/themes/modern/stats/reports.php
@@ -10020,7 +9841,6 @@ msgstr "Statistikk"
 #: oc-admin/themes/modern/settings/locations/form.php
 #: oc-admin/themes/modern/settings/locations/list.php
 #: oc-admin/themes/modern/tools/cache.php
-#: oc-admin/themes/modern/tools/database.php
 #: oc-includes/osclass/classes/admin/ui/Editor.php
 #: oc-includes/osclass/classes/datatables/CommentsDataTable.php
 #: oc-includes/osclass/classes/datatables/ItemsDataTable.php
@@ -10060,7 +9880,7 @@ msgstr ""
 msgid "Step 4 of 4: Updates and cache"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid "Still to do"
 msgstr ""
 
@@ -10150,17 +9970,13 @@ msgstr "Søndag"
 msgid "Support"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Supported."
-msgstr "Støttet."
-
 #: oc-admin/themes/modern/emails/frm.php
 msgid ""
 "Swapped for real values when the email is sent. Click one to add it at the "
 "cursor."
 msgstr ""
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-admin/themes/modern/tools/system-info/server.php
 msgid "Switch debugging on"
 msgstr "Aktiver feilsøkingsfunksjonen"
 
@@ -10197,15 +10013,16 @@ msgstr "System informasjon"
 msgid "System status"
 msgstr "Systemstatus"
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid "Table"
 msgstr ""
 
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 #: oc-includes/osclass/installer/gui/install-database.php
 msgid "Table prefix"
 msgstr "Tabellprefiks"
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid "Take a backup first."
 msgstr ""
 
@@ -10431,7 +10248,7 @@ msgstr "Kategorien samt dens underkategorier er aktivert"
 msgid "The category is too large to delete at once. It has been hidden"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-admin/themes/modern/tools/system-info/server.php
 msgid ""
 "The cheapest speed-up there is — PHP stops recompiling every file on every "
 "request."
@@ -10471,7 +10288,7 @@ msgstr ""
 msgid "The database Shopclass should use."
 msgstr "Databasen som Shopclass skal bruke."
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info.php
 msgid "The database is updated. %d update ran."
 msgid_plural "The database is updated. %d updates ran."
 msgstr[0] ""
@@ -10491,7 +10308,7 @@ msgstr ""
 "Databaseserveren avviste det brukernavnet og passordet. Kopier dem på nytt "
 "fra "
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info.php
 #: oc-includes/osclass/classes/backup/BackupJobs.php
 #: oc-includes/osclass/classes/upgrade/AutoSecurityUpdate.php
 msgid "The database update failed."
@@ -10547,16 +10364,6 @@ msgstr "Installasjonsmappen er ikke skrivbar."
 msgid "The key you entered is invalid. Please double-check it"
 msgstr "Nøkkelen er ikke gyldig. Sjekk igjen"
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid ""
-"The last cron run was %s ago — longer than a day, so it is probably no "
-"longer scheduled. Update checks, alerts and cleanup have stopped until it "
-"runs again."
-msgstr ""
-"Den siste cron-kjøringen var for %s siden – lenger enn en dag, så den er "
-"sannsynligvis ikke lenger planlagt. Oppdateringssjekker, varsler og rydding "
-"har stoppet inntil den kjøres igjen."
-
 #: oc-admin/themes/modern/settings/locations.php
 msgid "The list could not be loaded. Check your connection and try again."
 msgstr ""
@@ -10575,6 +10382,10 @@ msgstr ""
 
 #: oc-admin/themes/modern/settings/locations/data.php
 msgid "The location catalog could not be reached"
+msgstr ""
+
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "The memory limit is %s. Resizing a large photo needs at least 128 MB."
 msgstr ""
 
 #: oc-admin/themes/modern/settings/locations/preview.php
@@ -10682,7 +10493,7 @@ msgid ""
 "still see the maintenance page."
 msgstr ""
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid ""
 "The same update the command line runs with db:upgrade. On a large site it "
 "can take a few minutes."
@@ -10700,9 +10511,9 @@ msgstr "Søke siden viser feltet er påkrevd"
 msgid "The search page shows: this field must only contain numeric characters"
 msgstr "Søkesiden vises: dette feltet må bare inneholde numeriske tegn"
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "The server clock zone used for listing and stat dates."
-msgstr "Tidssonen serveren bruker for annonse- og statistikkdatoer."
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "The server meets what Shopclass needs."
+msgstr ""
 
 #: oc-admin/themes/modern/settings/locations.php
 msgid ""
@@ -10721,12 +10532,6 @@ msgid ""
 msgstr ""
 "Nettsiden faller tilbake til standardspråket for alt innhold som var "
 "avhengig av dette språket."
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid ""
-"The site is in maintenance mode — visitors see the maintenance page (HTTP "
-"503). Remove the %s file to bring it back."
-msgstr ""
 
 #: oc-admin/themes/modern/settings/sitemap.php
 msgid ""
@@ -10798,6 +10603,10 @@ msgstr "Oppgraderingen ble ikke fullført"
 msgid "The upload failed. Try again."
 msgstr ""
 
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "The uploads folder cannot be written to. Photos cannot be saved."
+msgstr ""
+
 #: oc-includes/osclass/install-functions.php
 msgid "The user connected, but isn't allowed to write to this database. Grant it "
 msgstr ""
@@ -10837,12 +10646,9 @@ msgid "Theme updates"
 msgstr "Temaoppdateringer"
 
 #: oc-admin/themes/modern/appearance/index.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "Themes"
 msgstr "Temaer"
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Themes path"
-msgstr "Sti til temaer"
 
 #: oc-admin/themes/modern/parts/market.php
 msgid "Themes updated."
@@ -10930,7 +10736,7 @@ msgstr "Denne handlingen kan ikke omgjøres. Er du sikker på at du vil fortsett
 msgid "This action cannot be done because it is a demo site"
 msgstr "Denne handlingen kan ikke gjøres fordi den er et demo-nettsted"
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid ""
 "This adds what is missing and fixes column types. It does not touch extra "
 "columns or indexes, and it can take a while on a large site. Take a backup "
@@ -10941,7 +10747,7 @@ msgstr ""
 msgid "This admin signs in with a code from an authenticator app."
 msgstr ""
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info.php
 msgid ""
 "This applies the waiting updates in order. Keep the page open until it "
 "finishes. Take a backup first."
@@ -11216,12 +11022,6 @@ msgstr ""
 "Dette fjerner widgeten fra sin seksjon umiddelbart, og det er ikke mulig å "
 "angre på dette."
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid ""
-"This request's address matches every forwarding header sent with it — no "
-"proxy misconfiguration detected."
-msgstr ""
-
 #: oc-admin/themes/modern/tools/backup.php
 msgid "This server accepts files up to %s."
 msgstr ""
@@ -11309,6 +11109,11 @@ msgstr "Tid"
 msgid "Time format"
 msgstr ""
 
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "Time limit"
+msgstr ""
+
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 #: oc-includes/osclass/classes/admin/form/MainSettingsForm.php
 msgid "Timezone"
 msgstr "Timezone"
@@ -11391,16 +11196,9 @@ msgstr "For mange bilder. Grensen er {limit}."
 msgid "Too many locations selected"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Too old. Shopclass is built and tested against PHP 8.0 and up."
-msgstr ""
-"For gammelt. Shopclass er utviklet og testet for å fungere med PHP 8.0 og "
-"nyere versjoner."
-
 #: oc-admin/themes/modern/tools/backup.php
 #: oc-admin/themes/modern/tools/cache.php
 #: oc-admin/themes/modern/tools/cleanup.php
-#: oc-admin/themes/modern/tools/database.php
 #: oc-admin/themes/modern/tools/jobs.php
 #: oc-admin/themes/modern/tools/logs.php
 #: oc-admin/themes/modern/tools/maintenance.php
@@ -11490,11 +11288,11 @@ msgstr ""
 msgid "Turn on"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-admin/themes/modern/tools/system-info/server.php
 msgid "Turn on OPcache"
 msgstr "Aktiver OPcache"
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-admin/themes/modern/tools/system-info/server.php
 msgid "Turn on a persistent object cache"
 msgstr "Aktiver en permanent objektcache"
 
@@ -11542,7 +11340,7 @@ msgstr "Turnstile-nøkkel for nettsiden og hemmelig nøkkel for Turnstile"
 msgid "Tutoring - Private Lessons"
 msgstr "Veiledning - Private kurs"
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-admin/themes/modern/tools/system-info/server.php
 msgid ""
 "Two files hold these settings. PHP's own limits live in %1$s%2$s; "
 "Shopclass's own behaviour lives in %3$s in the site root%4$s. Edit the "
@@ -11673,23 +11471,6 @@ msgid ""
 "banner. The choice is kept when maintenance mode is turned off."
 msgstr ""
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid ""
-"Under 128M. Resizing a large photo is the most memory-hungry thing "
-"Shopclass does, and this is where it fails first."
-msgstr ""
-"Under 128 MB. Å endre størrelsen på et stort bilde er det mest "
-"minnekrevende Shopclass gjør, og dette er der det svikter først."
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid ""
-"Under 512MB left on the uploads volume. When it fills, uploads and backups "
-"start failing."
-msgstr ""
-"Det er mindre enn 512 MB igjen på lagringsplassen for opplastinger. Når "
-"denne plassen er full, begynner opplasting og sikkerhetskopiering å "
-"mislykkes."
-
 #: oc-admin/themes/modern/fields/iframe.php
 msgid "Ungrouped"
 msgstr "Ugruppert"
@@ -11740,7 +11521,7 @@ msgstr ""
 
 #: oc-admin/themes/modern/plugins/configuration.php
 #: oc-admin/themes/modern/settings/locations/data.php
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 #: oc-includes/osclass/classes/controller/admin/CAdminLanguages.php
 msgid "Update"
 msgstr "Oppdater"
@@ -11888,6 +11669,10 @@ msgstr "Last opp"
 msgid "Upload language"
 msgstr "Last opp språk"
 
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "Upload limits"
+msgstr ""
+
 #: oc-includes/osclass/classes/controller/admin/ajax/CAdminAjax.php
 msgid "Upload target not allowed"
 msgstr "Opplastingsmål er ikke tillatt"
@@ -11896,17 +11681,13 @@ msgstr "Opplastingsmål er ikke tillatt"
 msgid "Uploaded"
 msgstr "Lastet opp"
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Uploads &amp; storage"
-msgstr "Opplasting &amp; lagring"
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "Uploads"
+msgstr ""
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Uploads folder is writable"
-msgstr "Mappen for opplastinger er skrivbar"
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Uploads path"
-msgstr "Sti til opplastinger"
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "Uploads folder"
+msgstr ""
 
 #: oc-admin/themes/modern/tools/cache.php
 msgid "Uptime"
@@ -12269,15 +12050,15 @@ msgstr "Se nettsiden din"
 msgid "Views"
 msgstr "Visninger"
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "Visitor addresses"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid ""
-"Visitor addresses look wrong. Your site seems to be behind a proxy (%1$s), "
-"so every visitor appears to come from %2$s. Sign-in protection and IP bans "
-"cannot tell visitors apart. Ask your host to set up real-IP forwarding."
+"Visitor addresses look wrong: the site is behind a proxy (%1$s), so every "
+"visitor seems to come from %2$s. Sign-in protection and IP bans cannot tell "
+"visitors apart."
 msgstr ""
 
 #: oc-admin/themes/modern/tools/maintenance.php
@@ -12370,7 +12151,7 @@ msgstr ""
 "Vi anbefaler at du har alternativet \"Behold originalbilde\" når du bruker "
 "vannmerker."
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "Web server"
 msgstr "Webserver"
 
@@ -12381,10 +12162,11 @@ msgstr "Web title"
 #: oc-admin/themes/modern/plugins/index.php
 #: oc-admin/themes/modern/settings/spamNbots.php
 #: oc-admin/themes/modern/users/frm.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "Website"
 msgstr "Nettside"
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "Website URL"
 msgstr "Nettstedets URL"
 
@@ -12414,8 +12196,8 @@ msgid "Welcome to Shopclass"
 msgstr "Velkommen til Shopclass"
 
 #: oc-admin/themes/modern/tools/backup.php
-#: oc-admin/themes/modern/tools/database.php
 #: oc-admin/themes/modern/tools/jobs.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid "What"
 msgstr ""
 
@@ -12473,7 +12255,7 @@ msgstr ""
 msgid "When a new user is registered"
 msgstr "Når en ny bruker er registrert"
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-admin/themes/modern/tools/system-info/server.php
 msgid ""
 "When you cannot edit php.ini, Shopclass will lift PHP's memory limit up to "
 "%s on its own at start-up."
@@ -12679,6 +12461,7 @@ msgid "Your backup is ready: %1$s, %2$s, %3$s."
 msgstr ""
 
 #: oc-admin/themes/modern/tools/backup.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid ""
 "Your backups folder is open to the web. Anyone who guesses a file name "
 "could download a backup."
@@ -12700,11 +12483,11 @@ msgstr "Ditt nåværende passord"
 msgid "Your database already matched this version of Shopclass."
 msgstr "Databasen din stemte allerede overens med denne versjonen av Shopclass."
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid "Your database has"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid "Your database has every table, column and index Shopclass expects."
 msgstr ""
 
@@ -12718,7 +12501,7 @@ msgstr ""
 msgid "Your database is up to date"
 msgstr "Databasen din er oppdatert"
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "Your database is up to date and healthy."
 msgstr ""
 
@@ -12758,6 +12541,10 @@ msgstr "Ditt navn: feltet er påkrevd"
 
 #: oc-includes/osclass/functions.php
 msgid "Your orders"
+msgstr ""
+
+#: oc-admin/themes/modern/tools/backup.php
+msgid "Your password"
 msgstr ""
 
 #: oc-admin/themes/modern/fields/index.php
@@ -12847,15 +12634,19 @@ msgstr ""
 msgid "[%s] Your admin password is known to someone else"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "allow_url_fopen"
-msgstr "allow_url_fopen"
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "all %d required are installed"
+msgstr ""
+
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "all seen as %s (behind a proxy)"
+msgstr ""
 
 #: oc-includes/osclass/helpers/hUtils.php
 msgid "am"
 msgstr "er"
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "as reported"
 msgstr ""
 
@@ -12867,19 +12658,11 @@ msgstr "Mest"
 msgid "becomes"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "behind a proxy"
-msgstr ""
-
 #: oc-admin/themes/modern/appearance/index.php
 #: oc-admin/themes/modern/parts/market.php
 #: oc-admin/themes/modern/plugins/index.php
 msgid "by %s"
 msgstr "av %s"
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "cURL"
-msgstr "cURL"
 
 #: oc-includes/osclass/install-functions.php
 msgid "cURL extension for PHP"
@@ -12906,39 +12689,26 @@ msgstr ""
 msgid "config-sample.php doesn't exist. Check if everything is "
 msgstr "config-sample.php finnes ikke. Sjekk om alt er "
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid ""
-"config.php is writable by the web server. It holds your database "
-"credentials and does not need to be writable after install — make it "
-"read-only."
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "config.php"
 msgstr ""
-"config.php er skrivbar for webserveren. Den inneholder "
-"databaseopplysningene dine, og trenger ikke være skrivbar etter "
-"installasjon – gjør den skrivebeskyttet."
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "config.php permissions"
-msgstr "Rettigheter for config.php"
-
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid ""
-"config.php sets %1$s, but that driver is not available — so the cache "
-"silently falls back to per-request and every page recomputes its data. "
-"Install the matching extension, or remove the setting."
+"config.php asks for the %s object cache, but that driver is not installed, "
+"so nothing is cached."
 msgstr ""
-"config.php setter %1$s, men denne driveren er ikke tilgjengelig – så cachen "
-"faller automatisk tilbake til å behandle hver forespørsel, og hver side må "
-"beregne sine egne data på nytt. Installer den tilsvarende utvidelsen, eller "
-"fjern innstillingen."
+
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid ""
+"config.php can be written by the web server. It holds your database "
+"password; make it read-only."
+msgstr ""
 
 #: oc-admin/themes/modern/billing/order.php
 #: oc-admin/themes/modern/billing/wallet.php
 msgid "credits"
 msgstr "kreditter"
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "ctype"
-msgstr "ctype"
 
 #: oc-admin/themes/modern/items/settings.php
 #: oc-admin/themes/modern/tools/cleanup.php
@@ -12957,10 +12727,6 @@ msgid ""
 "package."
 msgstr "finnes ikke en ukjent feil under nedlasting og utpakking."
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "enabled"
-msgstr "aktivert"
-
 #: oc-includes/osclass/classes/controller/admin/CAdminItems.php
 msgid "expired"
 msgstr ""
@@ -12977,10 +12743,6 @@ msgstr "hent ut elementinnhold"
 msgid "extract this"
 msgstr "hent ut dette"
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "fileinfo"
-msgstr "fileinfo"
-
 #: oc-includes/osclass/classes/form/FieldForm.php
 msgid "from"
 msgstr "fra"
@@ -12992,10 +12754,6 @@ msgstr ""
 #: oc-includes/osclass/helpers/hAdminUi.php
 msgid "in %s"
 msgstr ""
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "installed"
-msgstr "installert"
 
 #: oc-admin/themes/modern/fields/iframe.php
 msgid "is"
@@ -13033,30 +12791,25 @@ msgstr "mest av listeoppføringer"
 msgid "made before a restore"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "mbstring"
-msgstr "mbstring"
-
 #: oc-includes/osclass/classes/admin/form/SpamSettingsForm.php
 msgid "minutes"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/database.php
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid "missing"
 msgstr "mangler"
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "mysqli"
-msgstr "mysqli"
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "missing: %s"
+msgstr ""
 
 #: oc-includes/osclass/classes/admin/form/MainSettingsForm.php
 msgid "never"
 msgstr "aldri"
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "never run"
-msgstr "aldri kjørt"
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "never ran"
+msgstr ""
 
 #: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
 msgid "nginx does not read .htaccess files. Add the "
@@ -13067,28 +12820,57 @@ msgstr "nginx leser ikke .htaccess-filer. Legg til "
 msgid "no action defined"
 msgstr "ingen handling definert"
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "none"
+msgstr ""
+
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "none (worked out on every request)"
+msgstr ""
+
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "none loaded"
+msgstr ""
+
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "none saved on the server"
+msgstr ""
+
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "not checked yet"
+msgstr ""
+
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "not reachable from the web"
+msgstr ""
+
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "not set"
 msgstr "ikke satt"
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "off"
 msgstr "av"
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "on"
 msgstr "på"
 
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 #: oc-includes/osclass/classes/backup/BackupJobs.php
 msgid "on the server"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "on this server"
+msgstr ""
+
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "on, banner only"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "on, locked"
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "on, site closed"
 msgstr ""
 
 #: oc-includes/osclass/installer/basic_data.php
@@ -13099,9 +12881,9 @@ msgstr "osclass@example.com"
 msgid "password: %s"
 msgstr "passord: %s"
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "per-request"
-msgstr "per forespørsel"
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "php.ini"
+msgstr ""
 
 #: oc-admin/themes/modern/parts/market.php
 msgid "plugins"
@@ -13111,9 +12893,11 @@ msgstr "utvidelser"
 msgid "pm"
 msgstr "stk."
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "post_max_size is smaller than upload_max_filesize"
-msgstr "post_max_size er mindre enn upload_max_filesize"
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid ""
+"post_max_size (%1$s) is smaller than upload_max_filesize (%2$s), so uploads "
+"over %1$s fail with an empty form."
+msgstr ""
 
 #: oc-includes/osclass/classes/admin/form/CommentSettingsForm.php
 msgid "previously approved comments"
@@ -13125,6 +12909,10 @@ msgstr ""
 
 #: oc-includes/osclass/classes/admin/form/LatestSearchSettingsForm.php
 msgid "queries"
+msgstr ""
+
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "ran %s ago"
 msgstr ""
 
 #: oc-includes/osclass/classes/admin/form/SpamSettingsForm.php
@@ -13143,7 +12931,11 @@ msgstr "reCAPTCHA-nettstedsnøkkel og hemmelig reCAPTCHA-nøkkel"
 msgid "reCAPTCHA version"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "reachable from the web"
+msgstr ""
+
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "read-only"
 msgstr "kun lesbar"
 
@@ -13206,25 +12998,18 @@ msgstr "til"
 msgid "to download"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "unavailable"
-msgstr "ikke tilgjengelig"
-
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "unknown"
 msgstr "ukjent"
 
 #: oc-admin/themes/modern/tools/system-info.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "unlimited"
 msgstr "ubegrenset"
 
 #: oc-includes/osclass/emails.php
 msgid "unsubscribe alert"
 msgstr "stopp varsling"
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "unsupported"
-msgstr "ikke støttet"
 
 #: oc-includes/osclass/install-functions.php
 msgid "username: %s"
@@ -13238,13 +13023,9 @@ msgstr ""
 msgid "widgets"
 msgstr "widgeter"
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "writable"
 msgstr "skrivbart"
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "zip"
-msgstr "zip"
 
 #: oc-includes/osclass/emails.php
 msgid "{WEB_TITLE} - We failed trying to upgrade your site to Shopclass {VERSION}"
@@ -13288,7 +13069,7 @@ msgstr ""
 msgid "{n} photos."
 msgstr ""
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-admin/themes/modern/tools/system-info/server.php
 msgid "— PHP limits"
 msgstr "— Begrensninger i PHP"
 
@@ -13296,6 +13077,6 @@ msgstr "— Begrensninger i PHP"
 msgid "— Select a form —"
 msgstr "— Velg et skjema —"
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-admin/themes/modern/tools/system-info/server.php
 msgid "— Shopclass"
 msgstr "— Shopclass"

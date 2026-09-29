@@ -14,6 +14,10 @@ msgstr ""
 msgid " is available"
 msgstr " είναι διαθέσιμο"
 
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "%1$d entries, %2$s"
+msgstr ""
+
 #: oc-includes/osclass/classes/controller/admin/CAdminTools.php
 msgid "%1$d linked folder was skipped: %2$s (it points outside oc-content)."
 msgid_plural "%1$d linked folders were skipped: %2$s (they point outside oc-content)."
@@ -44,15 +48,11 @@ msgstr[1] ""
 msgid "%1$s credits held across %2$s accounts"
 msgstr "%1$s πιστώσεις σε %2$s λογαριασμούς"
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "%1$s entries, %2$s"
-msgstr "%1$s εγγραφές, %2$s"
-
 #: oc-includes/osclass/functions.php
 msgid "%1$s in %2$s"
 msgstr "%1$s σε %2$s"
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid ""
 "%1$s is older than Shopclass supports. Ask your host for MySQL %2$s or "
 "MariaDB %3$s or newer."
@@ -78,9 +78,9 @@ msgstr ""
 msgid "%1$s orders · %2$s paid · %3$s awaiting payment"
 msgstr "%1$s εντολές · %2$s πληρωμένες · %3$s σε αναμονή πληρωμής"
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "%1$s per file, %2$s per request."
-msgstr "%1$s ανά αρχείο, %2$s ανά αίτημα."
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "%1$s per file · %2$s per request"
+msgstr ""
 
 #: oc-admin/themes/modern/settings/locations/list.php
 msgid "%1$s region starting with “%2$s”"
@@ -88,7 +88,7 @@ msgid_plural "%1$s regions starting with “%2$s”"
 msgstr[0] ""
 msgstr[1] ""
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-admin/themes/modern/tools/system-info/server.php
 msgid ""
 "%1$s surfaces errors while you diagnose a problem; %2$s sends them to a log "
 "file instead of the page. Both belong off on a live site."
@@ -155,7 +155,7 @@ msgstr[1] "%d αλλαγές"
 msgid "%d continuing"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "%d database update is waiting."
 msgid_plural "%d database updates are waiting."
 msgstr[0] ""
@@ -171,15 +171,15 @@ msgstr[1] "%d ημέρες"
 msgid "%d days"
 msgstr "%d ημέρες"
 
-#: oc-admin/themes/modern/tools/database.php
-msgid "%d difference Repair can fix."
-msgid_plural "%d differences Repair can fix."
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "%d difference in the database needs a closer look."
+msgid_plural "%d differences in the database need a closer look."
 msgstr[0] ""
 msgstr[1] ""
 
-#: oc-admin/themes/modern/tools/database.php
-msgid "%d difference needs a closer look."
-msgid_plural "%d differences need a closer look."
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "%d difference in the database that Repair can fix."
+msgid_plural "%d differences in the database that Repair can fix."
 msgstr[0] ""
 msgstr[1] ""
 
@@ -228,6 +228,10 @@ msgstr[1] "%d ακόμη αλλαγές"
 msgid "%d per page"
 msgstr "%d ανά σελίδα"
 
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "%d s"
+msgstr ""
+
 #: oc-admin/themes/modern/categories/index.php
 msgid "%d subcategory"
 msgid_plural "%d subcategories"
@@ -238,7 +242,7 @@ msgstr[1] "%d υποκατηγορίες"
 msgid "%d submissions"
 msgstr "%d υποβολές"
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "%d table"
 msgid_plural "%d tables"
 msgstr[0] ""
@@ -263,11 +267,15 @@ msgid_plural "%d widgets"
 msgstr[0] "%d widget"
 msgstr[1] "%d widget"
 
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "%s (not installed)"
+msgstr ""
+
 #: oc-admin/themes/modern/billing/order.php
 msgid "%s (plugin not installed)"
 msgstr "%s (το πρόσθετο δεν έχει εγκατασταθεί)"
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 #: oc-includes/osclass/helpers/hAdminUi.php
 msgid "%s ago"
 msgstr "%s πριν"
@@ -359,15 +367,6 @@ msgstr ""
 #: oc-includes/osclass/classes/ImageProcessing.php
 msgid "%s is not readable!"
 msgstr "%s δεν είναι αναγνώσιμο!"
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid ""
-"%s is on. That is for development — on a live site it exposes internal "
-"detail and slows requests. Turn it off in config.php."
-msgstr ""
-"Το %s είναι ενεργοποιημένο. Αυτό προορίζεται για ανάπτυξη — σε μια ενεργή "
-"ιστοσελίδα αποκαλύπτει εσωτερικές λεπτομέρειες και επιβραδύνει τα αιτήματα. "
-"Απενεργοποιήστε το στο config.php."
 
 #: oc-includes/osclass/classes/forms/FieldValidator.php
 msgid "%s is required."
@@ -570,12 +569,9 @@ msgstr ""
 
 #: oc-admin/themes/modern/tools/system-info.php
 msgid ""
-"A checked view of the environment Shopclass is running on: what it needs, "
-"what it can and cannot do, and where a quiet misconfiguration would bite."
+"A checked view of your site: what needs doing, the database, and the server "
+"it runs on."
 msgstr ""
-"Μια ελεγμένη επισκόπηση του περιβάλλοντος στο οποίο λειτουργεί το "
-"Shopclass: τι χρειάζεται, τι μπορεί και τι δεν μπορεί να κάνει, και πού μια "
-"απαρατήρητη εσφαλμένη ρύθμιση θα μπορούσε να δημιουργήσει πρόβλημα."
 
 #: oc-includes/osclass/classes/admin/form/CommentSettingsForm.php
 msgid "A comment is being held for moderation"
@@ -616,7 +612,7 @@ msgstr ""
 "Ένα πακέτο είναι αυτό που επιλέγει ο αγοραστής κατά την ολοκλήρωση της "
 "αγοράς. Προσθέστε ένα για να ξεκινήσετε να πουλάτε πιστώσεις."
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid ""
 "A plugin or someone on your team added these. Shopclass does not need them, "
 "and Repair leaves them alone. Delete one only if you are sure nothing uses "
@@ -628,6 +624,12 @@ msgid "A record of admin and listing activity — who did what, and when. "
 msgstr ""
 "Ένα αρχείο καταγραφής της δραστηριότητας διαχειριστών και αγγελιών — ποιος "
 "έκανε τι και πότε. "
+
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "A required PHP extension is missing: %s."
+msgid_plural "Required PHP extensions are missing: %s."
+msgstr[0] ""
+msgstr[1] ""
 
 #: oc-admin/themes/modern/tools/backup.php
 msgid "A safety copy of today's database is saved first."
@@ -883,7 +885,7 @@ msgstr "Προσθήκη περιοχής"
 msgid "Add theme"
 msgstr "Προσθήκη θέματος"
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-admin/themes/modern/tools/system-info/server.php
 msgid "Add these near the top of %1$s, above its closing %2$s."
 msgstr "Προσθέστε αυτά κοντά στην αρχή του %1$s, πάνω από το %2$s κλεισίματός του."
 
@@ -996,7 +998,7 @@ msgid ""
 "let it try again at once."
 msgstr ""
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid ""
 "Adds what is missing and fixes column types. Extra columns and indexes are "
 "left alone."
@@ -1181,6 +1183,10 @@ msgstr ""
 msgid "All credits"
 msgstr "Όλες οι πιστώσεις"
 
+#: oc-admin/themes/modern/tools/system-info/server.php
+msgid "All loaded PHP extensions (%d)"
+msgstr ""
+
 #: oc-admin/themes/modern/billing/package.php
 msgid "All packages"
 msgstr "Όλα τα πακέτα"
@@ -1203,7 +1209,7 @@ msgstr ""
 msgid "Allow attached files in contact publisher form"
 msgstr "Να επιτρέπονται συνημμένα αρχεία στη φόρμα εκδότη επαφών"
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-admin/themes/modern/tools/system-info/server.php
 msgid "Allow bigger photo uploads"
 msgstr "Επιτρέψτε τη μεταφόρτωση μεγαλύτερων φωτογραφιών"
 
@@ -1732,11 +1738,15 @@ msgstr ""
 msgid "Backup saved: %1$s, %2$s, %3$s."
 msgstr ""
 
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "Backups folder"
+msgstr ""
+
 #: oc-admin/themes/modern/tools/backup.php
 msgid "Backups you save on the server are listed here. Downloads are not kept."
 msgstr ""
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-admin/themes/modern/tools/system-info/server.php
 msgid "Backups, imports and upgrades run inside %s. Raise it if they time out."
 msgstr ""
 "Τα αντίγραφα ασφαλείας, οι εισαγωγές και οι αναβαθμίσεις εκτελούνται εντός "
@@ -1996,10 +2006,6 @@ msgstr "CD - Εγγραφές"
 msgid "Cache"
 msgstr "Προσωρινή μνήμη"
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Caching through the %s driver."
-msgstr "Προσωρινή αποθήκευση μέσω του οδηγού %s."
-
 #: oc-admin/themes/modern/tools/category.php
 msgid "Calculate category stats"
 msgstr "Υπολογισμός στατιστικών κατηγοριών"
@@ -2206,7 +2212,7 @@ msgstr "Αλλαγή"
 msgid "Change advanced configuration of your Shopclass. "
 msgstr "Αλλάξτε τις προηγμένες ρυθμίσεις του Shopclass σας. "
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid "Change made"
 msgstr ""
 
@@ -2267,10 +2273,6 @@ msgstr ""
 msgid "Changing the category changes which details apply below."
 msgstr ""
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Check"
-msgstr "Έλεγχος"
-
 #: oc-includes/osclass/installer/gui/install.php
 msgid "Check again"
 msgstr "Ελέγξτε ξανά"
@@ -2283,7 +2285,7 @@ msgstr ""
 msgid "Check all"
 msgstr "Επιλογή όλων"
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid "Check and repair"
 msgstr ""
 
@@ -2556,6 +2558,10 @@ msgstr "Cloudflare Turnstile"
 msgid "Code"
 msgstr "Κωδικός"
 
+#: oc-admin/themes/modern/tools/backup.php
+msgid "Code from your app, or a backup code"
+msgstr ""
+
 #: oc-admin/themes/modern/parts/header.php
 msgid "Collapse"
 msgstr "Σύμπτυξη"
@@ -2576,11 +2582,11 @@ msgstr "Σύμπτυξη ή ανάπτυξη αυτής της φόρμας"
 msgid "Collapse or expand this section"
 msgstr "Σύμπτυξη ή ανάπτυξη αυτής της ενότητας"
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid "Column differs in whether it can be empty"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid "Column has a different type"
 msgstr ""
 
@@ -2807,12 +2813,9 @@ msgid "Contact, feed &amp; language"
 msgstr "Επικοινωνία, ροή &amp; γλώσσα"
 
 #: oc-includes/osclass/classes/AdminMenu.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "Content"
 msgstr "Περιεχόμενο"
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Content path"
-msgstr "Διαδρομή περιεχομένου"
 
 #: oc-includes/osclass/installer/gui/install-database.php
 #: oc-includes/osclass/installer/gui/install.php
@@ -2872,11 +2875,11 @@ msgstr "Δεν ήταν δυνατός ο έλεγχος για ενημερώσ
 msgid "Could not reach the catalog: %s."
 msgstr "Δεν ήταν δυνατή η πρόσβαση στον κατάλογο: %s."
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "Could not read the database structure: %s"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid "Could not read the schema: %s"
 msgstr ""
 
@@ -3049,15 +3052,21 @@ msgstr ""
 msgid "Credits — %s"
 msgstr "Πιστώσεις — %s"
 
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "Cron"
+msgstr ""
+
 #: oc-includes/osclass/classes/admin/form/MainSettingsForm.php
 msgid "Cron Settings"
 msgstr "Ρυθμίσεις Cron"
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Cron has run recently — update checks, alerts and cleanup are firing."
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "Cron has never run. Update checks, alert emails and cleanup wait for it."
 msgstr ""
-"Το cron εκτελέστηκε πρόσφατα — οι έλεγχοι ενημερώσεων, οι ειδοποιήσεις και "
-"η εκκαθάριση εκτελούνται."
+
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "Cron has not run for %s."
+msgstr ""
 
 #: oc-admin/themes/modern/settings/billing.php
 #: oc-admin/themes/modern/settings/currencies.php
@@ -3095,10 +3104,6 @@ msgstr "Σύμβολο νομίσματος"
 #: oc-includes/osclass/classes/form/ItemForm.php
 msgid "Currency: make your selection"
 msgstr "Νόμισμα: κανετε την επιλογή σας"
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Current PHP values"
-msgstr "Τρέχουσες τιμές PHP"
 
 #: oc-admin/themes/modern/users/frm.php
 msgid "Current avatar"
@@ -3195,8 +3200,8 @@ msgid "Data"
 msgstr ""
 
 #: oc-admin/themes/modern/tools/backup.php
-#: oc-admin/themes/modern/tools/database.php
-#: oc-includes/osclass/classes/AdminMenu.php
+#: oc-admin/themes/modern/tools/system-info.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 #: oc-includes/osclass/classes/backup/BackupJobs.php
 msgid "Database"
 msgstr ""
@@ -3221,15 +3226,11 @@ msgstr ""
 msgid "Database name"
 msgstr "Όνομα βάσης δεδομένων"
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Database server"
-msgstr "Διακομιστής βάσης δεδομένων"
-
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid "Database update"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "Database version"
 msgstr ""
 
@@ -3293,9 +3294,13 @@ msgstr "Απενεργοποίηση"
 msgid "Dead-lettered jobs (past the retry ceiling):"
 msgstr "Εργασίες dead-letter (υπέρβαση ορίου επαναλήψεων):"
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "Debug mode"
 msgstr "Λειτουργία αποσφαλμάτωσης"
+
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "Debug mode is on. On a live site it shows internal details and slows pages."
+msgstr ""
 
 #: oc-includes/osclass/helpers/hUtils.php
 msgid "Dec"
@@ -3650,14 +3655,6 @@ msgstr "Λεπτομέρειες"
 msgid "Details: %s"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid ""
-"Detects the true type of an uploaded file. Without it, upload validation is "
-"weaker."
-msgstr ""
-"Ανιχνεύει τον πραγματικό τύπο ενός αρχείου που έχει μεταφορτωθεί. Χωρίς "
-"αυτό, η επικύρωση της μεταφόρτωσης είναι πιο αδύναμη."
-
 #: oc-admin/themes/modern/languages/frm.php
 msgid "Direction"
 msgstr "Κατεύθυνση"
@@ -3713,7 +3710,7 @@ msgstr "Τεκμηρίωση"
 msgid "Documentation on date and time formatting"
 msgstr "Τεκμηρίωση κατά την ημερομηνία και την ώρα μορφοποίησης"
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 #: oc-includes/osclass/installer/gui/install.php
 msgid "Done"
 msgstr "Έτοιμο"
@@ -4142,10 +4139,6 @@ msgstr "Η ενεργοποίηση με τιμή 0 σημαίνει ότι κά
 msgid "Encryption"
 msgstr "Κρυπτογράφηση"
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Encrypts outgoing mail over TLS and secures tokens."
-msgstr "Κρυπτογραφεί τα εξερχόμενα μηνύματα μέσω TLS και ασφαλίζει τα tokens."
-
 #: oc-includes/osclass/classes/admin/form/StorageSettingsForm.php
 msgid "Endpoint"
 msgstr "Τελικό σημείο"
@@ -4217,10 +4210,6 @@ msgstr "Εισαγωγή του e-mail σας"
 msgid "Entries"
 msgstr "Εγγραφές"
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Environment"
-msgstr "Περιβάλλον"
-
 #: oc-includes/osclass/functions.php
 msgid "Error"
 msgstr "Σφάλμα"
@@ -4240,10 +4229,6 @@ msgstr "Υπηρεσίες εκδηλώσεων"
 #: oc-includes/osclass/installer/basic_data.php
 msgid "Events"
 msgstr "Εκδηλώσεις"
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Every ajax response, and every stored preference."
-msgstr "Κάθε απόκριση ajax και κάθε αποθηκευμένη προτίμηση."
 
 #: oc-admin/themes/modern/billing/wallet.php
 msgid "Every change to this balance is written down here and never edited, "
@@ -4300,11 +4285,11 @@ msgstr ""
 msgid "Everything Else"
 msgstr "Οτιδήποτε άλλο"
 
-#: oc-admin/themes/modern/tools/database.php
-msgid "Everything about your database in one place: its state, waiting updates, "
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "Everything looks fine."
 msgstr ""
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid "Everything matches. Nothing to repair."
 msgstr ""
 
@@ -4370,7 +4355,11 @@ msgstr ""
 msgid "Expires after"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "Extensions"
+msgstr ""
+
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid "Extra column"
 msgstr ""
 
@@ -4378,11 +4367,11 @@ msgstr ""
 msgid "Extra days"
 msgstr "Επιπλέον ημέρες"
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid "Extra index"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid "Extra items: nothing to do"
 msgstr ""
 
@@ -4400,7 +4389,7 @@ msgstr "Επιπλέον θέσεις"
 
 #: oc-admin/themes/modern/billing/index.php
 #: oc-admin/themes/modern/billing/order.php
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid "Failed"
 msgstr "Απέτυχε"
 
@@ -4448,18 +4437,6 @@ msgstr "Τροφοδοσία"
 msgid "Feedback"
 msgstr "Σχόλια"
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid ""
-"Fetches update checks and talks to the market and remote services. Without "
-"it, those downloads fail."
-msgstr ""
-"Ανακτά τους ελέγχους ενημερώσεων και επικοινωνεί με την αγορά και τις "
-"απομακρυσμένες υπηρεσίες. Χωρίς αυτό, αυτές οι λήψεις αποτυγχάνουν."
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Fewer uploads allowed than photos offered"
-msgstr "Επιτρέπονται λιγότερες μεταφορτώσεις από τις φωτογραφίες που προσφέρονται"
-
 #: oc-admin/themes/modern/fields/submissions.php
 msgid "Field"
 msgstr "Πεδίο"
@@ -4472,7 +4449,7 @@ msgstr "Δεν ήταν δυνατή η προσθήκη του πεδίου"
 msgid "Fields"
 msgstr "Πεδία"
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 #: oc-includes/osclass/classes/datatables/MediaDataTable.php
 msgid "File"
 msgstr "Αρχείο"
@@ -4504,6 +4481,14 @@ msgstr ""
 
 #: oc-admin/themes/modern/tools/backup.php
 msgid "Files added since the backup are left in place."
+msgstr ""
+
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "Files and storage"
+msgstr ""
+
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "Files per request"
 msgstr ""
 
 #: oc-includes/osclass/install-functions.php
@@ -4607,6 +4592,10 @@ msgstr "Φόρμα"
 msgid "Form could not be created"
 msgstr "Δεν ήταν δυνατή η δημιουργία της φόρμας"
 
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "Form fields per request"
+msgstr ""
+
 #: oc-admin/themes/modern/fields/index.php
 #: oc-admin/themes/modern/fields/submissions.php
 #: oc-includes/osclass/classes/AdminMenu.php
@@ -4623,13 +4612,16 @@ msgid "Free"
 msgstr "Ελεύθερο"
 
 #: oc-admin/themes/modern/main/index.php
-#: oc-admin/themes/modern/tools/system-info.php
 msgid "Free disk space"
 msgstr "Ελεύθερος χώρος στον δίσκο"
 
 #: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
 msgid "Free listings per seller"
 msgstr "Δωρεάν αγγελίες ανά πωλητή"
+
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "Free space"
+msgstr ""
 
 #: oc-includes/osclass/classes/admin/form/MediaSettingsForm.php
 msgid ""
@@ -4693,10 +4685,6 @@ msgstr ""
 msgid "From the Cloudflare dashboard &raquo; Turnstile."
 msgstr "Από τον πίνακα ελέγχου της Cloudflare &raquo; Turnstile."
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "GD"
-msgstr "GD"
-
 #: oc-includes/osclass/install-functions.php
 msgid "GD extension for PHP"
 msgstr "Επέκταση GD για PHP"
@@ -4704,19 +4692,6 @@ msgstr "Επέκταση GD για PHP"
 #: oc-includes/osclass/install-functions.php
 msgid "GD extension is required. How to "
 msgstr "Απαιτείται η επέκταση GD. Πώς να "
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid ""
-"GD is resizing your photos. It works and is fully supported — but it cannot "
-"read some formats (animated GIF frames, CMYK JPEGs) and resizes at lower "
-"quality than Imagick. On a photo-heavy site, installing the Imagick "
-"extension is worth it."
-msgstr ""
-"Το GD αλλάζει το μέγεθος των φωτογραφιών σας. Λειτουργεί και υποστηρίζεται "
-"πλήρως — αλλά δεν μπορεί να διαβάσει ορισμένες μορφές (καρέ κινούμενων GIF, "
-"CMYK JPEG) και αλλάζει το μέγεθος σε χαμηλότερη ποιότητα από το Imagick. Σε "
-"μια ιστοσελίδα με πολλές φωτογραφίες, αξίζει να εγκαταστήσετε την επέκταση "
-"Imagick."
 
 #: oc-includes/osclass/classes/admin/form/MailServerSettingsForm.php
 msgid "GMail Server"
@@ -4804,10 +4779,6 @@ msgstr ""
 #: oc-admin/themes/modern/appearance/add_widget.php
 msgid "HTML Code for the Widget"
 msgstr "Κώδικας HTML για το widget"
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Handles non-Latin text throughout the site."
-msgstr "Χειρίζεται μη λατινικό κείμενο σε ολόκληρη την ιστοσελίδα."
 
 #: oc-includes/osclass/installer/basic_data.php
 msgid "Health - Beauty"
@@ -4958,12 +4929,6 @@ msgstr "Σπίτια - Διαμερίσματα προς πώληση"
 msgid "Housing Swap"
 msgstr "Ανταλλαγή σπιτιών"
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "How Shopclass talks to the database — the site cannot run without it."
-msgstr ""
-"Πώς το Shopclass επικοινωνεί με τη βάση δεδομένων — η ιστοσελίδα δεν μπορεί "
-"να λειτουργήσει χωρίς αυτό."
-
 #: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
 msgid "How long a listing must wait before it can be bumped again."
 msgstr ""
@@ -4974,12 +4939,6 @@ msgstr ""
 msgid "How long a signed URL stays valid (60-604800)."
 msgstr ""
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "How long one request may run. Backups and imports must finish inside it."
-msgstr ""
-"Πόσο χρόνο μπορεί να διαρκέσει ένα αίτημα. Τα αντίγραφα ασφαλείας και οι "
-"εισαγωγές πρέπει να ολοκληρώνονται εντός αυτού."
-
 #: oc-includes/osclass/classes/admin/form/LatestSearchSettingsForm.php
 msgid "How long queries are stored"
 msgstr "Πόσο καιρό αποθηκεύονται τα ερωτήματα"
@@ -4988,45 +4947,29 @@ msgstr "Πόσο καιρό αποθηκεύονται τα ερωτήματα"
 msgid "How many credits"
 msgstr "Πόσες πιστώσεις"
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid ""
-"How many files can ride in one upload — your photos-per-listing has to fit "
-"under this."
-msgstr ""
-"Πόσα αρχεία μπορούν να συμπεριληφθούν σε μία μεταφόρτωση — οι φωτογραφίες "
-"ανά καταχώρηση πρέπει να είναι κάτω από αυτό το όριο."
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid ""
-"How many form fields one request may carry. Large category trees and "
-"settings forms can approach it."
-msgstr ""
-"Πόσα πεδία φόρμας μπορεί να περιέχει ένα αίτημα. Μεγάλα δέντρα κατηγοριών "
-"και φόρμες ρυθμίσεων μπορούν να το πλησιάσουν."
-
 #: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
 msgid "How many of a seller's listings may be live "
 msgstr "Πόσες αγγελίες ενός πωλητή μπορούν να είναι ενεργές "
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid ""
-"How much memory one request may use. Resizing a big photo is the hungriest "
-"thing Shopclass does."
-msgstr ""
-"Πόση μνήμη μπορεί να χρησιμοποιήσει ένα αίτημα. Η αλλαγή μεγέθους μιας "
-"μεγάλης φωτογραφίας είναι η πιο απαιτητική λειτουργία που εκτελεί το "
-"Shopclass."
 
 #: oc-includes/osclass/classes/admin/form/MediaSettingsForm.php
 msgid "How new photos are saved. "
 msgstr ""
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "How to change things"
-msgstr "Πώς να κάνετε αλλαγές"
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "How to change it"
+msgstr ""
+
+#: oc-admin/themes/modern/tools/system-info/server.php
+msgid "How to change these settings"
+msgstr ""
 
 #: oc-admin/themes/modern/tools/backup.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "How to close it"
+msgstr ""
+
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "How to set up cron"
 msgstr ""
 
 #: oc-includes/osclass/installer/basic_data.php
@@ -5110,9 +5053,9 @@ msgstr ""
 msgid "Image"
 msgstr "Εικόνα"
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Image processing"
-msgstr "Επεξεργασία εικόνας"
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "Image library"
+msgstr ""
 
 #: oc-includes/osclass/classes/admin/form/MediaSettingsForm.php
 msgid "Image sizes"
@@ -5126,27 +5069,17 @@ msgstr "ImageMagick"
 msgid "ImageMagick library is not loaded"
 msgstr "Η βιβλιοθήκη ImageMagick δεν έχει φορτωθεί"
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Imagick"
-msgstr "Imagick"
-
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid ""
-"Imagick is installed and selected — the preferred library. It reads more "
-"formats and produces higher-quality resizes than GD."
+"Imagick is installed but not selected. It resizes at higher quality: turn "
+"it on under Settings > Media."
 msgstr ""
-"Το Imagick είναι εγκατεστημένο και επιλεγμένο — η προτιμώμενη βιβλιοθήκη. "
-"Διαβάζει περισσότερες μορφές και παράγει αλλαγές μεγέθους υψηλότερης "
-"ποιότητας από το GD."
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid ""
-"Imagick is installed but not selected, so GD is doing the work. Imagick "
-"handles more formats and resizes at higher quality — switch to it under %s."
+"Imagick reads more formats and resizes at higher quality. It is worth "
+"installing on a photo-heavy site."
 msgstr ""
-"Το Imagick είναι εγκατεστημένο αλλά δεν έχει επιλεγεί, επομένως το GD κάνει "
-"τη δουλειά. Το Imagick υποστηρίζει περισσότερες μορφές και αλλάζει το "
-"μέγεθος με υψηλότερη ποιότητα — μεταβείτε σε αυτό στο %s."
 
 #: oc-admin/themes/modern/languages/index.php
 #: oc-admin/themes/modern/settings/keywordBlock.php
@@ -5215,7 +5148,7 @@ msgstr "Σε %d φόρμες"
 msgid "In %s"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-admin/themes/modern/tools/system-info/server.php
 msgid "In config.php"
 msgstr "Στο config.php"
 
@@ -5223,7 +5156,7 @@ msgstr "Στο config.php"
 msgid "In every email"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-admin/themes/modern/tools/system-info/server.php
 msgid "In php.ini"
 msgstr "Στο php.ini"
 
@@ -5307,17 +5240,9 @@ msgstr "Περιλάβετε σελίδες"
 msgid "Include regions"
 msgstr "Περιλάβετε περιοχές"
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid "Index has different columns"
 msgstr ""
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Info"
-msgstr "Πληροφορίες"
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Input validation across the core."
-msgstr "Έλεγχος εγκυρότητας εισόδου σε όλο τον πυρήνα."
 
 #: oc-admin/themes/modern/parts/market.php
 #: oc-admin/themes/modern/plugins/index.php
@@ -5348,7 +5273,7 @@ msgid ""
 "date. Importing never deletes a location that holds listings."
 msgstr ""
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-admin/themes/modern/tools/system-info/server.php
 msgid "Install a missing extension"
 msgstr "Εγκαταστήστε μια επέκταση που λείπει"
 
@@ -5368,14 +5293,11 @@ msgstr ""
 msgid "Install security updates by themselves."
 msgstr ""
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-admin/themes/modern/tools/system-info/server.php
 msgid ""
 "Install the OS package (for example %1$s or %2$s), make sure an %3$s line "
-"is present, and restart PHP. The Overview tab will flip to “installed”."
+"is present, and restart PHP. This page then lists it as installed."
 msgstr ""
-"Εγκαταστήστε το πακέτο του λειτουργικού συστήματος (για παράδειγμα %1$s ή "
-"%2$s), βεβαιωθείτε ότι υπάρχει μια γραμμή %3$s και επανεκκινήστε το PHP. Η "
-"καρτέλα Επισκόπηση θα αλλάξει σε “εγκατεστημένο”."
 
 #: oc-includes/osclass/installer/gui/install.php
 msgid "Installation progress"
@@ -5394,12 +5316,6 @@ msgstr "Εγκατεστημένο"
 #: oc-admin/themes/modern/settings/locations/preview.php
 msgid "Installing…"
 msgstr "Εγκατάσταση…"
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Installs and updates plugins and themes, and builds backups."
-msgstr ""
-"Εγκαθιστά και ενημερώνει πρόσθετα και θέματα, καθώς και δημιουργεί "
-"αντίγραφα ασφαλείας."
 
 #: oc-admin/themes/modern/emails/frm.php
 #: oc-admin/themes/modern/pages/frm.php
@@ -5558,10 +5474,6 @@ msgstr ""
 msgid "Its saved search could not be read."
 msgstr ""
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "JSON"
-msgstr "JSON"
-
 #: oc-includes/osclass/helpers/hUtils.php
 msgid "Jan"
 msgstr "Ιαν"
@@ -5641,12 +5553,6 @@ msgstr ""
 #: oc-includes/osclass/classes/admin/form/SpamSettingsForm.php
 msgid "Keep this high: many people can share one address at an office or on mobile."
 msgstr ""
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Keeps compiled PHP in memory instead of recompiling every request."
-msgstr ""
-"Διατηρεί τον μεταγλωττισμένο κώδικα PHP στη μνήμη αντί να τον μεταγλωττίζει "
-"ξανά σε κάθε αίτημα."
 
 #: oc-admin/themes/modern/tools/cache.php
 msgid "Keeps data between requests"
@@ -5740,22 +5646,6 @@ msgstr "Ενημερώσεις γλώσσας"
 msgid "Languages"
 msgstr "Γλώσσες"
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Largest single file a visitor can upload."
-msgstr "Το μεγαλύτερο μεμονωμένο αρχείο που μπορεί να μεταφορτώσει ένας επισκέπτης."
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Largest single upload"
-msgstr "Μεγαλύτερη μεμονωμένη μεταφόρτωση"
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid ""
-"Largest whole request. Must be at least upload_max_filesize, ideally a "
-"little more."
-msgstr ""
-"Το μεγαλύτερο συνολικό αίτημα. Πρέπει να είναι τουλάχιστον ίσο με το "
-"upload_max_filesize, ιδανικά λίγο μεγαλύτερο."
-
 #: oc-admin/themes/modern/stats/comments.php
 #: oc-admin/themes/modern/stats/items.php
 #: oc-admin/themes/modern/stats/reports.php
@@ -5780,6 +5670,10 @@ msgstr "Τελευταίες 10 εβδομάδες"
 #: oc-admin/themes/modern/users/frm.php
 msgid "Last access"
 msgstr "Τελευταία πρόσβαση"
+
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "Last backup"
+msgstr ""
 
 #: oc-admin/themes/modern/billing/credits.php
 msgid "Last change"
@@ -5878,11 +5772,11 @@ msgstr "Αφήστε αυτό το πεδίο κενό"
 msgid "Legal"
 msgstr "Νόμιμο"
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-admin/themes/modern/tools/system-info/server.php
 msgid "Let a listing carry more photos"
 msgstr "Επιτρέψτε σε μια καταχώρηση να περιλαμβάνει περισσότερες φωτογραφίες"
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-admin/themes/modern/tools/system-info/server.php
 msgid "Let long jobs finish"
 msgstr "Αφήστε τις χρονοβόρες εργασίες να ολοκληρωθούν"
 
@@ -6037,6 +5931,18 @@ msgstr "Λίστα url"
 msgid "Listings"
 msgstr "Αγγελίες"
 
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid ""
+"Listings allow %1$d photos, but PHP takes only %2$d files per request and "
+"drops the rest."
+msgstr ""
+
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "Listings allow %d photo."
+msgid_plural "Listings allow %d photos."
+msgstr[0] ""
+msgstr[1] ""
+
 #: oc-admin/themes/modern/settings/keywordBlock.php
 msgid ""
 "Listings already flagged by this keyword stay as they are; only future "
@@ -6134,10 +6040,6 @@ msgstr ""
 msgid "Live"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Loaded PHP extensions"
-msgstr "Φορτωμένες επεκτάσεις PHP"
-
 #: oc-admin/themes/modern/parts/market.php
 msgid "Loading details…"
 msgstr "Φόρτωση λεπτομερειών…"
@@ -6222,12 +6124,6 @@ msgstr "Σύνδεση"
 msgid "Logout"
 msgstr "Αποσύνδεση"
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Long tasks such as backups and imports must finish inside this."
-msgstr ""
-"Χρονοβόρες εργασίες, όπως τα αντίγραφα ασφαλείας και οι εισαγωγές, πρέπει "
-"να ολοκληρώνονται εντός αυτού."
-
 #: oc-includes/osclass/installer/basic_data.php
 msgid "Lost And Found"
 msgstr "Χάσατε Και Βρέθηκε"
@@ -6268,8 +6164,8 @@ msgstr ""
 msgid "Maintenance"
 msgstr "Συντήρηση"
 
-#: oc-admin/themes/modern/tools/system-info.php
 #: oc-includes/osclass/classes/AdminMenu.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "Maintenance mode"
 msgstr "Υπό συντήρηση"
 
@@ -6279,11 +6175,14 @@ msgstr ""
 "Η λειτουργία συντήρησης είναι ενεργοποιημένη — μόνο οι συνδεδεμένοι "
 "διαχειριστές μπορούν να δουν τον ιστότοπο αυτή τη στιγμή."
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid ""
-"Maintenance mode is on, but the public site is not blocked. Visitors can "
-"still use the site and see a banner. Remove the %s file to hide it, or "
-"enable lockout under Tools → Maintenance."
+"Maintenance mode is on, but visitors can still use the site and see a "
+"banner."
+msgstr ""
+
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "Maintenance mode is on. Visitors see the maintenance page."
 msgstr ""
 
 #: oc-admin/themes/modern/tools/maintenance.php
@@ -6291,6 +6190,7 @@ msgid "Maintenance mode is: <strong>%s</strong>"
 msgstr "Η λειτουργία συντήρησης είναι: <strong>%s</strong>"
 
 #: oc-admin/themes/modern/tools/backup.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 #: oc-includes/osclass/classes/backup/BackupJobs.php
 msgid "Make a backup"
 msgstr ""
@@ -6504,10 +6404,6 @@ msgstr ""
 msgid "Matching now"
 msgstr "Αντιστοιχούν τώρα"
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Max execution time"
-msgstr "Μέγιστος χρόνος εκτέλεσης"
-
 #: oc-admin/themes/modern/fields/iframe.php
 msgid "Max length"
 msgstr "Μέγιστο μήκος"
@@ -6535,7 +6431,6 @@ msgstr "Μάιος"
 #: oc-admin/themes/modern/media/index.php
 #: oc-admin/themes/modern/parts/media-picker.php
 #: oc-admin/themes/modern/settings/media.php
-#: oc-admin/themes/modern/tools/system-info.php
 #: oc-includes/osclass/classes/AdminMenu.php
 msgid "Media"
 msgstr "Πολυμέσα"
@@ -6550,16 +6445,12 @@ msgstr "Ρυθμίσεις Πολυμέσων"
 msgid "Media library"
 msgstr "Βιβλιοθήκη πολυμέσων"
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Media settings"
-msgstr "Ρυθμίσεις πολυμέσων"
-
 #: oc-admin/themes/modern/tools/cache.php
 msgid "Memory"
 msgstr "Μνήμη"
 
 #: oc-admin/themes/modern/main/index.php
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "Memory limit"
 msgstr "Όριο μνήμης"
 
@@ -6622,19 +6513,19 @@ msgstr "Αποτυχίες"
 msgid "Missing"
 msgstr "Λείπει"
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid "Missing column"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid "Missing index"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid "Missing primary key"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid "Missing table"
 msgstr ""
 
@@ -6906,7 +6797,7 @@ msgstr ""
 "Απαιτείται ένας πάροχος CAPTCHA ρυθμισμένος στις Ρυθμίσεις &raquo; "
 "reCAPTCHA/Turnstile· διαφορετικά δεν εμφανίζεται καμία δοκιμασία."
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid "Needs a closer look"
 msgstr ""
 
@@ -6920,16 +6811,11 @@ msgstr ""
 msgid "Needs setting up"
 msgstr "Απαιτείται ρύθμιση"
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid ""
-"Neither Imagick nor GD is installed, so no uploaded photo can be resized "
-"and image uploads fail. Install the GD extension at minimum; Imagick is "
-"better still."
+"Neither Imagick nor GD is installed, so photos cannot be resized and image "
+"uploads fail."
 msgstr ""
-"Δεν είναι εγκατεστημένο ούτε το Imagick ούτε το GD, επομένως καμία "
-"μεταφορτωμένη φωτογραφία δεν μπορεί να αλλάξει μέγεθος και οι μεταφορτώσεις "
-"εικόνων αποτυγχάνουν. Εγκαταστήστε τουλάχιστον την επέκταση GD· το Imagick "
-"είναι ακόμα καλύτερο."
 
 #: oc-admin/themes/modern/items/frm.php
 #: oc-includes/osclass/classes/controller/admin/CAdminItems.php
@@ -6945,7 +6831,7 @@ msgstr "Ποτέ δεν λήγει"
 msgid "New"
 msgstr "Νέο"
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid ""
 "New Shopclass files are in place, but the database has not caught up yet. "
 "Run these updates to finish."
@@ -7072,6 +6958,14 @@ msgstr "Δεν υπάρχουν ακόμα ειδοποιήσεις"
 msgid "No background work has run yet."
 msgstr ""
 
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "No backup has been saved on the server yet."
+msgstr ""
+
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "No backup in the last 30 days."
+msgstr ""
+
 #: oc-includes/osclass/classes/market/Installer.php
 msgid "No backup was found to roll back to."
 msgstr "Δεν βρέθηκε αντίγραφο ασφαλείας για επαναφορά."
@@ -7134,15 +7028,6 @@ msgstr ""
 msgid "No credits moved yet"
 msgstr "Δεν έχουν μεταφερθεί πιστώσεις ακόμη"
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid ""
-"No cron run has been recorded. Update checks, alert emails and cleanup "
-"depend on it. Schedule %s to run regularly."
-msgstr ""
-"Δεν έχει καταγραφεί καμία εκτέλεση του cron. Οι έλεγχοι ενημερώσεων, τα "
-"e-mail ειδοποιήσεων και η εκκαθάριση εξαρτώνται από αυτό. Προγραμματίστε το "
-"%s να εκτελείται τακτικά."
-
 #: oc-includes/osclass/classes/controller/admin/ajax/CAdminAjax.php
 msgid "No details are available for this package yet."
 msgstr "Δεν υπάρχουν ακόμη διαθέσιμες πληροφορίες για αυτό το πακέτο."
@@ -7196,10 +7081,6 @@ msgstr ""
 #: oc-admin/themes/modern/languages/index.php
 msgid "No languages yet"
 msgstr "Δεν υπάρχουν ακόμη γλώσσες"
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "No limit — whatever runs long, runs."
-msgstr "Χωρίς όριο — ό,τι διαρκεί πολύ, εκτελείται."
 
 #: oc-admin/themes/modern/settings/locations/form.php
 msgid "No listings are placed there."
@@ -7264,16 +7145,6 @@ msgstr "Δεν υπάρχουν ακόμα σελίδες"
 #: oc-admin/themes/modern/settings/billing.php
 msgid "No payment methods installed"
 msgstr "Δεν υπάρχουν εγκατεστημένες μέθοδοι πληρωμής"
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid ""
-"No persistent cache configured, so per-request work is recomputed each "
-"time. Set %1$s in config.php to a driver such as %2$s or %3$s for a real "
-"speed-up on a busy site."
-msgstr ""
-"Δεν έχει ρυθμιστεί μόνιμη προσωρινή μνήμη, επομένως η εργασία ανά αίτημα "
-"επανυπολογίζεται κάθε φορά. Ορίστε το %1$s στο config.php σε έναν οδηγό "
-"όπως %2$s ή %3$s για πραγματική επιτάχυνση σε έναν πολυσύχναστο ιστότοπο."
 
 #: oc-admin/themes/modern/plugins/index.php
 msgid "No plugins installed"
@@ -7415,15 +7286,6 @@ msgstr "Μη διαδοχικό"
 msgid "Not compatible"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid ""
-"Not enabled. PHP recompiles every file on every request. It is the cheapest "
-"performance win available, and it is one ini line."
-msgstr ""
-"Δεν είναι ενεργοποιημένο. Η PHP επαναμεταγλωττίζει κάθε αρχείο σε κάθε "
-"αίτημα. Είναι η πιο οικονομική βελτίωση απόδοσης που υπάρχει, και είναι "
-"μόλις μία γραμμή στο ini."
-
 #: oc-includes/osclass/classes/backup/Builder.php
 msgid ""
 "Not enough space on the server: needs about %1$s, %2$s free. Nothing was "
@@ -7505,7 +7367,7 @@ msgstr ""
 msgid "Nothing needed changing."
 msgstr "Δεν χρειάστηκε καμία αλλαγή."
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid "Nothing needed repairing."
 msgstr ""
 
@@ -7521,7 +7383,7 @@ msgstr ""
 msgid "Nothing was saved."
 msgstr ""
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info.php
 msgid "Nothing was waiting. The database is up to date."
 msgstr ""
 
@@ -7590,21 +7452,21 @@ msgstr "Αριθμός νέων συνδρομητών"
 msgid "OFF"
 msgstr "Απενεργοποιημένο"
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "OK"
-msgstr "Εντάξει"
-
 #: oc-admin/themes/modern/items/index.php
 #: oc-admin/themes/modern/tools/maintenance.php
 #: oc-admin/themes/modern/users/index.php
 msgid "ON"
 msgstr "Ενεργοποιημένο"
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "OPcache"
 msgstr "OPcache"
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "OPcache is off, so PHP recompiles every file on every request."
+msgstr ""
+
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "Object cache"
 msgstr "Μνήμη προσωρινής αποθήκευσης αντικειμένων"
 
@@ -7617,7 +7479,6 @@ msgid "October"
 msgstr "Οκτώβριος"
 
 #: oc-admin/themes/modern/admins/two_factor.php
-#: oc-admin/themes/modern/tools/system-info.php
 msgid "Off"
 msgstr "Ανενεργό"
 
@@ -7630,19 +7491,6 @@ msgid ""
 "Off by default: a match is quarantined (flagged spam and hidden) so it can "
 "be "
 msgstr ""
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Off, as it should be on a live site."
-msgstr "Ανενεργό, όπως θα έπρεπε να είναι σε έναν ενεργό ιστότοπο."
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid ""
-"Off. Some remote fetches fall back to cURL; update and market features rely "
-"on one of the two being available."
-msgstr ""
-"Ανενεργό. Ορισμένες απομακρυσμένες ανακτήσεις καταφεύγουν στο cURL; οι "
-"λειτουργίες ενημέρωσης και αγοράς βασίζονται στη διαθεσιμότητα ενός εκ των "
-"δύο."
 
 #: oc-admin/themes/modern/stats/reports.php
 #: oc-includes/osclass/classes/datatables/ItemsDataTable.php
@@ -7711,6 +7559,10 @@ msgstr[1] "%s τοποθεσίες έχουν διαγραφεί"
 msgid "One week"
 msgstr "Μία εβδομάδα"
 
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "Only %s of disk space is left. Uploads and backups fail when it runs out."
+msgstr ""
+
 #: oc-admin/themes/modern/items/settings.php
 msgid "Only allow registered users to contact publisher"
 msgstr ""
@@ -7769,10 +7621,6 @@ msgstr "Ανοίξτε τον πίνακα διαχείρισής σας"
 msgid "Open your authenticator app and scan the QR code."
 msgstr ""
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "OpenSSL"
-msgstr "OpenSSL"
-
 #: oc-admin/themes/modern/items/settings.php
 msgid "OpenStreetMaps"
 msgstr "OpenStreetMaps"
@@ -7781,7 +7629,7 @@ msgstr "OpenStreetMaps"
 msgid "OpenStreetMaps key"
 msgstr "OpenStreetMaps key"
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "Operating system"
 msgstr "Λειτουργικό σύστημα"
 
@@ -7870,26 +7718,28 @@ msgstr ""
 msgid "Overview"
 msgstr "Επισκόπηση"
 
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "PHP"
+msgstr ""
+
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "PHP %s is past end of life and gets no security fixes. Move to PHP 8."
+msgstr ""
+
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "PHP %s is too old. Shopclass is built and tested against PHP 8.0 and up."
+msgstr ""
+
 #: oc-admin/themes/modern/parts/market.php
 msgid "PHP %s or newer"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid ""
-"PHP rejects the whole request before it looks at the file, so the %1$s you "
-"advertise is unreachable — an upload over %2$s fails with an empty form. "
-"Raise %3$s above %4$s."
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "PHP and web server"
 msgstr ""
-"Η PHP απορρίπτει ολόκληρο το αίτημα πριν εξετάσει το αρχείο, επομένως το "
-"%1$s που δηλώνετε δεν είναι εφικτό — μια μεταφόρτωση πάνω από %2$s "
-"αποτυγχάνει με μια κενή φόρμα. Αυξήστε το %3$s πάνω από το %4$s."
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "PHP settings &amp; help"
-msgstr "Ρυθμίσεις PHP &amp; βοήθεια"
 
 #: oc-admin/themes/modern/main/index.php
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "PHP version"
 msgstr "Έκδοση PHP"
 
@@ -8009,6 +7859,10 @@ msgstr "Θέσεις πάρκινγκ"
 msgid "Password"
 msgstr "Κωδικός"
 
+#: oc-admin/themes/modern/settings/spamNbots.php
+msgid "Password check before a restore"
+msgstr ""
+
 #: oc-includes/osclass/classes/form/AdminForm.php
 #: oc-includes/osclass/classes/form/UserForm.php
 msgid "Password: enter at least 5 characters"
@@ -8039,7 +7893,7 @@ msgstr ""
 msgid "Path-style URLs"
 msgstr "Διευθύνσεις URL με τη μορφή διαδρομής"
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "Paths"
 msgstr "Διαδρομές"
 
@@ -8111,6 +7965,10 @@ msgstr ""
 msgid "Photo quality"
 msgstr ""
 
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "Photo storage"
+msgstr ""
+
 #: oc-admin/themes/modern/items/frm.php
 #: oc-includes/osclass/classes/admin/ui/PhotoGrid.php
 msgid "Photos"
@@ -8131,10 +7989,6 @@ msgid ""
 "Photos live in your S3 bucket and are not copied. They stay there. Turn on "
 "versioning in the bucket to keep old copies."
 msgstr ""
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Photos per listing"
-msgstr "Φωτογραφίες ανά καταχώρηση"
 
 #: oc-admin/themes/modern/tools/backup.php
 msgid "Photos, plugins, themes, languages"
@@ -8211,6 +8065,7 @@ msgstr "Plugin αναβαθμίσεις"
 #: oc-admin/themes/modern/plugins/index.php
 #: oc-admin/themes/modern/plugins/view.php
 #: oc-includes/osclass/classes/AdminMenu.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "Plugins"
 msgstr "Πρόσθετα"
 
@@ -8224,15 +8079,11 @@ msgid ""
 "Browse, or upload its zip file."
 msgstr ""
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Plugins path"
-msgstr "Διαδρομή πρόσθετων"
-
 #: oc-admin/themes/modern/parts/market.php
 msgid "Plugins updated."
 msgstr "Τα πρόσθετα ανανεώθηκαν."
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-admin/themes/modern/tools/system-info/server.php
 msgid ""
 "Point %1$s at an installed driver (for example %2$s or %3$s) so category "
 "trees, user data and search stop being recomputed on every request; %4$s "
@@ -8248,7 +8099,7 @@ msgstr ""
 msgid "Position"
 msgstr "Θέση"
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "Preferences"
 msgstr "Προτιμήσεις"
 
@@ -8266,7 +8117,7 @@ msgstr ""
 msgid "Premium"
 msgstr "Προβεβλημένη"
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid "Press Repair to fix them. Take a backup first."
 msgstr ""
 
@@ -8324,10 +8175,6 @@ msgstr "Τιμολόγηση"
 #: oc-includes/osclass/classes/form/ItemForm.php
 msgid "Primary"
 msgstr "Κύρια"
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Problem"
-msgstr "Πρόβλημα"
 
 #: oc-admin/themes/modern/plugins/index.php
 #: oc-includes/osclass/classes/controller/admin/CAdminPlugins.php
@@ -8448,19 +8295,19 @@ msgstr "RSS δείχνει"
 msgid "RVs - Campers - Caravans"
 msgstr "RVs - κατασκηνωτές - Τροχόσπιτα"
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-admin/themes/modern/tools/system-info/server.php
 msgid "Raise %1$s and %2$s together, keeping post at least as large as upload:"
 msgstr ""
 "Αυξήστε το %1$s και το %2$s μαζί, διατηρώντας το post τουλάχιστον τόσο "
 "μεγάλο όσο το upload:"
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-admin/themes/modern/tools/system-info/server.php
 msgid "Raise %s to at least the number of photos per listing you allow in Settings."
 msgstr ""
 "Αυξήστε το %s τουλάχιστον στον αριθμό των φωτογραφιών ανά καταχώρηση που "
 "επιτρέπετε στις Ρυθμίσεις."
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-admin/themes/modern/tools/system-info/server.php
 msgid "Raise memory without touching php.ini"
 msgstr "Αυξήστε τη μνήμη χωρίς να τροποποιήσετε το php.ini"
 
@@ -8475,10 +8322,6 @@ msgstr "Αναγνωσμένο"
 #: oc-admin/themes/modern/upgrade/index.php
 msgid "Read the full release notes on GitHub"
 msgstr "Διαβάστε τις πλήρεις σημειώσεις έκδοσης στο GitHub"
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Read-only, as it should be after install."
-msgstr "Μόνο για ανάγνωση, όπως θα πρέπει να είναι μετά την εγκατάσταση."
 
 #: oc-admin/themes/modern/settings/locations.php
 msgid ""
@@ -8679,6 +8522,10 @@ msgstr ""
 msgid "Remember to enable cookies for the subdomains too."
 msgstr "Θυμηθείτε να ενεργοποιήσετε τα cookies και για τα υποdomains."
 
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "Remote downloads (allow_url_fopen)"
+msgstr ""
+
 #: oc-admin/themes/modern/functions.php
 #: oc-admin/themes/modern/settings/sitemap.php
 #: oc-includes/osclass/classes/admin/ui/PhotoGrid.php
@@ -8741,26 +8588,26 @@ msgstr "Αναδιάταξη πεδίου: χρησιμοποιήστε τα π�
 msgid "Reorder widget %s. Drag, or focus and press the up"
 msgstr "Αναδιάταξη του widget %s. Σύρετε ή εστιάστε και πατήστε το επάνω"
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 #: oc-includes/osclass/installer/basic_data.php
 msgid "Repair"
 msgstr "Επισκευή"
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid "Repair can fix these"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid ""
 "Repair does not change these. Ask for help before changing the table by "
 "hand."
 msgstr ""
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid "Repair result"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid "Repair the database?"
 msgstr ""
 
@@ -8828,10 +8675,6 @@ msgstr ""
 #: oc-admin/themes/modern/fields/iframe.php
 msgid "Required only when…"
 msgstr "Απαιτείται μόνο όταν…"
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Requirements"
-msgstr "Απαιτήσεις"
 
 #: oc-admin/themes/modern/parts/market.php
 msgid "Requires"
@@ -8906,6 +8749,10 @@ msgid "Restore from this file"
 msgstr ""
 
 #: oc-admin/themes/modern/tools/backup.php
+msgid "Restore is turned off on this site. Use the command line."
+msgstr ""
+
+#: oc-admin/themes/modern/tools/backup.php
 msgid "Restore this backup?"
 msgstr ""
 
@@ -8931,7 +8778,7 @@ msgstr ""
 msgid "Restrictions"
 msgstr "Περιορισμοί"
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid "Result"
 msgstr ""
 
@@ -8979,19 +8826,20 @@ msgstr "Εκτέλεση καθαρισμού τώρα"
 msgid "Run cleanup now?"
 msgstr "Εκτέλεση καθαρισμού τώρα;"
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid "Run database update"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "Run it"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid "Run the database update first. Most of these will then be gone."
 msgstr ""
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info.php
 msgid "Run the database update?"
 msgstr ""
 
@@ -9011,6 +8859,14 @@ msgid ""
 msgstr ""
 "Εκτελεί μια μικρή δοκιμή εγγραφής/ανάγνωσης/διαγραφής στις παραπάνω "
 "αποθηκευμένες ρυθμίσεις σύνδεσης."
+
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "S3 bucket \"%s\""
+msgstr ""
+
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "S3 bucket \"%s\" (local copies kept)"
+msgstr ""
 
 #: oc-includes/osclass/classes/admin/form/MailServerSettingsForm.php
 msgid "SMTP"
@@ -9164,9 +9020,9 @@ msgstr ""
 msgid "Saving…"
 msgstr "Αποθήκευση…"
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Scheduled tasks (cron)"
-msgstr "Προγραμματισμένες εργασίες (cron)"
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "Scheduled tasks and cache"
+msgstr ""
 
 #: oc-admin/themes/modern/parts/market.php
 msgid "Screenshots"
@@ -9340,7 +9196,7 @@ msgstr ""
 msgid "See the job"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "See the list"
 msgstr ""
 
@@ -9546,13 +9402,18 @@ msgstr "Διάθεση αρχείων μέσω υπογεγραμμένων URL 
 
 #: oc-admin/themes/modern/tools/backup.php
 #: oc-admin/themes/modern/tools/cache.php
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "Server"
 msgstr "Διακομιστής"
 
 #: oc-includes/osclass/installer/gui/install.php
 msgid "Server checklist"
 msgstr "Λίστα ελέγχου διακομιστή"
+
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "Server details"
+msgstr ""
 
 #: oc-includes/AjaxUploader.php
 msgid "Server error. Upload directory isn't writable."
@@ -9599,7 +9460,7 @@ msgstr "Ρύθμιση του ιστοτόπου μου"
 msgid "Set up payments"
 msgstr "Ρύθμιση πληρωμών"
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "Set up real-IP forwarding"
 msgstr ""
 
@@ -9639,11 +9500,11 @@ msgstr ""
 #: oc-admin/themes/modern/settings/sitemap.php
 #: oc-admin/themes/modern/settings/spamNbots.php
 #: oc-admin/themes/modern/settings/storage.php
-#: oc-admin/themes/modern/tools/system-info.php
 #: oc-admin/themes/modern/users/ban.php
 #: oc-admin/themes/modern/users/index.php
 #: oc-admin/themes/modern/users/settings.php
 #: oc-includes/osclass/classes/AdminMenu.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 #: oc-includes/osclass/classes/controller/admin/CAdminMedia.php
 #: oc-includes/osclass/gui/admin/settings-page.php
 msgid "Settings"
@@ -9670,6 +9531,10 @@ msgstr ""
 #: oc-admin/themes/modern/items/settings.php
 msgid "Share listing"
 msgstr "Κοινοποίηση αγγελίας"
+
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "Shopclass"
+msgstr ""
 
 #: oc-includes/osclass/functions.php
 msgid "Shopclass "
@@ -9704,23 +9569,9 @@ msgstr ""
 "περιέχει πάντα μόνο αντίγραφα — ο καθαρισμός της είναι ασφαλής και ο "
 "ιστότοπος δημιουργεί ξανά ό,τι χρειάζεται στο επόμενο αίτημα."
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Shopclass can write to %s."
-msgstr "Το Shopclass μπορεί να γράψει στο %s."
-
 #: oc-includes/osclass/installer/gui/install.php
 msgid "Shopclass can't reach its database."
 msgstr ""
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid ""
-"Shopclass cannot write to %s, so no photo or file upload can be saved. Fix "
-"the folder permissions so the web server user can write to it."
-msgstr ""
-"Το Shopclass δεν μπορεί να γράψει στο %s, επομένως δεν μπορεί να "
-"αποθηκευτεί καμία φωτογραφία ή μεταφόρτωση αρχείου. Διορθώστε τα δικαιώματα "
-"του φακέλου, ώστε ο χρήστης του διακομιστή ιστού να μπορεί να γράψει σε "
-"αυτόν."
 
 #: oc-admin/themes/modern/parts/market.php
 msgid "Shopclass checks once a day. Check now if you are expecting something."
@@ -9730,13 +9581,9 @@ msgstr ""
 msgid "Shopclass doesn't check the watermark image size"
 msgstr "Το Shopclass δεν ελέγχει το μέγεθος της εικόνας υδατογραφήματος"
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid "Shopclass expects"
 msgstr ""
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Shopclass health"
-msgstr "Υγεία του Shopclass"
 
 #: oc-includes/osclass/classes/upgrade/AutoSecurityUpdate.php
 msgid ""
@@ -9761,15 +9608,6 @@ msgstr ""
 msgid "Shopclass is already installed here."
 msgstr "Το Shopclass είναι ήδη εγκατεστημένο εδώ."
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid ""
-"Shopclass lets a seller attach %1$s photos to a listing, but PHP accepts "
-"only %2$s files per request and drops the rest. Raise %3$s to at least %4$s."
-msgstr ""
-"Το Shopclass επιτρέπει σε έναν πωλητή να επισυνάψει %1$s φωτογραφίες σε μια "
-"καταχώρηση, αλλά η PHP δέχεται μόνο %2$s αρχεία ανά αίτημα και απορρίπτει "
-"τα υπόλοιπα. Αυξήστε το %3$s τουλάχιστον σε %4$s."
-
 #: oc-includes/osclass/install-functions.php
 msgid "Shopclass needs MySQL 5.7.5 or newer, or MariaDB 10.2 or newer. "
 msgstr ""
@@ -9779,23 +9617,6 @@ msgid "Shopclass never handles card details itself. To take payments, install a 
 msgstr ""
 "Το Shopclass δεν χειρίζεται ποτέ το ίδιο τα στοιχεία καρτών. Για να δέχεστε "
 "πληρωμές, εγκαταστήστε ένα "
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid ""
-"Shopclass offers %1$s photos per listing; PHP accepts %2$s files per "
-"request."
-msgstr ""
-"Το Shopclass προσφέρει %1$s φωτογραφίες ανά καταχώρηση; η PHP δέχεται %2$s "
-"αρχεία ανά αίτημα."
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid ""
-"Shopclass runs, but PHP 7.x is past end of life and no longer gets security "
-"fixes. Shopclass targets PHP 8.0 and up — move to PHP 8."
-msgstr ""
-"Το Shopclass λειτουργεί, αλλά η PHP 7.x έχει φτάσει στο τέλος του κύκλου "
-"ζωής της και δεν λαμβάνει πλέον διορθώσεις ασφαλείας. Το Shopclass στοχεύει "
-"στην PHP 8.0 και νεότερες — μεταβείτε στην PHP 8."
 
 #: oc-includes/osclass/classes/upgrade/AutoSecurityUpdate.php
 msgid ""
@@ -9808,8 +9629,7 @@ msgid "Shopclass upgraded successfully."
 msgstr "Το Shopclass αναβαθμίστηκε με επιτυχία."
 
 #: oc-admin/themes/modern/main/index.php
-#: oc-admin/themes/modern/tools/database.php
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "Shopclass version"
 msgstr "Έκδοση Shopclass"
 
@@ -9971,7 +9791,7 @@ msgstr "Ρυθμίσεις sitemap"
 #: oc-admin/themes/modern/media/index.php
 #: oc-admin/themes/modern/parts/market.php
 #: oc-admin/themes/modern/tools/backup.php
-#: oc-admin/themes/modern/tools/database.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "Size"
 msgstr "Μέγεθος"
 
@@ -10052,10 +9872,6 @@ msgstr "Πηγή"
 msgid "Source id"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Space left on the uploads volume."
-msgstr "Χώρος που απομένει στον τόμο μεταφορτώσεων."
-
 #: oc-admin/themes/modern/fields/submissions.php
 #: oc-admin/themes/modern/items/index.php
 #: oc-admin/themes/modern/stats/reports.php
@@ -10129,7 +9945,6 @@ msgstr "Στατιστικά"
 #: oc-admin/themes/modern/settings/locations/form.php
 #: oc-admin/themes/modern/settings/locations/list.php
 #: oc-admin/themes/modern/tools/cache.php
-#: oc-admin/themes/modern/tools/database.php
 #: oc-includes/osclass/classes/admin/ui/Editor.php
 #: oc-includes/osclass/classes/datatables/CommentsDataTable.php
 #: oc-includes/osclass/classes/datatables/ItemsDataTable.php
@@ -10169,7 +9984,7 @@ msgstr ""
 msgid "Step 4 of 4: Updates and cache"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid "Still to do"
 msgstr ""
 
@@ -10259,17 +10074,13 @@ msgstr "Κυριακή"
 msgid "Support"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Supported."
-msgstr "Υποστηρίζεται."
-
 #: oc-admin/themes/modern/emails/frm.php
 msgid ""
 "Swapped for real values when the email is sent. Click one to add it at the "
 "cursor."
 msgstr ""
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-admin/themes/modern/tools/system-info/server.php
 msgid "Switch debugging on"
 msgstr "Ενεργοποιήστε την αποσφαλμάτωση"
 
@@ -10306,15 +10117,16 @@ msgstr "Πληροφορίες συστήματος"
 msgid "System status"
 msgstr "Κατάσταση συστήματος"
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid "Table"
 msgstr ""
 
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 #: oc-includes/osclass/installer/gui/install-database.php
 msgid "Table prefix"
 msgstr "Πρόθεμα πίνακα"
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid "Take a backup first."
 msgstr ""
 
@@ -10544,7 +10356,7 @@ msgstr "Η κατηγορία, καθώς και οι υποκατηγορίες
 msgid "The category is too large to delete at once. It has been hidden"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-admin/themes/modern/tools/system-info/server.php
 msgid ""
 "The cheapest speed-up there is — PHP stops recompiling every file on every "
 "request."
@@ -10584,7 +10396,7 @@ msgstr ""
 msgid "The database Shopclass should use."
 msgstr "Η βάση δεδομένων που θα πρέπει να χρησιμοποιεί το Shopclass."
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info.php
 msgid "The database is updated. %d update ran."
 msgid_plural "The database is updated. %d updates ran."
 msgstr[0] ""
@@ -10604,7 +10416,7 @@ msgstr ""
 "Ο διακομιστής της βάσης δεδομένων απέρριψε αυτό το όνομα χρήστη και τον "
 "κωδικό πρόσβασης. Αντιγράψτε τα ξανά από "
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info.php
 #: oc-includes/osclass/classes/backup/BackupJobs.php
 #: oc-includes/osclass/classes/upgrade/AutoSecurityUpdate.php
 msgid "The database update failed."
@@ -10660,17 +10472,6 @@ msgstr "Ο κατάλογος εγκατάστασης δεν είναι εγγ�
 msgid "The key you entered is invalid. Please double-check it"
 msgstr "Το κλειδί δεν είναι έγκυρο. Παρακαλώ ελέγξτε το"
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid ""
-"The last cron run was %s ago — longer than a day, so it is probably no "
-"longer scheduled. Update checks, alerts and cleanup have stopped until it "
-"runs again."
-msgstr ""
-"Η τελευταία εκτέλεση του cron ήταν πριν από %s — πάνω από μία ημέρα, "
-"επομένως πιθανότατα δεν είναι πλέον προγραμματισμένη. Οι έλεγχοι "
-"ενημέρωσης, οι ειδοποιήσεις και ο καθαρισμός έχουν σταματήσει μέχρι να "
-"εκτελεστεί ξανά."
-
 #: oc-admin/themes/modern/settings/locations.php
 msgid "The list could not be loaded. Check your connection and try again."
 msgstr ""
@@ -10689,6 +10490,10 @@ msgstr ""
 
 #: oc-admin/themes/modern/settings/locations/data.php
 msgid "The location catalog could not be reached"
+msgstr ""
+
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "The memory limit is %s. Resizing a large photo needs at least 128 MB."
 msgstr ""
 
 #: oc-admin/themes/modern/settings/locations/preview.php
@@ -10800,7 +10605,7 @@ msgid ""
 "still see the maintenance page."
 msgstr ""
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid ""
 "The same update the command line runs with db:upgrade. On a large site it "
 "can take a few minutes."
@@ -10820,11 +10625,9 @@ msgstr ""
 "Η σελίδα αναζήτησης εμφανίζει: το πεδίο αυτό πρέπει να περιέχει μόνο "
 "αριθμητικούς χαρακτήρες"
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "The server clock zone used for listing and stat dates."
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "The server meets what Shopclass needs."
 msgstr ""
-"Η ζώνη ώρας του διακομιστή που χρησιμοποιείται για τις ημερομηνίες "
-"καταχωρίσεων και στατιστικών."
 
 #: oc-admin/themes/modern/settings/locations.php
 msgid ""
@@ -10843,12 +10646,6 @@ msgid ""
 msgstr ""
 "Ο ιστότοπος επιστρέφει στην προεπιλεγμένη γλώσσα για οποιοδήποτε "
 "περιεχόμενο βασιζόταν σε αυτή."
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid ""
-"The site is in maintenance mode — visitors see the maintenance page (HTTP "
-"503). Remove the %s file to bring it back."
-msgstr ""
 
 #: oc-admin/themes/modern/settings/sitemap.php
 msgid ""
@@ -10922,6 +10719,10 @@ msgstr "Η αναβάθμιση δεν ολοκληρώθηκε"
 msgid "The upload failed. Try again."
 msgstr ""
 
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "The uploads folder cannot be written to. Photos cannot be saved."
+msgstr ""
+
 #: oc-includes/osclass/install-functions.php
 msgid "The user connected, but isn't allowed to write to this database. Grant it "
 msgstr ""
@@ -10963,12 +10764,9 @@ msgid "Theme updates"
 msgstr "Ενημερώσεις θεμάτων"
 
 #: oc-admin/themes/modern/appearance/index.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "Themes"
 msgstr "Θέματα"
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Themes path"
-msgstr "Διαδρομή θεμάτων"
 
 #: oc-admin/themes/modern/parts/market.php
 msgid "Themes updated."
@@ -11061,7 +10859,7 @@ msgstr ""
 msgid "This action cannot be done because it is a demo site"
 msgstr "Αυτή η ενέργεια δεν μπορεί να γίνει επειδή είναι μια δοκιμαστική τοποθεσία"
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid ""
 "This adds what is missing and fixes column types. It does not touch extra "
 "columns or indexes, and it can take a while on a large site. Take a backup "
@@ -11072,7 +10870,7 @@ msgstr ""
 msgid "This admin signs in with a code from an authenticator app."
 msgstr ""
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info.php
 msgid ""
 "This applies the waiting updates in order. Keep the page open until it "
 "finishes. Take a backup first."
@@ -11360,12 +11158,6 @@ msgstr ""
 "Αυτό αφαιρεί το widget αμέσως από την ενότητά του και δεν μπορεί να "
 "αναιρεθεί."
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid ""
-"This request's address matches every forwarding header sent with it — no "
-"proxy misconfiguration detected."
-msgstr ""
-
 #: oc-admin/themes/modern/tools/backup.php
 msgid "This server accepts files up to %s."
 msgstr ""
@@ -11453,6 +11245,11 @@ msgstr "Ώρα"
 msgid "Time format"
 msgstr ""
 
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "Time limit"
+msgstr ""
+
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 #: oc-includes/osclass/classes/admin/form/MainSettingsForm.php
 msgid "Timezone"
 msgstr "Timezone"
@@ -11537,16 +11334,9 @@ msgstr "Πάρα πολλές εικόνες. Το όριο είναι {limit}."
 msgid "Too many locations selected"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Too old. Shopclass is built and tested against PHP 8.0 and up."
-msgstr ""
-"Πολύ παλιά. Το Shopclass έχει αναπτυχθεί και δοκιμαστεί για την PHP 8.0 και "
-"νεότερες."
-
 #: oc-admin/themes/modern/tools/backup.php
 #: oc-admin/themes/modern/tools/cache.php
 #: oc-admin/themes/modern/tools/cleanup.php
-#: oc-admin/themes/modern/tools/database.php
 #: oc-admin/themes/modern/tools/jobs.php
 #: oc-admin/themes/modern/tools/logs.php
 #: oc-admin/themes/modern/tools/maintenance.php
@@ -11636,11 +11426,11 @@ msgstr ""
 msgid "Turn on"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-admin/themes/modern/tools/system-info/server.php
 msgid "Turn on OPcache"
 msgstr "Ενεργοποιήστε το OPcache"
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-admin/themes/modern/tools/system-info/server.php
 msgid "Turn on a persistent object cache"
 msgstr "Ενεργοποιήστε τη μόνιμη προσωρινή αποθήκευση αντικειμένων"
 
@@ -11686,7 +11476,7 @@ msgstr "Κλειδί ιστοτόπου Turnstile και μυστικό κλει
 msgid "Tutoring - Private Lessons"
 msgstr "Διδακτική - Ιδιαίτερα μαθήματα"
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-admin/themes/modern/tools/system-info/server.php
 msgid ""
 "Two files hold these settings. PHP's own limits live in %1$s%2$s; "
 "Shopclass's own behaviour lives in %3$s in the site root%4$s. Edit the "
@@ -11821,23 +11611,6 @@ msgid ""
 "banner. The choice is kept when maintenance mode is turned off."
 msgstr ""
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid ""
-"Under 128M. Resizing a large photo is the most memory-hungry thing "
-"Shopclass does, and this is where it fails first."
-msgstr ""
-"Κάτω από 128M. Η αλλαγή μεγέθους μιας μεγάλης φωτογραφίας είναι η πιο "
-"απαιτητική σε μνήμη λειτουργία του Shopclass, και εκεί είναι που "
-"αποτυγχάνει πρώτα."
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid ""
-"Under 512MB left on the uploads volume. When it fills, uploads and backups "
-"start failing."
-msgstr ""
-"Απομένουν λιγότερα από 512MB στον τόμο μεταφορτώσεων. Όταν γεμίσει, οι "
-"μεταφορτώσεις και τα αντίγραφα ασφαλείας αρχίζουν να αποτυγχάνουν."
-
 #: oc-admin/themes/modern/fields/iframe.php
 msgid "Ungrouped"
 msgstr "Μη ομαδοποιημένο"
@@ -11888,7 +11661,7 @@ msgstr ""
 
 #: oc-admin/themes/modern/plugins/configuration.php
 #: oc-admin/themes/modern/settings/locations/data.php
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 #: oc-includes/osclass/classes/controller/admin/CAdminLanguages.php
 msgid "Update"
 msgstr "Ανανέωση"
@@ -12038,6 +11811,10 @@ msgstr "Μεταφόρτωση"
 msgid "Upload language"
 msgstr "Μεταφόρτωση γλώσσας"
 
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "Upload limits"
+msgstr ""
+
 #: oc-includes/osclass/classes/controller/admin/ajax/CAdminAjax.php
 msgid "Upload target not allowed"
 msgstr "Ο προορισμός μεταφόρτωσης δεν επιτρέπεται"
@@ -12046,17 +11823,13 @@ msgstr "Ο προορισμός μεταφόρτωσης δεν επιτρέπε
 msgid "Uploaded"
 msgstr "Μεταφορτώθηκε"
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Uploads &amp; storage"
-msgstr "Μεταφορτώσεις &amp; αποθήκευση"
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "Uploads"
+msgstr ""
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Uploads folder is writable"
-msgstr "Ο φάκελος μεταφορτώσεων είναι εγγράψιμος"
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Uploads path"
-msgstr "Διαδρομή μεταφορτώσεων"
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "Uploads folder"
+msgstr ""
 
 #: oc-admin/themes/modern/tools/cache.php
 msgid "Uptime"
@@ -12421,15 +12194,15 @@ msgstr "Δείτε τον ιστότοπό σας"
 msgid "Views"
 msgstr "Προβολές"
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "Visitor addresses"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid ""
-"Visitor addresses look wrong. Your site seems to be behind a proxy (%1$s), "
-"so every visitor appears to come from %2$s. Sign-in protection and IP bans "
-"cannot tell visitors apart. Ask your host to set up real-IP forwarding."
+"Visitor addresses look wrong: the site is behind a proxy (%1$s), so every "
+"visitor seems to come from %2$s. Sign-in protection and IP bans cannot tell "
+"visitors apart."
 msgstr ""
 
 #: oc-admin/themes/modern/tools/maintenance.php
@@ -12522,7 +12295,7 @@ msgstr ""
 "Σας συνιστούμε να έχετε την επιλογή «Κρατήστε την αρχική εικόνα» ενεργή "
 "όταν χρησιμοποιείτε υδατογραφήματα."
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "Web server"
 msgstr "Διακομιστής ιστού"
 
@@ -12533,10 +12306,11 @@ msgstr "Web title"
 #: oc-admin/themes/modern/plugins/index.php
 #: oc-admin/themes/modern/settings/spamNbots.php
 #: oc-admin/themes/modern/users/frm.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "Website"
 msgstr "Ιστοσελίδα"
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "Website URL"
 msgstr "URL ιστοτόπου"
 
@@ -12566,8 +12340,8 @@ msgid "Welcome to Shopclass"
 msgstr "Καλώς ήρθατε στο Shopclass"
 
 #: oc-admin/themes/modern/tools/backup.php
-#: oc-admin/themes/modern/tools/database.php
 #: oc-admin/themes/modern/tools/jobs.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid "What"
 msgstr ""
 
@@ -12627,7 +12401,7 @@ msgstr ""
 msgid "When a new user is registered"
 msgstr "Όταν ένας νέος χρήστης είναι εγγεγραμμένος"
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-admin/themes/modern/tools/system-info/server.php
 msgid ""
 "When you cannot edit php.ini, Shopclass will lift PHP's memory limit up to "
 "%s on its own at start-up."
@@ -12839,6 +12613,7 @@ msgid "Your backup is ready: %1$s, %2$s, %3$s."
 msgstr ""
 
 #: oc-admin/themes/modern/tools/backup.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid ""
 "Your backups folder is open to the web. Anyone who guesses a file name "
 "could download a backup."
@@ -12860,11 +12635,11 @@ msgstr "Ο τρέχων κωδικός πρόσβασης"
 msgid "Your database already matched this version of Shopclass."
 msgstr "Η βάση δεδομένων σας ήταν ήδη συμβατή με αυτή την έκδοση του Shopclass."
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid "Your database has"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid "Your database has every table, column and index Shopclass expects."
 msgstr ""
 
@@ -12878,7 +12653,7 @@ msgstr ""
 msgid "Your database is up to date"
 msgstr "Η βάση δεδομένων σας είναι ενημερωμένη"
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "Your database is up to date and healthy."
 msgstr ""
 
@@ -12918,6 +12693,10 @@ msgstr "Το όνομά σας: αυτό το πεδίο είναι υποχρε
 
 #: oc-includes/osclass/functions.php
 msgid "Your orders"
+msgstr ""
+
+#: oc-admin/themes/modern/tools/backup.php
+msgid "Your password"
 msgstr ""
 
 #: oc-admin/themes/modern/fields/index.php
@@ -13007,15 +12786,19 @@ msgstr ""
 msgid "[%s] Your admin password is known to someone else"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "allow_url_fopen"
-msgstr "allow_url_fopen"
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "all %d required are installed"
+msgstr ""
+
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "all seen as %s (behind a proxy)"
+msgstr ""
 
 #: oc-includes/osclass/helpers/hUtils.php
 msgid "am"
 msgstr "πμ"
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "as reported"
 msgstr ""
 
@@ -13027,19 +12810,11 @@ msgstr "το πολύ"
 msgid "becomes"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "behind a proxy"
-msgstr ""
-
 #: oc-admin/themes/modern/appearance/index.php
 #: oc-admin/themes/modern/parts/market.php
 #: oc-admin/themes/modern/plugins/index.php
 msgid "by %s"
 msgstr "από %s"
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "cURL"
-msgstr "cURL"
 
 #: oc-includes/osclass/install-functions.php
 msgid "cURL extension for PHP"
@@ -13066,39 +12841,26 @@ msgstr ""
 msgid "config-sample.php doesn't exist. Check if everything is "
 msgstr "Το αρχείο config-sample.php δεν υπάρχει. Ελέγξτε αν όλα είναι "
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid ""
-"config.php is writable by the web server. It holds your database "
-"credentials and does not need to be writable after install — make it "
-"read-only."
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "config.php"
 msgstr ""
-"Το config.php είναι εγγράψιμο από τον διακομιστή ιστού. Περιέχει τα "
-"στοιχεία σύνδεσης της βάσης δεδομένων σας και δεν χρειάζεται να είναι "
-"εγγράψιμο μετά την εγκατάσταση — ορίστε το ως μόνο για ανάγνωση."
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "config.php permissions"
-msgstr "Δικαιώματα του config.php"
-
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid ""
-"config.php sets %1$s, but that driver is not available — so the cache "
-"silently falls back to per-request and every page recomputes its data. "
-"Install the matching extension, or remove the setting."
+"config.php asks for the %s object cache, but that driver is not installed, "
+"so nothing is cached."
 msgstr ""
-"Το config.php ορίζει το %1$s, αλλά αυτός ο οδηγός δεν είναι διαθέσιμος — "
-"επομένως η προσωρινή μνήμη καταφεύγει σιωπηρά σε λειτουργία ανά αίτημα και "
-"κάθε σελίδα επανυπολογίζει τα δεδομένα της. Εγκαταστήστε την αντίστοιχη "
-"επέκταση ή αφαιρέστε τη ρύθμιση."
+
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid ""
+"config.php can be written by the web server. It holds your database "
+"password; make it read-only."
+msgstr ""
 
 #: oc-admin/themes/modern/billing/order.php
 #: oc-admin/themes/modern/billing/wallet.php
 msgid "credits"
 msgstr "πιστώσεις"
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "ctype"
-msgstr "ctype"
 
 #: oc-admin/themes/modern/items/settings.php
 #: oc-admin/themes/modern/tools/cleanup.php
@@ -13117,10 +12879,6 @@ msgid ""
 "package."
 msgstr "δεν υπάρχει, άγνωστο σφάλμα κατά τη λήψη και εξαγωγή του πακέτου."
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "enabled"
-msgstr "ενεργοποιημένο"
-
 #: oc-includes/osclass/classes/controller/admin/CAdminItems.php
 msgid "expired"
 msgstr ""
@@ -13137,10 +12895,6 @@ msgstr "εξαγωγή περιεχομένου στοιχείου"
 msgid "extract this"
 msgstr "εξαγάγετε αυτό"
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "fileinfo"
-msgstr "fileinfo"
-
 #: oc-includes/osclass/classes/form/FieldForm.php
 msgid "from"
 msgstr "από"
@@ -13152,10 +12906,6 @@ msgstr ""
 #: oc-includes/osclass/helpers/hAdminUi.php
 msgid "in %s"
 msgstr ""
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "installed"
-msgstr "εγκατεστημένο"
 
 #: oc-admin/themes/modern/fields/iframe.php
 msgid "is"
@@ -13193,30 +12943,25 @@ msgstr "καταχωρήσεις το πολύ"
 msgid "made before a restore"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "mbstring"
-msgstr "mbstring"
-
 #: oc-includes/osclass/classes/admin/form/SpamSettingsForm.php
 msgid "minutes"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/database.php
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid "missing"
 msgstr "λείπει"
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "mysqli"
-msgstr "mysqli"
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "missing: %s"
+msgstr ""
 
 #: oc-includes/osclass/classes/admin/form/MainSettingsForm.php
 msgid "never"
 msgstr "ποτέ"
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "never run"
-msgstr "δεν εκτελέστηκε ποτέ"
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "never ran"
+msgstr ""
 
 #: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
 msgid "nginx does not read .htaccess files. Add the "
@@ -13227,28 +12972,57 @@ msgstr "Το nginx δεν διαβάζει αρχεία .htaccess. Προσθέ�
 msgid "no action defined"
 msgstr "δεν έχει οριστεί κάποια ενέργεια"
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "none"
+msgstr ""
+
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "none (worked out on every request)"
+msgstr ""
+
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "none loaded"
+msgstr ""
+
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "none saved on the server"
+msgstr ""
+
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "not checked yet"
+msgstr ""
+
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "not reachable from the web"
+msgstr ""
+
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "not set"
 msgstr "δεν έχει καθοριστεί"
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "off"
 msgstr "ανενεργό"
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "on"
 msgstr "ενεργό"
 
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 #: oc-includes/osclass/classes/backup/BackupJobs.php
 msgid "on the server"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "on this server"
+msgstr ""
+
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "on, banner only"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "on, locked"
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "on, site closed"
 msgstr ""
 
 #: oc-includes/osclass/installer/basic_data.php
@@ -13259,9 +13033,9 @@ msgstr "osclass@example.com"
 msgid "password: %s"
 msgstr "Κωδικός πρόσβασης: %s"
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "per-request"
-msgstr "ανά αίτημα"
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "php.ini"
+msgstr ""
 
 #: oc-admin/themes/modern/parts/market.php
 msgid "plugins"
@@ -13271,9 +13045,11 @@ msgstr "πρόσθετα"
 msgid "pm"
 msgstr "μμ"
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "post_max_size is smaller than upload_max_filesize"
-msgstr "Το post_max_size είναι μικρότερο από το upload_max_filesize"
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid ""
+"post_max_size (%1$s) is smaller than upload_max_filesize (%2$s), so uploads "
+"over %1$s fail with an empty form."
+msgstr ""
 
 #: oc-includes/osclass/classes/admin/form/CommentSettingsForm.php
 msgid "previously approved comments"
@@ -13285,6 +13061,10 @@ msgstr ""
 
 #: oc-includes/osclass/classes/admin/form/LatestSearchSettingsForm.php
 msgid "queries"
+msgstr ""
+
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "ran %s ago"
 msgstr ""
 
 #: oc-includes/osclass/classes/admin/form/SpamSettingsForm.php
@@ -13303,7 +13083,11 @@ msgstr "Κλειδί ιστοτόπου reCAPTCHA και μυστικό κλει
 msgid "reCAPTCHA version"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "reachable from the web"
+msgstr ""
+
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "read-only"
 msgstr "μόνο για ανάγνωση"
 
@@ -13366,25 +13150,18 @@ msgstr "να"
 msgid "to download"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "unavailable"
-msgstr "μη διαθέσιμο"
-
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "unknown"
 msgstr "άγνωστο"
 
 #: oc-admin/themes/modern/tools/system-info.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "unlimited"
 msgstr "απεριόριστο"
 
 #: oc-includes/osclass/emails.php
 msgid "unsubscribe alert"
 msgstr "Διαγραφή ειδοποιήσεων"
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "unsupported"
-msgstr "μη υποστηριζόμενο"
 
 #: oc-includes/osclass/install-functions.php
 msgid "username: %s"
@@ -13398,13 +13175,9 @@ msgstr ""
 msgid "widgets"
 msgstr "widget"
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "writable"
 msgstr "εγγράψιμο"
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "zip"
-msgstr "zip"
 
 #: oc-includes/osclass/emails.php
 msgid "{WEB_TITLE} - We failed trying to upgrade your site to Shopclass {VERSION}"
@@ -13448,7 +13221,7 @@ msgstr ""
 msgid "{n} photos."
 msgstr ""
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-admin/themes/modern/tools/system-info/server.php
 msgid "— PHP limits"
 msgstr "— Όρια PHP"
 
@@ -13456,6 +13229,6 @@ msgstr "— Όρια PHP"
 msgid "— Select a form —"
 msgstr "— Επιλέξτε μια φόρμα —"
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-admin/themes/modern/tools/system-info/server.php
 msgid "— Shopclass"
 msgstr "— Shopclass"

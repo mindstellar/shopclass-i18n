@@ -14,7 +14,7 @@ msgstr ""
 "X-Crowdin-File: /develop/src/templates/core.pot\n"
 "X-Crowdin-File-ID: 8259\n"
 "Language-Team: Persian\n"
-"PO-Revision-Date: 2026-09-29 07:20\n"
+"PO-Revision-Date: 2026-09-29 15:36\n"
 
 #: oc-includes/osclass/functions.php
 msgid " is available"
@@ -51,6 +51,10 @@ msgstr "%1$s ورودی، %2$s"
 #: oc-includes/osclass/functions.php
 msgid "%1$s in %2$s"
 msgstr "%1$s در %2$s"
+
+#: oc-admin/themes/modern/tools/database.php
+msgid "%1$s is older than Shopclass supports. Ask your host for MySQL %2$s or MariaDB %3$s or newer."
+msgstr ""
 
 #: oc-includes/osclass/classes/settings/SettingsImage.php
 msgid "%1$s must be %2$d KB or smaller"
@@ -136,6 +140,12 @@ msgstr[1] "%d تغییر"
 msgid "%d continuing"
 msgstr ""
 
+#: oc-admin/themes/modern/tools/database.php
+msgid "%d database update is waiting."
+msgid_plural "%d database updates are waiting."
+msgstr[0] ""
+msgstr[1] ""
+
 #: oc-includes/osclass/helpers/hAdminUi.php
 msgid "%d day"
 msgid_plural "%d days"
@@ -145,6 +155,18 @@ msgstr[1] "%d روز"
 #: oc-admin/themes/modern/functions.php
 msgid "%d days"
 msgstr "%d روز"
+
+#: oc-admin/themes/modern/tools/database.php
+msgid "%d difference Repair can fix."
+msgid_plural "%d differences Repair can fix."
+msgstr[0] ""
+msgstr[1] ""
+
+#: oc-admin/themes/modern/tools/database.php
+msgid "%d difference needs a closer look."
+msgid_plural "%d differences need a closer look."
+msgstr[0] ""
+msgstr[1] ""
 
 #: oc-includes/osclass/classes/job/JobWorker.php
 msgid "%d done"
@@ -200,6 +222,12 @@ msgstr[1] "%d زیردسته‌بندی"
 #: oc-admin/themes/modern/fields/submissions.php
 msgid "%d submissions"
 msgstr "%d ارسالی"
+
+#: oc-admin/themes/modern/tools/database.php
+msgid "%d table"
+msgid_plural "%d tables"
+msgstr[0] ""
+msgstr[1] ""
 
 #: oc-includes/osclass/classes/admin/ui/Editor.php
 msgid "%d things need fixing before this can be saved."
@@ -500,10 +528,6 @@ msgstr ""
 msgid "A checked view of the environment Shopclass is running on: what it needs, what it can and cannot do, and where a quiet misconfiguration would bite."
 msgstr "نمایی کامل از محیطی که Shopclass در آن اجرا می‌شود: چه چیزهایی به آن نیاز است، چه کارهایی می‌تواند انجام دهد و چه کارهایی نمی‌تواند انجام دهد؛ همچنین نشان داده می‌شود که چه خطاهای جزئی یا ساده‌ای می‌توانند باعث ایجاد مشکلات جدی شوند."
 
-#: oc-admin/themes/modern/tools/database.php
-msgid "A column or index core does not declare is usually something a plugin or this site added on purpose, and Repair leaves it alone. Report a nullability or type difference rather than altering tables by hand."
-msgstr ""
-
 #: oc-includes/osclass/classes/admin/form/CommentSettingsForm.php
 msgid "A comment is being held for moderation"
 msgstr "یک نظر برای اعتدال برگزار می شود"
@@ -527,6 +551,10 @@ msgstr "نظر جدید ارسال شده است"
 #: oc-admin/themes/modern/billing/packages.php
 msgid "A package is what a buyer picks at checkout. Add one to start selling credits."
 msgstr "بسته‌ای همان چیزی است که خریدار هنگام پرداخت انتخاب می‌کند؛ با افزودن یک بسته، فروش اعتبارات را می‌توانید آغاز کنید."
+
+#: oc-admin/themes/modern/tools/database.php
+msgid "A plugin or someone on your team added these. Shopclass does not need them, and Repair leaves them alone. Delete one only if you are sure nothing uses it."
+msgstr ""
 
 #: oc-admin/themes/modern/tools/logs.php
 msgid "A record of admin and listing activity — who did what, and when. "
@@ -840,6 +868,10 @@ msgstr "آدرس: بیش از ۱۰۰ کاراکتر نباید باشد"
 msgid "Addresses and accounts with failures in the last %d minutes. Unblock one to let it try again at once."
 msgstr ""
 
+#: oc-admin/themes/modern/tools/database.php
+msgid "Adds what is missing and fixes column types. Extra columns and indexes are left alone."
+msgstr ""
+
 #: oc-includes/osclass/emails.php
 msgid "Admin"
 msgstr "مدیر"
@@ -1098,6 +1130,10 @@ msgstr ""
 
 #: oc-admin/themes/modern/appearance/index.php
 msgid "An update is ready for this theme. "
+msgstr ""
+
+#: oc-admin/themes/modern/tools/upgrade.php
+msgid "An upgrade replaces the core files. Save a zip of the whole site folder first: photos, plugins, themes and the core."
 msgstr ""
 
 #: oc-admin/themes/modern/items/settings.php
@@ -1441,6 +1477,14 @@ msgstr ""
 msgid "Back to themes"
 msgstr ""
 
+#: oc-admin/themes/modern/tools/upgrade.php
+msgid "Back up site files"
+msgstr ""
+
+#: oc-admin/themes/modern/tools/database.php
+msgid "Back up the database"
+msgstr ""
+
 #: oc-admin/themes/modern/settings/storage.php
 msgid "Backfill existing images between local disk and remote storage. Each action queues "
 msgstr "تصاویر موجود را بین دیسک محلی و فضای ذخیره‌سازی از راه دور پر کنید. هر عملیات در صف قرار می‌دهد "
@@ -1462,33 +1506,13 @@ msgstr "پس زمینه ارزش رنگ Hexadecimal"
 msgid "Background jobs"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/backup.php
+#: oc-admin/themes/modern/tools/database.php
 msgid "Backup"
 msgstr "پشتیبان گیری"
 
-#: oc-admin/themes/modern/tools/backup.php
-msgid "Backup Method"
-msgstr "روش پشتیبان گیری"
-
-#: oc-admin/themes/modern/tools/backup.php
-msgid "Backup SQL (download file)"
-msgstr "پشتیبانگیری از دیتابیس SQL (دریافت فایل)"
-
-#: oc-admin/themes/modern/tools/backup.php
-msgid "Backup SQL (store on server)"
-msgstr "پشتیبانی‌گیری SQL (ذخیره در سرور)"
-
-#: oc-includes/osclass/classes/AdminMenu.php
-msgid "Backup data"
-msgstr "پشتیبان‌ گیری اطلاعات"
-
-#: oc-admin/themes/modern/tools/backup.php
-msgid "Backup files (store on server)"
-msgstr "پشتیبان‌گیری پرونده‌ها (ذخیره در سرور)"
-
-#: oc-admin/themes/modern/tools/backup.php
-msgid "Backup folder"
-msgstr "پوشه پشتیبان"
+#: oc-admin/themes/modern/tools/database.php
+msgid "Backup file (.sql)"
+msgstr ""
 
 #: oc-admin/themes/modern/tools/system-info.php
 msgid "Backups, imports and upgrades run inside %s. Raise it if they time out."
@@ -1921,6 +1945,10 @@ msgstr "تغییر"
 msgid "Change advanced configuration of your Shopclass. "
 msgstr "پیکربندی پیشرفته Shopclass خود را تغییر دهید. "
 
+#: oc-admin/themes/modern/tools/database.php
+msgid "Change made"
+msgstr ""
+
 #: oc-includes/osclass/classes/Breadcrumb.php
 msgid "Change my email"
 msgstr "تغییر آدرس ایمیل من"
@@ -1985,6 +2013,10 @@ msgstr ""
 #: oc-includes/osclass/helpers/hAdminUi.php
 msgid "Check all"
 msgstr "همه را بررسی کنید"
+
+#: oc-admin/themes/modern/tools/database.php
+msgid "Check and repair"
+msgstr ""
 
 #: oc-admin/themes/modern/settings/locations/data.php
 msgid "Check for updates"
@@ -2063,10 +2095,6 @@ msgstr ""
 #: oc-admin/themes/modern/users/index.php
 msgid "Choose an option"
 msgstr "گزینه ای را انتخاب کنید"
-
-#: oc-admin/themes/modern/tools/backup.php
-msgid "Choose backup method"
-msgstr "انتخاب روش پشتیبان گیری"
 
 #: oc-admin/themes/modern/functions.php
 msgid "Choose image"
@@ -2263,19 +2291,11 @@ msgid "Collapse or expand this section"
 msgstr "جمع کردن یا باز کردن این بخش"
 
 #: oc-admin/themes/modern/tools/database.php
-msgid "Column is missing"
+msgid "Column differs in whether it can be empty"
 msgstr ""
 
 #: oc-admin/themes/modern/tools/database.php
-msgid "Column is not declared by core"
-msgstr ""
-
-#: oc-admin/themes/modern/tools/database.php
-msgid "Column nullability differs"
-msgstr ""
-
-#: oc-admin/themes/modern/tools/database.php
-msgid "Column type differs"
+msgid "Column has a different type"
 msgstr ""
 
 #: oc-admin/themes/modern/comments/frm.php
@@ -2354,10 +2374,6 @@ msgstr "فعالیت‌ های اجتماعی"
 #: oc-includes/osclass/classes/form/UserForm.php
 msgid "Company"
 msgstr "شرکت"
-
-#: oc-admin/themes/modern/tools/database.php
-msgid "Compares your database with the structure this version of Shopclass declares. "
-msgstr ""
 
 #: oc-admin/themes/modern/parts/market.php
 msgid "Compatibility"
@@ -2546,6 +2562,10 @@ msgstr "بررسی به‌روزرسانی‌ها ممکن نشد"
 #: oc-admin/themes/modern/parts/market.php
 msgid "Could not reach the catalog: %s."
 msgstr "نتوانستم به کاتالوگ دسترسی پیدا کنم: %s."
+
+#: oc-admin/themes/modern/tools/database.php
+msgid "Could not read the database structure: %s"
+msgstr ""
 
 #: oc-admin/themes/modern/tools/database.php
 msgid "Could not read the schema: %s"
@@ -2857,6 +2877,14 @@ msgstr "نام پایگاه داده"
 #: oc-admin/themes/modern/tools/system-info.php
 msgid "Database server"
 msgstr "سرور پایگاه داده"
+
+#: oc-admin/themes/modern/tools/database.php
+msgid "Database update"
+msgstr ""
+
+#: oc-admin/themes/modern/tools/database.php
+msgid "Database version"
+msgstr ""
 
 #: oc-admin/themes/modern/billing/index.php
 #: oc-admin/themes/modern/billing/order.php
@@ -3246,14 +3274,6 @@ msgstr ""
 msgid "Detects the true type of an uploaded file. Without it, upload validation is weaker."
 msgstr "این ابزار نوع واقعی فایل آپلود شده را تشخیص می‌دهد؛ بدون آن، اعتبارسنجی فایل‌های آپلود شده ضعیف‌تر خواهد بود."
 
-#: oc-admin/themes/modern/tools/database.php
-msgid "Difference"
-msgstr ""
-
-#: oc-admin/themes/modern/tools/database.php
-msgid "Differences"
-msgstr ""
-
 #: oc-admin/themes/modern/languages/frm.php
 msgid "Direction"
 msgstr "جهت"
@@ -3335,6 +3355,10 @@ msgstr "دانلود ناموفق بود یا فایل دانلود شده با 
 #: oc-admin/themes/modern/languages/index.php
 msgid "Download language"
 msgstr "دانلود زبان"
+
+#: oc-admin/themes/modern/tools/database.php
+msgid "Download to this computer"
+msgstr ""
 
 #: oc-admin/themes/modern/parts/market.php
 msgid "Downloads"
@@ -3707,6 +3731,10 @@ msgstr "Endpoint"
 msgid "Engineering - Architecture"
 msgstr "مهندسی - معماری"
 
+#: oc-includes/osclass/classes/admin/DatabaseTools.php
+msgid "Enter a server folder for the backup."
+msgstr ""
+
 #: oc-includes/osclass/install-location.php
 msgid "Enter a valid contact email address."
 msgstr "یک آدرس ایمیل تماس معتبر وارد کنید."
@@ -3823,9 +3851,21 @@ msgstr ""
 msgid "Every published theme is already installed"
 msgstr ""
 
+#: oc-admin/themes/modern/tools/database.php
+msgid "Every statement in the file runs against your live database. It can change or delete what is there now, and it cannot be undone."
+msgstr ""
+
 #: oc-includes/osclass/installer/basic_data.php
 msgid "Everything Else"
 msgstr "هرچیز دیگری"
+
+#: oc-admin/themes/modern/tools/database.php
+msgid "Everything about your database in one place: its state, waiting updates, "
+msgstr ""
+
+#: oc-admin/themes/modern/tools/database.php
+msgid "Everything matches. Nothing to repair."
+msgstr ""
 
 #: oc-admin/themes/modern/settings/locations/list.php
 msgid "Everywhere"
@@ -3889,9 +3929,21 @@ msgstr ""
 msgid "Expires after"
 msgstr ""
 
+#: oc-admin/themes/modern/tools/database.php
+msgid "Extra column"
+msgstr ""
+
 #: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
 msgid "Extra days"
 msgstr "روزهای اضافی"
+
+#: oc-admin/themes/modern/tools/database.php
+msgid "Extra index"
+msgstr ""
+
+#: oc-admin/themes/modern/tools/database.php
+msgid "Extra items: nothing to do"
+msgstr ""
 
 #: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
 msgid "Extra listing runtime"
@@ -3975,6 +4027,7 @@ msgstr "نتوانستیم فیلد مورد نظر را اضافه کنیم"
 msgid "Fields"
 msgstr "فیلدها"
 
+#: oc-admin/themes/modern/tools/database.php
 #: oc-includes/osclass/classes/datatables/MediaDataTable.php
 msgid "File"
 msgstr "فایل"
@@ -3982,10 +4035,6 @@ msgstr "فایل"
 #: oc-includes/osclass/classes/storage/StorageJobs.php
 msgid "File #%d"
 msgstr ""
-
-#: oc-admin/themes/modern/tools/import.php
-msgid "File (.sql)"
-msgstr "پرونده (.sql)"
 
 #: oc-includes/AjaxUploader.php
 msgid "File has an invalid extension, it should be one of %s."
@@ -4506,10 +4555,6 @@ msgstr "اگر مقدار صفر باشد، به این معنی است که ه�
 msgid "If this was not you, change your password now. Until you do, the code step can make you wait."
 msgstr ""
 
-#: oc-admin/themes/modern/tools/backup.php
-msgid "If you don't specify a backup folder, the backup files will be created in the "
-msgstr ""
-
 #: oc-includes/osclass/classes/admin/form/SpamSettingsForm.php
 msgid "If you see a captcha widget below, the active provider is configured correctly"
 msgstr "اگر ویجت کپچا را در پایین مشاهده کردید، یعنی ارائه‌دهنده خدمات مربوطه به‌درستی پیکربندی شده است"
@@ -4553,7 +4598,6 @@ msgstr "Imagick نصب شده اما انتخاب نشده است؛ بنابرا
 
 #: oc-admin/themes/modern/languages/index.php
 #: oc-admin/themes/modern/settings/keywordBlock.php
-#: oc-admin/themes/modern/tools/import.php
 msgid "Import"
 msgstr "وارد کردن"
 
@@ -4576,11 +4620,6 @@ msgstr "یک زبان را از پایگاه داده ما وارد کنید. "
 #: oc-admin/themes/modern/languages/index.php
 msgid "Import a language from the catalog or upload a package to add one."
 msgstr "یک زبان را از کاتالوگ وارد کنید یا یک پکیج را آپلود کنید تا آن زبان اضافه شود."
-
-#: oc-admin/themes/modern/tools/import.php
-#: oc-includes/osclass/classes/AdminMenu.php
-msgid "Import data"
-msgstr "وارد کردن اطلاعات"
 
 #: oc-admin/themes/modern/settings/locations/form.php
 msgid "Import from the catalog instead"
@@ -4699,15 +4738,7 @@ msgid "Include regions"
 msgstr "مناطق را نیز لحاظ کنید"
 
 #: oc-admin/themes/modern/tools/database.php
-msgid "Index columns differ"
-msgstr ""
-
-#: oc-admin/themes/modern/tools/database.php
-msgid "Index is missing"
-msgstr ""
-
-#: oc-admin/themes/modern/tools/database.php
-msgid "Index is not declared by core"
+msgid "Index has different columns"
 msgstr ""
 
 #: oc-admin/themes/modern/tools/system-info.php
@@ -4890,6 +4921,10 @@ msgstr "توصیه می <b>این</b> فعال باشد، زیرا برخی وی
 #: oc-includes/osclass/classes/admin/form/LatestSearchSettingsForm.php
 msgid "It may be useful to know what queries users make."
 msgstr "ممکن است مفید باشد که بدانید کاربران چه پرس و جوهایی می کنند."
+
+#: oc-admin/themes/modern/tools/database.php
+msgid "It must be outside the site folder, so the public cannot download it."
+msgstr ""
 
 #: oc-includes/osclass/classes/datatables/AlertsDataTable.php
 msgid "It no longer sends email. Ask the user to save the search again."
@@ -5891,6 +5926,22 @@ msgstr "عدم برخوردها"
 msgid "Missing"
 msgstr "ناموجود"
 
+#: oc-admin/themes/modern/tools/database.php
+msgid "Missing column"
+msgstr ""
+
+#: oc-admin/themes/modern/tools/database.php
+msgid "Missing index"
+msgstr ""
+
+#: oc-admin/themes/modern/tools/database.php
+msgid "Missing primary key"
+msgstr ""
+
+#: oc-admin/themes/modern/tools/database.php
+msgid "Missing table"
+msgstr ""
+
 #: oc-includes/osclass/classes/admin/form/CommentSettingsForm.php
 msgid "Moderated comments"
 msgstr ""
@@ -6047,7 +6098,6 @@ msgstr "زمینه سفارشی جدید"
 #: oc-admin/themes/modern/settings/locations/form.php
 #: oc-admin/themes/modern/settings/locations/list.php
 #: oc-admin/themes/modern/stats/users.php
-#: oc-admin/themes/modern/tools/database.php
 #: oc-admin/themes/modern/users/frm.php
 #: oc-admin/themes/modern/users/index.php
 #: oc-includes/osclass/classes/admin/form/AdminAccountForm.php
@@ -6134,6 +6184,10 @@ msgstr ""
 msgid "Needs a CAPTCHA provider configured under Settings &raquo; reCAPTCHA/Turnstile; otherwise no challenge is shown."
 msgstr "نیاز به پیکربندی یک ارائه‌دهنده CAPTCHA در تنظیمات &raquo; reCAPTCHA/Turnstile دارد؛ در غیر این صورت هیچ چالشی نمایش داده نمی‌شود."
 
+#: oc-admin/themes/modern/tools/database.php
+msgid "Needs a closer look"
+msgstr ""
+
 #: oc-admin/themes/modern/comments/index.php
 #: oc-admin/themes/modern/users/frm.php
 #: oc-includes/osclass/classes/datatables/AlertsDataTable.php
@@ -6161,6 +6215,10 @@ msgstr "هرگز منقضی نمی شود"
 #: oc-admin/themes/modern/fields/submissions.php
 msgid "New"
 msgstr "جدید"
+
+#: oc-admin/themes/modern/tools/database.php
+msgid "New Shopclass files are in place, but the database has not caught up yet. "
+msgstr ""
 
 #: oc-admin/themes/modern/settings/locations/preview.php
 msgid "New address"
@@ -6364,6 +6422,10 @@ msgstr "هنوز هیچ فیلدی وجود ندارد. برای شروع کار
 #: oc-includes/osclass/classes/controller/admin/ajax/CAdminAjax.php
 msgid "No file was received"
 msgstr "هیچ فایلی دریافت نشده است"
+
+#: oc-includes/osclass/classes/admin/DatabaseTools.php
+msgid "No file was uploaded"
+msgstr ""
 
 #: oc-includes/AjaxUploader.php
 msgid "No files were uploaded."
@@ -6662,6 +6724,10 @@ msgstr ""
 
 #: oc-admin/themes/modern/parts/market.php
 msgid "Nothing to browse yet"
+msgstr ""
+
+#: oc-admin/themes/modern/tools/database.php
+msgid "Nothing was waiting. The database is up to date."
 msgstr ""
 
 #: oc-admin/themes/modern/items/settings.php
@@ -7196,6 +7262,10 @@ msgstr ""
 msgid "Photos per listing"
 msgstr "تعداد عکس‌ها در هر آگهی"
 
+#: oc-admin/themes/modern/tools/database.php
+msgid "Photos, plugins and themes are files, not database: back them up on %s."
+msgstr ""
+
 #: oc-admin/themes/modern/fields/submissions.php
 msgid "Pick a form to see its submissions"
 msgstr "یک فرم انتخاب کنید تا ارسالی‌های آن را ببینید"
@@ -7298,6 +7368,10 @@ msgstr "فیلدهای اتصال زیر را با یک نقطه شروع برا
 #: oc-includes/osclass/classes/datatables/ItemsDataTable.php
 msgid "Premium"
 msgstr "ویژه"
+
+#: oc-admin/themes/modern/tools/database.php
+msgid "Press Repair to fix them. Take a backup first."
+msgstr ""
 
 #: oc-admin/themes/modern/appearance/index.php
 #: oc-admin/themes/modern/media/index.php
@@ -7734,6 +7808,14 @@ msgid "Repair"
 msgstr "تعمیر"
 
 #: oc-admin/themes/modern/tools/database.php
+msgid "Repair can fix these"
+msgstr ""
+
+#: oc-admin/themes/modern/tools/database.php
+msgid "Repair does not change these. Ask for help before changing the table by hand."
+msgstr ""
+
+#: oc-admin/themes/modern/tools/database.php
 msgid "Repair result"
 msgstr ""
 
@@ -7852,6 +7934,22 @@ msgstr "راه‌اندازی مجدد نصب‌کننده"
 msgid "Restaurant - Food Service"
 msgstr "رستوران - خدمات غذا"
 
+#: oc-admin/themes/modern/tools/database.php
+msgid "Restore"
+msgstr ""
+
+#: oc-admin/themes/modern/tools/database.php
+msgid "Restore from a backup"
+msgstr ""
+
+#: oc-admin/themes/modern/tools/database.php
+msgid "Restore from this file"
+msgstr ""
+
+#: oc-admin/themes/modern/tools/database.php
+msgid "Restore from this file?"
+msgstr ""
+
 #: oc-includes/osclass/classes/admin/form/MediaSettingsForm.php
 msgid "Restrictions"
 msgstr "محدودیت ها"
@@ -7892,6 +7990,10 @@ msgstr "ردیف‌ها"
 msgid "Rows per page"
 msgstr "تعداد ردیف‌ها در هر صفحه"
 
+#: oc-admin/themes/modern/tools/database.php
+msgid "Run an .sql backup file against this database, such as one saved above."
+msgstr ""
+
 #: oc-admin/themes/modern/tools/cleanup.php
 msgid "Run cleanup now"
 msgstr "اجرای پاکسازی هم‌اکنون"
@@ -7899,6 +8001,22 @@ msgstr "اجرای پاکسازی هم‌اکنون"
 #: oc-admin/themes/modern/tools/cleanup.php
 msgid "Run cleanup now?"
 msgstr "اکنون پاکسازی اجرا شود؟"
+
+#: oc-admin/themes/modern/tools/database.php
+msgid "Run database update"
+msgstr ""
+
+#: oc-admin/themes/modern/tools/database.php
+msgid "Run it"
+msgstr ""
+
+#: oc-admin/themes/modern/tools/database.php
+msgid "Run the database update first. Most of these will then be gone."
+msgstr ""
+
+#: oc-admin/themes/modern/tools/database.php
+msgid "Run the database update?"
+msgstr ""
 
 #: oc-admin/themes/modern/tools/jobs.php
 msgid "Run waiting jobs now"
@@ -7938,9 +8056,9 @@ msgstr "شنبه"
 msgid "Save"
 msgstr "ذخیره"
 
-#: oc-admin/themes/modern/tools/backup.php
-msgid "Save a backup of all of your site's information: listings, users and configuration."
-msgstr "یک نسخه پشتیبان از تمام اطلاعات سایت خود شامل آگهی‌ها، کاربران و تنظیمات ذخیره کنید."
+#: oc-admin/themes/modern/tools/database.php
+msgid "Save a copy of the database: listings, users, categories and settings. Take one before an update or a repair."
+msgstr ""
 
 #: oc-includes/osclass/classes/admin/form/MediaSettingsForm.php
 msgid "Save as JPEG"
@@ -7970,6 +8088,10 @@ msgstr "ذخیره تنظیمات انتقال بانکی"
 #: oc-includes/osclass/helpers/hAdminUi.php
 msgid "Save changes"
 msgstr "ذخیره تغییرات"
+
+#: oc-admin/themes/modern/tools/database.php
+msgid "Save in a folder on the server"
+msgstr ""
 
 #: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
 msgid "Save limits"
@@ -8188,6 +8310,10 @@ msgstr "ببینید چقدر از نظرات آگهی های سایت دریا�
 msgid "See how many listings from your site have been reported as spam, expired, duplicate, etc."
 msgstr "ببینید چقدر از آگهی های سایت شما هرزه نامه گزارش شده اند و یا تاریخ گذشته، تکراری، و غیره."
 
+#: oc-admin/themes/modern/tools/database.php
+msgid "See the list"
+msgstr ""
+
 #: oc-includes/osclass/classes/form/FieldForm.php
 msgid "Select"
 msgstr "انتخاب"
@@ -8383,6 +8509,7 @@ msgid "Serve files through time-limited signed URLs."
 msgstr "فایل‌ها را از طریق آدرس‌های URL امضا شده و با محدودیت زمانی ارائه دهید."
 
 #: oc-admin/themes/modern/tools/cache.php
+#: oc-admin/themes/modern/tools/database.php
 msgid "Server"
 msgstr "سرور"
 
@@ -8393,6 +8520,11 @@ msgstr "فهرست بررسی سرور"
 #: oc-includes/AjaxUploader.php
 msgid "Server error. Upload directory isn't writable."
 msgstr "خطا در سرور: دایرکتوری برای آپلود داده‌ها قابل نوشتن نیست."
+
+#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/upgrade.php
+msgid "Server folder"
+msgstr ""
 
 #: oc-includes/osclass/classes/admin/form/MailServerSettingsForm.php
 msgid "Server port"
@@ -8541,13 +8673,13 @@ msgstr "Shopclass نمی‌تواند در %s بنویسد؛ بنابراین ه
 msgid "Shopclass checks once a day. Check now if you are expecting something."
 msgstr ""
 
-#: oc-admin/themes/modern/tools/database.php
-msgid "Shopclass declares"
-msgstr ""
-
 #: oc-includes/osclass/classes/admin/form/MediaSettingsForm.php
 msgid "Shopclass doesn't check the watermark image size"
 msgstr "Shopclass اندازه تصویر حاوی نشانه آب را بررسی نمی‌کند"
+
+#: oc-admin/themes/modern/tools/database.php
+msgid "Shopclass expects"
+msgstr ""
 
 #: oc-admin/themes/modern/tools/system-info.php
 msgid "Shopclass health"
@@ -8562,7 +8694,7 @@ msgid "Shopclass installed security update %2$s on %1$s, replacing %3$s. Restart
 msgstr ""
 
 #: oc-includes/osclass/classes/upgrade/AutoSecurityUpdate.php
-msgid "Shopclass installed the files of security update %2$s on %1$s, but the database step failed: %3$s. Open Tools, then Update, in the admin to finish it."
+msgid "Shopclass installed the files of security update %2$s on %1$s, but the database step failed: %3$s. Open Tools, then Database, in the admin to finish it."
 msgstr ""
 
 #: oc-includes/osclass/installer/gui/install.php
@@ -8598,6 +8730,7 @@ msgid "Shopclass upgraded successfully."
 msgstr "Shopclass با موفقیت ارتقا یافت."
 
 #: oc-admin/themes/modern/main/index.php
+#: oc-admin/themes/modern/tools/database.php
 #: oc-admin/themes/modern/tools/system-info.php
 msgid "Shopclass version"
 msgstr "نسخه Shopclass"
@@ -8755,6 +8888,7 @@ msgstr "تنظیمات نقشه سایت"
 
 #: oc-admin/themes/modern/media/index.php
 #: oc-admin/themes/modern/parts/market.php
+#: oc-admin/themes/modern/tools/database.php
 msgid "Size"
 msgstr "اندازه"
 
@@ -8879,10 +9013,6 @@ msgstr ""
 msgid "State"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/database.php
-msgid "Statement"
-msgstr ""
-
 #: oc-admin/themes/modern/pages/index.php
 msgid "Static pages like \"About Us\" or \"Info\" live here."
 msgstr "صفحات استاتیک مانند «درباره ما» یا «اطلاعات» در اینجا قرار دارند."
@@ -8908,6 +9038,7 @@ msgstr "آمار"
 #: oc-admin/themes/modern/settings/locations/form.php
 #: oc-admin/themes/modern/settings/locations/list.php
 #: oc-admin/themes/modern/tools/cache.php
+#: oc-admin/themes/modern/tools/database.php
 #: oc-includes/osclass/classes/admin/ui/Editor.php
 #: oc-includes/osclass/classes/datatables/CommentsDataTable.php
 #: oc-includes/osclass/classes/datatables/ItemsDataTable.php
@@ -8926,6 +9057,10 @@ msgstr "در هنگام تسویه‌حساب پنهان می‌ماند تا ز
 #: oc-admin/themes/modern/fields/iframe.php
 msgid "Step"
 msgstr "مرحله"
+
+#: oc-admin/themes/modern/tools/database.php
+msgid "Still to do"
+msgstr ""
 
 #: oc-admin/themes/modern/languages/frm.php
 msgid "Stopwords"
@@ -8985,7 +9120,6 @@ msgstr "ارسالی"
 msgid "Submissions"
 msgstr "ارسالی‌ها"
 
-#: oc-admin/themes/modern/tools/backup.php
 #: oc-includes/osclass/helpers/hForms.php
 msgid "Submit"
 msgstr "ارسال"
@@ -9055,10 +9189,6 @@ msgstr "وضعیت سیستم"
 
 #: oc-admin/themes/modern/tools/database.php
 msgid "Table"
-msgstr ""
-
-#: oc-admin/themes/modern/tools/database.php
-msgid "Table is missing"
 msgstr ""
 
 #: oc-includes/osclass/installer/gui/install-database.php
@@ -9179,6 +9309,14 @@ msgstr "نام کاربری مدیر تنها می‌تواند شامل حرو�
 msgid "The available version has changed since you loaded this page; refresh and try again."
 msgstr "نسخهٔ موجود از زمانی که این صفحه را بارگذاری کرده‌اید تغییر کرده است؛ صفحه را بازخوانی کرده و دوباره امتحان کنید."
 
+#: oc-includes/osclass/classes/admin/DatabaseTools.php
+msgid "The backup folder does not exist."
+msgstr ""
+
+#: oc-includes/osclass/classes/admin/DatabaseTools.php
+msgid "The backup folder is not writable."
+msgstr ""
+
 #: oc-includes/osclass/classes/market/Installer.php
 msgid "The catalog entry is missing a version or a download url."
 msgstr "ورودی کاتالوگ فاقد نسخه یا آدرس دانلود است."
@@ -9239,6 +9377,16 @@ msgstr ""
 msgid "The database Shopclass should use."
 msgstr "پایگاه داده‌ای که Shopclass باید از آن استفاده کند."
 
+#: oc-admin/themes/modern/tools/upgrade.php
+msgid "The database is backed up on %s."
+msgstr ""
+
+#: oc-admin/themes/modern/tools/database.php
+msgid "The database is updated. %d update ran."
+msgid_plural "The database is updated. %d updates ran."
+msgstr[0] ""
+msgstr[1] ""
+
 #: oc-includes/osclass/install-functions.php
 msgid "The database returned an unexpected error (code %s). Your hosting support will "
 msgstr "پایگاه داده یک خطای غیرمنتظره برگرداند (کد %s). پشتیبانی میزبانی شما "
@@ -9247,6 +9395,7 @@ msgstr "پایگاه داده یک خطای غیرمنتظره برگرداند 
 msgid "The database server rejected that username and password. Re-copy them from "
 msgstr "سرور پایگاه داده آن نام کاربری و رمز عبور را رد کرد. آن‌ها را دوباره از "
 
+#: oc-admin/themes/modern/tools/database.php
 #: oc-includes/osclass/classes/upgrade/AutoSecurityUpdate.php
 msgid "The database update failed."
 msgstr ""
@@ -9274,6 +9423,10 @@ msgstr "گروه فیلد حذف شده است"
 #: oc-includes/osclass/install-functions.php
 msgid "The file %s doesn't exist"
 msgstr "فایل %s وجود ندارد"
+
+#: oc-includes/osclass/classes/admin/DatabaseTools.php
+msgid "The file is larger than this server accepts (%s). Raise upload_max_filesize and post_max_size, or restore from the command line."
+msgstr ""
 
 #: oc-includes/osclass/classes/controller/admin/ajax/CAdminAjax.php
 msgid "The file is not a valid image"
@@ -9363,6 +9516,10 @@ msgstr ""
 msgid "The plugin folder is not writable on your server so you cannot upload "
 msgstr "پوشه مربوط به افزونه‌ها در سرور شما قابل نوشتن نیست؛ بنابراین نمی‌توانید آن را آپلود کنید "
 
+#: oc-admin/themes/modern/tools/database.php
+msgid "The same update the command line runs with db:upgrade. On a large site it can take a few minutes."
+msgstr ""
+
 #: oc-admin/themes/modern/settings/locations.php
 msgid "The search could not be run. Check your connection and try again."
 msgstr ""
@@ -9439,6 +9596,10 @@ msgstr "پوشه translations در سرور شما قابل نوشتن نیست 
 msgid "The upgrade did not finish"
 msgstr "این به‌روزرسانی تمام نشد"
 
+#: oc-includes/osclass/classes/admin/DatabaseTools.php
+msgid "The upload failed. Try again."
+msgstr ""
+
 #: oc-includes/osclass/install-functions.php
 msgid "The user connected, but isn't allowed to write to this database. Grant it "
 msgstr "کاربر متصل شده است، اما اجازه نوشتن در این پایگاه داده را ندارد. این اجازه را به او بدهید "
@@ -9457,6 +9618,10 @@ msgstr "ویجت‌های زیر این صفحه را تشکیل می‌دهند
 
 #: oc-admin/themes/modern/tools/jobs.php
 msgid "The work they were going to do will never happen. This can't be undone."
+msgstr ""
+
+#: oc-admin/themes/modern/tools/upgrade.php
+msgid "The zip is saved here. It must be outside the site folder, so the public cannot download it. A large site can run out of time: then use the command line."
 msgstr ""
 
 #: oc-includes/osclass/classes/market/Installer.php
@@ -9543,8 +9708,16 @@ msgstr "این اقدام قابل بازگرداندن نیست. آیا مطم�
 msgid "This action cannot be done because it is a demo site"
 msgstr "این اقدام مقدور نیست.چون این سایت به صورت آزمایشی میباشد."
 
+#: oc-admin/themes/modern/tools/database.php
+msgid "This adds what is missing and fixes column types. It does not touch extra columns or indexes, and it can take a while on a large site. Take a backup first."
+msgstr ""
+
 #: oc-admin/themes/modern/admins/two_factor.php
 msgid "This admin signs in with a code from an authenticator app."
+msgstr ""
+
+#: oc-admin/themes/modern/tools/database.php
+msgid "This applies the waiting updates in order. Keep the page open until it finishes. Take a backup first."
 msgstr ""
 
 #: oc-admin/themes/modern/billing/wallet.php
@@ -9563,17 +9736,9 @@ msgstr "در مورد دسته‌بندی‌های بزرگ، این کار مم
 msgid "This cannot be undone."
 msgstr ""
 
-#: oc-admin/themes/modern/tools/database.php
-msgid "This changes table structure and can take a while on a large site. Take a backup first."
-msgstr ""
-
 #: oc-includes/osclass/install-functions.php
 msgid "This database already has Shopclass tables in it. Choose a different table "
 msgstr "این پایگاه داده هم‌اکنون دارای جداول Shopclass است. یک پیشوند جدول متفاوت "
-
-#: oc-admin/themes/modern/tools/database.php
-msgid "This database has"
-msgstr ""
 
 #: oc-includes/osclass/install-functions.php
 msgid "This database has a Shopclass install that did not finish. Turn on \"Remove the "
@@ -9601,6 +9766,10 @@ msgstr[1] "این فیلد در فرم‌های %d مورد استفاده قر�
 msgid "This file will be removed from the server. The listing, user or page it "
 msgstr "این فایل از سرور حذف خواهد شد. آگهی، کاربر یا صفحه‌ای که آن "
 
+#: oc-includes/osclass/classes/admin/DatabaseTools.php
+msgid "This folder is inside the site, so anyone could download the backup. Pick a folder outside it."
+msgstr ""
+
 #: oc-admin/themes/modern/parts/market.php
 msgid "This folder isn't writable, so nothing can be installed from here."
 msgstr ""
@@ -9625,10 +9794,6 @@ msgstr ""
 msgid "This is an example page description. This is a good place to put your Terms of Service or any other help information."
 msgstr "این یک نمونه توضیحات صفحه است. این مکان خوبی برای قرار دادن قوانین و شرایط استفاده از خدمات یا هر اطلاعات کمکی می باشد. "
 
-#: oc-admin/themes/modern/tools/backup.php
-msgid "This is the folder in which your backups will be created. We recommend that you "
-msgstr ""
-
 #: oc-includes/osclass/classes/admin/form/SpamSettingsForm.php
 msgid "This key is valid"
 msgstr "این کلید معتبر است"
@@ -9652,6 +9817,10 @@ msgstr "این کار تنها آن را از فرآیند پرداخت حذف �
 #: oc-admin/themes/modern/items/settings.php
 msgid "This option will send an email X days before an ad expires to the author. 0 for no email."
 msgstr "این گزینه یک ایمیل X روز قبل از منقضی شدن آگهی به نویسنده ارسال خواهد کرد. 0 برای هیچ ایمیل."
+
+#: oc-admin/themes/modern/tools/database.php
+msgid "This overwrites data. The file can change or delete anything in your database, and it cannot be undone. Take a backup first."
+msgstr ""
 
 #: oc-includes/osclass/classes/controller/admin/ajax/CAdminAjax.php
 msgid "This package is already installed; use Update instead."
@@ -9724,6 +9893,10 @@ msgstr "این کار باعث می‌شود ویجت بلافاصله از بخ
 
 #: oc-admin/themes/modern/tools/system-info.php
 msgid "This request's address matches every forwarding header sent with it — no proxy misconfiguration detected."
+msgstr ""
+
+#: oc-admin/themes/modern/tools/database.php
+msgid "This server accepts files up to %s. Restore a larger file from the command line."
 msgstr ""
 
 #: oc-includes/osclass/install-functions.php
@@ -9879,11 +10052,9 @@ msgstr ""
 msgid "Too old. Shopclass is built and tested against PHP 8.0 and up."
 msgstr "خیلی قدیمی است. Shopclass بر اساس PHP 8.0 و نسخه‌های بالاتر ساخته و آزمایش شده است."
 
-#: oc-admin/themes/modern/tools/backup.php
 #: oc-admin/themes/modern/tools/cache.php
 #: oc-admin/themes/modern/tools/cleanup.php
 #: oc-admin/themes/modern/tools/database.php
-#: oc-admin/themes/modern/tools/import.php
 #: oc-admin/themes/modern/tools/jobs.php
 #: oc-admin/themes/modern/tools/logs.php
 #: oc-admin/themes/modern/tools/maintenance.php
@@ -9893,6 +10064,10 @@ msgstr "خیلی قدیمی است. Shopclass بر اساس PHP 8.0 و نسخه�
 #: oc-includes/osclass/classes/AdminMenu.php
 msgid "Tools"
 msgstr "ابزارها"
+
+#: oc-admin/themes/modern/tools/upgrade.php
+msgid "Tools » Database"
+msgstr ""
 
 #: oc-includes/osclass/classes/admin/form/MediaSettingsForm.php
 msgid "Top Left"
@@ -10080,6 +10255,7 @@ msgstr "قادر به دنبال ارتقاء، اطلاعات بسته نامع
 msgid "Unable to unzip package file."
 msgstr "قادر به باز کردن فایل بسته بندی نشده است."
 
+#: oc-includes/osclass/classes/admin/DatabaseTools.php
 #: oc-includes/osclass/classes/upgrade/Osclass.php
 msgid "Unable to upgrade Database"
 msgstr "قادر به ارتقاء پایگاه داده"
@@ -10181,6 +10357,7 @@ msgstr ""
 
 #: oc-admin/themes/modern/plugins/configuration.php
 #: oc-admin/themes/modern/settings/locations/data.php
+#: oc-admin/themes/modern/tools/database.php
 #: oc-includes/osclass/classes/controller/admin/CAdminLanguages.php
 msgid "Update"
 msgstr "بروزرسانی"
@@ -10286,6 +10463,7 @@ msgstr "ارتقاء یادداشت ها:"
 msgid "Upgrade Now to "
 msgstr "ارتقاء در حال حاضر به "
 
+#: oc-admin/themes/modern/tools/database.php
 #: oc-includes/osclass/classes/AdminMenu.php
 msgid "Upgrade Shopclass"
 msgstr "ارتقاء Shopclass"
@@ -10325,10 +10503,6 @@ msgstr "آپلود"
 #: oc-admin/themes/modern/languages/index.php
 msgid "Upload language"
 msgstr "آپلود زبان"
-
-#: oc-admin/themes/modern/tools/import.php
-msgid "Upload registers from other Shopclass installations or upload new geographic information to your site. "
-msgstr "رجیسترهای مربوط به سایر نصب‌های Shopclass را آپلود کنید یا اطلاعات جغرافیایی جدید را به وب‌سایت خود اضافه نمایید. "
 
 #: oc-includes/osclass/classes/controller/admin/ajax/CAdminAjax.php
 msgid "Upload target not allowed"
@@ -10820,6 +10994,7 @@ msgstr "هفتگی"
 msgid "Welcome to Shopclass"
 msgstr "به Shopclass خوش آمدید"
 
+#: oc-admin/themes/modern/tools/database.php
 #: oc-admin/themes/modern/tools/jobs.php
 msgid "What"
 msgstr ""
@@ -11058,12 +11233,20 @@ msgstr "رمز عبور فعلی شما"
 msgid "Your database already matched this version of Shopclass."
 msgstr "پایگاه داده شما از قبل با این نسخه از Shopclass سازگار بوده است."
 
+#: oc-admin/themes/modern/tools/database.php
+msgid "Your database has"
+msgstr ""
+
+#: oc-admin/themes/modern/tools/database.php
+msgid "Your database has every table, column and index Shopclass expects."
+msgstr ""
+
 #: oc-admin/themes/modern/upgrade/index.php
 msgid "Your database is up to date"
 msgstr "پایگاه داده شما به‌روزرسانی شده است"
 
 #: oc-admin/themes/modern/tools/database.php
-msgid "Your database matches what Shopclass declares."
+msgid "Your database is up to date and healthy."
 msgstr ""
 
 #: oc-includes/osclass/classes/actions/ItemActions.php
@@ -11342,6 +11525,7 @@ msgstr "mbstring"
 msgid "minutes"
 msgstr ""
 
+#: oc-admin/themes/modern/tools/database.php
 #: oc-admin/themes/modern/tools/system-info.php
 msgid "missing"
 msgstr "موجود نیست"

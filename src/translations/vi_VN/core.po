@@ -14,11 +14,15 @@ msgstr ""
 "X-Crowdin-File: /develop/src/templates/core.pot\n"
 "X-Crowdin-File-ID: 8259\n"
 "Language-Team: Vietnamese\n"
-"PO-Revision-Date: 2026-09-29 17:47\n"
+"PO-Revision-Date: 2026-09-29 19:05\n"
 
 #: oc-includes/osclass/functions.php
 msgid " is available"
 msgstr " có sẵn"
+
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "%1$d entries, %2$s"
+msgstr ""
 
 #: oc-includes/osclass/classes/controller/admin/CAdminTools.php
 msgid "%1$d linked folder was skipped: %2$s (it points outside oc-content)."
@@ -47,15 +51,11 @@ msgstr[0] ""
 msgid "%1$s credits held across %2$s accounts"
 msgstr "%1$s credit được giữ trên %2$s tài khoản"
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "%1$s entries, %2$s"
-msgstr "%1$s bản ghi, %2$s"
-
 #: oc-includes/osclass/functions.php
 msgid "%1$s in %2$s"
 msgstr "%1$s trong %2$s"
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "%1$s is older than Shopclass supports. Ask your host for MySQL %2$s or MariaDB %3$s or newer."
 msgstr ""
 
@@ -79,16 +79,16 @@ msgstr ""
 msgid "%1$s orders · %2$s paid · %3$s awaiting payment"
 msgstr "%1$s đơn hàng · %2$s đã thanh toán · %3$s chờ thanh toán"
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "%1$s per file, %2$s per request."
-msgstr "%1$s mỗi tệp, %2$s mỗi yêu cầu."
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "%1$s per file · %2$s per request"
+msgstr ""
 
 #: oc-admin/themes/modern/settings/locations/list.php
 msgid "%1$s region starting with “%2$s”"
 msgid_plural "%1$s regions starting with “%2$s”"
 msgstr[0] ""
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-admin/themes/modern/tools/system-info/server.php
 msgid "%1$s surfaces errors while you diagnose a problem; %2$s sends them to a log file instead of the page. Both belong off on a live site."
 msgstr "%1$s hiển thị lỗi trong khi bạn chẩn đoán sự cố; %2$s gửi chúng đến tệp nhật ký thay vì hiển thị trên trang. Cả hai đều nên tắt trên một trang web đang hoạt động."
 
@@ -144,7 +144,7 @@ msgstr[0] "%d thay đổi"
 msgid "%d continuing"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "%d database update is waiting."
 msgid_plural "%d database updates are waiting."
 msgstr[0] ""
@@ -158,14 +158,14 @@ msgstr[0] "%d ngày"
 msgid "%d days"
 msgstr "%d ngày"
 
-#: oc-admin/themes/modern/tools/database.php
-msgid "%d difference Repair can fix."
-msgid_plural "%d differences Repair can fix."
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "%d difference in the database needs a closer look."
+msgid_plural "%d differences in the database need a closer look."
 msgstr[0] ""
 
-#: oc-admin/themes/modern/tools/database.php
-msgid "%d difference needs a closer look."
-msgid_plural "%d differences need a closer look."
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "%d difference in the database that Repair can fix."
+msgid_plural "%d differences in the database that Repair can fix."
 msgstr[0] ""
 
 #: oc-includes/osclass/classes/job/JobWorker.php
@@ -209,6 +209,10 @@ msgstr[0] "Còn %d thay đổi nữa"
 msgid "%d per page"
 msgstr "%d mỗi trang"
 
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "%d s"
+msgstr ""
+
 #: oc-admin/themes/modern/categories/index.php
 msgid "%d subcategory"
 msgid_plural "%d subcategories"
@@ -218,7 +222,7 @@ msgstr[0] "%d tiểu mục"
 msgid "%d submissions"
 msgstr "%d lượt gửi"
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "%d table"
 msgid_plural "%d tables"
 msgstr[0] ""
@@ -241,11 +245,15 @@ msgid "%d widget"
 msgid_plural "%d widgets"
 msgstr[0] "%d widget"
 
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "%s (not installed)"
+msgstr ""
+
 #: oc-admin/themes/modern/billing/order.php
 msgid "%s (plugin not installed)"
 msgstr "%s (plugin chưa cài đặt)"
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 #: oc-includes/osclass/helpers/hAdminUi.php
 msgid "%s ago"
 msgstr "%s trước"
@@ -333,10 +341,6 @@ msgstr ""
 #: oc-includes/osclass/classes/ImageProcessing.php
 msgid "%s is not readable!"
 msgstr "%s không đọc được!"
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "%s is on. That is for development — on a live site it exposes internal detail and slows requests. Turn it off in config.php."
-msgstr "%s đang bật. Chế độ đó dành cho phát triển — trên trang web đang hoạt động, nó làm lộ chi tiết nội bộ và làm chậm các yêu cầu. Hãy tắt nó trong config.php."
 
 #: oc-includes/osclass/classes/forms/FieldValidator.php
 msgid "%s is required."
@@ -517,8 +521,8 @@ msgid "A captcha is set up above, so the per-account limit is off. "
 msgstr ""
 
 #: oc-admin/themes/modern/tools/system-info.php
-msgid "A checked view of the environment Shopclass is running on: what it needs, what it can and cannot do, and where a quiet misconfiguration would bite."
-msgstr "Một góc nhìn đã được kiểm tra về môi trường Shopclass đang chạy: những gì nó cần, những gì nó có thể và không thể làm, và nơi cấu hình sai âm thầm có thể gây hại."
+msgid "A checked view of your site: what needs doing, the database, and the server it runs on."
+msgstr ""
 
 #: oc-includes/osclass/classes/admin/form/CommentSettingsForm.php
 msgid "A comment is being held for moderation"
@@ -549,13 +553,18 @@ msgstr "Một bình luận mới được đăng"
 msgid "A package is what a buyer picks at checkout. Add one to start selling credits."
 msgstr "Gói là những gì người mua chọn khi thanh toán. Hãy thêm một gói để bắt đầu bán tín dụng."
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid "A plugin or someone on your team added these. Shopclass does not need them, and Repair leaves them alone. Delete one only if you are sure nothing uses it."
 msgstr ""
 
 #: oc-admin/themes/modern/tools/logs.php
 msgid "A record of admin and listing activity — who did what, and when. "
 msgstr "Bản ghi hoạt động của admin và rao vặt — ai đã làm gì, và khi nào. "
+
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "A required PHP extension is missing: %s."
+msgid_plural "Required PHP extensions are missing: %s."
+msgstr[0] ""
 
 #: oc-admin/themes/modern/tools/backup.php
 msgid "A safety copy of today's database is saved first."
@@ -790,7 +799,7 @@ msgstr "Thêm vùng"
 msgid "Add theme"
 msgstr "Thêm chủ đề"
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-admin/themes/modern/tools/system-info/server.php
 msgid "Add these near the top of %1$s, above its closing %2$s."
 msgstr "Thêm các dòng này vào gần đầu %1$s, phía trên %2$s đóng của nó."
 
@@ -878,7 +887,7 @@ msgstr "Địa chỉ: không quá 100 ký tự"
 msgid "Addresses and accounts with failures in the last %d minutes. Unblock one to let it try again at once."
 msgstr ""
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid "Adds what is missing and fixes column types. Extra columns and indexes are left alone."
 msgstr ""
 
@@ -1047,6 +1056,10 @@ msgstr ""
 msgid "All credits"
 msgstr "Tất cả tín dụng"
 
+#: oc-admin/themes/modern/tools/system-info/server.php
+msgid "All loaded PHP extensions (%d)"
+msgstr ""
+
 #: oc-admin/themes/modern/billing/package.php
 msgid "All packages"
 msgstr "Tất cả các gói"
@@ -1067,7 +1080,7 @@ msgstr ""
 msgid "Allow attached files in contact publisher form"
 msgstr "Cho phép các tệp đính kèm ở dạng nhà xuất bản liên hệ"
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-admin/themes/modern/tools/system-info/server.php
 msgid "Allow bigger photo uploads"
 msgstr "Cho phép tải lên ảnh lớn hơn"
 
@@ -1486,6 +1499,10 @@ msgstr ""
 msgid "Back up first"
 msgstr ""
 
+#: oc-admin/themes/modern/tools/upgrade.php
+msgid "Back up first: %s."
+msgstr ""
+
 #: oc-admin/themes/modern/settings/storage.php
 msgid "Backfill existing images between local disk and remote storage. Each action queues "
 msgstr "Đồng bộ bổ sung các hình ảnh hiện có giữa đĩa cục bộ và bộ lưu trữ từ xa. Mỗi thao tác được đưa vào hàng đợi "
@@ -1536,11 +1553,15 @@ msgstr ""
 msgid "Backup saved: %1$s, %2$s, %3$s."
 msgstr ""
 
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "Backups folder"
+msgstr ""
+
 #: oc-admin/themes/modern/tools/backup.php
 msgid "Backups you save on the server are listed here. Downloads are not kept."
 msgstr ""
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-admin/themes/modern/tools/system-info/server.php
 msgid "Backups, imports and upgrades run inside %s. Raise it if they time out."
 msgstr "Sao lưu, nhập liệu và nâng cấp chạy trong %s. Hãy tăng giá trị này nếu chúng bị quá thời gian chờ."
 
@@ -1772,10 +1793,6 @@ msgstr "Đĩa ghi - CD"
 msgid "Cache"
 msgstr "Bộ nhớ đệm"
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Caching through the %s driver."
-msgstr "Lưu bộ nhớ đệm thông qua trình điều khiển %s."
-
 #: oc-admin/themes/modern/tools/category.php
 msgid "Calculate category stats"
 msgstr "Tính toán các thống kê theo danh mục"
@@ -1972,7 +1989,7 @@ msgstr "Thay đổi"
 msgid "Change advanced configuration of your Shopclass. "
 msgstr "Thay đổi cấu hình nâng cao cho Shopclass của bạn. "
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid "Change made"
 msgstr ""
 
@@ -2025,10 +2042,6 @@ msgstr ""
 msgid "Changing the category changes which details apply below."
 msgstr ""
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Check"
-msgstr "Kiểm tra"
-
 #: oc-includes/osclass/installer/gui/install.php
 msgid "Check again"
 msgstr "Kiểm tra lại"
@@ -2041,7 +2054,7 @@ msgstr ""
 msgid "Check all"
 msgstr "Kiểm tra tất cả"
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid "Check and repair"
 msgstr ""
 
@@ -2301,6 +2314,10 @@ msgstr "Cloudflare Turnstile"
 msgid "Code"
 msgstr "Mã"
 
+#: oc-admin/themes/modern/tools/backup.php
+msgid "Code from your app, or a backup code"
+msgstr ""
+
 #: oc-admin/themes/modern/parts/header.php
 msgid "Collapse"
 msgstr "Thu gọn"
@@ -2321,11 +2338,11 @@ msgstr "Thu gọn hoặc mở rộng biểu mẫu này"
 msgid "Collapse or expand this section"
 msgstr "Thu gọn hoặc mở rộng khu vực này"
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid "Column differs in whether it can be empty"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid "Column has a different type"
 msgstr ""
 
@@ -2462,10 +2479,6 @@ msgstr "Được cấu hình thông qua hằng số OSC_CACHE."
 msgid "Confirm new password"
 msgstr "Xác nhận mật khẩu mới"
 
-#: oc-admin/themes/modern/tools/upgrade.php
-msgid "Congratulations! Your Shopclass installation is up to date!"
-msgstr "Chúc mừng! Bản cài đặt Shopclass của bạn đã là mới nhất!"
-
 #: oc-includes/osclass/installer/gui/install.php
 msgid "Connect database"
 msgstr "Kết nối cơ sở dữ liệu"
@@ -2535,12 +2548,9 @@ msgid "Contact, feed &amp; language"
 msgstr "Liên hệ, nguồn cấp &amp; ngôn ngữ"
 
 #: oc-includes/osclass/classes/AdminMenu.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "Content"
 msgstr "Nội dung"
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Content path"
-msgstr "Đường dẫn nội dung"
 
 #: oc-includes/osclass/installer/gui/install-database.php
 #: oc-includes/osclass/installer/gui/install.php
@@ -2598,11 +2608,11 @@ msgstr "Không thể kiểm tra bản cập nhật"
 msgid "Could not reach the catalog: %s."
 msgstr "Không thể kết nối đến danh mục: %s."
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "Could not read the database structure: %s"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid "Could not read the schema: %s"
 msgstr ""
 
@@ -2755,13 +2765,21 @@ msgstr "Credit là những gì thành viên dùng cho các tính năng trả ph�
 msgid "Credits — %s"
 msgstr "Tín dụng — %s"
 
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "Cron"
+msgstr ""
+
 #: oc-includes/osclass/classes/admin/form/MainSettingsForm.php
 msgid "Cron Settings"
 msgstr "Thiết đặt Cron"
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Cron has run recently — update checks, alerts and cleanup are firing."
-msgstr "Cron đã chạy gần đây — việc kiểm tra cập nhật, cảnh báo và dọn dẹp đang hoạt động."
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "Cron has never run. Update checks, alert emails and cleanup wait for it."
+msgstr ""
+
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "Cron has not run for %s."
+msgstr ""
 
 #: oc-admin/themes/modern/settings/billing.php
 #: oc-admin/themes/modern/settings/currencies.php
@@ -2799,10 +2817,6 @@ msgstr "Biểu tượng tiền tệ"
 #: oc-includes/osclass/classes/form/ItemForm.php
 msgid "Currency: make your selection"
 msgstr "Tiền tệ: lựa chọn của bạn"
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Current PHP values"
-msgstr "Các giá trị PHP hiện tại"
 
 #: oc-admin/themes/modern/users/frm.php
 msgid "Current avatar"
@@ -2897,8 +2911,8 @@ msgid "Data"
 msgstr ""
 
 #: oc-admin/themes/modern/tools/backup.php
-#: oc-admin/themes/modern/tools/database.php
-#: oc-includes/osclass/classes/AdminMenu.php
+#: oc-admin/themes/modern/tools/system-info.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 #: oc-includes/osclass/classes/backup/BackupJobs.php
 msgid "Database"
 msgstr ""
@@ -2923,15 +2937,11 @@ msgstr ""
 msgid "Database name"
 msgstr "Tên cơ sở dữ liệu"
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Database server"
-msgstr "Máy chủ cơ sở dữ liệu"
-
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid "Database update"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "Database version"
 msgstr ""
 
@@ -2995,9 +3005,13 @@ msgstr "Vô hiệu"
 msgid "Dead-lettered jobs (past the retry ceiling):"
 msgstr "Các tác vụ thất bại (vượt quá giới hạn số lần thử lại):"
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "Debug mode"
 msgstr "Chế độ gỡ lỗi"
+
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "Debug mode is on. On a live site it shows internal details and slows pages."
+msgstr ""
 
 #: oc-includes/osclass/helpers/hUtils.php
 msgid "Dec"
@@ -3325,10 +3339,6 @@ msgstr "Chi tiết"
 msgid "Details: %s"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Detects the true type of an uploaded file. Without it, upload validation is weaker."
-msgstr "Phát hiện loại thực sự của tệp tải lên. Không có nó, việc xác thực tải lên sẽ yếu hơn."
-
 #: oc-admin/themes/modern/languages/frm.php
 msgid "Direction"
 msgstr "Hướng chữ"
@@ -3384,7 +3394,7 @@ msgstr "Tư liệu"
 msgid "Documentation on date and time formatting"
 msgstr "Tài liệu về định dạng ngày và giờ"
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 #: oc-includes/osclass/installer/gui/install.php
 msgid "Done"
 msgstr "Xong"
@@ -3781,10 +3791,6 @@ msgstr "Kích hoạt với giá bằng 0 có nghĩa là mọi người bán đ�
 msgid "Encryption"
 msgstr "Mã hóa"
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Encrypts outgoing mail over TLS and secures tokens."
-msgstr "Mã hoá email gửi đi qua TLS và bảo mật token."
-
 #: oc-includes/osclass/classes/admin/form/StorageSettingsForm.php
 msgid "Endpoint"
 msgstr "Endpoint"
@@ -3849,10 +3855,6 @@ msgstr "Nhập địa chỉ email của bạn"
 msgid "Entries"
 msgstr "Các mục"
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Environment"
-msgstr "Môi trường"
-
 #: oc-includes/osclass/functions.php
 msgid "Error"
 msgstr "Lỗi"
@@ -3872,10 +3874,6 @@ msgstr "Tổ chức sự kiện"
 #: oc-includes/osclass/installer/basic_data.php
 msgid "Events"
 msgstr "Các sự kiện"
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Every ajax response, and every stored preference."
-msgstr "Mọi phản hồi ajax và mọi tuỳ chọn đã lưu."
 
 #: oc-admin/themes/modern/billing/wallet.php
 msgid "Every change to this balance is written down here and never edited, "
@@ -3922,11 +3920,11 @@ msgstr ""
 msgid "Everything Else"
 msgstr "Các thứ khác"
 
-#: oc-admin/themes/modern/tools/database.php
-msgid "Everything about your database in one place: its state, waiting updates, "
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "Everything looks fine."
 msgstr ""
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid "Everything matches. Nothing to repair."
 msgstr ""
 
@@ -3992,7 +3990,11 @@ msgstr ""
 msgid "Expires after"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "Extensions"
+msgstr ""
+
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid "Extra column"
 msgstr ""
 
@@ -4000,11 +4002,11 @@ msgstr ""
 msgid "Extra days"
 msgstr "Ngày bổ sung"
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid "Extra index"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid "Extra items: nothing to do"
 msgstr ""
 
@@ -4022,7 +4024,7 @@ msgstr "Suất đăng bổ sung"
 
 #: oc-admin/themes/modern/billing/index.php
 #: oc-admin/themes/modern/billing/order.php
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid "Failed"
 msgstr "Thất bại"
 
@@ -4070,14 +4072,6 @@ msgstr "Cho ăn"
 msgid "Feedback"
 msgstr "Phản hồi"
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Fetches update checks and talks to the market and remote services. Without it, those downloads fail."
-msgstr "Thực hiện kiểm tra cập nhật và kết nối với chợ ứng dụng cùng các dịch vụ từ xa. Không có nó, các lượt tải xuống đó sẽ thất bại."
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Fewer uploads allowed than photos offered"
-msgstr "Số tệp tải lên được phép ít hơn số ảnh cho phép"
-
 #: oc-admin/themes/modern/fields/submissions.php
 msgid "Field"
 msgstr "Trường"
@@ -4090,7 +4084,7 @@ msgstr "Không thể thêm trường"
 msgid "Fields"
 msgstr "Các trường"
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 #: oc-includes/osclass/classes/datatables/MediaDataTable.php
 msgid "File"
 msgstr "Tập tin"
@@ -4122,6 +4116,14 @@ msgstr ""
 
 #: oc-admin/themes/modern/tools/backup.php
 msgid "Files added since the backup are left in place."
+msgstr ""
+
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "Files and storage"
+msgstr ""
+
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "Files per request"
 msgstr ""
 
 #: oc-includes/osclass/install-functions.php
@@ -4221,6 +4223,10 @@ msgstr "Biểu mẫu"
 msgid "Form could not be created"
 msgstr "Không thể tạo biểu mẫu"
 
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "Form fields per request"
+msgstr ""
+
 #: oc-admin/themes/modern/fields/index.php
 #: oc-admin/themes/modern/fields/submissions.php
 #: oc-includes/osclass/classes/AdminMenu.php
@@ -4237,13 +4243,16 @@ msgid "Free"
 msgstr "Miễn phí"
 
 #: oc-admin/themes/modern/main/index.php
-#: oc-admin/themes/modern/tools/system-info.php
 msgid "Free disk space"
 msgstr "Dung lượng đĩa còn trống"
 
 #: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
 msgid "Free listings per seller"
 msgstr "Số rao vặt miễn phí cho mỗi người bán"
+
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "Free space"
+msgstr ""
 
 #: oc-includes/osclass/classes/admin/form/MediaSettingsForm.php
 msgid "Freetype library is required. How to <a target=\"_blank\" rel=\"noopener\" href=\"%s\">install/configure</a>"
@@ -4298,10 +4307,6 @@ msgstr "Từ đây, bạn có thể sửa hoặc xoá những rao vặt bị th�
 msgid "From the Cloudflare dashboard &raquo; Turnstile."
 msgstr "Từ bảng điều khiển Cloudflare &raquo; Turnstile."
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "GD"
-msgstr "GD"
-
 #: oc-includes/osclass/install-functions.php
 msgid "GD extension for PHP"
 msgstr "Phần mở rộng GD cho PHP"
@@ -4309,10 +4314,6 @@ msgstr "Phần mở rộng GD cho PHP"
 #: oc-includes/osclass/install-functions.php
 msgid "GD extension is required. How to "
 msgstr "Yêu cầu tiện ích mở rộng GD. Cách "
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "GD is resizing your photos. It works and is fully supported — but it cannot read some formats (animated GIF frames, CMYK JPEGs) and resizes at lower quality than Imagick. On a photo-heavy site, installing the Imagick extension is worth it."
-msgstr "GD đang thay đổi kích thước ảnh của bạn. Nó hoạt động và được hỗ trợ đầy đủ — nhưng nó không thể đọc một số định dạng (khung hình GIF động, JPEG CMYK) và thay đổi kích thước với chất lượng thấp hơn Imagick. Trên một trang web nhiều ảnh, việc cài đặt tiện ích mở rộng Imagick là rất đáng giá."
 
 #: oc-includes/osclass/classes/admin/form/MailServerSettingsForm.php
 msgid "GMail Server"
@@ -4391,10 +4392,6 @@ msgstr "Các trường được nhóm sẽ kế thừa chuyên mục từ nhóm 
 msgid "HTML Code for the Widget"
 msgstr "Mã HTML cho Widget"
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Handles non-Latin text throughout the site."
-msgstr "Xử lý văn bản không phải chữ Latinh trên toàn bộ trang web."
-
 #: oc-includes/osclass/installer/basic_data.php
 msgid "Health - Beauty"
 msgstr "Khoẻ - Đẹp"
@@ -4414,10 +4411,6 @@ msgstr "Trợ giúp"
 #: oc-admin/themes/modern/fields/iframe.php
 msgid "Help text"
 msgstr "Văn bản trợ giúp"
-
-#: oc-admin/themes/modern/tools/upgrade.php
-msgid "Hey, a new version %s is available for download. Check details below."
-msgstr "Hey, một phiên bản mới %s có sẵn để tải xuống. Kiểm tra chi tiết bên dưới."
 
 #: oc-includes/osclass/install-functions.php
 msgid "Hi %s,"
@@ -4535,10 +4528,6 @@ msgstr "Bán nhà"
 msgid "Housing Swap"
 msgstr "Trao đổi nhà"
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "How Shopclass talks to the database — the site cannot run without it."
-msgstr "Cách Shopclass giao tiếp với cơ sở dữ liệu — trang web không thể chạy nếu thiếu nó."
-
 #: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
 msgid "How long a listing must wait before it can be bumped again."
 msgstr "Thời gian một rao vặt phải chờ trước khi có thể đẩy tin lại."
@@ -4546,10 +4535,6 @@ msgstr "Thời gian một rao vặt phải chờ trước khi có thể đẩy t
 #: oc-includes/osclass/classes/admin/form/StorageSettingsForm.php
 msgid "How long a signed URL stays valid (60-604800)."
 msgstr ""
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "How long one request may run. Backups and imports must finish inside it."
-msgstr "Thời gian một yêu cầu có thể chạy. Việc sao lưu và nhập liệu phải hoàn tất trong khoảng thời gian đó."
 
 #: oc-includes/osclass/classes/admin/form/LatestSearchSettingsForm.php
 msgid "How long queries are stored"
@@ -4559,32 +4544,29 @@ msgstr "Các truy vấn được lưu trữ trong bao lâu"
 msgid "How many credits"
 msgstr "Số lượng tín dụng"
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "How many files can ride in one upload — your photos-per-listing has to fit under this."
-msgstr "Số lượng tệp có thể gửi trong một lần tải lên — số ảnh cho mỗi rao vặt của bạn phải nằm trong giới hạn này."
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "How many form fields one request may carry. Large category trees and settings forms can approach it."
-msgstr "Số trường biểu mẫu một yêu cầu có thể chứa. Cây chuyên mục lớn và biểu mẫu thiết lập có thể chạm tới giới hạn này."
-
 #: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
 msgid "How many of a seller's listings may be live "
 msgstr "Số lượng rao vặt của người bán có thể đang hoạt động "
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "How much memory one request may use. Resizing a big photo is the hungriest thing Shopclass does."
-msgstr "Dung lượng bộ nhớ một yêu cầu có thể sử dụng. Thay đổi kích thước một bức ảnh lớn là tác vụ tốn tài nguyên nhất mà Shopclass thực hiện."
 
 #: oc-includes/osclass/classes/admin/form/MediaSettingsForm.php
 msgid "How new photos are saved. "
 msgstr ""
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "How to change things"
-msgstr "Cách thay đổi"
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "How to change it"
+msgstr ""
+
+#: oc-admin/themes/modern/tools/system-info/server.php
+msgid "How to change these settings"
+msgstr ""
 
 #: oc-admin/themes/modern/tools/backup.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "How to close it"
+msgstr ""
+
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "How to set up cron"
 msgstr ""
 
 #: oc-includes/osclass/installer/basic_data.php
@@ -4656,9 +4638,9 @@ msgstr "Nếu bạn muốn thay đổi mật khẩu, hãy nhập mật khẩu m�
 msgid "Image"
 msgstr "Ảnh"
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Image processing"
-msgstr "Xử lý hình ảnh"
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "Image library"
+msgstr ""
 
 #: oc-includes/osclass/classes/admin/form/MediaSettingsForm.php
 msgid "Image sizes"
@@ -4672,17 +4654,13 @@ msgstr "ImageMagick"
 msgid "ImageMagick library is not loaded"
 msgstr "Thư viện ImageMagick không được tải"
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Imagick"
-msgstr "Imagick"
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "Imagick is installed but not selected. It resizes at higher quality: turn it on under Settings > Media."
+msgstr ""
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Imagick is installed and selected — the preferred library. It reads more formats and produces higher-quality resizes than GD."
-msgstr "Imagick đã được cài đặt và được chọn — thư viện được ưu tiên. Nó đọc được nhiều định dạng hơn và thay đổi kích thước với chất lượng cao hơn GD."
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Imagick is installed but not selected, so GD is doing the work. Imagick handles more formats and resizes at higher quality — switch to it under %s."
-msgstr "Imagick đã được cài đặt nhưng chưa được chọn, vì vậy GD đang thực hiện công việc. Imagick xử lý nhiều định dạng hơn và thay đổi kích thước với chất lượng cao hơn — hãy chuyển sang dùng nó trong %s."
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "Imagick reads more formats and resizes at higher quality. It is worth installing on a photo-heavy site."
+msgstr ""
 
 #: oc-admin/themes/modern/languages/index.php
 #: oc-admin/themes/modern/settings/keywordBlock.php
@@ -4745,7 +4723,7 @@ msgstr "Trong %d biểu mẫu"
 msgid "In %s"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-admin/themes/modern/tools/system-info/server.php
 msgid "In config.php"
 msgstr "Trong config.php"
 
@@ -4753,7 +4731,7 @@ msgstr "Trong config.php"
 msgid "In every email"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-admin/themes/modern/tools/system-info/server.php
 msgid "In php.ini"
 msgstr "Trong php.ini"
 
@@ -4768,10 +4746,6 @@ msgstr "Đang được sử dụng"
 #: oc-admin/themes/modern/parts/market.php
 msgid "In-app installs are disabled on this deployment."
 msgstr "Cài đặt trong ứng dụng đã bị vô hiệu trên bản triển khai này."
-
-#: oc-admin/themes/modern/tools/upgrade.php
-msgid "In-app updates are disabled"
-msgstr "Cập nhật trong ứng dụng đã bị vô hiệu"
 
 #: oc-admin/themes/modern/parts/market.php
 msgid "In-app updates are disabled on this deployment. Install and update by deploying a new image or file set; this screen is read-only."
@@ -4825,17 +4799,9 @@ msgstr "Bao gồm các trang"
 msgid "Include regions"
 msgstr "Bao gồm các vùng"
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid "Index has different columns"
 msgstr ""
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Info"
-msgstr "Thông tin"
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Input validation across the core."
-msgstr "Xác thực dữ liệu đầu vào trên toàn bộ phần lõi."
 
 #: oc-admin/themes/modern/parts/market.php
 #: oc-admin/themes/modern/plugins/index.php
@@ -4864,7 +4830,7 @@ msgstr ""
 msgid "Install a country with its regions and cities, or bring one you have up to date. Importing never deletes a location that holds listings."
 msgstr ""
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-admin/themes/modern/tools/system-info/server.php
 msgid "Install a missing extension"
 msgstr "Cài đặt tiện ích mở rộng còn thiếu"
 
@@ -4880,9 +4846,9 @@ msgstr "Cài đặt hoặc gỡ bỏ các plugin có sẵn trong bản cài đ�
 msgid "Install security updates by themselves."
 msgstr ""
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Install the OS package (for example %1$s or %2$s), make sure an %3$s line is present, and restart PHP. The Overview tab will flip to “installed”."
-msgstr "Cài đặt gói hệ điều hành (ví dụ %1$s hoặc %2$s), đảm bảo có dòng %3$s, và khởi động lại PHP. Tab Tổng quan sẽ chuyển sang “đã cài đặt”."
+#: oc-admin/themes/modern/tools/system-info/server.php
+msgid "Install the OS package (for example %1$s or %2$s), make sure an %3$s line is present, and restart PHP. This page then lists it as installed."
+msgstr ""
 
 #: oc-includes/osclass/installer/gui/install.php
 msgid "Installation progress"
@@ -4901,10 +4867,6 @@ msgstr "Đã cài đặt"
 #: oc-admin/themes/modern/settings/locations/preview.php
 msgid "Installing…"
 msgstr "Đang cài đặt…"
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Installs and updates plugins and themes, and builds backups."
-msgstr "Cài đặt và cập nhật plugins cùng themes, và tạo các bản sao lưu."
 
 #: oc-admin/themes/modern/emails/frm.php
 #: oc-admin/themes/modern/pages/frm.php
@@ -5059,10 +5021,6 @@ msgstr ""
 msgid "Its saved search could not be read."
 msgstr ""
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "JSON"
-msgstr "JSON"
-
 #: oc-includes/osclass/helpers/hUtils.php
 msgid "Jan"
 msgstr "01"
@@ -5139,10 +5097,6 @@ msgstr ""
 msgid "Keep this high: many people can share one address at an office or on mobile."
 msgstr ""
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Keeps compiled PHP in memory instead of recompiling every request."
-msgstr "Giữ PHP đã biên dịch trong bộ nhớ thay vì biên dịch lại mỗi yêu cầu."
-
 #: oc-admin/themes/modern/tools/cache.php
 msgid "Keeps data between requests"
 msgstr "Lưu trữ dữ liệu giữa các yêu cầu"
@@ -5218,18 +5172,6 @@ msgstr "Cập nhật ngôn ngữ"
 msgid "Languages"
 msgstr "Ngôn ngữ"
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Largest single file a visitor can upload."
-msgstr "Tệp đơn lớn nhất mà khách truy cập có thể tải lên."
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Largest single upload"
-msgstr "Dung lượng tải lên đơn lẻ lớn nhất"
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Largest whole request. Must be at least upload_max_filesize, ideally a little more."
-msgstr "Toàn bộ yêu cầu lớn nhất. Phải ít nhất bằng upload_max_filesize, lý tưởng nhất là nhiều hơn một chút."
-
 #: oc-admin/themes/modern/stats/comments.php
 #: oc-admin/themes/modern/stats/items.php
 #: oc-admin/themes/modern/stats/reports.php
@@ -5254,6 +5196,10 @@ msgstr "10 tuần cuối"
 #: oc-admin/themes/modern/users/frm.php
 msgid "Last access"
 msgstr "Truy cập cuối cùng"
+
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "Last backup"
+msgstr ""
 
 #: oc-admin/themes/modern/billing/credits.php
 msgid "Last change"
@@ -5346,11 +5292,11 @@ msgstr "Để trống trường này"
 msgid "Legal"
 msgstr "Pháp lý"
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-admin/themes/modern/tools/system-info/server.php
 msgid "Let a listing carry more photos"
 msgstr "Cho phép một rao vặt chứa nhiều ảnh hơn"
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-admin/themes/modern/tools/system-info/server.php
 msgid "Let long jobs finish"
 msgstr "Cho phép các tác vụ chạy lâu hoàn thành"
 
@@ -5505,6 +5451,15 @@ msgstr "URL của rao vặt"
 msgid "Listings"
 msgstr "Rao vặt"
 
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "Listings allow %1$d photos, but PHP takes only %2$d files per request and drops the rest."
+msgstr ""
+
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "Listings allow %d photo."
+msgid_plural "Listings allow %d photos."
+msgstr[0] ""
+
 #: oc-admin/themes/modern/settings/keywordBlock.php
 msgid "Listings already flagged by this keyword stay as they are; only future matching stops."
 msgstr "Các rao vặt đã bị đánh dấu bởi từ khóa này vẫn giữ nguyên; chỉ việc so khớp trong tương lai mới dừng lại."
@@ -5580,10 +5535,6 @@ msgstr ""
 #: oc-admin/themes/modern/parts/package-ui.php
 msgid "Live"
 msgstr ""
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Loaded PHP extensions"
-msgstr "Các tiện ích mở rộng PHP đã tải"
 
 #: oc-admin/themes/modern/parts/market.php
 msgid "Loading details…"
@@ -5669,10 +5620,6 @@ msgstr "Đăng nhập"
 msgid "Logout"
 msgstr "Thoát ra"
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Long tasks such as backups and imports must finish inside this."
-msgstr "Các tác vụ chạy lâu như sao lưu và nhập liệu phải hoàn thành trong khoảng này."
-
 #: oc-includes/osclass/installer/basic_data.php
 msgid "Lost And Found"
 msgstr "Tìm đồ thất lạc"
@@ -5711,8 +5658,8 @@ msgstr ""
 msgid "Maintenance"
 msgstr "Bảo trì"
 
-#: oc-admin/themes/modern/tools/system-info.php
 #: oc-includes/osclass/classes/AdminMenu.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "Maintenance mode"
 msgstr "Chế độ bảo trì"
 
@@ -5720,8 +5667,12 @@ msgstr "Chế độ bảo trì"
 msgid "Maintenance mode is on — only signed-in admins can see the site right now."
 msgstr "Chế độ bảo trì đang bật — chỉ admin đã đăng nhập mới có thể xem trang web lúc này."
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Maintenance mode is on, but the public site is not blocked. Visitors can still use the site and see a banner. Remove the %s file to hide it, or enable lockout under Tools → Maintenance."
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "Maintenance mode is on, but visitors can still use the site and see a banner."
+msgstr ""
+
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "Maintenance mode is on. Visitors see the maintenance page."
 msgstr ""
 
 #: oc-admin/themes/modern/tools/maintenance.php
@@ -5729,6 +5680,7 @@ msgid "Maintenance mode is: <strong>%s</strong>"
 msgstr "Chế độ bảo trì đang: <strong>%s</strong>"
 
 #: oc-admin/themes/modern/tools/backup.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 #: oc-includes/osclass/classes/backup/BackupJobs.php
 msgid "Make a backup"
 msgstr ""
@@ -5921,10 +5873,6 @@ msgstr ""
 msgid "Matching now"
 msgstr "Khớp hiện tại"
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Max execution time"
-msgstr "Thời gian thực thi tối đa"
-
 #: oc-admin/themes/modern/fields/iframe.php
 msgid "Max length"
 msgstr "Độ dài tối đa"
@@ -5952,7 +5900,6 @@ msgstr "Tháng năm"
 #: oc-admin/themes/modern/media/index.php
 #: oc-admin/themes/modern/parts/media-picker.php
 #: oc-admin/themes/modern/settings/media.php
-#: oc-admin/themes/modern/tools/system-info.php
 #: oc-includes/osclass/classes/AdminMenu.php
 msgid "Media"
 msgstr "Đa phương tiện"
@@ -5967,16 +5914,12 @@ msgstr "Thiết đặt Phương tiện"
 msgid "Media library"
 msgstr "Thư viện đa phương tiện"
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Media settings"
-msgstr "Thiết lập đa phương tiện"
-
 #: oc-admin/themes/modern/tools/cache.php
 msgid "Memory"
 msgstr "Bộ nhớ"
 
 #: oc-admin/themes/modern/main/index.php
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "Memory limit"
 msgstr "Giới hạn bộ nhớ"
 
@@ -6039,19 +5982,19 @@ msgstr "Lượt trượt"
 msgid "Missing"
 msgstr "Thiếu"
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid "Missing column"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid "Missing index"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid "Missing primary key"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid "Missing table"
 msgstr ""
 
@@ -6297,7 +6240,7 @@ msgstr ""
 msgid "Needs a CAPTCHA provider configured under Settings &raquo; reCAPTCHA/Turnstile; otherwise no challenge is shown."
 msgstr "Cần cấu hình nhà cung cấp CAPTCHA trong Thiết lập &raquo; reCAPTCHA/Turnstile; nếu không sẽ không có thử thách nào được hiển thị."
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid "Needs a closer look"
 msgstr ""
 
@@ -6311,9 +6254,9 @@ msgstr ""
 msgid "Needs setting up"
 msgstr "Cần thiết lập"
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Neither Imagick nor GD is installed, so no uploaded photo can be resized and image uploads fail. Install the GD extension at minimum; Imagick is better still."
-msgstr "Cả Imagick lẫn GD đều chưa được cài đặt, vì vậy không thể thay đổi kích thước ảnh tải lên và việc tải ảnh lên sẽ thất bại. Hãy cài đặt tối thiểu tiện ích mở rộng GD; Imagick còn tốt hơn nữa."
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "Neither Imagick nor GD is installed, so photos cannot be resized and image uploads fail."
+msgstr ""
 
 #: oc-admin/themes/modern/items/frm.php
 #: oc-includes/osclass/classes/controller/admin/CAdminItems.php
@@ -6329,7 +6272,7 @@ msgstr "không hết hạn"
 msgid "New"
 msgstr "Mới"
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid "New Shopclass files are in place, but the database has not caught up yet. Run these updates to finish."
 msgstr ""
 
@@ -6430,10 +6373,6 @@ msgstr "Ảnh chụp màn hình tiếp theo"
 msgid "No"
 msgstr "Không"
 
-#: oc-admin/themes/modern/tools/upgrade.php
-msgid "No Upgrade Available"
-msgstr "Không có Nâng cấp sẵn dùng"
-
 #: oc-admin/themes/modern/tools/logs.php
 msgid "No activity has been logged yet."
 msgstr "Chưa có hoạt động nào được ghi lại."
@@ -6448,6 +6387,14 @@ msgstr "Chưa có cảnh báo nào"
 
 #: oc-admin/themes/modern/tools/jobs.php
 msgid "No background work has run yet."
+msgstr ""
+
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "No backup has been saved on the server yet."
+msgstr ""
+
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "No backup in the last 30 days."
 msgstr ""
 
 #: oc-includes/osclass/classes/market/Installer.php
@@ -6512,10 +6459,6 @@ msgstr ""
 msgid "No credits moved yet"
 msgstr "Chưa có biến động tín dụng nào"
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "No cron run has been recorded. Update checks, alert emails and cleanup depend on it. Schedule %s to run regularly."
-msgstr "Chưa có lần chạy cron nào được ghi nhận. Việc kiểm tra cập nhật, email cảnh báo và dọn dẹp phụ thuộc vào nó. Hãy lên lịch chạy %s định kỳ."
-
 #: oc-includes/osclass/classes/controller/admin/ajax/CAdminAjax.php
 msgid "No details are available for this package yet."
 msgstr "Chưa có thông tin chi tiết cho gói này."
@@ -6563,10 +6506,6 @@ msgstr "Không có kết nối internet. Bạn có thể tiếp tục và thêm 
 #: oc-admin/themes/modern/languages/index.php
 msgid "No languages yet"
 msgstr "Chưa có ngôn ngữ nào"
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "No limit — whatever runs long, runs."
-msgstr "Không giới hạn — tác vụ nào chạy lâu thì cứ chạy."
 
 #: oc-admin/themes/modern/settings/locations/form.php
 msgid "No listings are placed there."
@@ -6632,10 +6571,6 @@ msgstr "Chưa có trang nào cả"
 msgid "No payment methods installed"
 msgstr "Không có phương thức thanh toán nào được cài đặt"
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "No persistent cache configured, so per-request work is recomputed each time. Set %1$s in config.php to a driver such as %2$s or %3$s for a real speed-up on a busy site."
-msgstr "Chưa cấu hình bộ đệm liên tục, do đó công việc theo từng yêu cầu được tính toán lại mỗi lần. Hãy đặt %1$s trong config.php thành một trình điều khiển như %2$s hoặc %3$s để tăng tốc thực sự cho một trang web bận rộn."
-
 #: oc-admin/themes/modern/plugins/index.php
 msgid "No plugins installed"
 msgstr "Không có plugin nào được cài đặt"
@@ -6670,7 +6605,7 @@ msgid "No room for more photos."
 msgstr ""
 
 #: oc-admin/themes/modern/tools/backup.php
-msgid "No saved backups yet"
+msgid "No saved backups yet."
 msgstr ""
 
 #: oc-admin/themes/modern/functions.php
@@ -6770,10 +6705,6 @@ msgstr "Không phân tầng"
 msgid "Not compatible"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Not enabled. PHP recompiles every file on every request. It is the cheapest performance win available, and it is one ini line."
-msgstr "Chưa kích hoạt. PHP biên dịch lại mọi tệp trên mỗi yêu cầu. Đây là cách cải thiện hiệu năng tiết kiệm nhất hiện có, và chỉ cần một dòng cấu hình ini."
-
 #: oc-includes/osclass/classes/backup/Builder.php
 msgid "Not enough space on the server: needs about %1$s, %2$s free. Nothing was saved."
 msgstr ""
@@ -6847,7 +6778,7 @@ msgstr ""
 msgid "Nothing needed changing."
 msgstr "Không có gì cần phải thay đổi."
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid "Nothing needed repairing."
 msgstr ""
 
@@ -6863,7 +6794,7 @@ msgstr ""
 msgid "Nothing was saved."
 msgstr ""
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info.php
 msgid "Nothing was waiting. The database is up to date."
 msgstr ""
 
@@ -6922,21 +6853,21 @@ msgstr "Số lượng người đăng ký mới"
 msgid "OFF"
 msgstr "TẮT"
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "OK"
-msgstr "OK"
-
 #: oc-admin/themes/modern/items/index.php
 #: oc-admin/themes/modern/tools/maintenance.php
 #: oc-admin/themes/modern/users/index.php
 msgid "ON"
 msgstr "MỞ"
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "OPcache"
 msgstr "OPcache"
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "OPcache is off, so PHP recompiles every file on every request."
+msgstr ""
+
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "Object cache"
 msgstr "Bộ đệm đối tượng"
 
@@ -6949,7 +6880,6 @@ msgid "October"
 msgstr "Tháng mười"
 
 #: oc-admin/themes/modern/admins/two_factor.php
-#: oc-admin/themes/modern/tools/system-info.php
 msgid "Off"
 msgstr "Tắt"
 
@@ -6960,14 +6890,6 @@ msgstr ""
 #: oc-includes/osclass/classes/admin/form/KeywordBlockSettingsForm.php
 msgid "Off by default: a match is quarantined (flagged spam and hidden) so it can be "
 msgstr ""
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Off, as it should be on a live site."
-msgstr "Tắt, đúng như nên có trên một trang web đang hoạt động."
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Off. Some remote fetches fall back to cURL; update and market features rely on one of the two being available."
-msgstr "Tắt. Một số lượt lấy dữ liệu từ xa sẽ chuyển sang dùng cURL; các tính năng cập nhật và chợ tiện ích phụ thuộc vào việc có sẵn một trong hai."
 
 #: oc-admin/themes/modern/stats/reports.php
 #: oc-includes/osclass/classes/datatables/ItemsDataTable.php
@@ -6998,10 +6920,6 @@ msgstr ""
 msgid "On a match"
 msgstr "Khi trùng khớp"
 
-#: oc-admin/themes/modern/tools/upgrade.php
-msgid "Once the upgrade is complete, you will be redirected to the Admin Control Panel."
-msgstr "Sau khi nâng cấp hoàn tất, bạn sẽ được chuyển hướng đến Pa-nen Điều khiển Quản trị."
-
 #: oc-admin/themes/modern/tools/backup.php
 msgid "One backup at a time."
 msgstr ""
@@ -7030,6 +6948,10 @@ msgstr[0] "%s vị trí đã bị xóa"
 #: oc-includes/osclass/classes/admin/form/LatestSearchSettingsForm.php
 msgid "One week"
 msgstr "Một tuần"
+
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "Only %s of disk space is left. Uploads and backups fail when it runs out."
+msgstr ""
 
 #: oc-admin/themes/modern/items/settings.php
 msgid "Only allow registered users to contact publisher"
@@ -7081,10 +7003,6 @@ msgstr "Mở bảng điều khiển admin của bạn"
 msgid "Open your authenticator app and scan the QR code."
 msgstr ""
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "OpenSSL"
-msgstr "OpenSSL"
-
 #: oc-admin/themes/modern/items/settings.php
 msgid "OpenStreetMaps"
 msgstr "OpenStreetMaps"
@@ -7093,7 +7011,7 @@ msgstr "OpenStreetMaps"
 msgid "OpenStreetMaps key"
 msgstr "Khóa OpenStreetMaps"
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "Operating system"
 msgstr "Hệ điều hành"
 
@@ -7176,20 +7094,28 @@ msgstr ""
 msgid "Overview"
 msgstr "Tổng quan"
 
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "PHP"
+msgstr ""
+
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "PHP %s is past end of life and gets no security fixes. Move to PHP 8."
+msgstr ""
+
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "PHP %s is too old. Shopclass is built and tested against PHP 8.0 and up."
+msgstr ""
+
 #: oc-admin/themes/modern/parts/market.php
 msgid "PHP %s or newer"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "PHP rejects the whole request before it looks at the file, so the %1$s you advertise is unreachable — an upload over %2$s fails with an empty form. Raise %3$s above %4$s."
-msgstr "PHP từ chối toàn bộ yêu cầu trước khi xem xét tệp, vì vậy mức %1$s bạn thông báo sẽ không thể đạt tới — tệp tải lên vượt quá %2$s sẽ thất bại với biểu mẫu trống. Hãy tăng %3$s lên cao hơn %4$s."
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "PHP settings &amp; help"
-msgstr "Thiết lập PHP &amp; trợ giúp"
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "PHP and web server"
+msgstr ""
 
 #: oc-admin/themes/modern/main/index.php
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "PHP version"
 msgstr "Phiên bản PHP"
 
@@ -7305,6 +7231,10 @@ msgstr "Bãi đậu xe"
 msgid "Password"
 msgstr "Mật khẩu"
 
+#: oc-admin/themes/modern/settings/spamNbots.php
+msgid "Password check before a restore"
+msgstr ""
+
 #: oc-includes/osclass/classes/form/AdminForm.php
 #: oc-includes/osclass/classes/form/UserForm.php
 msgid "Password: enter at least 5 characters"
@@ -7327,7 +7257,7 @@ msgstr "Dán danh sách từ khóa phân tách bằng dấu phẩy — hữu íc
 msgid "Path-style URLs"
 msgstr "URL theo dạng đường dẫn"
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "Paths"
 msgstr "Đường dẫn"
 
@@ -7397,6 +7327,10 @@ msgstr ""
 msgid "Photo quality"
 msgstr ""
 
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "Photo storage"
+msgstr ""
+
 #: oc-admin/themes/modern/items/frm.php
 #: oc-includes/osclass/classes/admin/ui/PhotoGrid.php
 msgid "Photos"
@@ -7413,10 +7347,6 @@ msgstr ""
 #: oc-admin/themes/modern/tools/backup.php
 msgid "Photos live in your S3 bucket and are not copied. They stay there. Turn on versioning in the bucket to keep old copies."
 msgstr ""
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Photos per listing"
-msgstr "Số ảnh trên mỗi rao vặt"
 
 #: oc-admin/themes/modern/tools/backup.php
 msgid "Photos, plugins, themes, languages"
@@ -7483,6 +7413,7 @@ msgstr "Cập nhật plugin"
 #: oc-admin/themes/modern/plugins/index.php
 #: oc-admin/themes/modern/plugins/view.php
 #: oc-includes/osclass/classes/AdminMenu.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "Plugins"
 msgstr "Plugins"
 
@@ -7494,15 +7425,11 @@ msgstr "Trang Plugins"
 msgid "Plugins extend what the panel and your site can do. Install one from Browse, or upload its zip file."
 msgstr ""
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Plugins path"
-msgstr "Đường dẫn plugins"
-
 #: oc-admin/themes/modern/parts/market.php
 msgid "Plugins updated."
 msgstr "Các plugin đã được cập nhật."
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-admin/themes/modern/tools/system-info/server.php
 msgid "Point %1$s at an installed driver (for example %2$s or %3$s) so category trees, user data and search stop being recomputed on every request; %4$s sets how long, in seconds, a value is kept."
 msgstr "Hãy trỏ %1$s tới một trình điều khiển đã cài đặt (ví dụ %2$s hoặc %3$s) để cây chuyên mục, dữ liệu thành viên và tìm kiếm không bị tính toán lại trên mỗi yêu cầu; %4$s thiết lập thời gian lưu giữ giá trị tính bằng giây."
 
@@ -7511,7 +7438,7 @@ msgstr "Hãy trỏ %1$s tới một trình điều khiển đã cài đặt (ví
 msgid "Position"
 msgstr "Vị trí"
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "Preferences"
 msgstr "Tùy chọn"
 
@@ -7525,7 +7452,7 @@ msgstr "Điền sẵn các trường kết nối bên dưới với điểm kh�
 msgid "Premium"
 msgstr "Cao cấp"
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid "Press Repair to fix them. Take a backup first."
 msgstr ""
 
@@ -7583,10 +7510,6 @@ msgstr "Định giá"
 #: oc-includes/osclass/classes/form/ItemForm.php
 msgid "Primary"
 msgstr "Chính"
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Problem"
-msgstr "Sự cố"
 
 #: oc-admin/themes/modern/plugins/index.php
 #: oc-includes/osclass/classes/controller/admin/CAdminPlugins.php
@@ -7697,15 +7620,15 @@ msgstr "Chương trình RSS"
 msgid "RVs - Campers - Caravans"
 msgstr "Lữ hành - Cắm trại"
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-admin/themes/modern/tools/system-info/server.php
 msgid "Raise %1$s and %2$s together, keeping post at least as large as upload:"
 msgstr "Hãy cùng tăng %1$s và %2$s, giữ cho post tối thiểu bằng upload:"
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-admin/themes/modern/tools/system-info/server.php
 msgid "Raise %s to at least the number of photos per listing you allow in Settings."
 msgstr "Hãy tăng %s lên tối thiểu bằng số lượng ảnh trên mỗi rao vặt mà bạn cho phép trong Thiết lập."
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-admin/themes/modern/tools/system-info/server.php
 msgid "Raise memory without touching php.ini"
 msgstr "Tăng dung lượng bộ nhớ mà không cần chỉnh sửa tệp php.ini"
 
@@ -7720,10 +7643,6 @@ msgstr "Đã đọc"
 #: oc-admin/themes/modern/upgrade/index.php
 msgid "Read the full release notes on GitHub"
 msgstr "Đọc toàn bộ ghi chú phát hành trên GitHub"
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Read-only, as it should be after install."
-msgstr "Chỉ đọc, đúng như nên có sau khi cài đặt."
 
 #: oc-admin/themes/modern/settings/locations.php
 msgid "Reading %s from the catalog. A large country can take a minute or two; keep this page open."
@@ -7910,6 +7829,10 @@ msgstr "Hãy nhớ rằng đối với bất kỳ nghi ngờ nào bạn có th�
 msgid "Remember to enable cookies for the subdomains too."
 msgstr "Hãy nhớ bật cookie cho các tên miền phụ."
 
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "Remote downloads (allow_url_fopen)"
+msgstr ""
+
 #: oc-admin/themes/modern/functions.php
 #: oc-admin/themes/modern/settings/sitemap.php
 #: oc-includes/osclass/classes/admin/ui/PhotoGrid.php
@@ -7970,24 +7893,24 @@ msgstr "Sắp xếp lại trường: sử dụng các phím mũi tên"
 msgid "Reorder widget %s. Drag, or focus and press the up"
 msgstr "Sắp xếp lại widget %s. Kéo, hoặc đặt tiêu điểm và nhấn phím lên"
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 #: oc-includes/osclass/installer/basic_data.php
 msgid "Repair"
 msgstr "Sửa chữa"
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid "Repair can fix these"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid "Repair does not change these. Ask for help before changing the table by hand."
 msgstr ""
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid "Repair result"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid "Repair the database?"
 msgstr ""
 
@@ -8053,10 +7976,6 @@ msgstr "Bắt buộc đối với MinIO và hầu hết các thiết lập tự 
 #: oc-admin/themes/modern/fields/iframe.php
 msgid "Required only when…"
 msgstr "Chỉ bắt buộc khi…"
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Requirements"
-msgstr "Yêu cầu"
 
 #: oc-admin/themes/modern/parts/market.php
 msgid "Requires"
@@ -8131,6 +8050,10 @@ msgid "Restore from this file"
 msgstr ""
 
 #: oc-admin/themes/modern/tools/backup.php
+msgid "Restore is turned off on this site. Use the command line."
+msgstr ""
+
+#: oc-admin/themes/modern/tools/backup.php
 msgid "Restore this backup?"
 msgstr ""
 
@@ -8154,7 +8077,7 @@ msgstr ""
 msgid "Restrictions"
 msgstr "Hạn chế"
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid "Result"
 msgstr ""
 
@@ -8198,19 +8121,20 @@ msgstr "Chạy dọn dẹp ngay"
 msgid "Run cleanup now?"
 msgstr "Chạy dọn dẹp ngay?"
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid "Run database update"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "Run it"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid "Run the database update first. Most of these will then be gone."
 msgstr ""
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info.php
 msgid "Run the database update?"
 msgstr ""
 
@@ -8226,6 +8150,14 @@ msgstr ""
 #: oc-admin/themes/modern/settings/storage.php
 msgid "Runs a small write/read/delete probe against the saved connection settings above."
 msgstr "Chạy một kiểm tra ghi/đọc/xoá nhỏ đối với các thiết lập kết nối đã lưu ở trên."
+
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "S3 bucket \"%s\""
+msgstr ""
+
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "S3 bucket \"%s\" (local copies kept)"
+msgstr ""
 
 #: oc-includes/osclass/classes/admin/form/MailServerSettingsForm.php
 msgid "SMTP"
@@ -8366,9 +8298,9 @@ msgstr ""
 msgid "Saving…"
 msgstr "Đang lưu…"
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Scheduled tasks (cron)"
-msgstr "Các tác vụ đã lên lịch (cron)"
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "Scheduled tasks and cache"
+msgstr ""
 
 #: oc-admin/themes/modern/parts/market.php
 msgid "Screenshots"
@@ -8530,7 +8462,7 @@ msgstr "Xem có bao nhiên tin rao vặt trên trang web bị báo cáo là tin 
 msgid "See the job"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "See the list"
 msgstr ""
 
@@ -8730,13 +8662,18 @@ msgstr "Phân phối tệp qua URL có chữ ký có giới hạn thời gian."
 
 #: oc-admin/themes/modern/tools/backup.php
 #: oc-admin/themes/modern/tools/cache.php
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "Server"
 msgstr "Máy chủ"
 
 #: oc-includes/osclass/installer/gui/install.php
 msgid "Server checklist"
 msgstr "Danh sách kiểm tra máy chủ"
+
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "Server details"
+msgstr ""
 
 #: oc-includes/AjaxUploader.php
 msgid "Server error. Upload directory isn't writable."
@@ -8783,7 +8720,7 @@ msgstr "Thiết lập trang web của tôi"
 msgid "Set up payments"
 msgstr "Thiết lập thanh toán"
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "Set up real-IP forwarding"
 msgstr ""
 
@@ -8819,11 +8756,11 @@ msgstr "Đang thiết lập trang web của bạn… việc này có thể mất
 #: oc-admin/themes/modern/settings/sitemap.php
 #: oc-admin/themes/modern/settings/spamNbots.php
 #: oc-admin/themes/modern/settings/storage.php
-#: oc-admin/themes/modern/tools/system-info.php
 #: oc-admin/themes/modern/users/ban.php
 #: oc-admin/themes/modern/users/index.php
 #: oc-admin/themes/modern/users/settings.php
 #: oc-includes/osclass/classes/AdminMenu.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 #: oc-includes/osclass/classes/controller/admin/CAdminMedia.php
 #: oc-includes/osclass/gui/admin/settings-page.php
 msgid "Settings"
@@ -8845,9 +8782,17 @@ msgstr "Quá trình thiết lập không thể lưu ngôn ngữ trang web. Ngư�
 msgid "Share listing"
 msgstr "Chia sẻ rao vặt"
 
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "Shopclass"
+msgstr ""
+
 #: oc-includes/osclass/functions.php
 msgid "Shopclass "
 msgstr "Shopclass "
+
+#: oc-admin/themes/modern/tools/upgrade.php
+msgid "Shopclass %1$s is available. You have %2$s."
+msgstr ""
 
 #: oc-admin/themes/modern/tools/version.php
 msgid "Shopclass %s"
@@ -8873,17 +8818,9 @@ msgstr "Cài đặt Shopclass"
 msgid "Shopclass caches with %s. A cache only ever holds copies — clearing it is safe, and the site rebuilds what it needs on the next request."
 msgstr "Shopclass lưu bộ nhớ đệm bằng %s. Bộ nhớ đệm chỉ lưu giữ các bản sao — xóa nó là an toàn, và trang web sẽ tạo lại những gì cần thiết trong yêu cầu tiếp theo."
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Shopclass can write to %s."
-msgstr "Shopclass có thể ghi vào %s."
-
 #: oc-includes/osclass/installer/gui/install.php
 msgid "Shopclass can't reach its database."
 msgstr ""
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Shopclass cannot write to %s, so no photo or file upload can be saved. Fix the folder permissions so the web server user can write to it."
-msgstr "Shopclass không thể ghi vào %s, do đó không thể lưu ảnh hoặc tệp tải lên nào. Hãy sửa quyền thư mục để người dùng máy chủ web có thể ghi vào đó."
 
 #: oc-admin/themes/modern/parts/market.php
 msgid "Shopclass checks once a day. Check now if you are expecting something."
@@ -8893,13 +8830,9 @@ msgstr ""
 msgid "Shopclass doesn't check the watermark image size"
 msgstr "Shopclass không kiểm tra kích thước ảnh watermark"
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid "Shopclass expects"
 msgstr ""
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Shopclass health"
-msgstr "Tình trạng Shopclass"
 
 #: oc-includes/osclass/classes/upgrade/AutoSecurityUpdate.php
 msgid "Shopclass installed security update %2$s on %1$s, replacing %3$s. Nothing needs doing."
@@ -8917,9 +8850,13 @@ msgstr ""
 msgid "Shopclass is already installed here."
 msgstr "Shopclass đã được cài đặt tại đây."
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Shopclass lets a seller attach %1$s photos to a listing, but PHP accepts only %2$s files per request and drops the rest. Raise %3$s to at least %4$s."
-msgstr "Shopclass cho phép người bán đính kèm %1$s ảnh vào một rao vặt, nhưng PHP chỉ chấp nhận %2$s tệp trên mỗi yêu cầu và bỏ qua phần còn lại. Hãy tăng %3$s lên ít nhất bằng %4$s."
+#: oc-admin/themes/modern/tools/upgrade.php
+msgid "Shopclass is up to date. You have version %s."
+msgstr ""
+
+#: oc-admin/themes/modern/tools/upgrade.php
+msgid "Shopclass is upgraded to %s."
+msgstr ""
 
 #: oc-includes/osclass/install-functions.php
 msgid "Shopclass needs MySQL 5.7.5 or newer, or MariaDB 10.2 or newer. "
@@ -8928,14 +8865,6 @@ msgstr ""
 #: oc-admin/themes/modern/settings/billing.php
 msgid "Shopclass never handles card details itself. To take payments, install a "
 msgstr "Shopclass không bao giờ tự xử lý thông tin thẻ. Để nhận thanh toán, hãy cài đặt một "
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Shopclass offers %1$s photos per listing; PHP accepts %2$s files per request."
-msgstr "Shopclass cho phép %1$s ảnh trên mỗi rao vặt; PHP chấp nhận %2$s tệp trên mỗi yêu cầu."
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Shopclass runs, but PHP 7.x is past end of life and no longer gets security fixes. Shopclass targets PHP 8.0 and up — move to PHP 8."
-msgstr "Shopclass vẫn chạy, nhưng PHP 7.x đã hết vòng đời hỗ trợ và không còn nhận các bản vá bảo mật. Shopclass hướng tới PHP 8.0 trở lên — hãy chuyển sang PHP 8."
 
 #: oc-includes/osclass/classes/upgrade/AutoSecurityUpdate.php
 msgid "Shopclass tried to install security update %2$s on %1$s and stopped: %3$s. Open Tools, then Update, in the admin to install it."
@@ -8946,8 +8875,7 @@ msgid "Shopclass upgraded successfully."
 msgstr "Shopclass đã được nâng cấp thành công."
 
 #: oc-admin/themes/modern/main/index.php
-#: oc-admin/themes/modern/tools/database.php
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "Shopclass version"
 msgstr "Phiên bản Shopclass"
 
@@ -9105,7 +9033,7 @@ msgstr "Thiết lập sơ đồ trang web"
 #: oc-admin/themes/modern/media/index.php
 #: oc-admin/themes/modern/parts/market.php
 #: oc-admin/themes/modern/tools/backup.php
-#: oc-admin/themes/modern/tools/database.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "Size"
 msgstr "Kích thước"
 
@@ -9182,10 +9110,6 @@ msgstr "Nguồn"
 msgid "Source id"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Space left on the uploads volume."
-msgstr "Dung lượng còn lại trên phân vùng tải lên."
-
 #: oc-admin/themes/modern/fields/submissions.php
 #: oc-admin/themes/modern/items/index.php
 #: oc-admin/themes/modern/stats/reports.php
@@ -9259,7 +9183,6 @@ msgstr "Thống kê"
 #: oc-admin/themes/modern/settings/locations/form.php
 #: oc-admin/themes/modern/settings/locations/list.php
 #: oc-admin/themes/modern/tools/cache.php
-#: oc-admin/themes/modern/tools/database.php
 #: oc-includes/osclass/classes/admin/ui/Editor.php
 #: oc-includes/osclass/classes/datatables/CommentsDataTable.php
 #: oc-includes/osclass/classes/datatables/ItemsDataTable.php
@@ -9295,7 +9218,7 @@ msgstr ""
 msgid "Step 4 of 4: Updates and cache"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid "Still to do"
 msgstr ""
 
@@ -9383,15 +9306,11 @@ msgstr "Chủ nhật"
 msgid "Support"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Supported."
-msgstr "Được hỗ trợ."
-
 #: oc-admin/themes/modern/emails/frm.php
 msgid "Swapped for real values when the email is sent. Click one to add it at the cursor."
 msgstr ""
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-admin/themes/modern/tools/system-info/server.php
 msgid "Switch debugging on"
 msgstr "Bật chế độ gỡ lỗi"
 
@@ -9424,15 +9343,16 @@ msgstr "Thông tin hệ thống"
 msgid "System status"
 msgstr "Trạng thái hệ thống"
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid "Table"
 msgstr ""
 
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 #: oc-includes/osclass/installer/gui/install-database.php
 msgid "Table prefix"
 msgstr "Tiền tố bảng"
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid "Take a backup first."
 msgstr ""
 
@@ -9538,6 +9458,10 @@ msgstr "Đội ngũ <a href=\"https://github.com/mindstellar/shopclass\">Shopcla
 msgid "The <strong>Better S3</strong> plugin is currently active. Disable it before turning on "
 msgstr "Plugin <strong>Better S3</strong> hiện đang kích hoạt. Hãy vô hiệu hóa nó trước khi bật "
 
+#: oc-admin/themes/modern/tools/upgrade.php
+msgid "The Shopclass files are replaced with the new version, and any change made to core files is lost. Visitors see a maintenance page for a few minutes while it runs."
+msgstr ""
+
 #: oc-admin/themes/modern/appearance/index.php
 msgid "The active theme extends this one. Deleting it would leave "
 msgstr ""
@@ -9638,7 +9562,7 @@ msgstr "Các chuyên mục cũng như tiểu mục của nó đã được kích
 msgid "The category is too large to delete at once. It has been hidden"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-admin/themes/modern/tools/system-info/server.php
 msgid "The cheapest speed-up there is — PHP stops recompiling every file on every request."
 msgstr "Cách tăng tốc tiết kiệm nhất hiện có — PHP ngừng biên dịch lại mọi tệp trên mỗi yêu cầu."
 
@@ -9666,7 +9590,7 @@ msgstr ""
 msgid "The database Shopclass should use."
 msgstr "Cơ sở dữ liệu Shopclass nên sử dụng."
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info.php
 msgid "The database is updated. %d update ran."
 msgid_plural "The database is updated. %d updates ran."
 msgstr[0] ""
@@ -9679,7 +9603,7 @@ msgstr "Cơ sở dữ liệu đã trả về lỗi không mong muốn (mã %s). 
 msgid "The database server rejected that username and password. Re-copy them from "
 msgstr "Máy chủ cơ sở dữ liệu đã từ chối tên người dùng và mật khẩu đó. Hãy sao chép lại từ "
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info.php
 #: oc-includes/osclass/classes/backup/BackupJobs.php
 #: oc-includes/osclass/classes/upgrade/AutoSecurityUpdate.php
 msgid "The database update failed."
@@ -9733,10 +9657,6 @@ msgstr "Thư mục cài đặt không có quyền ghi."
 msgid "The key you entered is invalid. Please double-check it"
 msgstr "Khoá mà bạn điền vào chưa đúng. Vui lòng kiểm tra lại"
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "The last cron run was %s ago — longer than a day, so it is probably no longer scheduled. Update checks, alerts and cleanup have stopped until it runs again."
-msgstr "Lần chạy cron gần nhất là cách đây %s — hơn một ngày, vì vậy có thể nó không còn được lên lịch nữa. Việc kiểm tra cập nhật, cảnh báo và dọn dẹp đã dừng lại cho đến khi nó chạy lại."
-
 #: oc-admin/themes/modern/settings/locations.php
 msgid "The list could not be loaded. Check your connection and try again."
 msgstr ""
@@ -9755,6 +9675,10 @@ msgstr ""
 
 #: oc-admin/themes/modern/settings/locations/data.php
 msgid "The location catalog could not be reached"
+msgstr ""
+
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "The memory limit is %s. Resizing a large photo needs at least 128 MB."
 msgstr ""
 
 #: oc-admin/themes/modern/settings/locations/preview.php
@@ -9853,7 +9777,7 @@ msgstr ""
 msgid "The safety copy was put back, so the site is as it was before. Visitors still see the maintenance page."
 msgstr ""
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid "The same update the command line runs with db:upgrade. On a large site it can take a few minutes."
 msgstr ""
 
@@ -9869,9 +9793,9 @@ msgstr "Số lượng trang tìm kiếm được hiển thị: yêu cầu nhập
 msgid "The search page shows: this field must only contain numeric characters"
 msgstr "Số lượng trang tìm kiếm được hiển thị: yêu cầu nhập chữ số"
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "The server clock zone used for listing and stat dates."
-msgstr "Múi giờ đồng hồ máy chủ được dùng cho ngày của rao vặt và thống kê."
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "The server meets what Shopclass needs."
+msgstr ""
 
 #: oc-admin/themes/modern/settings/locations.php
 msgid "The server stopped waiting before the work finished. Try again; if it keeps happening, ask your host to allow requests of up to five minutes."
@@ -9884,10 +9808,6 @@ msgstr ""
 #: oc-admin/themes/modern/languages/index.php
 msgid "The site falls back to the default language for any content that relied on this one."
 msgstr "Trang web sẽ chuyển về ngôn ngữ mặc định cho bất kỳ nội dung nào phụ thuộc vào ngôn ngữ này."
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "The site is in maintenance mode — visitors see the maintenance page (HTTP 503). Remove the %s file to bring it back."
-msgstr ""
 
 #: oc-admin/themes/modern/settings/sitemap.php
 msgid "The sitemap index is served at %s and always reflects the current site content."
@@ -9937,8 +9857,24 @@ msgstr "Thư mục translations không có quyền ghi trên máy chủ của b�
 msgid "The upgrade did not finish"
 msgstr "Quá trình nâng cấp chưa hoàn tất"
 
+#: oc-admin/themes/modern/tools/upgrade.php
+msgid "The upgrade did not report back. Reload the page to check which version you have."
+msgstr ""
+
+#: oc-admin/themes/modern/tools/upgrade.php
+msgid "The upgrade failed."
+msgstr ""
+
+#: oc-admin/themes/modern/tools/upgrade.php
+msgid "The upgrade finished, with some errors."
+msgstr ""
+
 #: oc-includes/osclass/classes/admin/DatabaseTools.php
 msgid "The upload failed. Try again."
+msgstr ""
+
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "The uploads folder cannot be written to. Photos cannot be saved."
 msgstr ""
 
 #: oc-includes/osclass/install-functions.php
@@ -9978,12 +9914,9 @@ msgid "Theme updates"
 msgstr "Cập nhật giao diện"
 
 #: oc-admin/themes/modern/appearance/index.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "Themes"
 msgstr "Giao diện"
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Themes path"
-msgstr "Đường dẫn giao diện"
 
 #: oc-admin/themes/modern/parts/market.php
 msgid "Themes updated."
@@ -10057,7 +9990,7 @@ msgstr "Hành động này không thể hoàn tác. Bạn chắc muốn tiếp t
 msgid "This action cannot be done because it is a demo site"
 msgstr "Không thể hoàn thành hành động này vì đây là site dùng thử"
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid "This adds what is missing and fixes column types. It does not touch extra columns or indexes, and it can take a while on a large site. Take a backup first."
 msgstr ""
 
@@ -10065,7 +9998,7 @@ msgstr ""
 msgid "This admin signs in with a code from an authenticator app."
 msgstr ""
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info.php
 msgid "This applies the waiting updates in order. Keep the page open until it finishes. Take a backup first."
 msgstr ""
 
@@ -10080,6 +10013,10 @@ msgstr ""
 #: oc-admin/themes/modern/billing/wallet.php
 msgid "This balance is below zero, usually after a refund of credits that had "
 msgstr "Số dư này dưới mức 0, thường là sau khi hoàn lại số tín dụng đã "
+
+#: oc-admin/themes/modern/tools/upgrade.php
+msgid "This can take a few minutes. Keep this page open."
+msgstr ""
 
 #: oc-admin/themes/modern/upgrade/index.php
 msgid "This can take a minute on a large site. Please leave this page open until it finishes."
@@ -10259,10 +10196,6 @@ msgstr "Thao tác này sẽ xoá cảnh báo đã lưu; thành viên sẽ không
 msgid "This removes the widget from its section immediately and cannot be undone."
 msgstr "Thao tác này sẽ xóa widget khỏi khu vực ngay lập tức và không thể hoàn tác."
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "This request's address matches every forwarding header sent with it — no proxy misconfiguration detected."
-msgstr ""
-
 #: oc-admin/themes/modern/tools/backup.php
 msgid "This server accepts files up to %s."
 msgstr ""
@@ -10344,6 +10277,11 @@ msgstr "Thời gian"
 msgid "Time format"
 msgstr ""
 
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "Time limit"
+msgstr ""
+
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 #: oc-includes/osclass/classes/admin/form/MainSettingsForm.php
 msgid "Timezone"
 msgstr "Múi giờ"
@@ -10420,14 +10358,9 @@ msgstr "Quá nhiều hình ảnh. Giới hạn là {limit}."
 msgid "Too many locations selected"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Too old. Shopclass is built and tested against PHP 8.0 and up."
-msgstr "Quá cũ. Shopclass được xây dựng và kiểm thử trên PHP 8.0 trở lên."
-
 #: oc-admin/themes/modern/tools/backup.php
 #: oc-admin/themes/modern/tools/cache.php
 #: oc-admin/themes/modern/tools/cleanup.php
-#: oc-admin/themes/modern/tools/database.php
 #: oc-admin/themes/modern/tools/jobs.php
 #: oc-admin/themes/modern/tools/logs.php
 #: oc-admin/themes/modern/tools/maintenance.php
@@ -10437,6 +10370,10 @@ msgstr "Quá cũ. Shopclass được xây dựng và kiểm thử trên PHP 8.0 
 #: oc-includes/osclass/classes/AdminMenu.php
 msgid "Tools"
 msgstr "Các công cụ"
+
+#: oc-admin/themes/modern/tools/upgrade.php
+msgid "Tools > Backup and restore"
+msgstr ""
 
 #: oc-includes/osclass/classes/admin/form/MediaSettingsForm.php
 msgid "Top Left"
@@ -10513,11 +10450,11 @@ msgstr ""
 msgid "Turn on"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-admin/themes/modern/tools/system-info/server.php
 msgid "Turn on OPcache"
 msgstr "Bật OPcache"
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-admin/themes/modern/tools/system-info/server.php
 msgid "Turn on a persistent object cache"
 msgstr "Bật bộ đệm đối tượng liên tục"
 
@@ -10553,7 +10490,7 @@ msgstr "Khóa trang Turnstile và khóa bí mật Turnstile"
 msgid "Tutoring - Private Lessons"
 msgstr "Các bài hướng dẫn cá nhân"
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-admin/themes/modern/tools/system-info/server.php
 msgid "Two files hold these settings. PHP's own limits live in %1$s%2$s; Shopclass's own behaviour lives in %3$s in the site root%4$s. Edit the relevant one — a php.ini change needs PHP restarted (or your host's control panel, e.g. cPanel's “MultiPHP INI Editor”), while a config.php change takes effect on the next request."
 msgstr "Hai tệp lưu các thiết lập này. Các giới hạn riêng của PHP nằm trong %1$s%2$s; hành vi riêng của Shopclass nằm trong %3$s tại thư mục gốc của trang web%4$s. Hãy chỉnh sửa tệp thích hợp — thay đổi php.ini cần khởi động lại PHP (hoặc bảng điều khiển máy chủ lưu trữ của bạn, ví dụ “MultiPHP INI Editor” của cPanel), trong khi thay đổi config.php có hiệu lực ở yêu cầu tiếp theo."
 
@@ -10669,14 +10606,6 @@ msgstr "Bỏ chọn tất cả"
 msgid "Unchecked, visitors keep using the site and see the message below as a banner. The choice is kept when maintenance mode is turned off."
 msgstr ""
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Under 128M. Resizing a large photo is the most memory-hungry thing Shopclass does, and this is where it fails first."
-msgstr "Dưới 128M. Thay đổi kích thước ảnh lớn là việc tốn bộ nhớ nhất mà Shopclass thực hiện, và đây là nơi nó sẽ thất bại đầu tiên."
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Under 512MB left on the uploads volume. When it fills, uploads and backups start failing."
-msgstr "Còn dưới 512MB trên phân vùng tải lên. Khi bị đầy, việc tải lên và sao lưu sẽ bắt đầu thất bại."
-
 #: oc-admin/themes/modern/fields/iframe.php
 msgid "Ungrouped"
 msgstr "Chưa phân nhóm"
@@ -10727,7 +10656,7 @@ msgstr ""
 
 #: oc-admin/themes/modern/plugins/configuration.php
 #: oc-admin/themes/modern/settings/locations/data.php
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 #: oc-includes/osclass/classes/controller/admin/CAdminLanguages.php
 msgid "Update"
 msgstr "Cập nhật"
@@ -10822,44 +10751,29 @@ msgid "Upgrade"
 msgstr "Nâng cấp:"
 
 #: oc-admin/themes/modern/tools/upgrade.php
-msgid "Upgrade Failed"
-msgstr "Nâng cấp Thất bại"
-
-#: oc-admin/themes/modern/tools/upgrade.php
-msgid "Upgrade Notes:"
-msgstr "Nâng cấp Ghi chú:"
-
-#: oc-admin/themes/modern/tools/upgrade.php
-msgid "Upgrade Now to "
-msgstr "Nâng cấp ngay lên "
-
 #: oc-includes/osclass/classes/AdminMenu.php
 msgid "Upgrade Shopclass"
 msgstr "Nâng cấp Shopclass"
 
 #: oc-admin/themes/modern/tools/upgrade.php
-msgid "Upgrade Successful"
-msgstr "Nâng cấp thành công"
-
-#: oc-admin/themes/modern/tools/upgrade.php
-msgid "Upgrade completed with few errors"
-msgstr "Nâng cấp hoàn tất với một vài lỗi"
-
-#: oc-admin/themes/modern/tools/upgrade.php
-msgid "Upgrade is available for (Current version %s)"
-msgstr "Nâng cấp có sẵn cho (Phiên bản hiện tại %s)"
+msgid "Upgrade Shopclass to %s?"
+msgstr ""
 
 #: oc-admin/themes/modern/upgrade/index.php
 msgid "Upgrade now"
 msgstr "Nâng cấp ngay"
+
+#: oc-admin/themes/modern/tools/upgrade.php
+msgid "Upgrade to %s"
+msgstr ""
 
 #: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
 msgid "Upgrades"
 msgstr "Nâng cấp"
 
 #: oc-admin/themes/modern/tools/upgrade.php
-msgid "Upgrading your Shopclass installation (this could take a while):"
-msgstr "Đang nâng cấp bản cài đặt Shopclass của bạn (quá trình này có thể mất một lúc):"
+msgid "Upgrading Shopclass to %s."
+msgstr ""
 
 #: oc-admin/themes/modern/appearance/add.php
 #: oc-admin/themes/modern/languages/add.php
@@ -10873,6 +10787,10 @@ msgstr "Tải lên"
 msgid "Upload language"
 msgstr "Ngôn ngữ tải lên"
 
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "Upload limits"
+msgstr ""
+
 #: oc-includes/osclass/classes/controller/admin/ajax/CAdminAjax.php
 msgid "Upload target not allowed"
 msgstr "Đích tải lên không được phép"
@@ -10881,17 +10799,13 @@ msgstr "Đích tải lên không được phép"
 msgid "Uploaded"
 msgstr "Đã tải lên"
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Uploads &amp; storage"
-msgstr "Tải lên &amp; lưu trữ"
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "Uploads"
+msgstr ""
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Uploads folder is writable"
-msgstr "Thư mục tải lên có quyền ghi"
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Uploads path"
-msgstr "Đường dẫn tải lên"
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "Uploads folder"
+msgstr ""
 
 #: oc-admin/themes/modern/tools/cache.php
 msgid "Uptime"
@@ -11244,12 +11158,12 @@ msgstr "Xem trang web của bạn"
 msgid "Views"
 msgstr "Lượt xem"
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "Visitor addresses"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "Visitor addresses look wrong. Your site seems to be behind a proxy (%1$s), so every visitor appears to come from %2$s. Sign-in protection and IP bans cannot tell visitors apart. Ask your host to set up real-IP forwarding."
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "Visitor addresses look wrong: the site is behind a proxy (%1$s), so every visitor seems to come from %2$s. Sign-in protection and IP bans cannot tell visitors apart."
 msgstr ""
 
 #: oc-admin/themes/modern/tools/maintenance.php
@@ -11328,7 +11242,7 @@ msgstr "Chúng tôi không thể lưu địa phương bạn đã chọn. Bạn c
 msgid "We highly recommend you have the 'Keep original image' option active when you use watermarks."
 msgstr "Chúng tôi khuyên bạn nên có tùy chọn 'Giữ hình ảnh gốc' hoạt động khi bạn sử dụng hình mờ."
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "Web server"
 msgstr "Máy chủ web"
 
@@ -11339,10 +11253,11 @@ msgstr "Tiêu đề Web"
 #: oc-admin/themes/modern/plugins/index.php
 #: oc-admin/themes/modern/settings/spamNbots.php
 #: oc-admin/themes/modern/users/frm.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "Website"
 msgstr "Trang web"
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "Website URL"
 msgstr "URL trang web"
 
@@ -11372,8 +11287,8 @@ msgid "Welcome to Shopclass"
 msgstr "Chào mừng bạn đến với Shopclass"
 
 #: oc-admin/themes/modern/tools/backup.php
-#: oc-admin/themes/modern/tools/database.php
 #: oc-admin/themes/modern/tools/jobs.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid "What"
 msgstr ""
 
@@ -11418,6 +11333,10 @@ msgstr "Tệp .htaccess của bạn sẽ trông như thế nào"
 msgid "What's new"
 msgstr "Có gì mới"
 
+#: oc-admin/themes/modern/tools/upgrade.php
+msgid "What's new in %s"
+msgstr ""
+
 #: oc-admin/themes/modern/tools/cleanup.php
 #: oc-admin/themes/modern/tools/jobs.php
 msgid "When"
@@ -11427,7 +11346,7 @@ msgstr ""
 msgid "When a new user is registered"
 msgstr "Khi người dùng mới được đăng ký"
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-admin/themes/modern/tools/system-info/server.php
 msgid "When you cannot edit php.ini, Shopclass will lift PHP's memory limit up to %s on its own at start-up."
 msgstr "Khi bạn không thể chỉnh sửa php.ini, Shopclass sẽ tự tăng giới hạn bộ nhớ của PHP lên %s khi khởi động."
 
@@ -11588,10 +11507,6 @@ msgstr "Bản cài đặt Shopclass của bạn tại %s đã sẵn sàng và đ
 msgid "Your Shopclass installation can be auto-upgraded. %1$s: the database and oc-content. You can also upgrade Shopclass manually, more information in the %2$s."
 msgstr ""
 
-#: oc-admin/themes/modern/tools/upgrade.php
-msgid "Your Shopclass installation has been upgraded to version "
-msgstr "Bản cài đặt Shopclass của bạn đã được nâng cấp lên phiên bản "
-
 #: oc-includes/osclass/classes/admin/ui/Field.php
 msgid "Your admin language"
 msgstr ""
@@ -11601,6 +11516,7 @@ msgid "Your backup is ready: %1$s, %2$s, %3$s."
 msgstr ""
 
 #: oc-admin/themes/modern/tools/backup.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "Your backups folder is open to the web. Anyone who guesses a file name could download a backup."
 msgstr ""
 
@@ -11620,12 +11536,8 @@ msgstr "Mật khẩu hiện tại của bạn"
 msgid "Your database already matched this version of Shopclass."
 msgstr "Cơ sở dữ liệu của bạn đã khớp với phiên bản Shopclass này."
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid "Your database has"
-msgstr ""
-
-#: oc-admin/themes/modern/tools/database.php
-msgid "Your database has every table, column and index Shopclass expects."
 msgstr ""
 
 #: oc-admin/themes/modern/tools/backup.php
@@ -11636,7 +11548,7 @@ msgstr ""
 msgid "Your database is up to date"
 msgstr "Cơ sở dữ liệu của bạn đã là mới nhất"
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "Your database is up to date and healthy."
 msgstr ""
 
@@ -11671,6 +11583,10 @@ msgstr "Tên bạn: yêu cầu nhập"
 
 #: oc-includes/osclass/functions.php
 msgid "Your orders"
+msgstr ""
+
+#: oc-admin/themes/modern/tools/backup.php
+msgid "Your password"
 msgstr ""
 
 #: oc-admin/themes/modern/fields/index.php
@@ -11745,15 +11661,19 @@ msgstr ""
 msgid "[%s] Your admin password is known to someone else"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "allow_url_fopen"
-msgstr "allow_url_fopen"
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "all %d required are installed"
+msgstr ""
+
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "all seen as %s (behind a proxy)"
+msgstr ""
 
 #: oc-includes/osclass/helpers/hUtils.php
 msgid "am"
 msgstr "sa"
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "as reported"
 msgstr ""
 
@@ -11765,19 +11685,11 @@ msgstr "nhiều nhất"
 msgid "becomes"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "behind a proxy"
-msgstr ""
-
 #: oc-admin/themes/modern/appearance/index.php
 #: oc-admin/themes/modern/parts/market.php
 #: oc-admin/themes/modern/plugins/index.php
 msgid "by %s"
 msgstr "bởi %s"
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "cURL"
-msgstr "cURL"
 
 #: oc-includes/osclass/install-functions.php
 msgid "cURL extension for PHP"
@@ -11804,26 +11716,22 @@ msgstr ""
 msgid "config-sample.php doesn't exist. Check if everything is "
 msgstr "config-sample.php không tồn tại. Hãy kiểm tra xem mọi thứ có "
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "config.php is writable by the web server. It holds your database credentials and does not need to be writable after install — make it read-only."
-msgstr "config.php có thể ghi được bởi máy chủ web. Tệp này chứa thông tin xác thực cơ sở dữ liệu của bạn và không cần quyền ghi sau khi cài đặt — hãy đặt thành chỉ đọc."
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "config.php"
+msgstr ""
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "config.php permissions"
-msgstr "Quyền tệp config.php"
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "config.php asks for the %s object cache, but that driver is not installed, so nothing is cached."
+msgstr ""
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "config.php sets %1$s, but that driver is not available — so the cache silently falls back to per-request and every page recomputes its data. Install the matching extension, or remove the setting."
-msgstr "config.php thiết lập %1$s, nhưng trình điều khiển đó không khả dụng — do đó bộ nhớ đệm âm thầm chuyển về theo từng yêu cầu và mỗi trang đều tính toán lại dữ liệu của nó. Hãy cài đặt tiện ích mở rộng tương ứng, hoặc xóa thiết lập này."
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "config.php can be written by the web server. It holds your database password; make it read-only."
+msgstr ""
 
 #: oc-admin/themes/modern/billing/order.php
 #: oc-admin/themes/modern/billing/wallet.php
 msgid "credits"
 msgstr "tín dụng"
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "ctype"
-msgstr "ctype"
 
 #: oc-admin/themes/modern/items/settings.php
 #: oc-admin/themes/modern/tools/cleanup.php
@@ -11839,10 +11747,6 @@ msgstr "chi tiết, hành động hoặc IP"
 #: oc-includes/osclass/classes/upgrade/Upgrade.php
 msgid "doesn't exists, unknown error occurred while downloading and extracting package."
 msgstr "không tồn tại, lỗi không xác định xảy ra trong khi tải xuống và trích xuất gói."
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "enabled"
-msgstr "Kích hoạt"
 
 #: oc-includes/osclass/classes/controller/admin/CAdminItems.php
 msgid "expired"
@@ -11860,10 +11764,6 @@ msgstr "trích xuất nội dung phần tử"
 msgid "extract this"
 msgstr "trích xuất cái này"
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "fileinfo"
-msgstr "fileinfo"
-
 #: oc-includes/osclass/classes/form/FieldForm.php
 msgid "from"
 msgstr "từ"
@@ -11875,10 +11775,6 @@ msgstr ""
 #: oc-includes/osclass/helpers/hAdminUi.php
 msgid "in %s"
 msgstr ""
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "installed"
-msgstr "đã cài đặt"
 
 #: oc-admin/themes/modern/fields/iframe.php
 msgid "is"
@@ -11916,30 +11812,25 @@ msgstr "danh sách nhiều nhất"
 msgid "made before a restore"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "mbstring"
-msgstr "mbstring"
-
 #: oc-includes/osclass/classes/admin/form/SpamSettingsForm.php
 msgid "minutes"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/database.php
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-admin/themes/modern/tools/system-info/database.php
 msgid "missing"
 msgstr "thiếu"
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "mysqli"
-msgstr "mysqli"
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "missing: %s"
+msgstr ""
 
 #: oc-includes/osclass/classes/admin/form/MainSettingsForm.php
 msgid "never"
 msgstr "không bao giờ"
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "never run"
-msgstr "chưa từng chạy"
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "never ran"
+msgstr ""
 
 #: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
 msgid "nginx does not read .htaccess files. Add the "
@@ -11950,28 +11841,57 @@ msgstr "nginx không đọc các tệp .htaccess. Thêm "
 msgid "no action defined"
 msgstr "không có hành động nào xác định"
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "none"
+msgstr ""
+
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "none (worked out on every request)"
+msgstr ""
+
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "none loaded"
+msgstr ""
+
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "none saved on the server"
+msgstr ""
+
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "not checked yet"
+msgstr ""
+
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "not reachable from the web"
+msgstr ""
+
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "not set"
 msgstr "chưa thiết lập"
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "off"
 msgstr "tắt"
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "on"
 msgstr "bật"
 
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 #: oc-includes/osclass/classes/backup/BackupJobs.php
 msgid "on the server"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "on this server"
+msgstr ""
+
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "on, banner only"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "on, locked"
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "on, site closed"
 msgstr ""
 
 #: oc-includes/osclass/installer/basic_data.php
@@ -11982,9 +11902,9 @@ msgstr "osclass@example.com"
 msgid "password: %s"
 msgstr "mật khẩu: %s"
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "per-request"
-msgstr "theo từng yêu cầu"
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "php.ini"
+msgstr ""
 
 #: oc-admin/themes/modern/parts/market.php
 msgid "plugins"
@@ -11994,9 +11914,9 @@ msgstr "plugin"
 msgid "pm"
 msgstr "ch"
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "post_max_size is smaller than upload_max_filesize"
-msgstr "post_max_size nhỏ hơn upload_max_filesize"
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "post_max_size (%1$s) is smaller than upload_max_filesize (%2$s), so uploads over %1$s fail with an empty form."
+msgstr ""
 
 #: oc-includes/osclass/classes/admin/form/CommentSettingsForm.php
 msgid "previously approved comments"
@@ -12008,6 +11928,10 @@ msgstr ""
 
 #: oc-includes/osclass/classes/admin/form/LatestSearchSettingsForm.php
 msgid "queries"
+msgstr ""
+
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "ran %s ago"
 msgstr ""
 
 #: oc-includes/osclass/classes/admin/form/SpamSettingsForm.php
@@ -12026,7 +11950,11 @@ msgstr "Khóa trang reCAPTCHA và khóa bí mật reCAPTCHA"
 msgid "reCAPTCHA version"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "reachable from the web"
+msgstr ""
+
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "read-only"
 msgstr "Chỉ đọc"
 
@@ -12085,25 +12013,18 @@ msgstr "đến"
 msgid "to download"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "unavailable"
-msgstr "Không khả dụng"
-
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "unknown"
 msgstr "Không rõ"
 
 #: oc-admin/themes/modern/tools/system-info.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "unlimited"
 msgstr "Không giới hạn"
 
 #: oc-includes/osclass/emails.php
 msgid "unsubscribe alert"
 msgstr "cảnh báo ngừng theo dõi"
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "unsupported"
-msgstr "Không được hỗ trợ"
 
 #: oc-includes/osclass/install-functions.php
 msgid "username: %s"
@@ -12117,13 +12038,9 @@ msgstr ""
 msgid "widgets"
 msgstr "widget"
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "writable"
 msgstr "Có thể ghi"
-
-#: oc-admin/themes/modern/tools/system-info.php
-msgid "zip"
-msgstr "ZIP"
 
 #: oc-includes/osclass/emails.php
 msgid "{WEB_TITLE} - We failed trying to upgrade your site to Shopclass {VERSION}"
@@ -12163,7 +12080,7 @@ msgstr ""
 msgid "{n} photos."
 msgstr ""
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-admin/themes/modern/tools/system-info/server.php
 msgid "— PHP limits"
 msgstr "— Giới hạn PHP"
 
@@ -12171,7 +12088,7 @@ msgstr "— Giới hạn PHP"
 msgid "— Select a form —"
 msgstr "— Chọn một biểu mẫu —"
 
-#: oc-admin/themes/modern/tools/system-info.php
+#: oc-admin/themes/modern/tools/system-info/server.php
 msgid "— Shopclass"
 msgstr "— Shopclass"
 

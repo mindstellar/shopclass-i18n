@@ -14,11 +14,17 @@ msgstr ""
 "X-Crowdin-File: /develop/src/templates/core.pot\n"
 "X-Crowdin-File-ID: 8259\n"
 "Language-Team: Dutch\n"
-"PO-Revision-Date: 2026-09-29 15:35\n"
+"PO-Revision-Date: 2026-09-29 17:47\n"
 
 #: oc-includes/osclass/functions.php
 msgid " is available"
 msgstr " is beschikbaar"
+
+#: oc-includes/osclass/classes/controller/admin/CAdminTools.php
+msgid "%1$d linked folder was skipped: %2$s (it points outside oc-content)."
+msgid_plural "%1$d linked folders were skipped: %2$s (they point outside oc-content)."
+msgstr[0] ""
+msgstr[1] ""
 
 #: oc-admin/themes/modern/parts/ui.php
 msgid "%1$s &raquo; %2$s"
@@ -97,6 +103,10 @@ msgstr "%1$s → %2$s"
 #: oc-admin/themes/modern/settings/locations.php
 #: oc-admin/themes/modern/settings/locations/data.php
 msgid "%1$s%% counted: %2$s of %3$s locations"
+msgstr ""
+
+#: oc-admin/themes/modern/tools/backup.php
+msgid "%1$s, %2$s, %3$s. This only removes the backup file."
 msgstr ""
 
 #: oc-admin/themes/modern/parts/ui.php
@@ -516,6 +526,10 @@ msgstr "Een ISO 4217-code van 3 letters, bijv. USD, EUR."
 msgid "A 3-letter ISO 4217 code, e.g. USD."
 msgstr "Een drieletterige ISO 4217-code, bijv. USD."
 
+#: oc-admin/themes/modern/tools/backup.php
+msgid "A backup holds your users' password hashes and your site's keys. Keep it as private as your database."
+msgstr ""
+
 #: oc-includes/osclass/classes/admin/form/SpamSettingsForm.php
 msgid "A block ends once the failures are older than this."
 msgstr ""
@@ -540,6 +554,11 @@ msgstr ""
 msgid "A custom field it filtered on has changed type."
 msgstr ""
 
+#: oc-includes/osclass/classes/backup/BackupManager.php
+#: oc-includes/osclass/classes/backup/Restorer.php
+msgid "A database update is running. Try again in a few minutes."
+msgstr ""
+
 #: oc-admin/themes/modern/fields/index.php
 msgid "A form is a set of fields shown together on the listing form, for the categories you choose."
 msgstr "Een formulier is een set velden die samen worden weergegeven op het advertentieformulier, voor de categorieën die u kiest."
@@ -560,8 +579,20 @@ msgstr ""
 msgid "A record of admin and listing activity — who did what, and when. "
 msgstr "Een overzicht van beheer- en advertentieactiviteit — wie deed wat, en wanneer. "
 
+#: oc-admin/themes/modern/tools/backup.php
+msgid "A safety copy of today's database is saved first."
+msgstr ""
+
 #: oc-includes/osclass/classes/admin/form/MainSettingsForm.php
 msgid "A security fix for the version you run (6.4.0 to 6.4.1) is installed at night once it is a day old, and the contact e-mail is told how it went. Off by default."
+msgstr ""
+
+#: oc-includes/osclass/classes/backup/BackupJobs.php
+msgid "A statement in the backup failed (MySQL error %d)."
+msgstr ""
+
+#: oc-includes/osclass/classes/backup/BackupJobs.php
+msgid "A statement in the backup failed."
 msgstr ""
 
 #: oc-includes/osclass/helpers/hUtils.php
@@ -614,6 +645,7 @@ msgstr "Actie"
 #: oc-admin/themes/modern/media/index.php
 #: oc-admin/themes/modern/settings/locations/data.php
 #: oc-admin/themes/modern/settings/locations/list.php
+#: oc-admin/themes/modern/tools/backup.php
 msgid "Actions"
 msgstr "Acties"
 
@@ -1132,10 +1164,6 @@ msgstr ""
 msgid "An update is ready for this theme. "
 msgstr ""
 
-#: oc-admin/themes/modern/tools/upgrade.php
-msgid "An upgrade replaces the core files. Save a zip of the whole site folder first: photos, plugins, themes and the core."
-msgstr ""
-
 #: oc-admin/themes/modern/items/settings.php
 msgid "An user has to wait"
 msgstr ""
@@ -1478,11 +1506,7 @@ msgid "Back to themes"
 msgstr ""
 
 #: oc-admin/themes/modern/tools/upgrade.php
-msgid "Back up site files"
-msgstr ""
-
-#: oc-admin/themes/modern/tools/database.php
-msgid "Back up the database"
+msgid "Back up first"
 msgstr ""
 
 #: oc-admin/themes/modern/settings/storage.php
@@ -1506,12 +1530,37 @@ msgstr "Achtergrond Hexadecimale kleurwaarde"
 msgid "Background jobs"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/database.php
-msgid "Backup"
-msgstr "Back-up"
+#: oc-admin/themes/modern/tools/backup.php
+#: oc-includes/osclass/classes/AdminMenu.php
+msgid "Backup and restore"
+msgstr ""
 
-#: oc-admin/themes/modern/tools/database.php
-msgid "Backup file (.sql)"
+#: oc-includes/osclass/classes/backup/BackupJobs.php
+msgid "Backup cancelled"
+msgstr ""
+
+#: oc-includes/osclass/classes/controller/admin/CAdminTools.php
+msgid "Backup cancelled. Nothing was saved."
+msgstr ""
+
+#: oc-includes/osclass/classes/backup/BackupJobs.php
+msgid "Backup failed"
+msgstr ""
+
+#: oc-admin/themes/modern/tools/backup.php
+msgid "Backup file (.zip or .sql)"
+msgstr ""
+
+#: oc-includes/osclass/classes/backup/BackupJobs.php
+msgid "Backup saved: %1$s, %2$s, %3$s, %4$s"
+msgstr ""
+
+#: oc-includes/osclass/classes/controller/admin/CAdminTools.php
+msgid "Backup saved: %1$s, %2$s, %3$s."
+msgstr ""
+
+#: oc-admin/themes/modern/tools/backup.php
+msgid "Backups you save on the server are listed here. Downloads are not kept."
 msgstr ""
 
 #: oc-admin/themes/modern/tools/system-info.php
@@ -1806,6 +1855,7 @@ msgstr "Kan niet schrijven in config.php bestand. Controleer of het bestand besc
 #: oc-admin/themes/modern/settings/keywordBlock_frm.php
 #: oc-admin/themes/modern/settings/locations/form.php
 #: oc-admin/themes/modern/settings/media.php
+#: oc-admin/themes/modern/tools/backup.php
 #: oc-admin/themes/modern/users/frm.php
 #: oc-includes/osclass/classes/admin/form/AdminAccountForm.php
 #: oc-includes/osclass/classes/controller/admin/CAdminItems.php
@@ -2107,6 +2157,10 @@ msgstr "Kies een categorie"
 #: oc-includes/osclass/installer/gui/install-target.php
 msgid "Choose the country your visitors are mostly in. You can change this later."
 msgstr "Kies het land waar uw bezoekers zich voornamelijk bevinden. U kunt dit later wijzigen."
+
+#: oc-includes/osclass/classes/backup/BackupManager.php
+msgid "Choose what to back up and where to put it."
+msgstr ""
 
 #: oc-admin/themes/modern/settings/locations.php
 #: oc-admin/themes/modern/settings/locations/data.php
@@ -2543,6 +2597,10 @@ msgstr "Gekopieerd"
 msgid "Copy"
 msgstr "Kopiëren"
 
+#: oc-includes/osclass/classes/backup/BackupManager.php
+msgid "Copying files: %1$s of %2$s (%3$s)"
+msgstr ""
+
 #: oc-admin/themes/modern/emails/frm.php
 msgid "Core finds the template by this name, so it cannot change."
 msgstr ""
@@ -2613,6 +2671,10 @@ msgstr "Advertentieweergaven tellen"
 
 #: oc-admin/themes/modern/settings/spamNbots.php
 msgid "Counting"
+msgstr ""
+
+#: oc-includes/osclass/classes/backup/BackupManager.php
+msgid "Counting files"
 msgstr ""
 
 #: oc-admin/themes/modern/settings/locations.php
@@ -2857,9 +2919,15 @@ msgstr "Dashboard"
 msgid "Data"
 msgstr ""
 
+#: oc-admin/themes/modern/tools/backup.php
 #: oc-admin/themes/modern/tools/database.php
 #: oc-includes/osclass/classes/AdminMenu.php
+#: oc-includes/osclass/classes/backup/BackupJobs.php
 msgid "Database"
+msgstr ""
+
+#: oc-admin/themes/modern/tools/backup.php
+msgid "Database (%s)"
 msgstr ""
 
 #: oc-includes/osclass/installer/gui/install-database.php
@@ -2869,6 +2937,10 @@ msgstr "Wachtwoord van de databasebeheerder"
 #: oc-includes/osclass/installer/gui/install-database.php
 msgid "Database admin username"
 msgstr "Gebruikersnaam van de databasebeheerder"
+
+#: oc-admin/themes/modern/tools/backup.php
+msgid "Database and files"
+msgstr ""
 
 #: oc-includes/osclass/installer/gui/install-database.php
 msgid "Database name"
@@ -2894,6 +2966,7 @@ msgstr ""
 #: oc-admin/themes/modern/stats/items.php
 #: oc-admin/themes/modern/stats/reports.php
 #: oc-admin/themes/modern/stats/users.php
+#: oc-admin/themes/modern/tools/backup.php
 #: oc-includes/osclass/classes/admin/form/MainSettingsForm.php
 #: oc-includes/osclass/classes/datatables/AlertsDataTable.php
 #: oc-includes/osclass/classes/datatables/CommentsDataTable.php
@@ -3008,6 +3081,7 @@ msgstr "Standaardwaarde"
 #: oc-admin/themes/modern/settings/currencies.php
 #: oc-admin/themes/modern/settings/keywordBlock.php
 #: oc-admin/themes/modern/settings/locations/list.php
+#: oc-admin/themes/modern/tools/backup.php
 #: oc-admin/themes/modern/users/alerts.php
 #: oc-admin/themes/modern/users/ban.php
 #: oc-admin/themes/modern/users/frm.php
@@ -3175,6 +3249,10 @@ msgstr "Verwijder inzending"
 msgid "Delete theme"
 msgstr "Verwijder thema"
 
+#: oc-admin/themes/modern/tools/backup.php
+msgid "Delete this backup?"
+msgstr ""
+
 #: oc-admin/themes/modern/settings/locations/form.php
 msgid "Delete this city…"
 msgstr ""
@@ -3313,12 +3391,14 @@ msgstr "Onderhuids modus uitschakelen"
 msgid "Disabled"
 msgstr "Uitgeschakeld"
 
+#: oc-admin/themes/modern/tools/backup.php
 #: oc-includes/osclass/helpers/hMessages.php
 #: oc-includes/osclass/installer/gui/install-finish.php
 msgid "Dismiss"
 msgstr "Sluiten"
 
 #: oc-admin/themes/modern/parts/market.php
+#: oc-admin/themes/modern/tools/upgrade.php
 #: oc-includes/osclass/installer/gui/install.php
 msgid "Documentation"
 msgstr "Documentatie"
@@ -3337,6 +3417,7 @@ msgid "Down"
 msgstr "Beneden"
 
 #: oc-admin/themes/modern/admins/two_factor.php
+#: oc-admin/themes/modern/tools/backup.php
 msgid "Download"
 msgstr ""
 
@@ -3356,7 +3437,11 @@ msgstr "Downloaden mislukt, of het gedownloade bestand kwam niet overeen met de 
 msgid "Download language"
 msgstr "Taal downloaden"
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/backup.php
+msgid "Download now"
+msgstr ""
+
+#: oc-admin/themes/modern/tools/backup.php
 msgid "Download to this computer"
 msgstr ""
 
@@ -3731,7 +3816,7 @@ msgstr "Eindpunt"
 msgid "Engineering - Architecture"
 msgstr "Ontwikkeling - Architectuur"
 
-#: oc-includes/osclass/classes/admin/DatabaseTools.php
+#: oc-includes/osclass/classes/backup/BackupStore.php
 msgid "Enter a server folder for the backup."
 msgstr ""
 
@@ -3851,8 +3936,9 @@ msgstr ""
 msgid "Every published theme is already installed"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/database.php
-msgid "Every statement in the file runs against your live database. It can change or delete what is there now, and it cannot be undone."
+#: oc-admin/themes/modern/tools/backup.php
+#: oc-includes/osclass/classes/backup/BackupJobs.php
+msgid "Everything"
 msgstr ""
 
 #: oc-includes/osclass/installer/basic_data.php
@@ -4048,6 +4134,19 @@ msgstr "Het bestand is leeg"
 msgid "File is too large"
 msgstr "Het bestand is te groot"
 
+#: oc-admin/themes/modern/tools/backup.php
+#: oc-includes/osclass/classes/backup/BackupJobs.php
+msgid "Files"
+msgstr ""
+
+#: oc-admin/themes/modern/tools/backup.php
+msgid "Files (%s)"
+msgstr ""
+
+#: oc-admin/themes/modern/tools/backup.php
+msgid "Files added since the backup are left in place."
+msgstr ""
+
 #: oc-includes/osclass/install-functions.php
 msgid "Fill in the host, database name and username first."
 msgstr "Vul eerst de host, databasenaam en gebruikersnaam in."
@@ -4087,6 +4186,10 @@ msgstr ""
 
 #: oc-admin/themes/modern/appearance/index.php
 msgid "Find one in Browse, or upload its zip file."
+msgstr ""
+
+#: oc-includes/osclass/classes/backup/BackupManager.php
+msgid "Finishing"
 msgstr ""
 
 #: oc-includes/osclass/classes/Pagination.php
@@ -4201,6 +4304,10 @@ msgstr "Vriendschap - Activiteit Partners"
 #: oc-includes/osclass/helpers/hItems.php
 msgid "From"
 msgstr "Van"
+
+#: oc-includes/osclass/classes/backup/Manifest.php
+msgid "From Shopclass %s. Updates run after the restore."
+msgstr ""
 
 #: oc-includes/osclass/classes/admin/form/SpamSettingsForm.php
 msgid "From any address. This catches guessing spread over many addresses."
@@ -4498,6 +4605,10 @@ msgstr ""
 #: oc-admin/themes/modern/tools/system-info.php
 msgid "How to change things"
 msgstr "Hoe je dingen aanpast"
+
+#: oc-admin/themes/modern/tools/backup.php
+msgid "How to close it"
+msgstr ""
 
 #: oc-includes/osclass/installer/basic_data.php
 msgid "Human Resource"
@@ -4918,13 +5029,13 @@ msgstr ""
 msgid "It is <b>recommended</b> to have this option enabled, because some features require it."
 msgstr "Het is <b>aanbevolen</b> om deze optie aan te zetten, omdat sommige functies dit nodig hebben."
 
+#: oc-admin/themes/modern/tools/backup.php
+msgid "It is removed after you download it, or after one hour."
+msgstr ""
+
 #: oc-includes/osclass/classes/admin/form/LatestSearchSettingsForm.php
 msgid "It may be useful to know what queries users make."
 msgstr "Het kan nuttig zijn om te weten wat gebruikers van vragenlijsten maken."
-
-#: oc-admin/themes/modern/tools/database.php
-msgid "It must be outside the site folder, so the public cannot download it."
-msgstr ""
 
 #: oc-includes/osclass/classes/datatables/AlertsDataTable.php
 msgid "It no longer sends email. Ask the user to save the search again."
@@ -4932,6 +5043,14 @@ msgstr ""
 
 #: oc-includes/osclass/classes/search/AlertStore.php
 msgid "It searched tables added by a plugin or theme."
+msgstr ""
+
+#: oc-includes/osclass/classes/backup/BackupManager.php
+msgid "It stopped and did not finish."
+msgstr ""
+
+#: oc-includes/osclass/classes/backup/BackupManager.php
+msgid "It stopped and did not finish. Nothing was saved."
 msgstr ""
 
 #: oc-includes/osclass/classes/admin/form/MediaSettingsForm.php
@@ -5477,6 +5596,10 @@ msgstr "Overzichten van lijsten"
 msgid "Listings, pages &amp; categories"
 msgstr "Aanmeldingen, pagina's &amp; categorieën"
 
+#: oc-admin/themes/modern/tools/backup.php
+msgid "Listings, users, categories, settings"
+msgstr ""
+
 #: oc-admin/themes/modern/parts/package-ui.php
 msgid "Live"
 msgstr ""
@@ -5628,9 +5751,18 @@ msgstr ""
 msgid "Maintenance mode is: <strong>%s</strong>"
 msgstr "Onderhoud modus is: <strong>%s</strong>"
 
+#: oc-admin/themes/modern/tools/backup.php
+#: oc-includes/osclass/classes/backup/BackupJobs.php
+msgid "Make a backup"
+msgstr ""
+
 #: oc-includes/osclass/classes/admin/form/SitemapSettingsForm.php
 msgid "Make a backup before changing your robots.txt file."
 msgstr "Maak een back-up voordat u uw robots.txt-bestand wijzigt."
+
+#: oc-admin/themes/modern/tools/backup.php
+msgid "Make backup"
+msgstr ""
 
 #: oc-includes/osclass/classes/form/ItemForm.php
 msgid "Make primary image"
@@ -5642,6 +5774,10 @@ msgstr ""
 
 #: oc-includes/osclass/classes/admin/ui/PhotoGrid.php
 msgid "Make {file} the cover photo"
+msgstr ""
+
+#: oc-includes/osclass/classes/backup/BackupManager.php
+msgid "Making a backup: %1$s, %2$s."
 msgstr ""
 
 #: oc-admin/themes/modern/languages/index.php
@@ -6217,7 +6353,7 @@ msgid "New"
 msgstr "Nieuw"
 
 #: oc-admin/themes/modern/tools/database.php
-msgid "New Shopclass files are in place, but the database has not caught up yet. "
+msgid "New Shopclass files are in place, but the database has not caught up yet. Run these updates to finish."
 msgstr ""
 
 #: oc-admin/themes/modern/settings/locations/preview.php
@@ -6285,6 +6421,10 @@ msgstr ""
 #: oc-admin/themes/modern/stats/users.php
 msgid "New users"
 msgstr "Nieuwe gebruikers"
+
+#: oc-admin/themes/modern/tools/backup.php
+msgid "Newest first. Kept: the last %d on the server."
+msgstr ""
 
 #: oc-includes/osclass/helpers/hSearch.php
 msgid "Newly listed"
@@ -6552,6 +6692,10 @@ msgstr "Geen resultaten voor dit filter"
 msgid "No room for more photos."
 msgstr ""
 
+#: oc-admin/themes/modern/tools/backup.php
+msgid "No saved backups yet"
+msgstr ""
+
 #: oc-admin/themes/modern/functions.php
 msgid "No subcategory"
 msgstr "Geen subcategorie"
@@ -6636,6 +6780,10 @@ msgstr "Niet gekoppeld"
 msgid "Not attached to a category — it won't appear on listings yet"
 msgstr "Niet gekoppeld aan een categorie — het verschijnt nog niet op advertenties"
 
+#: oc-admin/themes/modern/tools/backup.php
+msgid "Not available on the demo site."
+msgstr ""
+
 #: oc-admin/themes/modern/fields/iframe.php
 msgid "Not cascading"
 msgstr "Niet cascaderend"
@@ -6648,6 +6796,10 @@ msgstr ""
 #: oc-admin/themes/modern/tools/system-info.php
 msgid "Not enabled. PHP recompiles every file on every request. It is the cheapest performance win available, and it is one ini line."
 msgstr "Niet ingeschakeld. PHP hercompileert elk bestand bij elk verzoek. Het is de goedkoopste prestatiewinst die beschikbaar is, en het is maar één ini-regel."
+
+#: oc-includes/osclass/classes/backup/Builder.php
+msgid "Not enough space on the server: needs about %1$s, %2$s free. Nothing was saved."
+msgstr ""
 
 #: oc-admin/themes/modern/parts/package-ui.php
 #: oc-admin/themes/modern/settings/locations/data.php
@@ -6724,6 +6876,14 @@ msgstr ""
 
 #: oc-admin/themes/modern/parts/market.php
 msgid "Nothing to browse yet"
+msgstr ""
+
+#: oc-includes/osclass/classes/backup/BackupManager.php
+msgid "Nothing was changed."
+msgstr ""
+
+#: oc-includes/osclass/classes/backup/BackupManager.php
+msgid "Nothing was saved."
 msgstr ""
 
 #: oc-admin/themes/modern/tools/database.php
@@ -6865,6 +7025,14 @@ msgstr "Bij een overeenkomst"
 msgid "Once the upgrade is complete, you will be redirected to the Admin Control Panel."
 msgstr "Zodra de upgrade is voltooid, zult u worden doorgestuurd naar het Admin Control Paneel."
 
+#: oc-admin/themes/modern/tools/backup.php
+msgid "One backup at a time."
+msgstr ""
+
+#: oc-includes/osclass/classes/backup/BackupManager.php
+msgid "One backup at a time. Wait for the one running to finish."
+msgstr ""
+
 #: oc-includes/osclass/classes/admin/form/LatestSearchSettingsForm.php
 msgid "One day"
 msgstr "number@@0 dagen"
@@ -6912,6 +7080,10 @@ msgstr "Alleen ingelogde gebruikers kunnen aanbiedingen posten"
 msgid "Only logged-in users can subscribe to search alerts"
 msgstr "Alleen ingelogde gebruikers kunnen zich abonneren op zoekmeldingen"
 
+#: oc-admin/themes/modern/tools/backup.php
+msgid "Only restore backups you made. A restore runs the SQL and puts back the files in it, and it brings back the admin passwords and keys it holds."
+msgstr ""
+
 #: oc-admin/themes/modern/settings/locations.php
 #: oc-admin/themes/modern/settings/locations/list.php
 msgid "Only the first %s are shown. Type more of the name to narrow it."
@@ -6920,6 +7092,10 @@ msgstr ""
 #: oc-admin/themes/modern/billing/credits.php
 msgid "Open"
 msgstr "Openen"
+
+#: oc-admin/themes/modern/tools/backup.php
+msgid "Open the site again"
+msgstr ""
 
 #: oc-includes/osclass/installer/gui/install-finish.php
 msgid "Open your admin panel"
@@ -7258,12 +7434,16 @@ msgstr "Toegestane foto's per advertentie zolang het recht geldig is."
 msgid "Photos larger than the normal size are shrunk to it first, so large phone photos "
 msgstr ""
 
+#: oc-admin/themes/modern/tools/backup.php
+msgid "Photos live in your S3 bucket and are not copied. They stay there. Turn on versioning in the bucket to keep old copies."
+msgstr ""
+
 #: oc-admin/themes/modern/tools/system-info.php
 msgid "Photos per listing"
 msgstr "Foto's per advertentie"
 
-#: oc-admin/themes/modern/tools/database.php
-msgid "Photos, plugins and themes are files, not database: back them up on %s."
+#: oc-admin/themes/modern/tools/backup.php
+msgid "Photos, plugins, themes, languages"
 msgstr ""
 
 #: oc-admin/themes/modern/fields/submissions.php
@@ -7487,6 +7667,14 @@ msgstr "Aankoop"
 
 #: oc-admin/themes/modern/tools/maintenance.php
 msgid "Put a banner on the site while you work, or take the public site down with HTTP 503. Signed-in admins always stay in."
+msgstr ""
+
+#: oc-admin/themes/modern/tools/backup.php
+msgid "Put back"
+msgstr ""
+
+#: oc-admin/themes/modern/tools/backup.php
+msgid "Put back:"
 msgstr ""
 
 #: oc-admin/themes/modern/admins/two_factor.php
@@ -7769,6 +7957,10 @@ msgstr "Verwijder uit het formulier"
 msgid "Remove image"
 msgstr ""
 
+#: oc-includes/osclass/classes/backup/BackupJobs.php
+msgid "Remove old backups"
+msgstr ""
+
 #: oc-includes/osclass/classes/controller/admin/CAdminItems.php
 msgid "Remove premium"
 msgstr ""
@@ -7934,20 +8126,52 @@ msgstr "Start de installer opnieuw"
 msgid "Restaurant - Food Service"
 msgstr "Restaurant - Food Service"
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-admin/themes/modern/tools/backup.php
 msgid "Restore"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/database.php
-msgid "Restore from a backup"
+#: oc-includes/osclass/classes/backup/BackupJobs.php
+msgid "Restore a backup"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/database.php
+#: oc-includes/osclass/classes/backup/BackupJobs.php
+msgid "Restore failed"
+msgstr ""
+
+#: oc-includes/osclass/classes/backup/BackupJobs.php
+msgid "Restore finished"
+msgstr ""
+
+#: oc-includes/osclass/classes/backup/BackupJobs.php
+msgid "Restore finished from the backup of %s"
+msgstr ""
+
+#: oc-admin/themes/modern/tools/backup.php
+msgid "Restore from a file"
+msgstr ""
+
+#: oc-admin/themes/modern/tools/backup.php
 msgid "Restore from this file"
 msgstr ""
 
-#: oc-admin/themes/modern/tools/database.php
-msgid "Restore from this file?"
+#: oc-admin/themes/modern/tools/backup.php
+msgid "Restore this backup?"
+msgstr ""
+
+#: oc-admin/themes/modern/tools/backup.php
+msgid "Restore…"
+msgstr ""
+
+#: oc-admin/themes/modern/tools/backup.php
+msgid "Restoring replaces what is on the site now. It cannot be undone. A safety copy of today's database is saved first."
+msgstr ""
+
+#: oc-includes/osclass/classes/backup/BackupManager.php
+msgid "Restoring the backup from %s."
+msgstr ""
+
+#: oc-includes/osclass/classes/backup/BackupManager.php
+msgid "Restoring the backup."
 msgstr ""
 
 #: oc-includes/osclass/classes/admin/form/MediaSettingsForm.php
@@ -7989,10 +8213,6 @@ msgstr "Rijen"
 #: oc-admin/themes/modern/parts/ui.php
 msgid "Rows per page"
 msgstr "Rijen per pagina"
-
-#: oc-admin/themes/modern/tools/database.php
-msgid "Run an .sql backup file against this database, such as one saved above."
-msgstr ""
 
 #: oc-admin/themes/modern/tools/cleanup.php
 msgid "Run cleanup now"
@@ -8039,6 +8259,10 @@ msgstr "SMTP"
 msgid "SMTP authentication enabled"
 msgstr "SMTP authenticatie ingeschakeld"
 
+#: oc-admin/themes/modern/tools/backup.php
+msgid "Safety copy"
+msgstr ""
+
 #: oc-includes/osclass/installer/basic_data.php
 msgid "Sales"
 msgstr "Verkoop"
@@ -8056,8 +8280,12 @@ msgstr "Zaterdag"
 msgid "Save"
 msgstr "Bewaren"
 
-#: oc-admin/themes/modern/tools/database.php
-msgid "Save a copy of the database: listings, users, categories and settings. Take one before an update or a repair."
+#: oc-admin/themes/modern/tools/backup.php
+msgid "Save a copy of your database and your files, and put one back. Backups you save on the server are kept in a folder closed to the web."
+msgstr ""
+
+#: oc-admin/themes/modern/tools/backup.php
+msgid "Save a copy of your site. Do it before an update, and now and then anyway."
 msgstr ""
 
 #: oc-includes/osclass/classes/admin/form/MediaSettingsForm.php
@@ -8089,13 +8317,13 @@ msgstr "Instellingen voor bankoverschrijving bewaren"
 msgid "Save changes"
 msgstr "Aanpassingen opslaan"
 
-#: oc-admin/themes/modern/tools/database.php
-msgid "Save in a folder on the server"
-msgstr ""
-
 #: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
 msgid "Save limits"
 msgstr "Limieten bewaren"
+
+#: oc-admin/themes/modern/tools/backup.php
+msgid "Save on the server"
+msgstr ""
 
 #: oc-admin/themes/modern/billing/package.php
 msgid "Save package"
@@ -8144,6 +8372,18 @@ msgstr "Upgrade-instellingen bewaren"
 #: oc-includes/osclass/classes/controller/admin/ajax/CAdminAjax.php
 msgid "Saved"
 msgstr "Opgeslagen"
+
+#: oc-admin/themes/modern/tools/backup.php
+msgid "Saved backups"
+msgstr ""
+
+#: oc-includes/osclass/classes/backup/BackupManager.php
+msgid "Saving the database"
+msgstr ""
+
+#: oc-includes/osclass/classes/backup/BackupManager.php
+msgid "Saving the database (table %1$d of %2$d)"
+msgstr ""
 
 #: oc-admin/themes/modern/appearance/widgets.php
 #: oc-admin/themes/modern/fields/index.php
@@ -8309,6 +8549,10 @@ msgstr "Zie hoeveel reacties de advertentie op uw site heeft ontvangen."
 #: oc-admin/themes/modern/stats/reports.php
 msgid "See how many listings from your site have been reported as spam, expired, duplicate, etc."
 msgstr "Zie hoeveel advertenties van uw site zijn gemeld als spam, verlopen, dupliceren, etc."
+
+#: oc-admin/themes/modern/tools/backup.php
+msgid "See the job"
+msgstr ""
 
 #: oc-admin/themes/modern/tools/database.php
 msgid "See the list"
@@ -8508,6 +8752,7 @@ msgstr "september"
 msgid "Serve files through time-limited signed URLs."
 msgstr "Bestanden leveren via tijdgebonden ondertekende URL's."
 
+#: oc-admin/themes/modern/tools/backup.php
 #: oc-admin/themes/modern/tools/cache.php
 #: oc-admin/themes/modern/tools/database.php
 msgid "Server"
@@ -8520,11 +8765,6 @@ msgstr "Servercontrolelijst"
 #: oc-includes/AjaxUploader.php
 msgid "Server error. Upload directory isn't writable."
 msgstr "Serverfout. De uploadmap is niet beschrijfbaar."
-
-#: oc-admin/themes/modern/tools/database.php
-#: oc-admin/themes/modern/tools/upgrade.php
-msgid "Server folder"
-msgstr ""
 
 #: oc-includes/osclass/classes/admin/form/MailServerSettingsForm.php
 msgid "Server port"
@@ -8888,6 +9128,7 @@ msgstr "Sitemap-instellingen"
 
 #: oc-admin/themes/modern/media/index.php
 #: oc-admin/themes/modern/parts/market.php
+#: oc-admin/themes/modern/tools/backup.php
 #: oc-admin/themes/modern/tools/database.php
 msgid "Size"
 msgstr "Grootte"
@@ -9008,6 +9249,10 @@ msgstr ""
 msgid "Stable, release candidates and betas"
 msgstr ""
 
+#: oc-includes/osclass/classes/backup/BackupManager.php
+msgid "Starting"
+msgstr ""
+
 #: oc-admin/themes/modern/settings/spamNbots.php
 #: oc-admin/themes/modern/tools/jobs.php
 msgid "State"
@@ -9057,6 +9302,22 @@ msgstr "Blijft verborgen bij het afrekenen totdat hieronder instructies zijn ing
 #: oc-admin/themes/modern/fields/iframe.php
 msgid "Step"
 msgstr "Stap"
+
+#: oc-includes/osclass/classes/backup/BackupManager.php
+msgid "Step 1 of 4: Saving a safety copy"
+msgstr ""
+
+#: oc-includes/osclass/classes/backup/BackupManager.php
+msgid "Step 2 of 4: Loading the database (%s statements)"
+msgstr ""
+
+#: oc-includes/osclass/classes/backup/BackupManager.php
+msgid "Step 3 of 4: Putting back files (%1$s of %2$s)"
+msgstr ""
+
+#: oc-includes/osclass/classes/backup/BackupManager.php
+msgid "Step 4 of 4: Updates and cache"
+msgstr ""
 
 #: oc-admin/themes/modern/tools/database.php
 msgid "Still to do"
@@ -9195,6 +9456,10 @@ msgstr ""
 msgid "Table prefix"
 msgstr "Tabel voorvoegsel"
 
+#: oc-admin/themes/modern/tools/database.php
+msgid "Take a backup first."
+msgstr ""
+
 #: oc-admin/themes/modern/billing/wallet.php
 msgid "Take credits back off this account. You can add them again afterwards, and "
 msgstr "Haal credits terug van deze rekening. Je kunt ze later weer toevoegen, en "
@@ -9257,6 +9522,10 @@ msgstr "Tekst offset_y"
 msgid "Thank you for using <a href=\"%s\" target=\"_blank\">Shopclass</a>"
 msgstr "Dank je dat je <a href=\"%s\" target=\"_blank\">Shopclass</a> gebruikt"
 
+#: oc-includes/osclass/classes/backup/BackupManager.php
+msgid "That backup is not in the list any more."
+msgstr ""
+
 #: oc-includes/osclass/helpers/hSettings.php
 msgid "That could not be saved. Please check the values and try again."
 msgstr ""
@@ -9309,12 +9578,56 @@ msgstr "De gebruikersnaam van de beheerder mag alleen letters en cijfers bevatte
 msgid "The available version has changed since you loaded this page; refresh and try again."
 msgstr "De beschikbare versie is gewijzigd sinds u deze pagina hebt geladen; vernieuw de pagina en probeer het opnieuw."
 
-#: oc-includes/osclass/classes/admin/DatabaseTools.php
+#: oc-includes/osclass/classes/backup/BackupManager.php
+msgid "The backup could not be started. Try again."
+msgstr ""
+
+#: oc-includes/osclass/classes/backup/BackupManager.php
+msgid "The backup failed while checking the space."
+msgstr ""
+
+#: oc-includes/osclass/classes/backup/BackupManager.php
+msgid "The backup failed while copying files."
+msgstr ""
+
+#: oc-includes/osclass/classes/backup/BackupManager.php
+msgid "The backup failed while finishing."
+msgstr ""
+
+#: oc-includes/osclass/classes/backup/BackupManager.php
+msgid "The backup failed while saving the database."
+msgstr ""
+
+#: oc-includes/osclass/classes/backup/BackupManager.php
+msgid "The backup failed."
+msgstr ""
+
+#: oc-includes/osclass/classes/backup/Restorer.php
+msgid "The backup file is gone."
+msgstr ""
+
+#: oc-includes/osclass/classes/backup/Builder.php
+msgid "The backup folder cannot be written."
+msgstr ""
+
+#: oc-includes/osclass/classes/backup/BackupManager.php
+msgid "The backup folder cannot be written: %s"
+msgstr ""
+
+#: oc-includes/osclass/classes/backup/BackupStore.php
 msgid "The backup folder does not exist."
 msgstr ""
 
-#: oc-includes/osclass/classes/admin/DatabaseTools.php
+#: oc-includes/osclass/classes/backup/BackupStore.php
 msgid "The backup folder is not writable."
+msgstr ""
+
+#: oc-includes/osclass/classes/controller/admin/CAdminTools.php
+msgid "The backup from %s is restored."
+msgstr ""
+
+#: oc-includes/osclass/classes/controller/admin/CAdminTools.php
+msgid "The backup is restored."
 msgstr ""
 
 #: oc-includes/osclass/classes/market/Installer.php
@@ -9377,10 +9690,6 @@ msgstr ""
 msgid "The database Shopclass should use."
 msgstr "De database die Shopclass moet gebruiken."
 
-#: oc-admin/themes/modern/tools/upgrade.php
-msgid "The database is backed up on %s."
-msgstr ""
-
 #: oc-admin/themes/modern/tools/database.php
 msgid "The database is updated. %d update ran."
 msgid_plural "The database is updated. %d updates ran."
@@ -9396,8 +9705,13 @@ msgid "The database server rejected that username and password. Re-copy them fro
 msgstr "De databaseserver heeft die gebruikersnaam en dat wachtwoord geweigerd. Kopieer ze opnieuw uit "
 
 #: oc-admin/themes/modern/tools/database.php
+#: oc-includes/osclass/classes/backup/BackupJobs.php
 #: oc-includes/osclass/classes/upgrade/AutoSecurityUpdate.php
 msgid "The database update failed."
+msgstr ""
+
+#: oc-includes/osclass/classes/backup/BackupManager.php
+msgid "The database was restored. Visitors still see the maintenance page."
 msgstr ""
 
 #: oc-includes/osclass/classes/upgrade/Upgrade.php
@@ -9423,6 +9737,10 @@ msgstr "De veldgroep is verwijderd"
 #: oc-includes/osclass/install-functions.php
 msgid "The file %s doesn't exist"
 msgstr "Het bestand %s bestaat niet"
+
+#: oc-includes/osclass/classes/backup/Restorer.php
+msgid "The file cannot be read."
+msgstr ""
 
 #: oc-includes/osclass/classes/admin/DatabaseTools.php
 msgid "The file is larger than this server accepts (%s). Raise upload_max_filesize and post_max_size, or restore from the command line."
@@ -9516,6 +9834,50 @@ msgstr ""
 msgid "The plugin folder is not writable on your server so you cannot upload "
 msgstr "De plug-inmap is niet beschrijfbaar op je server, waardoor je niet kunt uploaden "
 
+#: oc-includes/osclass/classes/backup/BackupManager.php
+msgid "The restore could not be started. Try again."
+msgstr ""
+
+#: oc-includes/osclass/classes/backup/Restorer.php
+msgid "The restore could not carry on in the background."
+msgstr ""
+
+#: oc-includes/osclass/classes/backup/BackupManager.php
+msgid "The restore did not start."
+msgstr ""
+
+#: oc-includes/osclass/classes/backup/BackupManager.php
+msgid "The restore stopped while finishing."
+msgstr ""
+
+#: oc-includes/osclass/classes/backup/BackupManager.php
+msgid "The restore stopped while loading the database."
+msgstr ""
+
+#: oc-includes/osclass/classes/backup/BackupManager.php
+msgid "The restore stopped while putting back files."
+msgstr ""
+
+#: oc-includes/osclass/classes/backup/BackupManager.php
+msgid "The restore stopped while running the database updates."
+msgstr ""
+
+#: oc-includes/osclass/classes/backup/BackupManager.php
+msgid "The restore stopped."
+msgstr ""
+
+#: oc-includes/osclass/classes/backup/BackupManager.php
+msgid "The safety copy could not be put back. The site stays closed. Restore it from the list below."
+msgstr ""
+
+#: oc-includes/osclass/classes/backup/Restorer.php
+msgid "The safety copy could not be saved: %s"
+msgstr ""
+
+#: oc-includes/osclass/classes/backup/BackupManager.php
+msgid "The safety copy was put back, so the site is as it was before. Visitors still see the maintenance page."
+msgstr ""
+
 #: oc-admin/themes/modern/tools/database.php
 msgid "The same update the command line runs with db:upgrade. On a large site it can take a few minutes."
 msgstr ""
@@ -9538,6 +9900,10 @@ msgstr "De servertijdzone die wordt gebruikt voor datums van advertenties en sta
 
 #: oc-admin/themes/modern/settings/locations.php
 msgid "The server stopped waiting before the work finished. Try again; if it keeps happening, ask your host to allow requests of up to five minutes."
+msgstr ""
+
+#: oc-includes/osclass/classes/backup/Restorer.php
+msgid "The site could not be put in maintenance mode."
 msgstr ""
 
 #: oc-admin/themes/modern/languages/index.php
@@ -9620,10 +9986,6 @@ msgstr "De onderstaande widgets vormen deze pagina. Widgets kunnen ook verschijn
 msgid "The work they were going to do will never happen. This can't be undone."
 msgstr ""
 
-#: oc-admin/themes/modern/tools/upgrade.php
-msgid "The zip is saved here. It must be outside the site folder, so the public cannot download it. A large site can run out of time: then use the command line."
-msgstr ""
-
 #: oc-includes/osclass/classes/market/Installer.php
 msgid "Theme installed."
 msgstr ""
@@ -9662,6 +10024,18 @@ msgstr "Er zijn nog geen statistieken"
 #: oc-admin/themes/modern/main/index.php
 msgid "There aren't any uploaded listing yet"
 msgstr "Er zijn nog geen geüploade aanbiedingen"
+
+#: oc-includes/osclass/classes/backup/Restorer.php
+msgid "There is not enough free space to put back the files: %1$s needed, %2$s free."
+msgstr ""
+
+#: oc-admin/themes/modern/tools/backup.php
+msgid "There is not enough space for a safety copy of the files. Only the database is copied first."
+msgstr ""
+
+#: oc-includes/osclass/classes/backup/Restorer.php
+msgid "There is nothing to put back."
+msgstr ""
 
 #: oc-includes/osclass/classes/controller/admin/ajax/CAdminAjax.php
 msgid "There were no fields to move."
@@ -9720,6 +10094,14 @@ msgstr ""
 msgid "This applies the waiting updates in order. Keep the page open until it finishes. Take a backup first."
 msgstr ""
 
+#: oc-includes/osclass/classes/backup/Manifest.php
+msgid "This backup comes from Shopclass %1$s. This site runs %2$s. Update Shopclass first, then restore."
+msgstr ""
+
+#: oc-includes/osclass/classes/backup/Manifest.php
+msgid "This backup uses tables named %1$s. This site uses %2$s. It cannot be restored here."
+msgstr ""
+
 #: oc-admin/themes/modern/billing/wallet.php
 msgid "This balance is below zero, usually after a refund of credits that had "
 msgstr "Dit saldo staat onder nul, meestal na een terugbetaling van credits die al "
@@ -9762,11 +10144,23 @@ msgid_plural "This field is used in %d forms. Changes here apply to all of them.
 msgstr[0] "Dit veld wordt gebruikt in %d formulier. Wijzigingen hier zijn van toepassing op dat formulier."
 msgstr[1] "Dit veld wordt gebruikt in %d formulieren. Wijzigingen hier zijn van toepassing op alle formulieren."
 
+#: oc-includes/osclass/classes/backup/Restorer.php
+msgid "This file cannot be restored: what it holds is too large or too compressed to be a real backup."
+msgstr ""
+
+#: oc-includes/osclass/classes/backup/Manifest.php
+msgid "This file has no version information. Updates run after it, just in case."
+msgstr ""
+
+#: oc-includes/osclass/classes/backup/Restorer.php
+msgid "This file is not a Shopclass backup."
+msgstr ""
+
 #: oc-admin/themes/modern/media/index.php
 msgid "This file will be removed from the server. The listing, user or page it "
 msgstr "Dit bestand wordt van de server verwijderd. De advertentie, gebruiker of pagina waar het "
 
-#: oc-includes/osclass/classes/admin/DatabaseTools.php
+#: oc-includes/osclass/classes/backup/BackupStore.php
 msgid "This folder is inside the site, so anyone could download the backup. Pick a folder outside it."
 msgstr ""
 
@@ -9794,6 +10188,10 @@ msgstr ""
 msgid "This is an example page description. This is a good place to put your Terms of Service or any other help information."
 msgstr "Dit is een voorbeeld pagina omschrijving. Dit is een goede plek om uw Gebruiksvoorwaarden of enige andere hulp informatie te zetten."
 
+#: oc-admin/themes/modern/tools/backup.php
+msgid "This keeps going while the page is open. With cron set up it also carries on if you close it."
+msgstr ""
+
 #: oc-includes/osclass/classes/admin/form/SpamSettingsForm.php
 msgid "This key is valid"
 msgstr "Deze sleutel is geldig"
@@ -9817,10 +10215,6 @@ msgstr "Dit verwijdert het alleen bij het afrekenen. Bestellingen die hier al vo
 #: oc-admin/themes/modern/items/settings.php
 msgid "This option will send an email X days before an ad expires to the author. 0 for no email."
 msgstr "Deze optie stuurt een e-mail X dagen voordat een advertentie vervalt aan de auteur. 0 voor geen e-mail."
-
-#: oc-admin/themes/modern/tools/database.php
-msgid "This overwrites data. The file can change or delete anything in your database, and it cannot be undone. Take a backup first."
-msgstr ""
 
 #: oc-includes/osclass/classes/controller/admin/ajax/CAdminAjax.php
 msgid "This package is already installed; use Update instead."
@@ -9895,8 +10289,8 @@ msgstr "Dit verwijdert de widget onmiddellijk uit zijn sectie en kan niet ongeda
 msgid "This request's address matches every forwarding header sent with it — no proxy misconfiguration detected."
 msgstr ""
 
-#: oc-admin/themes/modern/tools/database.php
-msgid "This server accepts files up to %s. Restore a larger file from the command line."
+#: oc-admin/themes/modern/tools/backup.php
+msgid "This server accepts files up to %s."
 msgstr ""
 
 #: oc-includes/osclass/install-functions.php
@@ -9958,6 +10352,10 @@ msgstr "Vink aan om links in een nieuw tabblad te openen"
 
 #: oc-admin/themes/modern/tools/cleanup.php
 msgid "Tick what to clean and how old it must be. Everything removed is gone for good."
+msgstr ""
+
+#: oc-includes/osclass/classes/backup/BackupManager.php
+msgid "Tick what to put back."
 msgstr ""
 
 #: oc-includes/osclass/installer/basic_data.php
@@ -10052,6 +10450,7 @@ msgstr ""
 msgid "Too old. Shopclass is built and tested against PHP 8.0 and up."
 msgstr "Te oud. Shopclass is gebouwd en getest voor PHP 8.0 en hoger."
 
+#: oc-admin/themes/modern/tools/backup.php
 #: oc-admin/themes/modern/tools/cache.php
 #: oc-admin/themes/modern/tools/cleanup.php
 #: oc-admin/themes/modern/tools/database.php
@@ -10064,10 +10463,6 @@ msgstr "Te oud. Shopclass is gebouwd en getest voor PHP 8.0 en hoger."
 #: oc-includes/osclass/classes/AdminMenu.php
 msgid "Tools"
 msgstr "Hulpmiddelen"
-
-#: oc-admin/themes/modern/tools/upgrade.php
-msgid "Tools » Database"
-msgstr ""
 
 #: oc-includes/osclass/classes/admin/form/MediaSettingsForm.php
 msgid "Top Left"
@@ -10110,6 +10505,7 @@ msgid "Try a different status or payment method."
 msgstr "Probeer een andere status of betaalmethode."
 
 #: oc-admin/themes/modern/settings/locations/data.php
+#: oc-admin/themes/modern/tools/backup.php
 #: oc-admin/themes/modern/tools/jobs.php
 msgid "Try again"
 msgstr ""
@@ -10463,7 +10859,6 @@ msgstr "Upgrade notities:"
 msgid "Upgrade Now to "
 msgstr "Upgrade nu naar "
 
-#: oc-admin/themes/modern/tools/database.php
 #: oc-includes/osclass/classes/AdminMenu.php
 msgid "Upgrade Shopclass"
 msgstr "Shopclass upgraden"
@@ -10887,6 +11282,10 @@ msgstr ""
 msgid "Visitors"
 msgstr ""
 
+#: oc-admin/themes/modern/tools/backup.php
+msgid "Visitors see the maintenance page until this finishes."
+msgstr ""
+
 #: oc-includes/osclass/installer/basic_data.php
 msgid "Volunteers"
 msgstr "Vrijwilligers"
@@ -10901,6 +11300,10 @@ msgstr ""
 
 #: oc-admin/themes/modern/tools/jobs.php
 msgid "Waiting jobs run on every cron tick. Cron last ran %s."
+msgstr ""
+
+#: oc-includes/osclass/classes/backup/BackupManager.php
+msgid "Waiting to start"
 msgstr ""
 
 #: oc-admin/themes/modern/items/settings.php
@@ -10994,6 +11397,7 @@ msgstr "Wekelijks"
 msgid "Welcome to Shopclass"
 msgstr "Welkom bij Shopclass"
 
+#: oc-admin/themes/modern/tools/backup.php
 #: oc-admin/themes/modern/tools/database.php
 #: oc-admin/themes/modern/tools/jobs.php
 msgid "What"
@@ -11052,6 +11456,10 @@ msgstr "Wanneer een nieuwe gebruiker is geregistreerd"
 #: oc-admin/themes/modern/tools/system-info.php
 msgid "When you cannot edit php.ini, Shopclass will lift PHP's memory limit up to %s on its own at start-up."
 msgstr "Als je php.ini niet kunt bewerken, verhoogt Shopclass bij het opstarten zelf de geheugenlimiet van PHP tot %s."
+
+#: oc-admin/themes/modern/tools/backup.php
+msgid "Where"
+msgstr ""
 
 #: oc-admin/themes/modern/settings/keywordBlock.php
 #: oc-admin/themes/modern/settings/keywordBlock_frm.php
@@ -11203,10 +11611,7 @@ msgid "Your Shopclass installation at %s is up and running."
 msgstr "Uw Shopclass-installatie op %s is operationeel."
 
 #: oc-admin/themes/modern/tools/upgrade.php
-msgid "Your Shopclass installation can be auto-upgraded.\n"
-"                                        Please, back up your database and the folder oc-content before attempting to\n"
-"                                        upgrade your Shopclass installation.\n"
-"                                        You can also upgrade Shopclass manually, more information in the %s"
+msgid "Your Shopclass installation can be auto-upgraded. %1$s: the database and oc-content. You can also upgrade Shopclass manually, more information in the %2$s."
 msgstr ""
 
 #: oc-admin/themes/modern/tools/upgrade.php
@@ -11215,6 +11620,14 @@ msgstr "Uw Shopclass-installatie is geüpgraded naar versie "
 
 #: oc-includes/osclass/classes/admin/ui/Field.php
 msgid "Your admin language"
+msgstr ""
+
+#: oc-admin/themes/modern/tools/backup.php
+msgid "Your backup is ready: %1$s, %2$s, %3$s."
+msgstr ""
+
+#: oc-admin/themes/modern/tools/backup.php
+msgid "Your backups folder is open to the web. Anyone who guesses a file name could download a backup."
 msgstr ""
 
 #: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
@@ -11239,6 +11652,10 @@ msgstr ""
 
 #: oc-admin/themes/modern/tools/database.php
 msgid "Your database has every table, column and index Shopclass expects."
+msgstr ""
+
+#: oc-admin/themes/modern/tools/backup.php
+msgid "Your database is replaced with the one in this file. Anything added since it was made is lost. Visitors see the maintenance page until it finishes."
 msgstr ""
 
 #: oc-admin/themes/modern/upgrade/index.php
@@ -11313,6 +11730,10 @@ msgstr "Uw sessie is verlopen. Vernieuw de pagina en probeer het opnieuw."
 #: oc-includes/osclass/installer/gui/install.php
 msgid "Your site"
 msgstr "Uw website"
+
+#: oc-admin/themes/modern/tools/backup.php
+msgid "Your site goes back to how it was on %s. Anything added since then is lost. Visitors see the maintenance page until it finishes."
+msgstr ""
 
 #: oc-admin/themes/modern/upgrade/index.php
 msgid "Your site has not been changed. Nothing was left half-done."
@@ -11517,6 +11938,10 @@ msgstr "zoekwoord"
 msgid "listings at most"
 msgstr "Lijsten hoogstens"
 
+#: oc-admin/themes/modern/tools/backup.php
+msgid "made before a restore"
+msgstr ""
+
 #: oc-admin/themes/modern/tools/system-info.php
 msgid "mbstring"
 msgstr "mbstring"
@@ -11562,6 +11987,10 @@ msgstr "Uit"
 #: oc-admin/themes/modern/tools/system-info.php
 msgid "on"
 msgstr "Aan"
+
+#: oc-includes/osclass/classes/backup/BackupJobs.php
+msgid "on the server"
+msgstr ""
 
 #: oc-admin/themes/modern/tools/system-info.php
 msgid "on, banner only"
@@ -11648,6 +12077,10 @@ msgstr "robots.txt is niet beschrijfbaar door de webserver. Pas de bestands- of 
 msgid "s_source_file is not a valid url"
 msgstr "s_source_file is geen geldige url"
 
+#: oc-includes/osclass/classes/backup/BackupManager.php
+msgid "saved on the server"
+msgstr ""
+
 #: oc-includes/osclass/classes/admin/form/StorageSettingsForm.php
 msgid "seconds"
 msgstr ""
@@ -11672,6 +12105,11 @@ msgstr "deze gebruiker"
 #: oc-includes/osclass/helpers/hItems.php
 msgid "to"
 msgstr "aan"
+
+#: oc-includes/osclass/classes/backup/BackupJobs.php
+#: oc-includes/osclass/classes/backup/BackupManager.php
+msgid "to download"
+msgstr ""
 
 #: oc-admin/themes/modern/tools/system-info.php
 msgid "unavailable"

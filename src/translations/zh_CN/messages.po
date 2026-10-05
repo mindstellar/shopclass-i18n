@@ -14,7 +14,7 @@ msgstr ""
 "X-Crowdin-File: /develop/src/templates/messages.pot\n"
 "X-Crowdin-File-ID: 8261\n"
 "Language-Team: Chinese Simplified\n"
-"PO-Revision-Date: 2026-10-05 03:37\n"
+"PO-Revision-Date: 2026-10-05 21:15\n"
 
 #: oc-includes/osclass/classes/controller/admin/CAdminAppearance.php
 msgid "\"%1$s\" extends this theme. Delete it first, or switch it to "
@@ -58,6 +58,7 @@ msgid "%s (free)"
 msgstr ""
 
 #: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsLocations.php
+#: oc-includes/osclass/classes/location/LocationService.php
 msgid "%s already was in the database"
 msgstr "%s 已存在于数据库"
 
@@ -76,14 +77,6 @@ msgstr "%s 不能反激活因为默认语言"
 #: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsLocations.php
 msgid "%s could not be read from the catalog"
 msgstr ""
-
-#: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsCurrencies.php
-msgid "%s couldn't be deleted because it has listings associated to it"
-msgstr "%s 是不可以删除的，你知道有你们多的广告在里面呢，你想删就删，那我疯了算了"
-
-#: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsCurrencies.php
-msgid "%s couldn't be deleted because it's the default currency"
-msgstr "%s是不可以删除的，你知道那是默认的货币"
 
 #: oc-includes/osclass/gui/billing/buy-content.php
 msgid "%s credits"
@@ -125,15 +118,15 @@ msgstr ""
 msgid "%s is installed with its regions and cities"
 msgstr ""
 
-#: oc-includes/osclass/classes/actions/ItemActions.php
+#: oc-includes/osclass/classes/listing/ListingValidator.php
 msgid "%s is invalid."
 msgstr "%s 无效。"
 
-#: oc-includes/osclass/classes/actions/ItemActions.php
+#: oc-includes/osclass/classes/listing/ListingValidator.php
 msgid "%s is required."
 msgstr "%s 是必需的。"
 
-#: oc-includes/osclass/classes/actions/UserActions.php
+#: oc-includes/osclass/classes/user/AccountService.php
 msgid "%s is too long, the maximum is %d characters"
 msgstr ""
 
@@ -169,6 +162,10 @@ msgstr ""
 msgid "<a href=\"%s\">Click here to sign-in</a>"
 msgstr "<a href=\"%s\">点击这里登录</a>"
 
+#: oc-includes/osclass/classes/currency/CurrencyService.php
+msgid "A currency with this code already exists."
+msgstr ""
+
 #: oc-includes/osclass/classes/controller/admin/CAdminUsers.php
 msgid "A held alert cannot be activated. Ask the user to save the search again."
 msgstr ""
@@ -182,6 +179,10 @@ msgid "A message can contain %d link."
 msgid_plural "A message can contain up to %d links."
 msgstr[0] ""
 
+#: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsApi.php
+msgid "A new key is made. The old one works until you revoke it."
+msgstr ""
+
 #: oc-includes/osclass/classes/controller/admin/CAdminItems.php
 msgid "A new listing has been added"
 msgstr "新广告已添加"
@@ -190,11 +191,15 @@ msgstr "新广告已添加"
 msgid "A new password has been sent to your e-mail"
 msgstr "新密码已发送至您邮箱"
 
+#: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsApi.php
+msgid "A new secret is made. The old one also signs deliveries for 24 hours, so you can switch over."
+msgstr ""
+
 #: oc-includes/osclass/classes/admin/form/StaticPageForm.php
 msgid "A page needs a title in at least one language."
 msgstr ""
 
-#: oc-includes/osclass/classes/actions/ItemActions.php
+#: oc-includes/osclass/classes/listing/PhotoService.php
 msgid "A photo could not be saved. Check that the uploads folder can be written to."
 msgstr ""
 
@@ -202,9 +207,26 @@ msgstr ""
 msgid "A saved search that emails you when a new listing matches it."
 msgstr ""
 
-#: oc-includes/osclass/classes/controller/CWebItem.php
+#: oc-includes/osclass/classes/webhook/WebhookService.php
+msgid "A site can have %d webhook endpoints. Delete one first."
+msgstr ""
+
+#: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsApi.php
+msgid "A test event is queued. It is sent on the next run of the job queue."
+msgstr ""
+
+#: oc-includes/osclass/classes/listing/ListingService.php
 msgid "A user with that email address already exists, if it is you, please log in"
 msgstr "嘿，怎么有一模一样的邮件已经存在了呢，那是你还是不是哦"
+
+#: oc-includes/osclass/helpers/hApi.php
+#: oc-includes/osclass/helpers/hTheme.php
+msgid "API access"
+msgstr ""
+
+#: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsApi.php
+msgid "API settings have been updated"
+msgstr ""
 
 #: oc-includes/osclass/gui/account/user-profile-content.php
 msgid "About you"
@@ -223,11 +245,15 @@ msgstr ""
 msgid "About “%s”"
 msgstr ""
 
+#: oc-includes/osclass/classes/controller/CWebUser.php
+msgid "Access ended."
+msgstr ""
+
 #: oc-includes/osclass/gui/account/user-profile-content.php
 msgid "Account type"
 msgstr ""
 
-#: oc-includes/osclass/classes/controller/CWebRegister.php
+#: oc-includes/osclass/classes/user/AccountService.php
 msgid "Account validation failed"
 msgstr "帐户验证失败"
 
@@ -243,16 +269,16 @@ msgstr "活动日志设置已保存"
 msgid "Added by admin"
 msgstr "由管理员添加"
 
-#: oc-includes/osclass/classes/actions/UserActions.php
+#: oc-includes/osclass/classes/user/AccountService.php
 #: oc-includes/osclass/gui/account/user-profile-content.php
 msgid "Address"
 msgstr ""
 
-#: oc-includes/osclass/classes/actions/ItemActions.php
+#: oc-includes/osclass/classes/listing/ListingValidator.php
 msgid "Address too long."
 msgstr "地址太长"
 
-#: oc-includes/osclass/classes/actions/ItemActions.php
+#: oc-includes/osclass/classes/listing/ListingValidator.php
 msgid "Address too short."
 msgstr "地址太短"
 
@@ -300,6 +326,10 @@ msgstr ""
 
 #: oc-includes/osclass/classes/controller/admin/CAdminTools.php
 msgid "An upgrade is running. Try again when it has finished."
+msgstr ""
+
+#: oc-includes/osclass/gui/account/user-api_access-content.php
+msgid "Apps you signed in to with this account, and keys you made for your own scripts. End any you do not recognise."
 msgstr ""
 
 #: oc-includes/osclass/gui/account/user-forgot_password-content.php
@@ -415,7 +445,7 @@ msgstr "已取消"
 msgid "Category"
 msgstr ""
 
-#: oc-includes/osclass/classes/actions/ItemActions.php
+#: oc-includes/osclass/classes/listing/ListingValidator.php
 msgid "Category invalid."
 msgstr "分类错误"
 
@@ -463,21 +493,41 @@ msgstr ""
 msgid "Choose a package"
 msgstr "选择套餐"
 
-#: oc-includes/osclass/classes/actions/UserActions.php
+#: oc-includes/osclass/classes/api/auth/ApiKeyService.php
+msgid "Choose an admin key or a public key."
+msgstr ""
+
+#: oc-includes/osclass/classes/api/auth/PersonalKeys.php
+msgid "Choose an expiry date within a year."
+msgstr ""
+
+#: oc-includes/osclass/classes/webhook/WebhookService.php
+msgid "Choose at least one event."
+msgstr ""
+
+#: oc-includes/osclass/classes/api/auth/ApiKeyService.php
+msgid "Choose at least one scope."
+msgstr ""
+
+#: oc-includes/osclass/classes/user/AccountService.php
 #: oc-includes/osclass/gui/account/user-profile-content.php
 #: oc-includes/osclass/helpers/hUsers.php
 msgid "City"
 msgstr ""
 
-#: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsLocations.php
+#: oc-includes/osclass/classes/location/LocationService.php
+msgid "City area name cannot be blank"
+msgstr ""
+
+#: oc-includes/osclass/classes/location/LocationService.php
 msgid "City name cannot be blank"
 msgstr "城市名称不能为空"
 
-#: oc-includes/osclass/classes/actions/ItemActions.php
+#: oc-includes/osclass/classes/listing/ListingValidator.php
 msgid "City too long."
 msgstr "城市太长"
 
-#: oc-includes/osclass/classes/actions/ItemActions.php
+#: oc-includes/osclass/classes/listing/ListingValidator.php
 msgid "City too short."
 msgstr "城市名太短((如出现该提示，请在城市名称后加拼音，写成这样: 上海shanghai)"
 
@@ -501,7 +551,7 @@ msgstr ""
 msgid "Comment"
 msgstr ""
 
-#: oc-includes/osclass/classes/controller/admin/CAdminItemComments.php
+#: oc-includes/osclass/classes/moderation/CommentModeration.php
 msgid "Comment is required"
 msgstr "必须填写内容"
 
@@ -542,11 +592,15 @@ msgstr ""
 msgid "Continue"
 msgstr "继续"
 
+#: oc-includes/osclass/gui/account/user-api_access-content.php
+msgid "Copy it now and keep it secret. It is not shown again."
+msgstr ""
+
 #: oc-includes/osclass/classes/controller/admin/CAdminLanguages.php
 msgid "Could not read the list of translations at %s. This server has to be able to reach it."
 msgstr ""
 
-#: oc-includes/osclass/classes/actions/UserActions.php
+#: oc-includes/osclass/classes/user/AccountService.php
 #: oc-includes/osclass/gui/account/user-profile-content.php
 #: oc-includes/osclass/helpers/hUsers.php
 msgid "Country"
@@ -560,11 +614,11 @@ msgstr "国家已被编辑"
 msgid "Country name cannot be blank"
 msgstr "国家名不能为空"
 
-#: oc-includes/osclass/classes/actions/ItemActions.php
+#: oc-includes/osclass/classes/listing/ListingValidator.php
 msgid "Country too long."
 msgstr "国家名称太长"
 
-#: oc-includes/osclass/classes/actions/ItemActions.php
+#: oc-includes/osclass/classes/listing/ListingValidator.php
 msgid "Country too short."
 msgstr "国家太短"
 
@@ -610,7 +664,7 @@ msgstr "当前格式区是要求的"
 msgid "Currency must be a 3-letter code, e.g. USD"
 msgstr "货币必须为 3 位字母代码，例如 USD"
 
-#: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
 msgid "Currency must be a 3-letter code, e.g. USD."
 msgstr "货币必须为 3 位字母代码，例如 USD。"
 
@@ -622,8 +676,8 @@ msgstr "货币更新"
 msgid "Current password"
 msgstr ""
 
+#: oc-includes/osclass/classes/auth/Reauth.php
 #: oc-includes/osclass/classes/controller/CWebUser.php
-#: oc-includes/osclass/classes/security/UserReauth.php
 msgid "Current password doesn't match"
 msgstr "当前密码不匹配"
 
@@ -675,11 +729,11 @@ msgstr ""
 msgid "Description field is required"
 msgstr "必须填写描述区域"
 
-#: oc-includes/osclass/classes/actions/ItemActions.php
+#: oc-includes/osclass/classes/listing/ListingValidator.php
 msgid "Description too long (%s)."
 msgstr "描述过长(%s)。"
 
-#: oc-includes/osclass/classes/actions/ItemActions.php
+#: oc-includes/osclass/classes/listing/ListingValidator.php
 msgid "Description too short (%s)."
 msgstr "描述太短(%s)。"
 
@@ -719,7 +773,7 @@ msgstr ""
 msgid "Download your data"
 msgstr ""
 
-#: oc-includes/osclass/classes/actions/UserActions.php
+#: oc-includes/osclass/classes/user/AccountService.php
 msgid "E-mail"
 msgstr ""
 
@@ -745,11 +799,11 @@ msgstr ""
 msgid "Email already in use"
 msgstr "邮件已被使用"
 
-#: oc-includes/osclass/classes/actions/ItemActions.php
+#: oc-includes/osclass/classes/listing/ListingService.php
 msgid "Email invalid."
 msgstr "邮件无效"
 
-#: oc-includes/osclass/classes/controller/admin/CAdminItemComments.php
+#: oc-includes/osclass/classes/moderation/CommentModeration.php
 msgid "Email is not correct"
 msgstr "电子邮件不正确"
 
@@ -757,13 +811,25 @@ msgstr "电子邮件不正确"
 msgid "Email me when something new matches"
 msgstr ""
 
-#: oc-includes/osclass/classes/actions/ItemActions.php
+#: oc-includes/osclass/classes/listing/ListingValidator.php
 msgid "Email too long."
 msgstr ""
 
 #: oc-includes/osclass/classes/controller/CWebLogin.php
 msgid "Empty passwords are not allowed. Please provide a password"
 msgstr "不允许空密码。请提供密码"
+
+#: oc-includes/osclass/gui/account/user-api_access-content.php
+msgid "End this access? The app or script must sign in again."
+msgstr ""
+
+#: oc-includes/osclass/gui/account/user-signin-content.php
+msgid "Ends every sign-in to this account: other browsers and phones, apps and personal API keys, and this browser too."
+msgstr ""
+
+#: oc-includes/osclass/gui/account/user-api_access-content.php
+msgid "Ends: %s"
+msgstr ""
 
 #: oc-includes/osclass/classes/controller/admin/CAdminBilling.php
 msgid "Enter a name for this package"
@@ -789,6 +855,10 @@ msgstr "输入要添加或扣除的积分数量"
 msgid "Enter the address you registered with and we will email you a link to set a new password."
 msgstr ""
 
+#: oc-includes/osclass/classes/webhook/WebhookService.php
+msgid "Enter the full web address of the endpoint, such as https://example.com/webhooks."
+msgstr ""
+
 #: oc-includes/osclass/classes/controller/admin/CAdminMain.php
 msgid "Entered an invalid email"
 msgstr "你输入的邮箱不合法"
@@ -804,10 +874,6 @@ msgstr "错误，密码不匹配"
 #: oc-includes/osclass/classes/controller/admin/CAdminLogin.php
 msgid "Error, the passwords don't match"
 msgstr "错误。你输入的密码不正确"
-
-#: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsCurrencies.php
-msgid "Error: the currency code is not in the correct format"
-msgstr "错误：当前货币代码格式错误"
 
 #: oc-includes/osclass/classes/admin/form/AdminAccountForm.php
 msgid "Existing email"
@@ -839,11 +905,11 @@ msgstr ""
 msgid "Featured listings only"
 msgstr ""
 
-#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsScreen.php
 msgid "File <b>.htaccess</b> already exists and was not modified."
 msgstr "文件 <b>.htmaccess</b> 已经存在并且没有被修改。"
 
-#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsScreen.php
 msgid "File <b>.htaccess</b> couldn't be filled out with the right content."
 msgstr "文件 <b>.htaccess</b> 不能归档，虽然你的内容无懈可击."
 
@@ -863,21 +929,29 @@ msgstr ""
 msgid "Free bumps are paused: you have %1$d live listings and your limit is %2$d."
 msgstr ""
 
-#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsScreen.php
 msgid "Friendly URLs deactivated, but .htaccess file could not be deleted. Please, remove it manually"
 msgstr "友情链接已停用，但无法删除。请手动移除该文件"
 
-#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsScreen.php
 msgid "Friendly URLs deactivated, but .htaccess file was modified outside Shopclass and was not deleted"
 msgstr "友好 URL 已取消激活，但 .htaccess 文件在 Shopclass 外部被修改且未被删除"
 
-#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsScreen.php
 msgid "Friendly URLs successfully deactivated"
 msgstr "有好链接成功反激活"
+
+#: oc-includes/osclass/gui/account/user-api_access-content.php
+msgid "From: %s"
+msgstr ""
 
 #: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsMain.php
 msgid "General settings have been updated"
 msgstr "常规设置已更新"
+
+#: oc-includes/osclass/classes/api/auth/ApiKeyService.php
+msgid "Give the key a name, so you know later what uses it."
+msgstr ""
 
 #: oc-includes/osclass/gui/contact-message-content.php
 msgid "Go to the home page"
@@ -891,15 +965,15 @@ msgstr "很好，我们更新了您的留言"
 msgid "Great! We've just updated your listing"
 msgstr "恭喜！我们已更新了你的广告"
 
-#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsScreen.php
 msgid "Here's the content you have to add to the <b>.htaccess</b> file. If you can't create the file or experience some problems with the URLs, please deactivate the <em>Friendly URLs</em> option."
 msgstr "你必须添加内容 <b>.htaccess</b> 到文件. 如果你创建文件遇到麻烦，你一定得先反激活 <em>有好链接</em> 选项."
 
-#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsScreen.php
 msgid "Here's the content you have to add to the <b>.htaccess</b> file. If you can't create the file, please deactivate the <em>Friendly URLs</em> option."
 msgstr "你添加的内容 <b>.htaccess</b> 到文件. 如果你不能创建文件，你们，请你先反激活 <em>有好链接</em> 选项就Okay了."
 
-#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsScreen.php
 msgid "Here's the content you have to add to the <b>.htaccess</b> file. If you can't modify the file or experience some problems with the URLs, please deactivate the <em>Friendly URLs</em> option."
 msgstr "这里是您必须添加到 <b>.htm访问</b> 文件的内容。 如果您不能修改文件或遇到一些网址问题，请停用 <em>Friendly URLs</em> 选项。"
 
@@ -915,7 +989,7 @@ msgstr ""
 msgid "History"
 msgstr "历史"
 
-#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsScreen.php
 msgid "However, we can't check if Apache module <b>mod_rewrite</b> is loaded. If you experience some problems with the URLs, you should deactivate <em>Friendly URLs</em>"
 msgstr "但是，我们不能检查到是否你的Apache模块<b>mod_rewrite</b> 已经上传，如果这个链接有问题，你得先反激活 <em>有好链接</em>"
 
@@ -927,11 +1001,11 @@ msgstr ""
 msgid "If that email address belongs to an account, we have sent it instructions to reset the password"
 msgstr "如果该电子邮件地址属于某个帐户，我们已向其发送了重置密码的说明"
 
-#: oc-includes/osclass/classes/actions/ItemActions.php
+#: oc-includes/osclass/classes/listing/ListingValidator.php
 msgid "Image is too big. Max. size"
 msgstr "图像文件太大了的"
 
-#: oc-includes/osclass/classes/actions/ItemActions.php
+#: oc-includes/osclass/classes/listing/ListingValidator.php
 msgid "Image with an incorrect extension."
 msgstr "图像文件后坠不正确的"
 
@@ -947,11 +1021,12 @@ msgstr "链接不正确"
 msgid "Incorrent current password"
 msgstr "不定期的当前密码"
 
-#: oc-includes/osclass/classes/Csrf.php
+#: oc-includes/osclass/classes/security/Csrf.php
 msgid "Invalid CSRF token."
 msgstr "无效的 CSRF 令牌。"
 
 #: oc-includes/osclass/classes/controller/CWebLogin.php
+#: oc-includes/osclass/classes/listing/ListingMailService.php
 msgid "Invalid email address"
 msgstr "无效的邮箱地址"
 
@@ -971,6 +1046,10 @@ msgstr ""
 msgid "Keep me signed in"
 msgstr ""
 
+#: oc-includes/osclass/gui/account/user-api_access-content.php
+msgid "Key"
+msgstr ""
+
 #: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsKeywordBlock.php
 msgid "Keyword id isn't in the correct format"
 msgstr "关键词 ID 格式不正确"
@@ -987,7 +1066,7 @@ msgstr "关键词已正确更新"
 msgid "Keywords"
 msgstr ""
 
-#: oc-includes/osclass/classes/actions/UserActions.php
+#: oc-includes/osclass/classes/user/AccountService.php
 msgid "Landline"
 msgstr ""
 
@@ -1027,9 +1106,17 @@ msgstr "语言文件名缩写是必须的"
 msgid "Last check"
 msgstr "最近的查核"
 
+#: oc-includes/osclass/gui/account/user-api_access-content.php
+msgid "Last day it works"
+msgstr ""
+
 #: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsLatestSearches.php
 msgid "Last search settings have been updated"
 msgstr "最新的搜索设置已更新"
+
+#: oc-includes/osclass/gui/account/user-api_access-content.php
+msgid "Last used: %s"
+msgstr ""
 
 #: oc-includes/osclass/gui/item-comments-content.php
 msgid "Leave a comment"
@@ -1049,6 +1136,10 @@ msgstr ""
 
 #: oc-includes/osclass/gui/account/user-public-profile-content.php
 msgid "Listings"
+msgstr ""
+
+#: oc-includes/osclass/classes/currency/CurrencyService.php
+msgid "Listings are priced in this currency."
 msgstr ""
 
 #: oc-includes/osclass/classes/controller/admin/CAdminItems.php
@@ -1083,6 +1174,14 @@ msgstr "维护模式被启用"
 msgid "Maintenance settings saved"
 msgstr ""
 
+#: oc-includes/osclass/gui/account/user-api_access-content.php
+msgid "Make a key"
+msgstr ""
+
+#: oc-includes/osclass/gui/account/user-api_access-content.php
+msgid "Make key"
+msgstr ""
+
 #: oc-includes/osclass/gui/account/parts/item-row.php
 msgid "Marked as spam"
 msgstr ""
@@ -1108,7 +1207,11 @@ msgstr ""
 msgid "Message settings have been updated"
 msgstr ""
 
-#: oc-includes/osclass/classes/actions/UserActions.php
+#: oc-includes/osclass/classes/listing/ListingMailService.php
+msgid "Message: this field is required"
+msgstr ""
+
+#: oc-includes/osclass/classes/user/AccountService.php
 #: oc-includes/osclass/gui/account/user-profile-content.php
 msgid "Mobile"
 msgstr ""
@@ -1117,25 +1220,27 @@ msgstr ""
 msgid "Moderation settings have been updated"
 msgstr "审核设置已更新"
 
-#: oc-includes/osclass/classes/actions/UserActions.php
+#: oc-includes/osclass/classes/user/AccountService.php
 msgid "Municipality"
 msgstr ""
 
-#: oc-includes/osclass/classes/actions/ItemActions.php
+#: oc-includes/osclass/classes/listing/ListingValidator.php
 msgid "Municipality too long."
 msgstr "直辖市太长"
 
-#: oc-includes/osclass/classes/actions/ItemActions.php
+#: oc-includes/osclass/classes/listing/ListingValidator.php
 msgid "Municipality too short."
 msgstr "直辖市太短"
 
-#: oc-includes/osclass/classes/actions/UserActions.php
+#: oc-includes/osclass/classes/user/AccountService.php
+#: oc-includes/osclass/gui/account/user-api_access-content.php
 #: oc-includes/osclass/gui/account/user-profile-content.php
 #: oc-includes/osclass/gui/account/user-register-content.php
 msgid "Name"
 msgstr ""
 
-#: oc-includes/osclass/classes/actions/ItemActions.php
+#: oc-includes/osclass/classes/listing/ListingService.php
+#: oc-includes/osclass/classes/listing/ListingValidator.php
 msgid "Name too long."
 msgstr "名字太长"
 
@@ -1144,7 +1249,7 @@ msgstr "名字太长"
 msgid "Neighbourhood"
 msgstr ""
 
-#: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsLocations.php
+#: oc-includes/osclass/classes/location/LocationService.php
 msgid "New city name cannot be blank"
 msgstr "新城市名称不能为空"
 
@@ -1177,6 +1282,10 @@ msgstr "没有警报已停用"
 #: oc-includes/osclass/classes/controller/admin/CAdminUsers.php
 msgid "No alerts have been deleted"
 msgstr "没有警报被删除"
+
+#: oc-includes/osclass/gui/account/user-api_access-content.php
+msgid "No app or key has access."
+msgstr ""
 
 #: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsCurrencies.php
 msgid "No changes were made"
@@ -1241,6 +1350,28 @@ msgstr "没有选择区域"
 msgid "No rules have been deleted"
 msgstr "没有规则被删除"
 
+#: oc-includes/osclass/classes/category/CategoryService.php
+msgid "No such category."
+msgstr ""
+
+#: oc-includes/osclass/classes/api/controller/admin/AdminCurrenciesController.php
+#: oc-includes/osclass/classes/currency/CurrencyService.php
+msgid "No such currency."
+msgstr ""
+
+#: oc-includes/osclass/classes/fields/FieldService.php
+msgid "No such custom field."
+msgstr ""
+
+#: oc-includes/osclass/classes/moderation/ListingModeration.php
+msgid "No such listing."
+msgstr ""
+
+#: oc-includes/osclass/classes/comment/CommentService.php
+#: oc-includes/osclass/classes/user/AccountService.php
+msgid "No such user."
+msgstr ""
+
 #: oc-includes/osclass/classes/controller/admin/CAdminAppearance.php
 msgid "No theme selected"
 msgstr "没有选择主题"
@@ -1268,6 +1399,10 @@ msgstr "没有用户启动"
 #: oc-includes/osclass/classes/controller/admin/CAdminUsers.php
 msgid "No users have been selected"
 msgstr "没有选择任何用户"
+
+#: oc-includes/osclass/classes/controller/admin/CAdminUsers.php
+msgid "No users have been signed out"
+msgstr ""
 
 #: oc-includes/osclass/classes/controller/CWebBilling.php
 msgid "Not enough credits for this upgrade. <a href=\"%s\">Buy more credits</a>"
@@ -1334,7 +1469,7 @@ msgstr "较旧"
 msgid "One currency has been deleted"
 msgstr "一个货币已删除"
 
-#: oc-includes/osclass/classes/actions/ItemActions.php
+#: oc-includes/osclass/classes/listing/PhotoService.php
 msgid "One of the files you tried to upload exceeds the maximum size"
 msgstr "其中一个文件大小已达到最大"
 
@@ -1364,6 +1499,7 @@ msgstr ""
 
 #: oc-includes/osclass/classes/controller/CWebAjax.php
 #: oc-includes/osclass/classes/controller/CWebItem.php
+#: oc-includes/osclass/classes/listing/ListingService.php
 msgid "Only registered users are allowed to post listings"
 msgstr "只有注册用户才允许张贴信息"
 
@@ -1428,7 +1564,7 @@ msgstr "套餐已删除"
 msgid "Package updated"
 msgstr "套餐已更新"
 
-#: oc-includes/osclass/classes/admin/form/MainSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/MainSettingsScreen.php
 msgid "Page title field is required"
 msgstr "页面的标题你还得写一个"
 
@@ -1449,6 +1585,7 @@ msgstr ""
 
 #: oc-includes/osclass/classes/controller/CWebLogin.php
 #: oc-includes/osclass/classes/controller/CWebUser.php
+#: oc-includes/osclass/classes/user/AccountService.php
 msgid "Password cannot be blank"
 msgstr "密码不能为空"
 
@@ -1456,8 +1593,7 @@ msgstr "密码不能为空"
 msgid "Password has been changed"
 msgstr "密码重置成功"
 
-#: oc-includes/osclass/classes/actions/UserActions.php
-#: oc-includes/osclass/classes/controller/CWebUser.php
+#: oc-includes/osclass/classes/user/AccountService.php
 msgid "Passwords don't match"
 msgstr "密码不符"
 
@@ -1474,15 +1610,15 @@ msgstr "付款方式"
 msgid "Pending"
 msgstr "待处理"
 
-#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsScreen.php
 msgid "Permalinks structure updated"
 msgstr "永久链接结构更新"
 
-#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsScreen.php
 msgid "Permalinks structure updated."
 msgstr "永久链接结构更新"
 
-#: oc-includes/osclass/classes/actions/ItemActions.php
+#: oc-includes/osclass/classes/listing/ListingValidator.php
 msgid "Phone invalid."
 msgstr "电话无效。"
 
@@ -1490,7 +1626,7 @@ msgstr "电话无效。"
 msgid "Phone number"
 msgstr ""
 
-#: oc-includes/osclass/classes/actions/ItemActions.php
+#: oc-includes/osclass/classes/listing/ListingValidator.php
 msgid "Phone too long."
 msgstr ""
 
@@ -1502,12 +1638,12 @@ msgstr ""
 msgid "Photos"
 msgstr ""
 
-#: oc-includes/osclass/classes/actions/UserActions.php
 #: oc-includes/osclass/classes/controller/CWebContact.php
 #: oc-includes/osclass/classes/controller/CWebItem.php
 #: oc-includes/osclass/classes/controller/CWebLogin.php
 #: oc-includes/osclass/classes/controller/CWebUserNonSecure.php
 #: oc-includes/osclass/classes/controller/admin/CAdminLogin.php
+#: oc-includes/osclass/classes/user/AccountService.php
 msgid "Please complete the security check."
 msgstr "请完成安全检查。"
 
@@ -1532,7 +1668,7 @@ msgstr ""
 msgid "Please enter your name, a valid email address and a message."
 msgstr ""
 
-#: oc-includes/osclass/classes/controller/CWebItem.php
+#: oc-includes/osclass/classes/comment/CommentService.php
 msgid "Please fill the required field (email)"
 msgstr "请填写邮件"
 
@@ -1544,7 +1680,7 @@ msgstr "请提供电子邮件地址"
 msgid "Please sign in to download your data"
 msgstr "请登录以下载您的数据"
 
-#: oc-includes/osclass/classes/controller/CWebItem.php
+#: oc-includes/osclass/classes/comment/CommentService.php
 msgid "Please type a comment"
 msgstr "请输入留言"
 
@@ -1604,15 +1740,15 @@ msgstr ""
 msgid "Price"
 msgstr ""
 
-#: oc-includes/osclass/classes/actions/ItemActions.php
+#: oc-includes/osclass/classes/listing/ListingValidator.php
 msgid "Price must be a number."
 msgstr "价格，你知道，那应该是个数字"
 
-#: oc-includes/osclass/classes/actions/ItemActions.php
+#: oc-includes/osclass/classes/listing/ListingValidator.php
 msgid "Price must be positive number."
 msgstr "价格必须是正数。"
 
-#: oc-includes/osclass/classes/actions/ItemActions.php
+#: oc-includes/osclass/classes/listing/ListingValidator.php
 msgid "Price too long."
 msgstr "价格太长"
 
@@ -1624,7 +1760,7 @@ msgstr "定价设置已更新"
 msgid "Private seller"
 msgstr ""
 
-#: oc-includes/osclass/classes/Csrf.php
+#: oc-includes/osclass/classes/security/Csrf.php
 msgid "Probable invalid request."
 msgstr "可能无效的请求。"
 
@@ -1698,21 +1834,21 @@ msgstr "退款"
 msgid "Refunded"
 msgstr "已退款"
 
-#: oc-includes/osclass/classes/actions/UserActions.php
+#: oc-includes/osclass/classes/user/AccountService.php
 #: oc-includes/osclass/gui/account/user-profile-content.php
 #: oc-includes/osclass/helpers/hUsers.php
 msgid "Region"
 msgstr ""
 
-#: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsLocations.php
+#: oc-includes/osclass/classes/location/LocationService.php
 msgid "Region name cannot be blank"
 msgstr "区域名不能为空"
 
-#: oc-includes/osclass/classes/actions/ItemActions.php
+#: oc-includes/osclass/classes/listing/ListingValidator.php
 msgid "Region too long."
 msgstr "地区名称太长"
 
-#: oc-includes/osclass/classes/actions/ItemActions.php
+#: oc-includes/osclass/classes/listing/ListingValidator.php
 msgid "Region too short."
 msgstr "地区名称太短(如出现该提示，请在地区名称后加拼音，写成这样: 北京beijing)"
 
@@ -1763,6 +1899,10 @@ msgstr ""
 #: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsStorage.php
 msgid "Restore queued. Images download back to local storage in the background as the storage worker runs."
 msgstr "恢复已加入队列。存储工作进程运行时，图片将在后台下载回本地存储。"
+
+#: oc-includes/osclass/gui/account/user-api_access-content.php
+msgid "Revoke key"
+msgstr ""
 
 #: oc-includes/osclass/classes/controller/admin/CAdminUsers.php
 msgid "Rule saved correctly"
@@ -1892,6 +2032,18 @@ msgstr "登录以查看您的订单。"
 msgid "Sign in to the admin"
 msgstr ""
 
+#: oc-includes/osclass/gui/account/user-api_access-content.php
+msgid "Sign out"
+msgstr ""
+
+#: oc-includes/osclass/gui/account/user-signin-content.php
+msgid "Sign out everywhere"
+msgstr ""
+
+#: oc-includes/osclass/gui/account/user-signin-content.php
+msgid "Sign out of all devices"
+msgstr ""
+
 #: oc-includes/osclass/gui/account/nav.php
 #: oc-includes/osclass/helpers/hTheme.php
 msgid "Sign-in details"
@@ -1901,8 +2053,16 @@ msgstr ""
 msgid "Sign-in protection settings have been updated"
 msgstr "登录保护设置已更新"
 
+#: oc-includes/osclass/gui/account/user-api_access-content.php
+msgid "Signed in"
+msgstr ""
+
 #: oc-includes/osclass/gui/account/user-dashboard-content.php
 msgid "Signed in as %s."
+msgstr ""
+
+#: oc-includes/osclass/gui/account/user-api_access-content.php
+msgid "Signed-in app"
 msgstr ""
 
 #: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsSitemap.php
@@ -1913,11 +2073,15 @@ msgstr "站点地图缓存已清除并重新生成"
 msgid "Sitemap settings have been updated"
 msgstr "站点地图设置已更新"
 
+#: oc-includes/osclass/gui/account/user-api_access-content.php
+msgid "So you know later what uses it."
+msgstr ""
+
 #: oc-includes/osclass/classes/security/MessageHold.php
 msgid "Someone, hopefully you, wrote a message on %s and gave this e-mail address."
 msgstr ""
 
-#: oc-includes/osclass/classes/controller/CWebItem.php
+#: oc-includes/osclass/classes/comment/CommentService.php
 msgid "Sorry, comments are disabled"
 msgstr "对不起，评论已禁用"
 
@@ -2007,6 +2171,10 @@ msgstr ""
 msgid "Thanks! That's very helpful"
 msgstr "感谢！非常有用"
 
+#: oc-includes/osclass/classes/webhook/WebhookService.php
+msgid "That address cannot be used: %s"
+msgstr ""
+
 #: oc-includes/osclass/classes/controller/admin/CAdminTools.php
 msgid "That backup is not in the list any more."
 msgstr ""
@@ -2034,6 +2202,18 @@ msgstr "该表单已不可用。"
 #: oc-includes/osclass/classes/controller/admin/CAdminBilling.php
 msgid "That is more than the balance holds. Remove no more than the current balance."
 msgstr "这超过了账户余额。扣除数量不得超过当前余额。"
+
+#: oc-includes/osclass/classes/api/auth/ApiKeyService.php
+msgid "That key is already revoked."
+msgstr ""
+
+#: oc-includes/osclass/classes/api/auth/ApiKeyService.php
+msgid "That key is not in the list any more."
+msgstr ""
+
+#: oc-includes/osclass/classes/api/auth/ApiKeyService.php
+msgid "That key is revoked, expired or its owner is gone, so it cannot be rotated."
+msgstr ""
 
 #: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsKeywordBlock.php
 msgid "That keyword no longer exists"
@@ -2091,6 +2271,10 @@ msgstr ""
 msgid "That settings page saves into a table, which needs a controller of its own"
 msgstr ""
 
+#: oc-includes/osclass/classes/controller/CWebUser.php
+msgid "That sign-in or key is not in the list any more."
+msgstr ""
+
 #: oc-includes/osclass/classes/controller/admin/CAdminAppearance.php
 msgid "That theme is not installed"
 msgstr ""
@@ -2110,6 +2294,10 @@ msgstr "该升级不可用"
 #: oc-includes/osclass/classes/controller/admin/CAdminBilling.php
 msgid "That user no longer exists"
 msgstr "该用户已不存在"
+
+#: oc-includes/osclass/classes/webhook/WebhookService.php
+msgid "That webhook endpoint is not in the list any more."
+msgstr ""
 
 #: oc-includes/osclass/classes/controller/admin/CAdminAdmins.php
 msgid "The admin couldn't be deleted"
@@ -2163,7 +2351,7 @@ msgstr ""
 msgid "The catalog has no such country"
 msgstr ""
 
-#: oc-includes/osclass/classes/controller/CWebItem.php
+#: oc-includes/osclass/classes/comment/CommentService.php
 msgid "The comment doesn't exist"
 msgstr "留言不存在"
 
@@ -2188,11 +2376,11 @@ msgstr "留言被驳回"
 msgid "The comment has been enabled"
 msgstr "留言已审核"
 
-#: oc-includes/osclass/classes/controller/CWebItem.php
+#: oc-includes/osclass/classes/comment/CommentService.php
 msgid "The comment is not active, you cannot delete it"
 msgstr "留言未激活，不能被删除"
 
-#: oc-includes/osclass/classes/controller/CWebItem.php
+#: oc-includes/osclass/classes/comment/CommentService.php
 msgid "The comment was not added by you, you cannot delete it"
 msgstr "您的留言未添加，您不能删除"
 
@@ -2204,7 +2392,7 @@ msgstr ""
 msgid "The currency code '%s' doesn't exist"
 msgstr "货币添加代码 '%s' 不存在"
 
-#: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsCurrencies.php
+#: oc-includes/osclass/classes/currency/CurrencyService.php
 msgid "The currency code is not in the correct format"
 msgstr "当前的编码是不正确的格式哦"
 
@@ -2212,11 +2400,15 @@ msgstr "当前的编码是不正确的格式哦"
 msgid "The current language can't be deleted. Please logout and login again with another language."
 msgstr "无法删除当前语言。请注销并使用其他语言重新登录。"
 
+#: oc-includes/osclass/classes/webhook/WebhookService.php
+msgid "The description is too long. Use %d characters or fewer."
+msgstr ""
+
 #: oc-includes/osclass/classes/controller/admin/CAdminEmails.php
 msgid "The email couldn't be updated, at least one title should not be empty"
 msgstr "邮件不能给更新，至少有一个标题为空"
 
-#: oc-includes/osclass/classes/actions/UserActions.php
+#: oc-includes/osclass/classes/user/AccountService.php
 msgid "The email is not valid"
 msgstr "邮件不合法"
 
@@ -2224,17 +2416,34 @@ msgstr "邮件不合法"
 msgid "The email/alert has been updated"
 msgstr "邮件/通知已更新"
 
-#: oc-includes/osclass/classes/actions/UserActions.php
+#: oc-includes/osclass/classes/api/auth/ApiKeyService.php
+msgid "The expiry date has to be in the future."
+msgstr ""
+
+#: oc-includes/osclass/classes/user/AccountService.php
 msgid "The field %s is too long"
 msgstr "字段 %s 过长"
 
-#: oc-includes/osclass/classes/actions/ItemActions.php
+#: oc-includes/osclass/classes/listing/PhotoService.php
 msgid "The file you tried to upload does not have a valid extension"
 msgstr "你想上传的文件，怎么是那个后缀啊，我晕"
 
 #: oc-includes/osclass/classes/controller/admin/CAdminPlugins.php
 msgid "The files were deleted"
 msgstr "文件已删除"
+
+#: oc-includes/osclass/classes/controller/CWebUser.php
+#: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsApi.php
+msgid "The key is made. Copy it now: it is not shown again."
+msgstr ""
+
+#: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsApi.php
+msgid "The key is revoked. Calls made with it are refused from now on."
+msgstr ""
+
+#: oc-includes/osclass/classes/api/auth/ApiKeyService.php
+msgid "The key name is too long. Use 100 characters or fewer."
+msgstr ""
 
 #: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsKeywordBlock.php
 msgid "The keyword must be at least %d characters long"
@@ -2248,7 +2457,7 @@ msgstr "语言包已正确安装"
 msgid "The language ids aren't in the correct format"
 msgstr "语言id格式不正确"
 
-#: oc-includes/osclass/classes/controller/CWebRegister.php
+#: oc-includes/osclass/classes/user/AccountService.php
 msgid "The link is not valid anymore. Sorry for the inconvenience!"
 msgstr "链接已失效。抱歉给您带来的不便"
 
@@ -2322,6 +2531,10 @@ msgstr "广告未解除惩罚标记为"
 msgid "The listing hasn't been validated. Please validate it in order to make it public"
 msgstr "广告已激活，你去验证一下就发表了，就扬名天下了。"
 
+#: oc-includes/osclass/classes/moderation/ListingModeration.php
+msgid "The listing is blocked. Enable it first."
+msgstr ""
+
 #: oc-includes/osclass/classes/controller/CWebItem.php
 msgid "The listing is marked as spam. Unmark it in order to make it public"
 msgstr ""
@@ -2350,7 +2563,7 @@ msgstr ""
 msgid "The message has been deleted. Nothing was sent."
 msgstr ""
 
-#: oc-includes/osclass/classes/actions/UserActions.php
+#: oc-includes/osclass/classes/user/AccountService.php
 msgid "The name cannot be empty"
 msgstr "名称不能为空"
 
@@ -2374,7 +2587,11 @@ msgstr "该页已被添加"
 msgid "The page has been updated"
 msgstr "页面已更新"
 
-#: oc-includes/osclass/classes/actions/UserActions.php
+#: oc-includes/osclass/classes/category/CategoryService.php
+msgid "The parent category is disabled. Enable it first."
+msgstr ""
+
+#: oc-includes/osclass/classes/user/AccountService.php
 msgid "The password cannot be empty"
 msgstr "密码不能为空"
 
@@ -2390,6 +2607,10 @@ msgstr "密码是必须的"
 #: oc-includes/osclass/classes/controller/admin/CAdminLogin.php
 msgid "The password has been changed"
 msgstr "密码修改成功"
+
+#: oc-includes/osclass/classes/api/auth/AccountAccess.php
+msgid "The password is not right."
+msgstr ""
 
 #: oc-includes/osclass/classes/controller/admin/CAdminPlugins.php
 msgid "The plugin folder is not writable"
@@ -2409,6 +2630,10 @@ msgstr ""
 
 #: oc-includes/osclass/classes/controller/CWebContact.php
 msgid "The report could not be saved. Please try again later."
+msgstr ""
+
+#: oc-includes/osclass/classes/validation/InvalidException.php
+msgid "The request was refused."
 msgstr ""
 
 #: oc-includes/osclass/classes/controller/CWebAjax.php
@@ -2439,32 +2664,31 @@ msgstr ""
 msgid "The site is open again. Check the database below."
 msgstr ""
 
-#: oc-includes/osclass/classes/actions/UserActions.php
-#: oc-includes/osclass/classes/controller/CWebUser.php
 #: oc-includes/osclass/classes/controller/CWebUserNonSecure.php
+#: oc-includes/osclass/classes/user/AccountService.php
 msgid "The specified e-mail is already in use"
 msgstr "邮件已被使用"
 
-#: oc-includes/osclass/classes/actions/UserActions.php
+#: oc-includes/osclass/classes/user/AccountService.php
 msgid "The specified e-mail is already used by %s"
 msgstr "指定的电子邮件已被 %s 使用"
 
-#: oc-includes/osclass/classes/controller/CWebUser.php
+#: oc-includes/osclass/classes/user/AccountService.php
 msgid "The specified e-mail is not valid"
 msgstr "指定邮件无效"
 
-#: oc-includes/osclass/classes/actions/UserActions.php
 #: oc-includes/osclass/classes/controller/CWebUser.php
+#: oc-includes/osclass/classes/user/AccountService.php
 msgid "The specified username could not be empty"
 msgstr "指定的用户名不能为空"
 
-#: oc-includes/osclass/classes/actions/UserActions.php
 #: oc-includes/osclass/classes/controller/CWebUser.php
+#: oc-includes/osclass/classes/user/AccountService.php
 msgid "The specified username is already in use"
 msgstr "指定用户名已被使用"
 
-#: oc-includes/osclass/classes/actions/UserActions.php
 #: oc-includes/osclass/classes/controller/CWebUser.php
+#: oc-includes/osclass/classes/user/AccountService.php
 msgid "The specified username is not valid, it contains some invalid words"
 msgstr "指定的用户名无效，包含一些无效的单词"
 
@@ -2526,7 +2750,7 @@ msgstr "该用户已被验证"
 msgid "The user has not been validated yet. Would you like to re-send your <a href=\"%s\">activation?</a>"
 msgstr "用户尚未验证。您想要重新发送您的 <a href=\"%s\">激活吗？</a>"
 
-#: oc-includes/osclass/classes/actions/UserActions.php
+#: oc-includes/osclass/classes/user/Usernames.php
 msgid "The username cannot be only numbers. Please add at least one letter."
 msgstr ""
 
@@ -2538,9 +2762,29 @@ msgstr "用户名怎么是空着的呢"
 msgid "The username was updated"
 msgstr "用户名已更新"
 
-#: oc-includes/osclass/classes/admin/form/MediaSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/MediaSettingsScreen.php
 msgid "The watermark image has to be a .PNG file"
 msgstr "水印图像必须是.PNG格式啊"
+
+#: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsApi.php
+msgid "The webhook endpoint is added. Copy its secret now: it is not shown again."
+msgstr ""
+
+#: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsApi.php
+msgid "The webhook endpoint is deleted."
+msgstr ""
+
+#: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsApi.php
+msgid "The webhook endpoint is off. Nothing is sent to it until you switch it on."
+msgstr ""
+
+#: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsApi.php
+msgid "The webhook endpoint is on."
+msgstr ""
+
+#: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsApi.php
+msgid "The webhook endpoint is saved."
+msgstr ""
 
 #: oc-includes/osclass/classes/controller/admin/CAdminAppearance.php
 #: oc-includes/osclass/classes/controller/admin/CAdminLanguages.php
@@ -2600,7 +2844,7 @@ msgstr "导入选定位置时出错"
 msgid "There was a problem removing the theme"
 msgstr "移除主题事出了问题"
 
-#: oc-includes/osclass/classes/admin/form/MediaSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/MediaSettingsScreen.php
 msgid "There was a problem uploading the watermark image"
 msgstr "水印上传出故障"
 
@@ -2641,6 +2885,14 @@ msgstr "管理员不存在"
 msgid "This alert could not be kept after an update. Save the search again."
 msgstr ""
 
+#: oc-includes/osclass/classes/currency/CurrencyService.php
+msgid "This is the site's default currency."
+msgstr ""
+
+#: oc-includes/osclass/classes/api/auth/ApiKeyService.php
+msgid "This key cannot hold: %s"
+msgstr ""
+
 #: oc-includes/osclass/gui/contact-message-content.php
 msgid "This link is not valid or has expired."
 msgstr ""
@@ -2657,11 +2909,13 @@ msgstr "此广告已有该升级"
 msgid "This listing already has that upgrade, permanently -- there is nothing to extend"
 msgstr "此广告已永久拥有该升级 —— 无需延期"
 
+#: oc-includes/osclass/classes/comment/CommentService.php
 #: oc-includes/osclass/classes/controller/CWebItem.php
 msgid "This listing doesn't exist"
 msgstr "广告信息不存在"
 
 #: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsLocations.php
+#: oc-includes/osclass/classes/location/LocationService.php
 msgid "This location no longer exists."
 msgstr ""
 
@@ -2693,9 +2947,10 @@ msgstr ""
 msgid "This search could not be saved. Search again and try once more."
 msgstr ""
 
-#: oc-includes/osclass/classes/controller/CWebLogin.php
-msgid "This should never happen"
-msgstr "这可永远不要出现"
+#: oc-includes/osclass/classes/api/auth/PersonalKeys.php
+#: oc-includes/osclass/classes/api/controller/AccountKeysController.php
+msgid "This site does not let users make API keys."
+msgstr ""
 
 #: oc-includes/osclass/classes/controller/CWebBilling.php
 msgid "This upgrade is not available right now"
@@ -2713,12 +2968,12 @@ msgstr ""
 msgid "Title"
 msgstr ""
 
-#: oc-includes/osclass/classes/actions/ItemActions.php
+#: oc-includes/osclass/classes/listing/ListingValidator.php
 msgid "Title too long (%s)."
 msgstr "标题太长(%s)。"
 
-#: oc-includes/osclass/classes/actions/ItemActions.php
 #: oc-includes/osclass/classes/controller/admin/CAdminItems.php
+#: oc-includes/osclass/classes/listing/ListingValidator.php
 msgid "Title too short (%s)."
 msgstr "标题太短(%s)。"
 
@@ -2726,7 +2981,7 @@ msgstr "标题太短(%s)。"
 msgid "Titles can be 1 to %d characters."
 msgstr ""
 
-#: oc-includes/osclass/classes/actions/ItemActions.php
+#: oc-includes/osclass/classes/listing/ListingService.php
 msgid "Too fast. You should wait a little to publish your ad."
 msgstr "您发送的广告频率太快，请稍后再发布"
 
@@ -2734,8 +2989,12 @@ msgstr "您发送的广告频率太快，请稍后再发布"
 msgid "Too many alerts were saved from here. Please try again later."
 msgstr ""
 
-#: oc-includes/osclass/classes/controller/CWebItem.php
+#: oc-includes/osclass/classes/comment/CommentService.php
 msgid "Too many comments in an hour. Try again later."
+msgstr ""
+
+#: oc-includes/osclass/classes/user/AccountService.php
+msgid "Too many e-mail changes. Try again later."
 msgstr ""
 
 #: oc-includes/osclass/helpers/hSecurity.php
@@ -2749,12 +3008,20 @@ msgstr[0] "失败尝试次数过多。请在 %d 分钟后再次尝试。"
 msgid "Too many tries from your connection. Please try again later."
 msgstr ""
 
+#: oc-includes/osclass/classes/auth/Reauth.php
+msgid "Too many wrong passwords. Try again later."
+msgstr ""
+
 #: oc-includes/osclass/classes/controller/admin/CAdminAdmins.php
 msgid "Two-step sign-in is off."
 msgstr ""
 
 #: oc-includes/osclass/classes/controller/admin/CAdminAdmins.php
 msgid "Two-step sign-in is on."
+msgstr ""
+
+#: oc-includes/osclass/classes/webhook/WebhookService.php
+msgid "Unknown events: %s"
 msgstr ""
 
 #: oc-includes/osclass/classes/controller/admin/CAdminAppearance.php
@@ -2807,7 +3074,7 @@ msgstr "用户注册未激活"
 msgid "User settings have been updated"
 msgstr "用户设置更新"
 
-#: oc-includes/osclass/classes/actions/UserActions.php
+#: oc-includes/osclass/classes/user/AccountService.php
 #: oc-includes/osclass/gui/account/user-signin-content.php
 msgid "Username"
 msgstr ""
@@ -2820,7 +3087,7 @@ msgstr "用户名已被使用"
 msgid "Username invalid"
 msgstr "用户名有效"
 
-#: oc-includes/osclass/classes/actions/UserActions.php
+#: oc-includes/osclass/classes/user/AccountService.php
 msgid "Username is already taken"
 msgstr "用户名已被使用"
 
@@ -2853,6 +3120,7 @@ msgid "We have just sent you an email to validate your account, you will have to
 msgstr "我们刚刚向您发送了一封电子邮件来验证您的帐户，您将需要等待几分钟才能重新发送。"
 
 #: oc-includes/osclass/classes/actions/ItemActions.php
+#: oc-includes/osclass/classes/controller/CWebItem.php
 msgid "We just sent your message to %s"
 msgstr "我们刚才发了信息给你的哈 %s"
 
@@ -2873,6 +3141,7 @@ msgid "We tried to sent you an e-mail, but it failed. Please, contact an adminis
 msgstr "我们努力发邮件给你，但失败了。你联系一下管理员好了"
 
 #: oc-includes/osclass/classes/controller/CWebItem.php
+#: oc-includes/osclass/classes/listing/ListingMailService.php
 msgid "We're sorry, but the listing has expired. You can't contact the seller"
 msgstr "抱歉，信息已过期，你不能联系卖家"
 
@@ -2884,7 +3153,7 @@ msgstr "我们已发送邮件至卖家"
 msgid "We've sent you an e-mail. Follow its instructions to validate the changes"
 msgstr "我们已给你发邮件。按那上面说的，激活之，就好了"
 
-#: oc-includes/osclass/classes/actions/UserActions.php
+#: oc-includes/osclass/classes/user/AccountService.php
 #: oc-includes/osclass/gui/account/user-profile-content.php
 msgid "Website"
 msgstr ""
@@ -2913,6 +3182,10 @@ msgstr "更新工具成功"
 msgid "With photos only"
 msgstr ""
 
+#: oc-includes/osclass/classes/api/auth/ApiKeyService.php
+msgid "Write the expiry date as YYYY-MM-DD."
+msgstr ""
+
 #: oc-includes/osclass/gui/account/user-public-profile-content.php
 msgid "Write to %s"
 msgstr ""
@@ -2925,6 +3198,11 @@ msgstr "您已达到广告数量上限。腾出一条广告 -- 删除一条或�
 msgid "You are not allowed to add this widget type"
 msgstr "您无权添加此小工具类型"
 
+#: oc-includes/osclass/classes/controller/CWebUser.php
+#: oc-includes/osclass/classes/controller/admin/CAdminAdmins.php
+msgid "You are signed out on every device, this one too. Sign in again."
+msgstr ""
+
 #: oc-includes/osclass/classes/controller/CWebSearch.php
 #: oc-includes/osclass/gui/alert-form-content.php
 msgid "You are subscribed to this search."
@@ -2932,6 +3210,10 @@ msgstr ""
 
 #: oc-includes/osclass/gui/account/user-items-content.php
 msgid "You are using %1$d of your %2$d listings."
+msgstr ""
+
+#: oc-includes/osclass/classes/api/auth/ApiKeyService.php
+msgid "You can only rotate your own keys and public keys. Revoke this one and make a new key instead."
 msgstr ""
 
 #: oc-includes/osclass/classes/controller/CWebItem.php
@@ -2953,6 +3235,7 @@ msgstr ""
 #: oc-includes/osclass/classes/controller/admin/CAdminAdmins.php
 #: oc-includes/osclass/classes/controller/admin/CAdminItems.php
 #: oc-includes/osclass/classes/controller/admin/CAdminTools.php
+#: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsApi.php
 #: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsCustom.php
 #: oc-includes/osclass/classes/controller/base/AdminSecBaseModel.php
 msgid "You don't have enough permissions"
@@ -2987,11 +3270,11 @@ msgstr "您必须设置一个网名"
 msgid "You have very few free space left, users will not be able to upload pictures"
 msgstr "您剩余的剩余空间非常少，用户将无法上传图片"
 
-#: oc-includes/osclass/classes/controller/CWebItem.php
+#: oc-includes/osclass/classes/comment/CommentService.php
 msgid "You must be logged in to delete a comment"
 msgstr "您必须登录才能删除留言"
 
-#: oc-includes/osclass/classes/controller/CWebItem.php
+#: oc-includes/osclass/classes/comment/CommentService.php
 msgid "You need to be logged to comment"
 msgstr "您需要登录才能评论"
 
@@ -3000,12 +3283,12 @@ msgid "You're already subscribed"
 msgstr "你已经订阅了"
 
 #: oc-includes/osclass/classes/controller/CWebContact.php
-#: oc-includes/osclass/classes/controller/CWebItem.php
 #: oc-includes/osclass/classes/controller/CWebUserNonSecure.php
+#: oc-includes/osclass/classes/listing/ListingMailService.php
 msgid "You've sent too many messages recently. Please try again later."
 msgstr "您最近发送的消息过多。请稍后重试。"
 
-#: oc-includes/osclass/classes/controller/CWebItem.php
+#: oc-includes/osclass/classes/listing/ListingMailService.php
 msgid "You've shared too many listings recently. Please try again later."
 msgstr "您最近分享的广告过多。请稍后重试。"
 
@@ -3022,11 +3305,11 @@ msgstr "Akismet Key已更新"
 msgid "Your account"
 msgstr ""
 
-#: oc-includes/osclass/classes/actions/UserActions.php
+#: oc-includes/osclass/classes/user/AccountService.php
 msgid "Your account could not be created. Please try again."
 msgstr ""
 
-#: oc-includes/osclass/classes/controller/CWebRegister.php
+#: oc-includes/osclass/classes/user/AccountService.php
 msgid "Your account has already been validated"
 msgstr "您的账户已被验证"
 
@@ -3046,6 +3329,7 @@ msgstr "您的帐户已被删除"
 msgid "Your comment has been approved"
 msgstr "您的留言已被批准"
 
+#: oc-includes/osclass/classes/comment/CommentService.php
 #: oc-includes/osclass/classes/controller/CWebItem.php
 msgid "Your comment has been marked as spam"
 msgstr "您的留言被标记为垃圾"
@@ -3055,17 +3339,17 @@ msgid "Your comment is awaiting moderation"
 msgstr "您的留言队列审核中"
 
 #: oc-includes/osclass/classes/controller/CWebForm.php
-#: oc-includes/osclass/classes/controller/CWebItem.php
 #: oc-includes/osclass/classes/controller/CWebLogin.php
 #: oc-includes/osclass/classes/controller/CWebRegister.php
+#: oc-includes/osclass/classes/listing/ListingService.php
 #: oc-includes/osclass/classes/security/MessageGuard.php
 msgid "Your current IP is not allowed"
 msgstr "不允许您当前的IP"
 
 #: oc-includes/osclass/classes/controller/CWebContact.php
-#: oc-includes/osclass/classes/controller/CWebItem.php
 #: oc-includes/osclass/classes/controller/CWebLogin.php
 #: oc-includes/osclass/classes/controller/CWebRegister.php
+#: oc-includes/osclass/classes/listing/ListingService.php
 #: oc-includes/osclass/classes/security/MessageGuard.php
 msgid "Your current email is not allowed"
 msgstr "您当前的电子邮件是不允许的"
@@ -3108,11 +3392,23 @@ msgstr "您的电子邮件已正确发送。"
 msgid "Your email has been sent properly. Thank you for contacting us!"
 msgstr "你的邮件已发出，并成功发送，谢谢联系我们。"
 
+#: oc-includes/osclass/classes/listing/ListingMailService.php
+msgid "Your email: invalid email address"
+msgstr ""
+
+#: oc-includes/osclass/classes/listing/ListingMailService.php
+msgid "Your friend's email: invalid email address"
+msgstr ""
+
+#: oc-includes/osclass/classes/listing/ListingMailService.php
+msgid "Your friend's name: this field is required"
+msgstr ""
+
 #: oc-includes/osclass/gui/account/user-dashboard-content.php
 msgid "Your latest listings"
 msgstr ""
 
-#: oc-includes/osclass/classes/actions/ItemActions.php
+#: oc-includes/osclass/classes/listing/ListingService.php
 msgid "Your listing could not be saved. Please try again."
 msgstr "您的广告未能保存。请重试。"
 
@@ -3160,17 +3456,29 @@ msgstr ""
 msgid "Your name (optional)"
 msgstr ""
 
+#: oc-includes/osclass/classes/listing/ListingMailService.php
+msgid "Your name: this field is required"
+msgstr ""
+
+#: oc-includes/osclass/gui/account/user-api_access-content.php
+msgid "Your new key"
+msgstr ""
+
 #: oc-includes/osclass/classes/controller/CWebBilling.php
 #: oc-includes/osclass/gui/billing/wallet-content.php
 msgid "Your orders"
 msgstr "您的订单"
 
+#: oc-includes/osclass/gui/account/user-api_access-content.php
+msgid "Your password"
+msgstr ""
+
 #: oc-includes/osclass/helpers/hTheme.php
 msgid "Your profile"
 msgstr ""
 
-#: oc-includes/osclass/classes/actions/UserActions.php
 #: oc-includes/osclass/classes/controller/CWebUser.php
+#: oc-includes/osclass/classes/user/AccountService.php
 msgid "Your profile could not be saved. Please try again."
 msgstr ""
 
@@ -3186,15 +3494,15 @@ msgstr "你的验证码已清出掉"
 msgid "Your reCAPTCHA key has been updated"
 msgstr "你的验证码已更新"
 
-#: oc-includes/osclass/classes/Csrf.php
+#: oc-includes/osclass/classes/security/Csrf.php
 msgid "Your session has expired, please reload the page and try again."
 msgstr "您的会话已过期，请重新加载页面后再试。"
 
-#: oc-includes/osclass/classes/actions/UserActions.php
+#: oc-includes/osclass/classes/user/AccountService.php
 msgid "Zip code"
 msgstr ""
 
-#: oc-includes/osclass/classes/actions/ItemActions.php
+#: oc-includes/osclass/classes/listing/ListingValidator.php
 msgid "Zip code too long."
 msgstr ""
 
@@ -3202,11 +3510,35 @@ msgstr ""
 msgid "credits available"
 msgstr "可用积分"
 
+#: oc-includes/osclass/classes/category/CategoryService.php
+msgid "is not a category"
+msgstr ""
+
+#: oc-includes/osclass/classes/auth/Reauth.php
+msgid "is not the current password"
+msgstr ""
+
+#: oc-includes/osclass/classes/fields/FieldService.php
+msgid "is the name of another custom field"
+msgstr ""
+
 #: oc-includes/osclass/gui/billing/wallet-content.php
 msgid "listings used"
 msgstr ""
 
-#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
+#: oc-includes/osclass/classes/admin/AdminText.php
+msgid "must not be blank"
+msgstr ""
+
+#: oc-includes/osclass/classes/admin/AdminText.php
+msgid "must not contain a comma"
+msgstr ""
+
+#: oc-includes/osclass/classes/fields/FieldService.php
+msgid "names a category that does not exist"
+msgstr ""
+
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsScreen.php
 msgid "nginx does not read .htaccess: check the server rules below are in your nginx configuration, then reload nginx."
 msgstr ""
 
@@ -3218,15 +3550,15 @@ msgstr ""
 msgid "optional"
 msgstr ""
 
-#: oc-includes/osclass/classes/admin/form/SitemapSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/SitemapSettingsScreen.php
 msgid "robots.txt could not be saved"
 msgstr "无法保存 robots.txt"
 
-#: oc-includes/osclass/classes/admin/form/SitemapSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/SitemapSettingsScreen.php
 msgid "robots.txt has been updated"
 msgstr "robots.txt 已更新"
 
-#: oc-includes/osclass/classes/admin/form/SitemapSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/SitemapSettingsScreen.php
 msgid "robots.txt is not writable. Fix the file or folder permissions and try again"
 msgstr "robots.txt 不可写。请修正文件或文件夹权限后重试"
 

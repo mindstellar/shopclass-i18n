@@ -14,7 +14,7 @@ msgstr ""
 "X-Crowdin-File: /develop/src/templates/core.pot\n"
 "X-Crowdin-File-ID: 8259\n"
 "Language-Team: Persian\n"
-"PO-Revision-Date: 2026-10-05 07:52\n"
+"PO-Revision-Date: 2026-10-05 21:16\n"
 
 #: oc-includes/osclass/functions.php
 msgid " is available"
@@ -52,6 +52,10 @@ msgstr[1] ""
 
 #: oc-admin/themes/modern/settings/locations/preview.php
 msgid "%1$s and %2$s stay as they are."
+msgstr ""
+
+#: oc-includes/osclass/classes/webhook/Delivery.php
+msgid "%1$s answered 410 Gone, so the site stopped sending to it. Switch the endpoint on again in Settings, then API, if this was a mistake."
 msgstr ""
 
 #: oc-admin/themes/modern/settings/locations/list.php
@@ -254,6 +258,10 @@ msgstr[1] ""
 msgid "%d done"
 msgstr ""
 
+#: oc-admin/themes/modern/settings/api.php
+msgid "%d failed in a row"
+msgstr ""
+
 #: oc-admin/themes/modern/tools/system-info/security.php
 msgid "%d failure"
 msgid_plural "%d failures"
@@ -433,7 +441,7 @@ msgstr ""
 msgid "%s is corrupt or broken!"
 msgstr "%s فاسد است یا شکسته!"
 
-#: oc-includes/osclass/classes/forms/FieldValidator.php
+#: oc-includes/osclass/classes/form/builder/FieldValidator.php
 #: oc-includes/osclass/helpers/hFields.php
 msgid "%s is invalid."
 msgstr "%s نامعتبر است."
@@ -451,6 +459,10 @@ msgstr ""
 msgid "%s is not a valid image"
 msgstr ""
 
+#: oc-includes/osclass/classes/admin/form/ApiSettingsScreen.php
+msgid "%s is not an origin. Write it as https://example.com, with no path."
+msgstr ""
+
 #: oc-includes/osclass/helpers/hSettings.php
 msgid "%s is not in the expected format"
 msgstr ""
@@ -463,7 +475,7 @@ msgstr ""
 msgid "%s is not readable!"
 msgstr "%s خواندنی نیست!"
 
-#: oc-includes/osclass/classes/forms/FieldValidator.php
+#: oc-includes/osclass/classes/form/builder/FieldValidator.php
 msgid "%s is required."
 msgstr "%s الزامی است."
 
@@ -489,7 +501,7 @@ msgstr "%s آگهی برای هر کاربر"
 msgid "%s must be a number"
 msgstr ""
 
-#: oc-includes/osclass/classes/admin/form/MediaSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/MediaSettingsScreen.php
 msgid "%s must be a whole number"
 msgstr ""
 
@@ -539,8 +551,16 @@ msgstr "(دوبار، لازم)"
 msgid "...More"
 msgstr "بیشتر..."
 
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "/api/ belongs to the site's API, so these static pages or categories cannot be reached. Give them another slug: %s"
+msgstr ""
+
 #: oc-admin/themes/modern/tools/cleanup.php
 msgid "0 keeps it forever. This is the history behind the statistics charts, which "
+msgstr ""
+
+#: oc-includes/osclass/classes/admin/form/ApiSettingsScreen.php
+msgid "0 uses the default: %1$d, or %2$d while the listing form asks for a captcha."
 msgstr ""
 
 #: oc-admin/themes/modern/functions.php
@@ -624,7 +644,7 @@ msgstr "<p>وب‌سایت شما در آدرس {WEB_LINK} به‌طور خود�
 msgid "<strong>Remember</strong> that you must configure reCAPTCHA first"
 msgstr "<strong>یاد</strong> که شما باید پیکربندی reCAPTCHA اول"
 
-#: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
 msgid "A 3-letter ISO 4217 code, e.g. USD, EUR."
 msgstr "کد ISO 4217 با ۳ حرف، مانند USD یا EUR."
 
@@ -636,11 +656,11 @@ msgstr "کد ISO 4217 با ۳ حرف، مانند USD."
 msgid "A backup holds your users' password hashes and your site's keys. Keep it as private as your database."
 msgstr ""
 
-#: oc-includes/osclass/classes/admin/form/SpamSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/SpamSettingsScreen.php
 msgid "A block ends once the failures are older than this."
 msgstr ""
 
-#: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
 msgid "A buyer can open and print a receipt for every paid order from their orders page. "
 msgstr ""
 
@@ -656,7 +676,7 @@ msgstr ""
 msgid "A checked view of your site: what needs doing, background jobs, security, the cache, the database, and the server it runs on."
 msgstr ""
 
-#: oc-includes/osclass/classes/admin/form/CommentSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/CommentSettingsScreen.php
 msgid "A comment is being held for moderation"
 msgstr "یک نظر برای اعتدال برگزار می شود"
 
@@ -668,7 +688,7 @@ msgstr ""
 msgid "A custom field it filtered on has changed type."
 msgstr ""
 
-#: oc-includes/osclass/classes/backup/BackupManager.php
+#: oc-includes/osclass/classes/backup/BackupService.php
 #: oc-includes/osclass/classes/backup/Restorer.php
 msgid "A database update is running. Try again in a few minutes."
 msgstr ""
@@ -681,7 +701,7 @@ msgstr "یک فرم، مجموعه‌ای از فیلدها است که در ف�
 msgid "A job has been running for more than 15 minutes. The run that took it may have stopped partway."
 msgstr ""
 
-#: oc-includes/osclass/classes/admin/form/CommentSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/CommentSettingsScreen.php
 msgid "A new comment is posted"
 msgstr "نظر جدید ارسال شده است"
 
@@ -693,7 +713,7 @@ msgstr "بسته‌ای همان چیزی است که خریدار هنگام پ
 msgid "A plugin or someone on your team added these. Shopclass does not need them, and Repair leaves them alone. Delete one only if you are sure nothing uses it."
 msgstr ""
 
-#: oc-includes/osclass/classes/admin/form/StorageSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/StorageSettingsScreen.php
 msgid "A private bucket for Tools > Backup and restore, reached with the keys above. "
 msgstr ""
 
@@ -713,7 +733,7 @@ msgstr ""
 msgid "A refund was sent to the payment provider on %s, but it was not "
 msgstr ""
 
-#: oc-includes/osclass/classes/admin/form/SpamSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/SpamSettingsScreen.php
 msgid "A report blocks the sender for"
 msgstr ""
 
@@ -727,8 +747,12 @@ msgstr[1] ""
 msgid "A safety copy of today's database is saved first."
 msgstr ""
 
-#: oc-includes/osclass/classes/admin/form/MainSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/MainSettingsScreen.php
 msgid "A security fix for the version you run (6.4.0 to 6.4.1) is installed at night once it is a day old, and the contact e-mail is told how it went. Off by default."
+msgstr ""
+
+#: oc-includes/osclass/classes/routing/ReservedSlugs.php
+msgid "A slug of \"api\", or one starting with \"api/\", is reserved for the site's API. Choose another."
 msgstr ""
 
 #: oc-includes/osclass/classes/backup/BackupJobs.php
@@ -739,9 +763,19 @@ msgstr ""
 msgid "A statement in the backup failed."
 msgstr ""
 
+#: oc-admin/themes/modern/settings/api.php
+msgid "A webhook tells another system when something happens here, such as a new listing, by sending it a signed POST. A delivery that fails is tried again for about two hours; an endpoint that fails 8 times in a row is paused and you get an e-mail."
+msgstr ""
+
 #: oc-includes/osclass/helpers/hUtils.php
 msgid "AM"
 msgstr "قبل از ظهر"
+
+#: oc-admin/themes/modern/settings/api.php
+#: oc-includes/osclass/classes/AdminMenu.php
+#: oc-includes/osclass/classes/admin/form/ApiSettingsScreen.php
+msgid "API"
+msgstr ""
 
 #: oc-admin/themes/modern/billing/order.php
 msgid "About this order"
@@ -751,15 +785,19 @@ msgstr "درباره این سفارش"
 msgid "About you"
 msgstr "درباره تو"
 
-#: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
 msgid "Accept bank transfer / cash payment"
 msgstr "پذیرش انتقال بانکی / پرداخت نقدی"
 
-#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsScreen.php
 msgid "Accepted keywords: %s"
 msgstr "کلیدواژه‌های قبول شده: %s"
 
-#: oc-includes/osclass/classes/admin/form/StorageSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/ApiSettingsScreen.php
+msgid "Access"
+msgstr ""
+
+#: oc-includes/osclass/classes/admin/form/StorageSettingsScreen.php
 msgid "Access key"
 msgstr "کلید دسترسی"
 
@@ -787,6 +825,7 @@ msgstr "عمل"
 #: oc-admin/themes/modern/billing/credits.php
 #: oc-admin/themes/modern/billing/packages.php
 #: oc-admin/themes/modern/media/index.php
+#: oc-admin/themes/modern/settings/api.php
 #: oc-admin/themes/modern/settings/locations/data.php
 #: oc-admin/themes/modern/settings/locations/list.php
 #: oc-admin/themes/modern/tools/backup.php
@@ -815,6 +854,7 @@ msgstr "اگر می‌خواهید آدرس‌های وب‌سایت شما بر
 #: oc-admin/themes/modern/comments/frm.php
 #: oc-admin/themes/modern/items/index.php
 #: oc-admin/themes/modern/parts/package-ui.php
+#: oc-admin/themes/modern/settings/api.php
 #: oc-admin/themes/modern/settings/locations/form.php
 #: oc-admin/themes/modern/settings/locations/list.php
 #: oc-admin/themes/modern/users/index.php
@@ -826,7 +866,7 @@ msgstr "اگر می‌خواهید آدرس‌های وب‌سایت شما بر
 msgid "Active"
 msgstr "فعال"
 
-#: oc-includes/osclass/classes/admin/form/StorageSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/StorageSettingsScreen.php
 msgid "Active storage"
 msgstr "ذخیره‌سازی فعال"
 
@@ -851,7 +891,7 @@ msgstr "افزودن URL"
 msgid "Add URLs the sitemap would not otherwise discover on its own, such as pages served by a plugin."
 msgstr "URLهایی را اضافه کنید که نقشه سایت به‌خودی‌خود آن‌ها را شناسایی نمی‌کند، مانند صفحاتی که توسط یک افزونه ارائه می‌شوند."
 
-#: oc-includes/osclass/classes/admin/form/SpamSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/SpamSettingsScreen.php
 msgid "Add a \"Report the sender\" link to messages members receive"
 msgstr ""
 
@@ -895,6 +935,10 @@ msgstr "اعتبار اضافه کنید"
 #: oc-admin/themes/modern/settings/currency_form.php
 msgid "Add currency"
 msgstr "افزودن ارز"
+
+#: oc-admin/themes/modern/settings/api.php
+msgid "Add endpoint"
+msgstr ""
 
 #: oc-admin/themes/modern/fields/index.php
 msgid "Add field"
@@ -984,11 +1028,11 @@ msgstr "کاربرانی را اضافه کنید که بتوانند صفحه �
 msgid "Add widget"
 msgstr "اضافه کردن ابزارک"
 
-#: oc-includes/osclass/classes/admin/form/MainSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/MainSettingsScreen.php
 msgid "Add your Google Maps JavaScript API key."
 msgstr "اضافه کردن نقشه های گوگل خود را جاوا اسکریپت API کلید."
 
-#: oc-includes/osclass/classes/admin/form/MainSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/MainSettingsScreen.php
 msgid "Add your Mapquest Consumer key."
 msgstr "اضافه کردن کلید مصرف کننده Mapquest خود را."
 
@@ -1026,7 +1070,7 @@ msgstr ""
 msgid "Added by admin"
 msgstr "توسط مدیر اضافه شد"
 
-#: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
 msgid "Added on top of the category's own expiration ceiling."
 msgstr "این مقدار علاوه بر سقف انقضای مخصوص دسته افزوده می‌شود."
 
@@ -1034,6 +1078,7 @@ msgstr "این مقدار علاوه بر سقف انقضای مخصوص دست�
 msgid "Additional information"
 msgstr "اطلاعات اضافی"
 
+#: oc-admin/themes/modern/settings/api.php
 #: oc-admin/themes/modern/users/frm.php
 msgid "Address"
 msgstr "آدرس"
@@ -1054,6 +1099,7 @@ msgstr ""
 msgid "Adds what is missing and fixes column types. Extra columns and indexes are left alone."
 msgstr ""
 
+#: oc-admin/themes/modern/settings/api.php
 #: oc-includes/osclass/emails.php
 msgid "Admin"
 msgstr "مدیر"
@@ -1061,6 +1107,14 @@ msgstr "مدیر"
 #: oc-includes/osclass/installer/gui/install-target.php
 msgid "Admin account"
 msgstr "حساب مدیر"
+
+#: oc-admin/themes/modern/settings/api.php
+msgid "Admin key: acts as you, with the scopes below"
+msgstr ""
+
+#: oc-admin/themes/modern/settings/api.php
+msgid "Admin keys act as you, with the scopes you give them. Public keys only read public data and are safe to put in an app or a web page."
+msgstr ""
 
 #: oc-admin/themes/modern/users/settings.php
 msgid "Admin notifications"
@@ -1122,7 +1176,7 @@ msgid "Advanced"
 msgstr "پیشرفته"
 
 #: oc-admin/themes/modern/settings/advanced.php
-#: oc-includes/osclass/classes/admin/form/AdvancedSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/AdvancedSettingsScreen.php
 msgid "Advanced Settings"
 msgstr "تنظیمات پیشرفته"
 
@@ -1130,7 +1184,7 @@ msgstr "تنظیمات پیشرفته"
 msgid "Advanced options"
 msgstr "گزینه های پیشرفته"
 
-#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsScreen.php
 msgid "Advanced: customize URL structure"
 msgstr "پیشرفته: تنظیم دلخواه ساختار URL"
 
@@ -1158,11 +1212,11 @@ msgid "Ajax error, try again."
 msgstr "خطا آژاکس، دوباره سعی کنید."
 
 #: oc-admin/themes/modern/settings/spamNbots.php
-#: oc-includes/osclass/classes/admin/form/SpamSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/SpamSettingsScreen.php
 msgid "Akismet"
 msgstr "آکیسمت"
 
-#: oc-includes/osclass/classes/admin/form/SpamSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/SpamSettingsScreen.php
 msgid "Akismet API Key"
 msgstr "کلید API Akismet"
 
@@ -1170,7 +1224,7 @@ msgstr "کلید API Akismet"
 msgid "Akismet is a hosted web service that saves you time by automatically detecting comment and trackback spam. "
 msgstr "Akismet یک سرویس وب میزبانی‌شده است که با شناسایی خودکار هرزنامه‌های دیدگاه و ترک‌بک، در زمان شما صرفه‌جویی می‌کند. "
 
-#: oc-includes/osclass/classes/admin/form/SpamSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/SpamSettingsScreen.php
 msgid "Akismet is disabled, please enter an API key. <a href=\"%s\" target=\"_blank\">(Get your key)</a>"
 msgstr "آکیسمت غیرفعال است، لطفا یک کلید API وارد نمایید. <a href=\"%s\" target=\"_blank\">(گرفتن کلید خودتان)</a>"
 
@@ -1239,8 +1293,12 @@ msgstr "تمام پیشنهادات ارسالی به این فرم حذف شد�
 msgid "All the checks below pass."
 msgstr ""
 
-#: oc-includes/osclass/classes/admin/form/MainSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/MainSettingsScreen.php
 msgid "Allow Shopclass to run a built-in <a href=\"%s\" target=\"_blank\" rel=\"noopener\">cron</a>"
+msgstr ""
+
+#: oc-includes/osclass/classes/admin/form/ApiSettingsScreen.php
+msgid "Allow apps to sign in with a password"
 msgstr ""
 
 #: oc-admin/themes/modern/items/settings.php
@@ -1251,17 +1309,33 @@ msgstr "اجازه دادن به پرونده های پیوست شده در فر
 msgid "Allow bigger photo uploads"
 msgstr "آپلود عکس‌های بزرگتر را مجاز می‌کند"
 
-#: oc-includes/osclass/classes/admin/form/MainSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/MainSettingsScreen.php
 msgid "Allow people to attach a file to the contact form"
 msgstr "به افراد اجازه دهید پرونده ای را به فرم تماس ضمیمه کنند"
 
-#: oc-includes/osclass/classes/admin/form/CommentSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/CommentSettingsScreen.php
 msgid "Allow people to post comments on listings"
 msgstr "اجازه دهید مردم برای ارسال نظرات در لیست"
 
-#: oc-includes/osclass/classes/admin/form/MainSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/ApiSettingsScreen.php
+msgid "Allow reading public data without a key"
+msgstr ""
+
+#: oc-includes/osclass/classes/admin/form/ApiSettingsScreen.php
+msgid "Allow sign-up through the API"
+msgstr ""
+
+#: oc-includes/osclass/classes/admin/form/MainSettingsScreen.php
 msgid "Allow users to select a parent category as a category\n"
 "                            when inserting or editing a listing "
+msgstr ""
+
+#: oc-includes/osclass/classes/admin/form/ApiSettingsScreen.php
+msgid "Allow webhook addresses on a private network"
+msgstr ""
+
+#: oc-includes/osclass/classes/admin/form/ApiSettingsScreen.php
+msgid "Allowed origins (CORS)"
 msgstr ""
 
 #: oc-admin/themes/modern/billing/order.php
@@ -1272,7 +1346,7 @@ msgstr ""
 msgid "Always show"
 msgstr "همیشه نمایش داده شود"
 
-#: oc-includes/osclass/classes/admin/form/StorageSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/StorageSettingsScreen.php
 msgid "Amazon S3-compatible"
 msgstr "سازگار با Amazon S3"
 
@@ -1355,9 +1429,13 @@ msgstr[1] ""
 msgid "Animals"
 msgstr "حیوانات"
 
-#: oc-includes/osclass/classes/actions/ItemActions.php
+#: oc-includes/osclass/classes/listing/ListingService.php
 msgid "Anonymous"
 msgstr "ناشناس"
+
+#: oc-includes/osclass/classes/admin/form/ApiSettingsScreen.php
+msgid "Anonymous reads"
+msgstr ""
 
 #: oc-includes/osclass/classes/upgrade/Osclass.php
 msgid "Another upgrade is already running. Wait for it to finish, then try again."
@@ -1431,7 +1509,7 @@ msgstr "یک به‌روزرسانی اعمال شده است."
 msgid "Applies to"
 msgstr "مربوط به"
 
-#: oc-includes/osclass/classes/admin/form/SpamSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/SpamSettingsScreen.php
 msgid "Applies to the contact form, contact the seller, contact a user and share a listing. 0 allows none."
 msgstr ""
 
@@ -1447,6 +1525,10 @@ msgstr "اعمال فیلترها"
 #: oc-admin/themes/modern/categories/iframe.php
 msgid "Apply the expiration and price changes to all subcategories"
 msgstr "تغییرات مربوط به تاریخ انقضاء و قیمت را برای تمام زیردسته‌بندی‌ها اعمال کنید"
+
+#: oc-admin/themes/modern/tools/system-info/security.php
+msgid "Apps signing in through the API"
+msgstr ""
 
 #: oc-includes/osclass/helpers/hUtils.php
 msgid "Apr"
@@ -1544,6 +1626,14 @@ msgstr "هنر - کلکسیون"
 msgid "Arts - Entertainment - Publishing"
 msgstr "هنر - سرگرمی - نشر"
 
+#: oc-admin/themes/modern/settings/api.php
+msgid "Asked again before a key is made."
+msgstr ""
+
+#: oc-admin/themes/modern/settings/api.php
+msgid "Asked again before an endpoint is added."
+msgstr ""
+
 #: oc-admin/themes/modern/settings/keywordBlock_frm.php
 msgid "At least %d characters. Matched as a whole word unless \"Substring\" is checked below."
 msgstr "حداقل %d کاراکتر لازم است. این متن به عنوان یک کلمه کامل در نظر گرفته می‌شود، مگر اینکه گزینه «Substring» در پایین فعال باشد."
@@ -1568,7 +1658,7 @@ msgstr "این مورد مستقیماً به %d دسته‌بندی متصل ا
 msgid "Attached to"
 msgstr "ضمیمه شده به"
 
-#: oc-includes/osclass/classes/admin/form/MainSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/MainSettingsScreen.php
 msgid "Attachments"
 msgstr "پیوست"
 
@@ -1598,25 +1688,25 @@ msgstr "ایمیل نویسنده"
 msgid "Author, e-mail or text"
 msgstr ""
 
-#: oc-includes/osclass/classes/admin/form/SpamSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/SpamSettingsScreen.php
 msgid "Automatic"
 msgstr "خودکار"
 
-#: oc-includes/osclass/classes/admin/form/MainSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/MainSettingsScreen.php
 msgid "Automatic cron process"
 msgstr "فرایند کرون خودکار"
 
-#: oc-includes/osclass/classes/admin/form/SpamSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/SpamSettingsScreen.php
 msgid "Automatic prefers reCAPTCHA whenever its site and secret keys below are set; clear "
 msgstr "حالت خودکار در صورتی که کلید سایت و کلید مخفی reCAPTCHA در زیر تنظیم شده باشند، reCAPTCHA را ترجیح می‌دهد؛ برای پاک‌کردن "
 
-#: oc-includes/osclass/classes/admin/form/KeywordBlockSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/KeywordBlockSettingsScreen.php
 msgid "Automatically hide a listing once enough distinct visitors have reported it"
 msgstr "یک آگهی به صورت خودکار پنهان می‌شود، به محض اینکه تعداد کافی از بازدیدکنندگان متفاوت آن را گزارش دهند"
 
 #: oc-admin/themes/modern/billing/package.php
 #: oc-admin/themes/modern/languages/frm.php
-#: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
 msgid "Availability"
 msgstr "در دسترس بودن"
 
@@ -1698,11 +1788,11 @@ msgstr "تصاویر موجود را بین دیسک محلی و فضای ذخی
 msgid "Backfills every image still on local disk to the active remote storage backend. "
 msgstr "هر تصویری که هنوز روی دیسک محلی قرار دارد، دوباره به سیستم ذخیره‌سازی از راه دور فعال منتقل می‌شود. "
 
-#: oc-includes/osclass/classes/admin/form/MediaSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/MediaSettingsScreen.php
 msgid "Background Color"
 msgstr "رنگ زمینه"
 
-#: oc-includes/osclass/classes/admin/form/MediaSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/MediaSettingsScreen.php
 msgid "Background Hexadecimal color value"
 msgstr "پس زمینه ارزش رنگ Hexadecimal"
 
@@ -1743,11 +1833,11 @@ msgstr ""
 msgid "Backup saved: %1$s, %2$s, %3$s."
 msgstr ""
 
-#: oc-includes/osclass/classes/admin/form/StorageSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/StorageSettingsScreen.php
 msgid "Backups"
 msgstr ""
 
-#: oc-includes/osclass/classes/admin/form/StorageSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/StorageSettingsScreen.php
 msgid "Backups bucket"
 msgstr ""
 
@@ -1755,7 +1845,7 @@ msgstr ""
 msgid "Backups folder"
 msgstr ""
 
-#: oc-includes/osclass/classes/admin/form/StorageSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/StorageSettingsScreen.php
 msgid "Backups kept"
 msgstr ""
 
@@ -1806,11 +1896,11 @@ msgstr "دستور بن"
 msgid "Ban rules block registration, listings or comments matching an IP or e-mail pattern."
 msgstr "قوانین ممنوعیت، ثبت‌نام‌ها، آگهی‌ها یا دیدگاه‌هایی را که با الگوی یک آدرس IP یا ایمیل مطابقت داشته باشند، مسدود می‌کنند."
 
-#: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
 msgid "Bank details, or wherever a buyer sends the money. Shown to the "
 msgstr "جزئیات بانکی یا مکانی که خریدار پول را به آنجا ارسال می‌کند. نمایش داده شده به "
 
-#: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
 msgid "Bank transfer"
 msgstr "انتقال بانکی"
 
@@ -1818,7 +1908,7 @@ msgstr "انتقال بانکی"
 msgid "Barter"
 msgstr "داد و ستد"
 
-#: oc-includes/osclass/classes/admin/form/CommentSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/CommentSettingsScreen.php
 msgid "Before a comment appears, comment author must have at least"
 msgstr ""
 
@@ -1833,12 +1923,12 @@ msgstr "قبل از شروع، بیایید مطمئن شویم که سرور ش
 #: oc-admin/themes/modern/billing/packages.php
 #: oc-admin/themes/modern/billing/wallet.php
 #: oc-includes/osclass/classes/AdminMenu.php
-#: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
 msgid "Billing"
 msgstr "صورتحساب"
 
 #: oc-admin/themes/modern/settings/billing.php
-#: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
 msgid "Billing settings"
 msgstr "تنظیمات صورتحساب"
 
@@ -1858,7 +1948,7 @@ msgstr "مسدود کردن"
 msgid "Block listing"
 msgstr ""
 
-#: oc-includes/osclass/classes/admin/form/SpamSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/SpamSettingsScreen.php
 msgid "Block sign-ins after too many failures"
 msgstr ""
 
@@ -1912,15 +2002,15 @@ msgstr "بدنه"
 msgid "Books - Magazines"
 msgstr "کتاب‌ ها - مجله‌ ها"
 
-#: oc-includes/osclass/classes/admin/form/MediaSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/MediaSettingsScreen.php
 msgid "Bottom Left"
 msgstr "پایین چپ"
 
-#: oc-includes/osclass/classes/admin/form/MediaSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/MediaSettingsScreen.php
 msgid "Bottom Right"
 msgstr "پایین سمت راست"
 
-#: oc-includes/osclass/classes/admin/form/CommentSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/CommentSettingsScreen.php
 msgid "Break comments into pages with"
 msgstr ""
 
@@ -1946,12 +2036,12 @@ msgstr "مرور"
 msgid "Browse plugins"
 msgstr "مرور افزونه‌ها"
 
-#: oc-includes/osclass/classes/admin/form/MediaSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/MediaSettingsScreen.php
 msgid "Browser resize"
 msgstr ""
 
 #: oc-admin/themes/modern/tools/backup.php
-#: oc-includes/osclass/classes/admin/form/StorageSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/StorageSettingsScreen.php
 msgid "Bucket"
 msgstr "باکت"
 
@@ -1974,19 +2064,19 @@ msgstr "برای ساخت فرم‌های قابل استفاده مجدد، ف�
 msgid "Bulk actions"
 msgstr "کارهای دسته جمعی"
 
-#: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
 msgid "Bump price (credits)"
 msgstr "قیمت بامپ (اعتبارات)"
 
-#: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
 msgid "Bump to top"
 msgstr "بامپ به بالا"
 
-#: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
 msgid "Bump, highlight and urgent are optional item upgrades, each priced and switched "
 msgstr "بامپ، برجسته و فوری بهبودهای اختیاری آیتم هستند که هر کدام قیمت‌گذاری شده و به‌صورت جداگانه فعال یا غیرفعال "
 
-#: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
 msgid "Business details on receipts"
 msgstr ""
 
@@ -2001,6 +2091,10 @@ msgstr "توسط"
 #: oc-admin/themes/modern/settings/permalinks.php
 msgid "By default Shopclass uses web URLs which have question marks and lots of numbers in them. "
 msgstr "به‌طور پیش‌فرض، Shopclass از آدرس‌های وب استفاده می‌کند که حاوی علامت‌های سؤال (?) و اعداد زیادی هستند. "
+
+#: oc-includes/osclass/classes/admin/form/ApiSettingsScreen.php
+msgid "By default the API shows the phone wherever your theme does."
+msgstr ""
 
 #: oc-includes/osclass/installer/basic_data.php
 msgid "CDs - Records"
@@ -2083,15 +2177,15 @@ msgid "Cannot run with \"%1$s\": both declare %2$s."
 msgstr ""
 
 #: oc-admin/themes/modern/settings/spamNbots.php
-#: oc-includes/osclass/classes/admin/form/SpamSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/SpamSettingsScreen.php
 msgid "Captcha"
 msgstr "کپچا"
 
-#: oc-includes/osclass/classes/admin/form/SpamSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/SpamSettingsScreen.php
 msgid "Captcha is currently off: you forced a provider but its keys are empty. "
 msgstr "در حال حاضر قابلیت کپچا غیرفعال است؛ شما یک ارائه‌دهنده خاص را اجباراً انتخاب کردید، اما کلیدهای مربوط به آن خالی هستند. "
 
-#: oc-includes/osclass/classes/admin/form/SpamSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/SpamSettingsScreen.php
 msgid "Captcha provider"
 msgstr "ارائه‌دهنده کپچا"
 
@@ -2148,11 +2242,11 @@ msgstr "دسته‌بندی‌ها بخش‌هایی هستند که کاربر�
 msgid "Category"
 msgstr "دسته"
 
-#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsScreen.php
 msgid "Category URL"
 msgstr ""
 
-#: oc-includes/osclass/classes/admin/form/AdvancedSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/AdvancedSettingsScreen.php
 msgid "Category based"
 msgstr "رده بر اساس"
 
@@ -2160,7 +2254,7 @@ msgstr "رده بر اساس"
 msgid "Category id is not a valid integer"
 msgstr "شناسه رده یک صحیح معتبر نیست"
 
-#: oc-includes/osclass/classes/admin/form/MainSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/MainSettingsScreen.php
 msgid "Category settings"
 msgstr "تنظیمات رده"
 
@@ -2180,7 +2274,7 @@ msgstr "تلفن ‌های همراه - لوازم جانبی"
 msgid "Cell phone"
 msgstr "تلفن همراه"
 
-#: oc-includes/osclass/classes/admin/form/MediaSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/MediaSettingsScreen.php
 msgid "Centre"
 msgstr "مرکز"
 
@@ -2271,7 +2365,7 @@ msgstr ""
 msgid "Check for updates"
 msgstr ""
 
-#: oc-includes/osclass/classes/admin/form/KeywordBlockSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/KeywordBlockSettingsScreen.php
 msgid "Check new and edited listings against the keyword blocklist below"
 msgstr "آگهی‌های جدید و ویرایش‌شده را با فهرست کلمات کلیدی مسدودشده زیر بررسی کنید"
 
@@ -2307,7 +2401,7 @@ msgstr ""
 msgid "Check to see if you're using the latest version of Shopclass. If you're not, "
 msgstr "بررسی کنید که آیا از جدیدترین نسخه‌ی Shopclass استفاده می‌کنید. اگر نه، "
 
-#: oc-includes/osclass/classes/admin/form/MainSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/MainSettingsScreen.php
 msgid "Check updates"
 msgstr "بررسی به روز رسانی ها"
 
@@ -2357,7 +2451,7 @@ msgstr "یک دسته بندی انتخاب کنید"
 msgid "Choose the country your visitors are mostly in. You can change this later."
 msgstr "کشوری را انتخاب کنید که بازدیدکنندگان شما عمدتاً در آن حضور دارند؛ می‌توانید بعداً این تنظیمات را تغییر دهید."
 
-#: oc-includes/osclass/classes/backup/BackupManager.php
+#: oc-includes/osclass/classes/backup/BackupService.php
 msgid "Choose what to back up and where to put it."
 msgstr ""
 
@@ -2395,7 +2489,7 @@ msgstr "ناحیه شهر: باید حداقل ۳ کاراکتر وارد کنی
 msgid "City area: no more than 50 characters"
 msgstr "منطقه شهر: نباید بیش از ۵۰ کاراکتر باشد"
 
-#: oc-includes/osclass/classes/admin/form/AdvancedSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/AdvancedSettingsScreen.php
 msgid "City based"
 msgstr "شهر بر اساس"
 
@@ -2517,7 +2611,7 @@ msgstr "بستن"
 msgid "Clothing"
 msgstr "پوشاک"
 
-#: oc-includes/osclass/classes/admin/form/SpamSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/SpamSettingsScreen.php
 msgid "Cloudflare Turnstile"
 msgstr "Cloudflare Turnstile"
 
@@ -2527,6 +2621,7 @@ msgstr "Cloudflare Turnstile"
 msgid "Code"
 msgstr "کد"
 
+#: oc-admin/themes/modern/settings/api.php
 #: oc-admin/themes/modern/tools/backup.php
 msgid "Code from your app, or a backup code"
 msgstr ""
@@ -2566,7 +2661,7 @@ msgid "Comment"
 msgstr "دیدگاه"
 
 #: oc-admin/themes/modern/settings/comments.php
-#: oc-includes/osclass/classes/admin/form/CommentSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/CommentSettingsScreen.php
 msgid "Comment Settings"
 msgstr "تنظیمات نظر"
 
@@ -2601,14 +2696,11 @@ msgstr "نظر : این زمینه مورد نیاز است"
 #: oc-admin/themes/modern/comments/index.php
 #: oc-admin/themes/modern/stats/comments.php
 #: oc-includes/osclass/classes/AdminMenu.php
+#: oc-includes/osclass/classes/admin/form/SpamSettingsScreen.php
 msgid "Comments"
 msgstr "دیدگاه‌ها"
 
-#: oc-includes/osclass/classes/admin/form/SpamSettingsForm.php
-msgid "Comments from guests"
-msgstr ""
-
-#: oc-includes/osclass/classes/admin/form/CommentSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/CommentSettingsScreen.php
 msgid "Comments per page"
 msgstr ""
 
@@ -2656,7 +2748,7 @@ msgstr "سازگاری با این نسخه از Shopclass اعلام نشده �
 msgid "Complete"
 msgstr "کامل"
 
-#: oc-includes/osclass/classes/admin/form/MediaSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/MediaSettingsScreen.php
 msgid "Compression quality for saved JPEG and WebP photos, from 1 (smallest file) to "
 msgstr ""
 
@@ -2725,25 +2817,25 @@ msgid "Connection test"
 msgstr "آزمایش اتصال"
 
 #: oc-includes/osclass/classes/Breadcrumb.php
-#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsScreen.php
 #: oc-includes/osclass/classes/controller/CWebContact.php
 #: oc-includes/osclass/functions.php
 msgid "Contact"
 msgstr "تماس با ما"
 
-#: oc-includes/osclass/classes/admin/form/MainSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/MainSettingsScreen.php
 msgid "Contact Settings"
 msgstr "تنظیمات تماس"
 
-#: oc-includes/osclass/classes/admin/form/SpamSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/SpamSettingsScreen.php
 msgid "Contact a seller"
 msgstr ""
 
-#: oc-includes/osclass/classes/admin/form/SpamSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/SpamSettingsScreen.php
 msgid "Contact a user"
 msgstr ""
 
-#: oc-includes/osclass/classes/admin/form/MainSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/MainSettingsScreen.php
 msgid "Contact e-mail"
 msgstr "تماس با ایمیل"
 
@@ -2768,11 +2860,11 @@ msgstr "تماس با ناشر"
 msgid "Contact seller"
 msgstr "تماس با فروشنده"
 
-#: oc-includes/osclass/classes/admin/form/SpamSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/SpamSettingsScreen.php
 msgid "Contact the site"
 msgstr ""
 
-#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsScreen.php
 msgid "Contact, feed &amp; language"
 msgstr "تماس، فید &amp; زبان"
 
@@ -2795,7 +2887,7 @@ msgstr ""
 msgid "Convert saved-search alerts"
 msgstr ""
 
-#: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
 msgid "Cooldown (hours)"
 msgstr "دوره انتظار (ساعت)"
 
@@ -2804,16 +2896,18 @@ msgid "Coordinates"
 msgstr ""
 
 #: oc-admin/themes/modern/admins/two_factor.php
+#: oc-admin/themes/modern/settings/api.php
 #: oc-includes/osclass/installer/gui/install.php
 msgid "Copied"
 msgstr "کپی شده"
 
 #: oc-admin/themes/modern/admins/two_factor.php
+#: oc-admin/themes/modern/settings/api.php
 #: oc-includes/osclass/installer/gui/install-finish.php
 msgid "Copy"
 msgstr "کپی"
 
-#: oc-includes/osclass/classes/backup/BackupManager.php
+#: oc-includes/osclass/classes/backup/BackupService.php
 msgid "Copying files: %1$s of %2$s (%3$s)"
 msgstr ""
 
@@ -2821,7 +2915,7 @@ msgstr ""
 msgid "Core finds the template by this name, so it cannot change."
 msgstr ""
 
-#: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
 msgid "Core's built-in payment method — no card processor, no API keys. A buyer "
 msgstr "روش پرداخت درون‌ساخت هسته — بدون پردازشگر کارت، بدون کلید API. خریدار "
 
@@ -2881,7 +2975,7 @@ msgstr ""
 msgid "Count crawler visits as views"
 msgstr "شمارش بازدیدهای خزنده‌ها به‌عنوان بازدید"
 
-#: oc-includes/osclass/classes/admin/form/SpamSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/SpamSettingsScreen.php
 msgid "Count failures from the last"
 msgstr ""
 
@@ -2889,7 +2983,7 @@ msgstr ""
 msgid "Count listing views"
 msgstr "شمارش بازدیدهای آگهی"
 
-#: oc-includes/osclass/classes/backup/BackupManager.php
+#: oc-includes/osclass/classes/backup/BackupService.php
 msgid "Counting files"
 msgstr ""
 
@@ -2927,7 +3021,7 @@ msgstr ""
 msgid "Country"
 msgstr "کشور"
 
-#: oc-includes/osclass/classes/admin/form/AdvancedSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/AdvancedSettingsScreen.php
 msgid "Country based"
 msgstr "کشور مبتنی بر"
 
@@ -2956,6 +3050,10 @@ msgstr "یک فرم بسازید و آن را در یک صفحه قرار دهی
 msgid "Create a new account"
 msgstr "ایجاد یک حساب جدید"
 
+#: oc-admin/themes/modern/settings/api.php
+msgid "Create key"
+msgstr ""
+
 #: oc-admin/themes/modern/pages/index.php
 msgid "Create page"
 msgstr "ایجاد صفحه"
@@ -2965,6 +3063,7 @@ msgid "Create the database"
 msgstr "ایجاد پایگاه داده"
 
 #: oc-admin/themes/modern/billing/order.php
+#: oc-admin/themes/modern/settings/api.php
 msgid "Created"
 msgstr "ایجاد شده"
 
@@ -2998,7 +3097,7 @@ msgstr "اعتبارات — %s"
 msgid "Cron"
 msgstr ""
 
-#: oc-includes/osclass/classes/admin/form/MainSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/MainSettingsScreen.php
 msgid "Cron Settings"
 msgstr "تنظیمات کرون"
 
@@ -3018,7 +3117,7 @@ msgstr "ارزها"
 
 #: oc-admin/themes/modern/billing/package.php
 #: oc-admin/themes/modern/items/frm.php
-#: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
 msgid "Currency"
 msgstr "ارز"
 
@@ -3051,6 +3150,7 @@ msgstr "ارز: انتخاب خود را مشخص کنید"
 msgid "Current avatar"
 msgstr "آواتار فعلی"
 
+#: oc-admin/themes/modern/admins/sign_out_all.php
 #: oc-admin/themes/modern/admins/two_factor.php
 msgid "Current code"
 msgstr ""
@@ -3067,7 +3167,7 @@ msgstr "تم فعلی"
 msgid "Current version"
 msgstr "نسخه فعلی"
 
-#: oc-includes/osclass/classes/admin/form/MainSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/MainSettingsScreen.php
 msgid "Custom"
 msgstr ""
 
@@ -3081,11 +3181,11 @@ msgstr "HTML سفارشی"
 msgid "Custom HTML (legacy)"
 msgstr "HTML سفارشی (قدیمی)"
 
-#: oc-includes/osclass/classes/admin/form/MailServerSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/MailServerSettingsScreen.php
 msgid "Custom Server"
 msgstr "سرور سفارشی"
 
-#: oc-includes/osclass/classes/admin/form/MainSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/MainSettingsScreen.php
 msgid "Custom date format"
 msgstr "قالب تاریخ سفارشی"
 
@@ -3095,7 +3195,7 @@ msgstr "قالب تاریخ سفارشی"
 msgid "Custom fields"
 msgstr "فیلدهای اختصاصی"
 
-#: oc-includes/osclass/classes/admin/form/LatestSearchSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/LatestSearchSettingsScreen.php
 msgid "Custom number"
 msgstr ""
 
@@ -3111,7 +3211,7 @@ msgstr "شماره سفارشی: این فیلد فقط باید حاوی کار
 msgid "Custom sitemap URLs"
 msgstr "URLهای سفارشی نقشه سایت"
 
-#: oc-includes/osclass/classes/admin/form/MainSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/MainSettingsScreen.php
 msgid "Custom time format"
 msgstr "قالب زمانی سفارشی"
 
@@ -3182,7 +3282,7 @@ msgstr ""
 #: oc-admin/themes/modern/stats/reports.php
 #: oc-admin/themes/modern/stats/users.php
 #: oc-admin/themes/modern/tools/backup.php
-#: oc-includes/osclass/classes/admin/form/MainSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/MainSettingsScreen.php
 #: oc-includes/osclass/classes/datatables/AlertsDataTable.php
 #: oc-includes/osclass/classes/datatables/CommentsDataTable.php
 #: oc-includes/osclass/classes/datatables/ItemsDataTable.php
@@ -3192,12 +3292,12 @@ msgstr ""
 msgid "Date"
 msgstr "تاریخ"
 
-#: oc-includes/osclass/classes/admin/form/MainSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/MainSettingsScreen.php
 msgid "Date & time format"
 msgstr "فرمت Date & time"
 
 #: oc-admin/themes/modern/languages/frm.php
-#: oc-includes/osclass/classes/admin/form/MainSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/MainSettingsScreen.php
 msgid "Date format"
 msgstr "فرمت تاریخ"
 
@@ -3270,15 +3370,15 @@ msgstr "نقطه هديه اي"
 msgid "Decimal point: this field is required"
 msgstr "نقطه ي هديه اي: اين فيلد مورد نياز است"
 
-#: oc-includes/osclass/classes/admin/form/CommentSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/CommentSettingsScreen.php
 msgid "Default comment settings"
 msgstr "تنظیمات نظر پیش فرض"
 
-#: oc-includes/osclass/classes/admin/form/MainSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/MainSettingsScreen.php
 msgid "Default currency"
 msgstr "ارز پیش فرض"
 
-#: oc-includes/osclass/classes/admin/form/MainSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/MainSettingsScreen.php
 msgid "Default language"
 msgstr "زبان پیش فرض"
 
@@ -3306,6 +3406,7 @@ msgstr "مقدار پیش‌فرض"
 #: oc-admin/themes/modern/pages/index.php
 #: oc-admin/themes/modern/parts/ui.php
 #: oc-admin/themes/modern/plugins/index.php
+#: oc-admin/themes/modern/settings/api.php
 #: oc-admin/themes/modern/settings/currencies.php
 #: oc-admin/themes/modern/settings/keywordBlock.php
 #: oc-admin/themes/modern/settings/locations/list.php
@@ -3371,7 +3472,7 @@ msgstr ""
 msgid "Delete admin"
 msgstr "حذف مدیر"
 
-#: oc-includes/osclass/classes/admin/form/StorageSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/StorageSettingsScreen.php
 msgid "Delete after upload"
 msgstr "حذف پس از آپلود"
 
@@ -3497,6 +3598,10 @@ msgstr "آیا می‌خواهید این فایل را حذف کنید؟"
 msgid "Delete this region…"
 msgstr ""
 
+#: oc-admin/themes/modern/settings/api.php
+msgid "Delete this webhook endpoint?"
+msgstr ""
+
 #: oc-admin/themes/modern/pages/frm.php
 msgid "Delete this widget?"
 msgstr "آیا می‌خواهید این ویجت را حذف کنید؟"
@@ -3529,9 +3634,18 @@ msgstr "حذف یک دسته‌بندی، همچنین حذف تمام آگهی�
 msgid "Deleting the form keeps its fields (they return to the palette) but removes the form and its category assignment. Continue?"
 msgstr "حذف فرم باعث می‌شود که فیلدهای آن دوباره به پالت ابزارها بازگردند، اما خود فرم و ارتباط آن با دسته‌بندی مربوطه حذف می‌شوند. آیا می‌خواهید ادامه دهید؟"
 
+#: oc-includes/osclass/classes/webhook/Delivery.php
+msgid "Deliveries to %1$s failed %2$d times in a row, so the site stopped sending to it. The last answer was: %3$s. Fix the receiver, then switch the endpoint on again in Settings, then API."
+msgstr ""
+
+#: oc-admin/themes/modern/settings/api.php
+msgid "Deliveries waiting or given up"
+msgstr ""
+
 #: oc-admin/themes/modern/items/frm.php
 #: oc-admin/themes/modern/languages/frm.php
 #: oc-admin/themes/modern/languages/index.php
+#: oc-admin/themes/modern/settings/api.php
 #: oc-includes/osclass/classes/form/CategoryForm.php
 #: oc-includes/osclass/classes/form/ItemForm.php
 #: oc-includes/osclass/classes/form/PageForm.php
@@ -3615,6 +3729,7 @@ msgstr "غیرفعال کردن حالت تعمیر"
 #: oc-admin/themes/modern/billing/packages.php
 #: oc-admin/themes/modern/categories/index.php
 #: oc-admin/themes/modern/parts/package-ui.php
+#: oc-admin/themes/modern/settings/api.php
 #: oc-includes/osclass/classes/controller/admin/CAdminPlugins.php
 #: oc-includes/osclass/classes/utility/SystemInfo.php
 msgid "Disabled"
@@ -3632,7 +3747,7 @@ msgstr "رد کردن"
 msgid "Documentation"
 msgstr "مستندات"
 
-#: oc-includes/osclass/classes/admin/form/MainSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/MainSettingsScreen.php
 msgid "Documentation on date and time formatting"
 msgstr "مستندات در قالب بندی تاریخ و زمان"
 
@@ -3674,11 +3789,11 @@ msgstr ""
 msgid "Download to this computer"
 msgstr ""
 
-#: oc-includes/osclass/classes/backup/BackupManager.php
+#: oc-includes/osclass/classes/backup/BackupService.php
 msgid "Downloading it from the bucket"
 msgstr ""
 
-#: oc-includes/osclass/classes/backup/BackupManager.php
+#: oc-includes/osclass/classes/backup/BackupService.php
 msgid "Downloading it from the bucket: %1$s of %2$s"
 msgstr ""
 
@@ -3739,7 +3854,7 @@ msgstr ""
 msgid "Duplicated"
 msgstr "تکراری"
 
-#: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
 msgid "Duration (days)"
 msgstr "مدت‌زمان (روز)"
 
@@ -3761,11 +3876,11 @@ msgstr "ایمیل"
 msgid "E-mail <em>(required)</em>"
 msgstr "ایمیل <em>(مورد نیاز)</em>"
 
-#: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
 msgid "E-mail a receipt when an order is paid"
 msgstr ""
 
-#: oc-includes/osclass/classes/admin/form/CommentSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/CommentSettingsScreen.php
 msgid "E-mail admin whenever"
 msgstr "الکترونیکی مدیر هر زمان"
 
@@ -3774,7 +3889,7 @@ msgstr "الکترونیکی مدیر هر زمان"
 msgid "E-mail rule"
 msgstr "ایمیل دستور"
 
-#: oc-includes/osclass/classes/admin/form/CommentSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/CommentSettingsScreen.php
 msgid "E-mail user whenever"
 msgstr "کاربر الکترونیکی هر زمان"
 
@@ -3797,6 +3912,7 @@ msgstr "هر بخش، مکانی است که ویجت‌های مربوط به �
 #: oc-admin/themes/modern/billing/packages.php
 #: oc-admin/themes/modern/categories/index.php
 #: oc-admin/themes/modern/pages/frm.php
+#: oc-admin/themes/modern/settings/api.php
 #: oc-admin/themes/modern/settings/currencies.php
 #: oc-admin/themes/modern/settings/locations.php
 #: oc-admin/themes/modern/settings/locations/list.php
@@ -3814,6 +3930,7 @@ msgstr "ویرایش"
 
 #: oc-admin/themes/modern/billing/package.php
 #: oc-admin/themes/modern/categories/index.php
+#: oc-admin/themes/modern/settings/api.php
 #: oc-admin/themes/modern/settings/locations.php
 #: oc-admin/themes/modern/settings/locations/list.php
 msgid "Edit %s"
@@ -3990,11 +4107,11 @@ msgstr "فعال کردن (وب سایت)"
 msgid "Enable TinyMCE on frontend"
 msgstr "فعال کردن TinyMCE در frontend"
 
-#: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
 msgid "Enable billing"
 msgstr "فعال‌سازی صورتحساب"
 
-#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsScreen.php
 msgid "Enable friendly urls"
 msgstr "فعال کردن آدرس های دوستانه"
 
@@ -4037,21 +4154,25 @@ msgstr ""
 msgid "Enabled rules run once a day. The last cleanup finished %s."
 msgstr ""
 
-#: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
 msgid "Enabled with a price of 0 means every seller can feature a listing for free."
 msgstr "فعال‌سازی این قابلیت با قیمت صفر به این معناست که هر فروشنده می‌تواند یک آگهی را به‌صورت رایگان ویژه کند."
 
-#: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
 msgid "Enabled with a price of 0 means every seller can raise their "
 msgstr "فعال‌سازی آن با قیمت ۰ یعنی هر فروشنده می‌تواند آگهی خود را بامپ کند "
 
-#: oc-includes/osclass/classes/admin/form/MailServerSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/MailServerSettingsScreen.php
 msgid "Encryption"
 msgstr "رمزگذاری"
 
-#: oc-includes/osclass/classes/admin/form/StorageSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/StorageSettingsScreen.php
 msgid "Endpoint"
 msgstr "Endpoint"
+
+#: oc-admin/themes/modern/admins/sign_out_all.php
+msgid "Ends every admin sign-in of this account: other browsers, remembered sign-ins, and this browser too."
+msgstr ""
 
 #: oc-includes/osclass/installer/basic_data.php
 msgid "Engineering - Architecture"
@@ -4125,13 +4246,22 @@ msgstr "خطا در بارگذاری تم فایل سفارشی"
 msgid "Error occurred while upgrading osclass Database."
 msgstr "خطا در هنگام ارتقاء پایگاه داده osclass رخ داد."
 
+#: oc-admin/themes/modern/settings/api.php
+msgid "Event"
+msgstr ""
+
 #: oc-includes/osclass/installer/basic_data.php
 msgid "Event Services"
 msgstr "خدمات رخداد"
 
+#: oc-admin/themes/modern/settings/api.php
 #: oc-includes/osclass/installer/basic_data.php
 msgid "Events"
 msgstr "رخداد ها"
+
+#: oc-admin/themes/modern/settings/api.php
+msgid "Every app or script using it stops working at once. This cannot be undone."
+msgstr ""
 
 #: oc-admin/themes/modern/billing/wallet.php
 msgid "Every change to this balance is written down here and never edited, "
@@ -4231,6 +4361,7 @@ msgstr "تاریخ انقضاء (در روز)"
 msgid "Expiration date"
 msgstr "تاریخ انقضاء"
 
+#: oc-admin/themes/modern/settings/api.php
 #: oc-admin/themes/modern/stats/reports.php
 #: oc-includes/osclass/classes/controller/admin/CAdminItems.php
 #: oc-includes/osclass/classes/datatables/ItemsDataTable.php
@@ -4242,6 +4373,7 @@ msgid "Expired listings"
 msgstr "آگهی‌های منقضی شده"
 
 #: oc-admin/themes/modern/items/frm.php
+#: oc-admin/themes/modern/settings/api.php
 msgid "Expires"
 msgstr ""
 
@@ -4257,7 +4389,7 @@ msgstr ""
 msgid "Extra column"
 msgstr ""
 
-#: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
 msgid "Extra days"
 msgstr "روزهای اضافی"
 
@@ -4269,15 +4401,15 @@ msgstr ""
 msgid "Extra items: nothing to do"
 msgstr ""
 
-#: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
 msgid "Extra listing runtime"
 msgstr "مدت زمان اضافه‌ی آگهی"
 
-#: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
 msgid "Extra photos"
 msgstr "عکس‌های اضافی"
 
-#: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
 msgid "Extra slots"
 msgstr "فضاهای اضافی"
 
@@ -4299,23 +4431,23 @@ msgstr ""
 msgid "Failures"
 msgstr ""
 
-#: oc-includes/osclass/classes/admin/form/SpamSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/SpamSettingsScreen.php
 msgid "Failures per IP address"
 msgstr ""
 
-#: oc-includes/osclass/classes/admin/form/SpamSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/SpamSettingsScreen.php
 msgid "Failures per account"
 msgstr ""
 
-#: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
 msgid "Featured listing duration (days)"
 msgstr "مدت زمان آگهی ویژه (روز)"
 
-#: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
 msgid "Featured listing price (credits)"
 msgstr "قیمت آگهی ویژه (اعتبارات)"
 
-#: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
 msgid "Featured listings"
 msgstr "آگهی‌های ویژه"
 
@@ -4327,7 +4459,7 @@ msgstr "فور"
 msgid "February"
 msgstr "فوریه"
 
-#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsScreen.php
 msgid "Feed"
 msgstr "خوراک"
 
@@ -4430,7 +4562,7 @@ msgstr ""
 msgid "Find one in Browse, or upload its zip file."
 msgstr ""
 
-#: oc-includes/osclass/classes/backup/BackupManager.php
+#: oc-includes/osclass/classes/backup/BackupService.php
 msgid "Finishing"
 msgstr ""
 
@@ -4450,6 +4582,10 @@ msgstr "پوشه <code>oc-content/languages</code> وجود دارد"
 msgid "Folder <code>oc-content/uploads</code> exists"
 msgstr "پوشه <code>oc-content/uploads</code> وجود دارد"
 
+#: oc-admin/themes/modern/settings/api.php
+msgid "For 24 hours each delivery carries two signatures, one with each secret, so the receiver can switch over."
+msgstr ""
+
 #: oc-includes/osclass/installer/basic_data.php
 msgid "For Babies - Infants"
 msgstr "برای نوزادان"
@@ -4462,7 +4598,7 @@ msgstr "برای فروش"
 msgid "For security, type <b>your current password</b>"
 msgstr "برای امنیت، رمز عبور <b>خود را تایپ</b>"
 
-#: oc-includes/osclass/classes/admin/form/LatestSearchSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/LatestSearchSettingsScreen.php
 msgid "Forever"
 msgstr "همیشه"
 
@@ -4482,7 +4618,7 @@ msgstr "نتوانستیم فرم مورد نظر را ایجاد کنیم"
 msgid "Form fields per request"
 msgstr ""
 
-#: oc-includes/osclass/classes/admin/form/SpamSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/SpamSettingsScreen.php
 msgid "Form submissions"
 msgstr ""
 
@@ -4505,7 +4641,7 @@ msgstr "رایگان"
 msgid "Free disk space"
 msgstr "فضای خالی دیسک"
 
-#: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
 msgid "Free listings per seller"
 msgstr "آگهی‌های رایگان به ازای هر فروشنده"
 
@@ -4513,7 +4649,7 @@ msgstr "آگهی‌های رایگان به ازای هر فروشنده"
 msgid "Free space"
 msgstr ""
 
-#: oc-includes/osclass/classes/admin/form/MediaSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/MediaSettingsScreen.php
 msgid "Freetype library is required. How to <a target=\"_blank\" rel=\"noopener\" href=\"%s\">install/configure</a>"
 msgstr ""
 
@@ -4525,7 +4661,7 @@ msgstr "تناوب"
 msgid "Fri"
 msgstr "جمعه"
 
-#: oc-includes/osclass/classes/admin/form/MainSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/MainSettingsScreen.php
 #: oc-includes/osclass/helpers/hUtils.php
 msgid "Friday"
 msgstr "جمعه"
@@ -4538,7 +4674,7 @@ msgstr "ایمیل دوست: این رشته مورد نیاز است"
 msgid "Friend's name: this field is required"
 msgstr "نام دوست: این رشته مورد نیاز است"
 
-#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsScreen.php
 msgid "Friendly URLs"
 msgstr ""
 
@@ -4555,7 +4691,7 @@ msgstr "از"
 msgid "From Shopclass %s. Updates run after the restore."
 msgstr ""
 
-#: oc-includes/osclass/classes/admin/form/SpamSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/SpamSettingsScreen.php
 msgid "From any address. This catches guessing spread over many addresses."
 msgstr ""
 
@@ -4563,7 +4699,7 @@ msgstr ""
 msgid "From here, you can edit or delete the listings reported by users (spam, misclassified, duplicate, expired, offensive). You can also delete the report if you consider it mistaken."
 msgstr "از اینجا، شما می توانید ویرایش یا حذف کنید تبلیغات گزارش شده به وسیله کاربران را (اسپم، طبقه بندی اشتباه، تکراری، تاریخ گذشته، غیر قابل انتشار). همچنین شما می توانید گزارش های اشتباه را حذف کنید."
 
-#: oc-includes/osclass/classes/admin/form/SpamSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/SpamSettingsScreen.php
 msgid "From the Cloudflare dashboard &raquo; Turnstile."
 msgstr "از پیشخوان Cloudflare &raquo; Turnstile."
 
@@ -4575,7 +4711,7 @@ msgstr "افزونه  GD برای PHP"
 msgid "GD extension is required. How to "
 msgstr "افزونه GD مورد نیاز است. نحوه‌ی "
 
-#: oc-includes/osclass/classes/admin/form/MailServerSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/MailServerSettingsScreen.php
 msgid "GMail Server"
 msgstr "جی میل سرور"
 
@@ -4583,6 +4719,7 @@ msgstr "جی میل سرور"
 msgid "Garage Sale"
 msgstr "فروش گاراژ"
 
+#: oc-admin/themes/modern/settings/api.php
 #: oc-admin/themes/modern/tools/system-info/jobs.php
 #: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "Gave up"
@@ -4593,7 +4730,7 @@ msgid "General"
 msgstr "عمومی"
 
 #: oc-admin/themes/modern/settings/index.php
-#: oc-includes/osclass/classes/admin/form/MainSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/MainSettingsScreen.php
 msgid "General Settings"
 msgstr "تنظیمات عمومی"
 
@@ -4625,11 +4762,11 @@ msgstr "رفتن!"
 msgid "Google Maps"
 msgstr "نقشه های گوگل"
 
-#: oc-includes/osclass/classes/admin/form/MainSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/MainSettingsScreen.php
 msgid "Google Maps key"
 msgstr "کلید نقشه های گوگل"
 
-#: oc-includes/osclass/classes/admin/form/SpamSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/SpamSettingsScreen.php
 msgid "Google reCAPTCHA"
 msgstr "Google reCAPTCHA"
 
@@ -4700,15 +4837,15 @@ msgstr "پنهان کردن رمز عبور"
 msgid "Higher price first"
 msgstr "بالاترین قیمت اول"
 
-#: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
 msgid "Highlight"
 msgstr "برجسته"
 
-#: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
 msgid "Highlight duration (days)"
 msgstr "مدت زمان برجسته (روز)"
 
-#: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
 msgid "Highlight price (credits)"
 msgstr "قیمت برجسته (اعتبارات)"
 
@@ -4748,12 +4885,12 @@ msgstr "صفحه اصلی"
 msgid "Horoscopes - Tarot"
 msgstr "طالع‌بینی - تاروت"
 
-#: oc-includes/osclass/classes/admin/form/AdvancedSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/AdvancedSettingsScreen.php
 #: oc-includes/osclass/installer/gui/install-database.php
 msgid "Host"
 msgstr "میزبان"
 
-#: oc-includes/osclass/classes/admin/form/MailServerSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/MailServerSettingsScreen.php
 msgid "Hostname"
 msgstr "نام میزبان"
 
@@ -4781,19 +4918,23 @@ msgstr "منازل - آپارتمان ‌ها برای فروش"
 msgid "Housing Swap"
 msgstr "تعویض مسکن"
 
-#: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
 msgid "How long a listing must wait before it can be bumped again."
 msgstr "مدت زمانی که یک آگهی باید منتظر بماند تا بتواند دوباره بامپ شود."
 
-#: oc-includes/osclass/classes/admin/form/StorageSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/StorageSettingsScreen.php
 msgid "How long a signed URL stays valid (60-604800)."
 msgstr ""
 
-#: oc-includes/osclass/classes/admin/form/LatestSearchSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/ApiSettingsScreen.php
+msgid "How long browsers and CDNs may keep an anonymous answer."
+msgstr ""
+
+#: oc-includes/osclass/classes/admin/form/LatestSearchSettingsScreen.php
 msgid "How long queries are stored"
 msgstr "چه مدت نمایش داده شد ذخیره می شود"
 
-#: oc-includes/osclass/classes/admin/form/StorageSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/StorageSettingsScreen.php
 msgid "How many backups to keep on the server, and in the bucket. Older ones are removed after each new backup."
 msgstr ""
 
@@ -4801,7 +4942,7 @@ msgstr ""
 msgid "How many credits"
 msgstr "تعداد اعتبار"
 
-#: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
 msgid "How many of a seller's listings may be live "
 msgstr "چند مورد از آگهی‌های یک فروشنده می‌توانند به‌طور همزمان فعال باشند "
 
@@ -4809,7 +4950,7 @@ msgstr "چند مورد از آگهی‌های یک فروشنده می‌توا
 msgid "How many times one visitor address may use each public form or upload in an hour."
 msgstr ""
 
-#: oc-includes/osclass/classes/admin/form/MediaSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/MediaSettingsScreen.php
 msgid "How new photos are saved. "
 msgstr ""
 
@@ -4866,11 +5007,11 @@ msgstr "نام شناسه"
 msgid "If the value is set to zero, there is no wait period"
 msgstr "اگر مقدار به صفر تنظیم شده باشد، هیچ دوره انتظاری وجود ندارد"
 
-#: oc-includes/osclass/classes/admin/form/CommentSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/CommentSettingsScreen.php
 msgid "If the value is zero all comments are shown"
 msgstr "اگر مقدار صفر باشد همه نظرات نشان داده شده اند"
 
-#: oc-includes/osclass/classes/admin/form/CommentSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/CommentSettingsScreen.php
 msgid "If the value is zero, an administrator must always approve comments"
 msgstr "اگر مقدار صفر باشد، یک مدیر باید همیشه نظرات را تأیید کند"
 
@@ -4886,7 +5027,7 @@ msgstr "اگر مقدار صفر باشد، به این معنی است که ه�
 msgid "If this was not you, change your password now. Until you do, the code step can make you wait."
 msgstr ""
 
-#: oc-includes/osclass/classes/admin/form/SpamSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/SpamSettingsScreen.php
 msgid "If you see a captcha widget below, the active provider is configured correctly"
 msgstr "اگر ویجت کپچا را در پایین مشاهده کردید، یعنی ارائه‌دهنده خدمات مربوطه به‌درستی پیکربندی شده است"
 
@@ -4894,7 +5035,7 @@ msgstr "اگر ویجت کپچا را در پایین مشاهده کردید، 
 msgid "If you'd like to change the password, type a new one. Otherwise leave this blank"
 msgstr "اگر می خواهید رمز عبور را تغییر دهید، رمز جدید را تایپ کنید. در غیر این صورت این خالی را ترک کنید"
 
-#: oc-includes/osclass/classes/admin/form/MediaSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/MediaSettingsScreen.php
 #: oc-includes/osclass/classes/datatables/ItemsDataTable.php
 msgid "Image"
 msgstr "تصویر"
@@ -4903,15 +5044,15 @@ msgstr "تصویر"
 msgid "Image library"
 msgstr ""
 
-#: oc-includes/osclass/classes/admin/form/MediaSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/MediaSettingsScreen.php
 msgid "Image sizes"
 msgstr "اندازه های تصویر"
 
-#: oc-includes/osclass/classes/admin/form/MediaSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/MediaSettingsScreen.php
 msgid "ImageMagick"
 msgstr "ImageMagick"
 
-#: oc-includes/osclass/classes/admin/form/MediaSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/MediaSettingsScreen.php
 msgid "ImageMagick library is not loaded"
 msgstr "کتابخانه ImageMagick لود نشده است"
 
@@ -4960,11 +5101,11 @@ msgstr "وارد کردن فهرست کلمات کلیدی"
 msgid "Import settings"
 msgstr "وارد کردن تنظیمات"
 
-#: oc-includes/osclass/classes/forms/FormService.php
+#: oc-includes/osclass/classes/form/builder/FormService.php
 msgid "Imported fields"
 msgstr "فیلدهای وارد شده"
 
-#: oc-includes/osclass/classes/forms/FormService.php
+#: oc-includes/osclass/classes/form/builder/FormService.php
 msgid "Imported fields %d"
 msgstr "فیلدهای وارد شده %d"
 
@@ -5024,35 +5165,35 @@ msgstr "فقط در طول یک درخواست (پیش‌فرض)"
 msgid "Inactive"
 msgstr "غیرفعال"
 
-#: oc-includes/osclass/classes/admin/form/SitemapSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/SitemapSettingsScreen.php
 msgid "Include categories"
 msgstr "دسته‌بندی‌ها را نیز لحاظ کنید"
 
-#: oc-includes/osclass/classes/admin/form/SitemapSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/SitemapSettingsScreen.php
 msgid "Include categories with cities"
 msgstr "دسته‌بندی‌های همراه با شهرها را نیز لحاظ کنید"
 
-#: oc-includes/osclass/classes/admin/form/SitemapSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/SitemapSettingsScreen.php
 msgid "Include categories with regions"
 msgstr "دسته‌بندی‌های همراه با مناطق را نیز لحاظ کنید"
 
-#: oc-includes/osclass/classes/admin/form/SitemapSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/SitemapSettingsScreen.php
 msgid "Include cities"
 msgstr "شهرها را نیز لحاظ کنید"
 
-#: oc-includes/osclass/classes/admin/form/SitemapSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/SitemapSettingsScreen.php
 msgid "Include countries"
 msgstr "کشورها را نیز لحاظ کنید"
 
-#: oc-includes/osclass/classes/admin/form/SitemapSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/SitemapSettingsScreen.php
 msgid "Include in sitemap"
 msgstr ""
 
-#: oc-includes/osclass/classes/admin/form/SitemapSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/SitemapSettingsScreen.php
 msgid "Include pages"
 msgstr "صفحات را نیز لحاظ کنید"
 
-#: oc-includes/osclass/classes/admin/form/SitemapSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/SitemapSettingsScreen.php
 msgid "Include regions"
 msgstr "مناطق را نیز لحاظ کنید"
 
@@ -5099,7 +5240,7 @@ msgstr "نصب با شکست مواجه شد: %s"
 msgid "Install or uninstall the plugins available in your installation. In some cases, "
 msgstr "افزونه‌های موجود در نصب خود را نصب یا حذف کنید. در برخی موارد، "
 
-#: oc-includes/osclass/classes/admin/form/MainSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/MainSettingsScreen.php
 msgid "Install security updates by themselves."
 msgstr ""
 
@@ -5141,7 +5282,6 @@ msgid "Invalid Zip package, it's not in valid format."
 msgstr "بسته زیپ نامعتبر، در قالب معتبر نیست."
 
 #: oc-admin/themes/modern/settings/index.php
-#: oc-includes/osclass/classes/actions/ItemActions.php
 #: oc-includes/osclass/classes/form/AdminForm.php
 #: oc-includes/osclass/classes/form/CommentForm.php
 #: oc-includes/osclass/classes/form/ContactForm.php
@@ -5205,7 +5345,7 @@ msgstr "آیا allow_url_fopen است؟"
 msgid "Issue tracker"
 msgstr "سیستم ردیابی مشکلات"
 
-#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsScreen.php
 msgid "It always appear before the category, region or city url."
 msgstr "همیشه قبل از دسته، منطقه یا آدرس شهر ظاهر می شود."
 
@@ -5213,7 +5353,7 @@ msgstr "همیشه قبل از دسته، منطقه یا آدرس شهر ظاه
 msgid "It filtered on a condition added by a plugin or theme."
 msgstr ""
 
-#: oc-includes/osclass/classes/admin/form/MediaSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/MediaSettingsScreen.php
 msgid "It has to be a .PNG image"
 msgstr "بايد يک . تصویر PNG"
 
@@ -5221,7 +5361,7 @@ msgstr "بايد يک . تصویر PNG"
 msgid "It held a value that could not be read safely."
 msgstr ""
 
-#: oc-includes/osclass/classes/admin/form/MainSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/MainSettingsScreen.php
 msgid "It is <b>recommended</b> to have this option enabled, because some features require it."
 msgstr "توصیه می <b>این</b> فعال باشد، زیرا برخی ویژگی ها به آن نیاز دارند."
 
@@ -5233,7 +5373,7 @@ msgstr ""
 msgid "It is removed after you download it, or after one hour."
 msgstr ""
 
-#: oc-includes/osclass/classes/admin/form/LatestSearchSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/LatestSearchSettingsScreen.php
 msgid "It may be useful to know what queries users make."
 msgstr "ممکن است مفید باشد که بدانید کاربران چه پرس و جوهایی می کنند."
 
@@ -5245,15 +5385,15 @@ msgstr ""
 msgid "It searched tables added by a plugin or theme."
 msgstr ""
 
-#: oc-includes/osclass/classes/backup/BackupManager.php
+#: oc-includes/osclass/classes/backup/BackupService.php
 msgid "It stopped and did not finish."
 msgstr ""
 
-#: oc-includes/osclass/classes/backup/BackupManager.php
+#: oc-includes/osclass/classes/backup/BackupService.php
 msgid "It stopped and did not finish. Nothing was saved."
 msgstr ""
 
-#: oc-includes/osclass/classes/admin/form/MediaSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/MediaSettingsScreen.php
 msgid "It's faster and consumes less resources than GD library."
 msgstr "سریع تر است و منابع کمتری نسبت به کتابخانه GD مصرف می کند."
 
@@ -5327,7 +5467,7 @@ msgstr "ژوئن"
 msgid "June"
 msgstr "ژوئن"
 
-#: oc-includes/osclass/classes/admin/form/MediaSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/MediaSettingsScreen.php
 msgid "KB"
 msgstr ""
 
@@ -5335,7 +5475,7 @@ msgstr ""
 msgid "Keep daily statistics history for"
 msgstr "نگهداری تاریخچه آمار روزانه به مدت"
 
-#: oc-includes/osclass/classes/admin/form/MediaSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/MediaSettingsScreen.php
 msgid "Keep each photo's own shape (recommended)"
 msgstr ""
 
@@ -5343,11 +5483,11 @@ msgstr ""
 msgid "Keep entries for"
 msgstr "نگهداری موارد به مدت"
 
-#: oc-includes/osclass/classes/admin/form/StorageSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/StorageSettingsScreen.php
 msgid "Keep local copies"
 msgstr "نگه‌داشتن نسخه‌های محلی"
 
-#: oc-includes/osclass/classes/admin/form/SpamSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/SpamSettingsScreen.php
 msgid "Keep records for"
 msgstr "نگهداری سوابق برای"
 
@@ -5355,15 +5495,15 @@ msgstr "نگهداری سوابق برای"
 msgid "Keep spammers from publishing on your site by configuring reCAPTCHA and Akismet. "
 msgstr "با پیکربندی reCAPTCHA و Akismet، هرزنامه‌نویسان را از انتشار در سایت خود بازدارید. "
 
-#: oc-includes/osclass/classes/admin/form/MediaSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/MediaSettingsScreen.php
 msgid "Keep the original format"
 msgstr ""
 
-#: oc-includes/osclass/classes/admin/form/MediaSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/MediaSettingsScreen.php
 msgid "Keep the photo at its full size."
 msgstr ""
 
-#: oc-includes/osclass/classes/admin/form/SpamSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/SpamSettingsScreen.php
 msgid "Keep this high: many people can share one address at an office or on mobile."
 msgstr ""
 
@@ -5379,6 +5519,14 @@ msgstr ""
 msgid "Kept visible though the catalog dropped them, because they hold listings: %1$s and %2$s."
 msgstr ""
 
+#: oc-admin/themes/modern/settings/api.php
+msgid "Keys"
+msgstr ""
+
+#: oc-includes/osclass/classes/admin/form/ApiSettingsScreen.php
+msgid "Keys a user makes for their own scripts. Each one must expire within a year."
+msgstr ""
+
 #: oc-admin/themes/modern/tools/system-info/cache.php
 msgid "Keys are kept apart per site, so several sites can share one memcached server. Clearing, though, empties the whole server, other sites too."
 msgstr ""
@@ -5390,11 +5538,11 @@ msgstr "کلمه کلیدی"
 
 #: oc-admin/themes/modern/settings/keywordBlock.php
 #: oc-includes/osclass/classes/AdminMenu.php
-#: oc-includes/osclass/classes/admin/form/KeywordBlockSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/KeywordBlockSettingsScreen.php
 msgid "Keyword blocklist"
 msgstr "فهرست کلمات کلیدی مسدودشده"
 
-#: oc-includes/osclass/classes/admin/form/KeywordBlockSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/KeywordBlockSettingsScreen.php
 msgid "Keyword filter"
 msgstr "فیلتر کلمه کلیدی"
 
@@ -5411,7 +5559,7 @@ msgstr "برچسب (برای مرجع شما)"
 msgid "Land"
 msgstr "زمین"
 
-#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsScreen.php
 #: oc-includes/osclass/emails.php
 #: oc-includes/osclass/installer/gui/install.php
 msgid "Language"
@@ -5472,9 +5620,17 @@ msgid "Last checked %s."
 msgstr "آخرین بررسی: %s."
 
 #: oc-admin/themes/modern/settings/index.php
-#: oc-includes/osclass/classes/admin/form/MainSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/MainSettingsScreen.php
 msgid "Last checked on "
 msgstr "آخرین بررسی شده در "
+
+#: oc-admin/themes/modern/settings/api.php
+msgid "Last delivery"
+msgstr ""
+
+#: oc-admin/themes/modern/settings/api.php
+msgid "Last error"
+msgstr ""
 
 #: oc-admin/themes/modern/settings/sitemap.php
 msgid "Last modified"
@@ -5486,6 +5642,10 @@ msgstr "آخرین صفحه"
 
 #: oc-admin/themes/modern/pages/frm.php
 msgid "Last saved"
+msgstr ""
+
+#: oc-admin/themes/modern/settings/api.php
+msgid "Last used"
 msgstr ""
 
 #: oc-admin/themes/modern/stats/comments.php
@@ -5500,7 +5660,7 @@ msgstr "آخرین آگهی های اضافه شده"
 msgid "Latest listings added in"
 msgstr "آخرین آگهی های اضافه شده در"
 
-#: oc-includes/osclass/classes/admin/form/MainSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/MainSettingsScreen.php
 msgid "Latest listings shown"
 msgstr "آخرین لیست نشان داده شده"
 
@@ -5513,12 +5673,12 @@ msgid "Latest listings shown: this field must only contain numeric characters"
 msgstr "آخرین تبلیغات نمایش داده شده: این فیلد فقط باید شامل کاراکترهای عددی باشد"
 
 #: oc-includes/osclass/classes/AdminMenu.php
-#: oc-includes/osclass/classes/admin/form/LatestSearchSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/LatestSearchSettingsScreen.php
 msgid "Latest searches"
 msgstr "آخرین جستجوها"
 
 #: oc-admin/themes/modern/settings/searches.php
-#: oc-includes/osclass/classes/admin/form/LatestSearchSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/LatestSearchSettingsScreen.php
 msgid "Latest searches Settings"
 msgstr "آخرین تنظیمات جستجو"
 
@@ -5530,17 +5690,21 @@ msgstr "آخرین کاربران در وب"
 msgid "Leave blank and we'll generate a strong one for you."
 msgstr "این فیلد را خالی بگذارید تا یک رمز عبور قوی برای شما ایجاد کنیم."
 
-#: oc-includes/osclass/classes/admin/form/MailServerSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/MailServerSettingsScreen.php
 msgid "Leave blank to keep the current password."
 msgstr ""
 
-#: oc-includes/osclass/classes/admin/form/StorageSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/StorageSettingsScreen.php
 msgid "Leave blank to keep the currently saved secret key"
 msgstr "اگر می‌خواهید کلید محرمانه فعلی ذخیره‌شده حفظ شود، این فیلد را خالی بگذارید"
 
-#: oc-includes/osclass/classes/admin/form/StorageSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/StorageSettingsScreen.php
 msgid "Leave the provider-specific placeholders (e.g. {region}, {account_id}) filled in "
 msgstr "این جای‌گذاری‌های مخصوص ارائه‌دهنده (مانند {region}، {account_id}) را دست‌نخورده باقی بگذارید "
+
+#: oc-includes/osclass/classes/admin/form/ApiSettingsScreen.php
+msgid "Leave the seller phone number out of listings"
+msgstr ""
 
 #: oc-includes/osclass/helpers/hForms.php
 msgid "Leave this field empty"
@@ -5562,6 +5726,18 @@ msgstr "بگذارید هر آگهی حاوی تعداد بیشتری عکس ب�
 msgid "Let long jobs finish"
 msgstr "بگذارید کارهای طولانی‌مدت به پایان برسند"
 
+#: oc-includes/osclass/classes/admin/form/ApiSettingsScreen.php
+msgid "Let new listings name photos by web address"
+msgstr ""
+
+#: oc-includes/osclass/classes/admin/form/ApiSettingsScreen.php
+msgid "Let users make personal API keys"
+msgstr ""
+
+#: oc-includes/osclass/classes/admin/form/ApiSettingsScreen.php
+msgid "Lets your own mobile apps send a username and password to the token endpoint. Turn it off if no app needs it. Refresh tokens keep working."
+msgstr ""
+
 #: oc-admin/themes/modern/settings/locations/preview.php
 msgid "Level"
 msgstr ""
@@ -5572,7 +5748,7 @@ msgstr "کتابخانه"
 
 #: oc-admin/themes/modern/settings/spamNbots.php
 #: oc-includes/osclass/classes/admin/SystemChecks.php
-#: oc-includes/osclass/classes/admin/form/SpamSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/SpamSettingsScreen.php
 msgid "Limits"
 msgstr ""
 
@@ -5588,7 +5764,7 @@ msgstr "لینک برای معتبرسازی حساب"
 msgid "Link for edit listing"
 msgstr "لینک برای ویرایش آگهی"
 
-#: oc-includes/osclass/classes/admin/form/SpamSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/SpamSettingsScreen.php
 msgid "Links allowed in a message"
 msgstr ""
 
@@ -5619,15 +5795,15 @@ msgstr "لیست تنظیمات"
 msgid "Listing Statistics"
 msgstr "فهرست آمار"
 
-#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsScreen.php
 msgid "Listing URL"
 msgstr ""
 
-#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsScreen.php
 msgid "Listing actions"
 msgstr "عملیات آگهی"
 
-#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsScreen.php
 msgid "Listing activate"
 msgstr "لیست فعال"
 
@@ -5635,7 +5811,7 @@ msgstr "لیست فعال"
 msgid "Listing city"
 msgstr "شهر آگهی"
 
-#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsScreen.php
 msgid "Listing contact"
 msgstr "لیست تماس"
 
@@ -5651,7 +5827,7 @@ msgstr ""
 msgid "Listing counts are up to date."
 msgstr ""
 
-#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsScreen.php
 msgid "Listing delete"
 msgstr "لیست حذف"
 
@@ -5663,7 +5839,7 @@ msgstr "توضیح آگهی"
 msgid "Listing description in all languages"
 msgstr "توضیح آگهی در تمامی زبان ها"
 
-#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsScreen.php
 msgid "Listing edit"
 msgstr "لیست ویرایش"
 
@@ -5675,11 +5851,11 @@ msgstr "آی دی آگهی"
 msgid "Listing list"
 msgstr "فهرست آگهی"
 
-#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsScreen.php
 msgid "Listing mark"
 msgstr "علامت لیست"
 
-#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsScreen.php
 msgid "Listing new"
 msgstr "لیست جدید"
 
@@ -5691,11 +5867,11 @@ msgstr "قیمت آگهی"
 msgid "Listing region"
 msgstr "استان آگهی"
 
-#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsScreen.php
 msgid "Listing resource delete"
 msgstr "لیست حذف منابع"
 
-#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsScreen.php
 msgid "Listing send friend"
 msgstr "لیست ارسال دوست"
 
@@ -5801,7 +5977,7 @@ msgstr ""
 msgid "Listings' views"
 msgstr "دیدگاه های فهرست ها"
 
-#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsScreen.php
 msgid "Listings, pages &amp; categories"
 msgstr "آگهی‌ها، صفحات &amp; دسته‌بندی‌ها"
 
@@ -5824,11 +6000,11 @@ msgstr "در حال بارگذاری جزئیات…"
 msgid "Loading…"
 msgstr "در حال بارگذاری…"
 
-#: oc-includes/osclass/classes/admin/form/StorageSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/StorageSettingsScreen.php
 msgid "Local copies"
 msgstr "نسخه‌های محلی"
 
-#: oc-includes/osclass/classes/admin/form/StorageSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/StorageSettingsScreen.php
 msgid "Local disk"
 msgstr "دیسک محلی"
 
@@ -5841,6 +6017,10 @@ msgstr "موقعیت"
 
 #: oc-admin/themes/modern/settings/locations.php
 msgid "Location form"
+msgstr ""
+
+#: oc-includes/osclass/classes/location/LocationRecountJobs.php
+msgid "Location listing counts"
 msgstr ""
 
 #: oc-admin/themes/modern/settings/locations/list.php
@@ -5897,11 +6077,11 @@ msgstr "ورود"
 msgid "Logout"
 msgstr "خروج"
 
-#: oc-includes/osclass/classes/admin/form/SpamSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/SpamSettingsScreen.php
 msgid "Longer messages are refused. 0 allows any length."
 msgstr ""
 
-#: oc-includes/osclass/classes/admin/form/SpamSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/SpamSettingsScreen.php
 msgid "Longest message"
 msgstr ""
 
@@ -5922,11 +6102,11 @@ msgid "Lower price first"
 msgstr "پایین ‌ترین قیمت اول"
 
 #: oc-admin/themes/modern/settings/mailserver.php
-#: oc-includes/osclass/classes/admin/form/MailServerSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/MailServerSettingsScreen.php
 msgid "Mail Settings"
 msgstr "تنظیمات ایمیل"
 
-#: oc-includes/osclass/classes/admin/form/MailServerSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/MailServerSettingsScreen.php
 msgid "Mail from"
 msgstr "ایمیل از"
 
@@ -5969,9 +6149,17 @@ msgstr "وضعیت نگهداری است: <strong>%s</strong>"
 msgid "Make a backup"
 msgstr ""
 
-#: oc-includes/osclass/classes/admin/form/SitemapSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/SitemapSettingsScreen.php
 msgid "Make a backup before changing your robots.txt file."
 msgstr "پیش از تغییر فایل robots.txt، یک نسخه پشتیبان از آن تهیه کنید."
+
+#: oc-admin/themes/modern/settings/api.php
+msgid "Make a new key in place of this one?"
+msgstr ""
+
+#: oc-admin/themes/modern/settings/api.php
+msgid "Make a new signing secret for this endpoint?"
+msgstr ""
 
 #: oc-admin/themes/modern/tools/backup.php
 msgid "Make backup"
@@ -5989,7 +6177,7 @@ msgstr ""
 msgid "Make {file} the cover photo"
 msgstr ""
 
-#: oc-includes/osclass/classes/backup/BackupManager.php
+#: oc-includes/osclass/classes/backup/BackupService.php
 msgid "Making a backup: %1$s, %2$s."
 msgstr ""
 
@@ -6094,7 +6282,7 @@ msgid "Manufacturing - Operations"
 msgstr "ساخت - عملیات"
 
 #: oc-admin/themes/modern/items/settings.php
-#: oc-includes/osclass/classes/admin/form/MainSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/MainSettingsScreen.php
 msgid "Maps"
 msgstr "نقشه"
 
@@ -6169,11 +6357,11 @@ msgstr "حداکثر حجم آپلود"
 msgid "Maximum"
 msgstr "حداکثر"
 
-#: oc-includes/osclass/classes/admin/form/MediaSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/MediaSettingsScreen.php
 msgid "Maximum size"
 msgstr "حداکثر اندازه"
 
-#: oc-includes/osclass/classes/admin/form/MediaSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/MediaSettingsScreen.php
 msgid "Maximum size PHP configuration allows: %d KB"
 msgstr "بیشترین اندازه مجاز تنظیمات PHP: %d KB"
 
@@ -6189,7 +6377,7 @@ msgid "Media"
 msgstr "رسانه"
 
 #: oc-admin/themes/modern/settings/media.php
-#: oc-includes/osclass/classes/admin/form/MediaSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/MediaSettingsScreen.php
 msgid "Media Settings"
 msgstr "تنظیمات رسانه ها"
 
@@ -6220,6 +6408,7 @@ msgid "Menu"
 msgstr "منو"
 
 #: oc-admin/themes/modern/emails/frm.php
+#: oc-admin/themes/modern/settings/api.php
 #: oc-admin/themes/modern/tools/maintenance.php
 msgid "Message"
 msgstr ""
@@ -6232,14 +6421,13 @@ msgstr ""
 msgid "Message: %s"
 msgstr "پیغام: %s"
 
-#: oc-includes/osclass/classes/actions/ItemActions.php
 #: oc-includes/osclass/classes/form/ContactForm.php
 #: oc-includes/osclass/classes/form/SendFriendForm.php
 msgid "Message: this field is required"
 msgstr "پیام: این فیلد لازم است"
 
 #: oc-admin/themes/modern/settings/spamNbots.php
-#: oc-includes/osclass/classes/admin/form/SpamSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/SpamSettingsScreen.php
 msgid "Messages"
 msgstr ""
 
@@ -6291,7 +6479,7 @@ msgstr ""
 msgid "Missing table"
 msgstr ""
 
-#: oc-includes/osclass/classes/admin/form/CommentSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/CommentSettingsScreen.php
 msgid "Moderated comments"
 msgstr ""
 
@@ -6335,7 +6523,7 @@ msgstr "تغییر سرصفحه یا پاورقی سایت خود را در ای
 msgid "Mon"
 msgstr "دوشنبه"
 
-#: oc-includes/osclass/classes/admin/form/MainSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/MainSettingsScreen.php
 #: oc-includes/osclass/helpers/hUtils.php
 msgid "Monday"
 msgstr "دوشنبه"
@@ -6442,6 +6630,7 @@ msgstr "زمینه سفارشی جدید"
 #: oc-admin/themes/modern/items/frm.php
 #: oc-admin/themes/modern/languages/frm.php
 #: oc-admin/themes/modern/languages/index.php
+#: oc-admin/themes/modern/settings/api.php
 #: oc-admin/themes/modern/settings/currencies.php
 #: oc-admin/themes/modern/settings/currency_form.php
 #: oc-admin/themes/modern/settings/locations/form.php
@@ -6472,7 +6661,7 @@ msgstr "نام <em>(مورد نیاز)</em>"
 msgid "Name for default locale is required."
 msgstr "نام برای زبان پیش‌فرض الزامی است."
 
-#: oc-includes/osclass/classes/admin/form/MailServerSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/MailServerSettingsScreen.php
 msgid "Name from"
 msgstr "نام از"
 
@@ -6525,11 +6714,11 @@ msgstr ""
 msgid "Needs PHP %s"
 msgstr ""
 
-#: oc-includes/osclass/classes/admin/form/KeywordBlockSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/KeywordBlockSettingsScreen.php
 msgid "Needs a CAPTCHA provider configured under Settings &raquo; reCAPTCHA/Turnstile; "
 msgstr ""
 
-#: oc-includes/osclass/classes/admin/form/CommentSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/CommentSettingsScreen.php
 msgid "Needs a CAPTCHA provider configured under Settings &raquo; reCAPTCHA/Turnstile; otherwise no challenge is shown."
 msgstr "نیاز به پیکربندی یک ارائه‌دهنده CAPTCHA در تنظیمات &raquo; reCAPTCHA/Turnstile دارد؛ در غیر این صورت هیچ چالشی نمایش داده نمی‌شود."
 
@@ -6552,6 +6741,7 @@ msgid "Neither Imagick nor GD is installed, so photos cannot be resized and imag
 msgstr ""
 
 #: oc-admin/themes/modern/items/frm.php
+#: oc-admin/themes/modern/settings/api.php
 #: oc-includes/osclass/classes/controller/admin/CAdminItems.php
 msgid "Never"
 msgstr ""
@@ -6567,6 +6757,10 @@ msgstr "جدید"
 
 #: oc-admin/themes/modern/tools/system-info/database.php
 msgid "New Shopclass files are in place, but the database has not caught up yet. Run these updates to finish."
+msgstr ""
+
+#: oc-includes/osclass/classes/admin/form/ApiSettingsScreen.php
+msgid "New accounts get the same activation e-mail as the sign-up form sends."
 msgstr ""
 
 #: oc-admin/themes/modern/settings/locations/preview.php
@@ -6605,9 +6799,17 @@ msgstr "گروه فیلد جدید"
 msgid "New form"
 msgstr "فرم جدید"
 
+#: oc-admin/themes/modern/settings/api.php
+msgid "New key"
+msgstr ""
+
 #: oc-admin/themes/modern/stats/items.php
 msgid "New listing"
 msgstr "لیست جدید"
+
+#: oc-includes/osclass/classes/admin/form/ApiSettingsScreen.php
+msgid "New listings, per user"
+msgstr ""
 
 #: oc-admin/themes/modern/main/index.php
 msgid "New listings/users"
@@ -6634,6 +6836,10 @@ msgstr ""
 #: oc-admin/themes/modern/stats/users.php
 msgid "New users"
 msgstr "کاربران جدید"
+
+#: oc-admin/themes/modern/settings/api.php
+msgid "New webhook endpoint"
+msgstr ""
 
 #: oc-admin/themes/modern/tools/backup.php
 msgid "Newest first. Kept: the last %1$d on the server and the last %1$d in the bucket."
@@ -6662,6 +6868,10 @@ msgstr ""
 #: oc-admin/themes/modern/parts/market.php
 msgid "Next screenshot"
 msgstr "اسکرین‌شات بعدی"
+
+#: oc-admin/themes/modern/settings/api.php
+msgid "Next try"
+msgstr ""
 
 #: oc-admin/themes/modern/fields/submissions.php
 #: oc-includes/osclass/classes/controller/admin/CAdminLanguages.php
@@ -6799,6 +7009,10 @@ msgstr "هنوز هیچ فرمی وجود ندارد. یک فرم ایجاد ک�
 msgid "No internet connection. You can continue and add your location later from the admin panel."
 msgstr "هیچ اتصال اینترنتی وجود ندارد؛ می‌توانید کار خود را ادامه دهید و مکان خود را بعداً از طریق پنل مدیریتی اضافه کنید."
 
+#: oc-admin/themes/modern/settings/api.php
+msgid "No keys yet."
+msgstr ""
+
 #: oc-admin/themes/modern/languages/index.php
 msgid "No languages yet"
 msgstr "هنوز هیچ زبانی وجود ندارد"
@@ -6908,7 +7122,7 @@ msgstr ""
 msgid "No subcategory"
 msgstr "زیردسته ای نیست"
 
-#: oc-includes/osclass/classes/admin/form/AdvancedSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/AdvancedSettingsScreen.php
 msgid "No subdomains"
 msgstr "بدون زیردستان"
 
@@ -6936,6 +7150,10 @@ msgstr ""
 msgid "No version was specified."
 msgstr "هیچ نسخه‌ای مشخص نشده است."
 
+#: oc-admin/themes/modern/settings/api.php
+msgid "No webhook endpoints yet."
+msgstr ""
+
 #: oc-admin/themes/modern/appearance/page-block-form.php
 msgid "No widget types are available to you. Ask an administrator, or install a widget plugin."
 msgstr "هیچ نوع ویجتی در دسترس شما نیست. از یک مدیر کمک بگیرید یا یک پلاگین مربوط به ویجت نصب کنید."
@@ -6957,9 +7175,9 @@ msgid "Non-profit - Volunteer"
 msgstr "غیرانتفاعی - داوطلب"
 
 #: oc-admin/themes/modern/items/settings.php
-#: oc-includes/osclass/classes/admin/form/MailServerSettingsForm.php
-#: oc-includes/osclass/classes/admin/form/MediaSettingsForm.php
-#: oc-includes/osclass/classes/admin/form/SpamSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/MailServerSettingsScreen.php
+#: oc-includes/osclass/classes/admin/form/MediaSettingsScreen.php
+#: oc-includes/osclass/classes/admin/form/SpamSettingsScreen.php
 #: oc-includes/osclass/classes/datatables/ItemsDataTable.php
 msgid "None"
 msgstr "هیچ کدام"
@@ -6972,7 +7190,11 @@ msgstr "چیزی اعلام نشده"
 msgid "None yet"
 msgstr "هنوز هیچ‌کدام نیست"
 
-#: oc-includes/osclass/classes/admin/form/MediaSettingsForm.php
+#: oc-admin/themes/modern/settings/api.php
+msgid "None. Deliveries that got an answer leave the queue."
+msgstr ""
+
+#: oc-includes/osclass/classes/admin/form/MediaSettingsScreen.php
 msgid "Normal size"
 msgstr "اندازه طبیعی"
 
@@ -6997,7 +7219,7 @@ msgstr "بدون وابستگی زنجیره‌ای"
 msgid "Not compatible"
 msgstr ""
 
-#: oc-includes/osclass/classes/backup/BackupManager.php
+#: oc-includes/osclass/classes/backup/BackupService.php
 msgid "Not enough space on the server to download it: needs about %1$s, %2$s free."
 msgstr ""
 
@@ -7056,6 +7278,10 @@ msgstr "هنوز چیزی در اینجا وجود ندارد"
 msgid "Nothing is waiting."
 msgstr ""
 
+#: oc-admin/themes/modern/settings/api.php
+msgid "Nothing more is sent to it, and deliveries still waiting are dropped. This cannot be undone."
+msgstr ""
+
 #: oc-admin/themes/modern/settings/locations/list.php
 msgid "Nothing named “%1$s” in %2$s"
 msgstr ""
@@ -7077,7 +7303,7 @@ msgstr ""
 msgid "Nothing to browse yet"
 msgstr ""
 
-#: oc-includes/osclass/classes/backup/BackupManager.php
+#: oc-includes/osclass/classes/backup/BackupService.php
 msgid "Nothing was changed."
 msgstr ""
 
@@ -7085,7 +7311,7 @@ msgstr ""
 msgid "Nothing was changed. The web server user (%1$s) cannot write to: %2$s. Give that user write access, or run \"php oc-cli.php core:update\" as the owner of the files."
 msgstr ""
 
-#: oc-includes/osclass/classes/backup/BackupManager.php
+#: oc-includes/osclass/classes/backup/BackupService.php
 msgid "Nothing was saved."
 msgstr ""
 
@@ -7094,7 +7320,7 @@ msgid "Nothing was waiting. The database is up to date."
 msgstr ""
 
 #: oc-admin/themes/modern/items/settings.php
-#: oc-includes/osclass/classes/admin/form/CommentSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/CommentSettingsScreen.php
 msgid "Notifications"
 msgstr "اطلاعیه ها"
 
@@ -7110,7 +7336,7 @@ msgstr "نوا"
 msgid "November"
 msgstr "نوامبر"
 
-#: oc-includes/osclass/classes/admin/form/SitemapSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/SitemapSettingsScreen.php
 msgid "Number of URLs per XML item sitemap file. Extra listings roll into additional "
 msgstr "تعداد URLها در هر فایل نقشه سایت آیتم XML. آگهی‌های اضافی به فایل‌های اضافی "
 
@@ -7126,7 +7352,7 @@ msgstr "تعداد decimals : این زمینه مورد نیاز است"
 msgid "Number of decimals: this field must only contain numeric characters"
 msgstr "تعداد اعداد: این فیلد فقط باید شامل کاراکترهای عددی باشد"
 
-#: oc-includes/osclass/classes/admin/form/KeywordBlockSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/KeywordBlockSettingsScreen.php
 msgid "Number of distinct reporters (one vote per person) that auto-hides a listing."
 msgstr "تعداد گزارش‌دهندگان مجزا (هر نفر یک رأی) که یک آگهی را به‌طور خودکار پنهان می‌کند."
 
@@ -7171,6 +7397,7 @@ msgid "October"
 msgstr "اکتبر"
 
 #: oc-admin/themes/modern/admins/two_factor.php
+#: oc-admin/themes/modern/settings/api.php
 msgid "Off"
 msgstr "خاموش"
 
@@ -7178,7 +7405,19 @@ msgstr "خاموش"
 msgid "Off by default. Search-engine and AI crawlers are usually most of a busy "
 msgstr ""
 
-#: oc-includes/osclass/classes/admin/form/KeywordBlockSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/ApiSettingsScreen.php
+msgid "Off by default. Turn on only to send webhooks to a server on your own network, such as http://192.168.1.20. The port is still 80 for http and 443 for https."
+msgstr ""
+
+#: oc-includes/osclass/classes/admin/form/ApiSettingsScreen.php
+msgid "Off by default. When off, every call to /api/v1 is refused."
+msgstr ""
+
+#: oc-includes/osclass/classes/admin/form/ApiSettingsScreen.php
+msgid "Off by default. When on, anyone can read listings, categories and locations without a key, which makes copying your site easy."
+msgstr ""
+
+#: oc-includes/osclass/classes/admin/form/KeywordBlockSettingsScreen.php
 msgid "Off by default: a match is quarantined (flagged spam and hidden) so it can be "
 msgstr ""
 
@@ -7207,7 +7446,7 @@ msgstr "قدیمی‌تر از"
 msgid "On"
 msgstr ""
 
-#: oc-includes/osclass/classes/admin/form/KeywordBlockSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/KeywordBlockSettingsScreen.php
 msgid "On a match"
 msgstr "در صورت تطبیق"
 
@@ -7215,15 +7454,15 @@ msgstr "در صورت تطبیق"
 msgid "One backup at a time."
 msgstr ""
 
-#: oc-includes/osclass/classes/backup/BackupManager.php
+#: oc-includes/osclass/classes/backup/BackupService.php
 msgid "One backup at a time. Wait for the one running to finish."
 msgstr ""
 
-#: oc-includes/osclass/classes/admin/form/LatestSearchSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/LatestSearchSettingsScreen.php
 msgid "One day"
 msgstr "یک روز"
 
-#: oc-includes/osclass/classes/admin/form/LatestSearchSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/LatestSearchSettingsScreen.php
 msgid "One hour"
 msgstr "یک ساعت"
 
@@ -7237,7 +7476,7 @@ msgid_plural "%s locations have been deleted"
 msgstr[0] "یک مکان حذف شده است"
 msgstr[1] "%s مکان ها حذف شده اند"
 
-#: oc-includes/osclass/classes/admin/form/LatestSearchSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/LatestSearchSettingsScreen.php
 msgid "One week"
 msgstr "یک هفته"
 
@@ -7270,7 +7509,7 @@ msgstr "این مورد را فقط در صورتی تغییر دهید که ب�
 msgid "Only logged in users can post listings"
 msgstr "فقط وارد شده در کاربران می تواند لیست"
 
-#: oc-includes/osclass/classes/admin/form/SpamSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/SpamSettingsScreen.php
 msgid "Only logged-in users can subscribe to search alerts"
 msgstr "فقط کاربرانی که وارد سیستم شده‌اند، می‌توانند برای دریافت هشدارهای مربوط به جستجو ثبت‌نام کنند"
 
@@ -7315,7 +7554,7 @@ msgstr ""
 msgid "OpenStreetMaps"
 msgstr "OpenStreetMaps"
 
-#: oc-includes/osclass/classes/admin/form/MainSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/MainSettingsScreen.php
 msgid "OpenStreetMaps key"
 msgstr "کلید OpenStreetMaps"
 
@@ -7331,15 +7570,23 @@ msgstr "نقشه گزینه‌ها"
 msgid "Optional fields"
 msgstr "زمینه های اختیاری"
 
+#: oc-admin/themes/modern/settings/api.php
+msgid "Optional, such as \"Stock sync\"."
+msgstr ""
+
 #: oc-admin/themes/modern/settings/sitemap.php
 msgid "Optional. Leave blank to use today's date."
 msgstr "اختیاری است؛ اگر خالی بگذارید، از تاریخ امروز استفاده خواهد شد."
 
-#: oc-includes/osclass/classes/admin/form/StorageSettingsForm.php
+#: oc-admin/themes/modern/settings/api.php
+msgid "Optional. Leave empty for a key that works until you revoke it."
+msgstr ""
+
+#: oc-includes/osclass/classes/admin/form/StorageSettingsScreen.php
 msgid "Optional. Overrides the URL used to serve files, e.g. a CDN domain in front of the bucket."
 msgstr "اختیاری است؛ این مقدار آدرس URL مورد استفاده برای ارائه فایل‌ها را تغییر می‌دهد (مثلاً یک دامنه CDN در جلوی کانتینر)."
 
-#: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
 msgid "Optional. Your business name, address and tax number, printed at the top "
 msgstr ""
 
@@ -7374,7 +7621,7 @@ msgstr "سفارش‌ها"
 msgid "Orders appear here as soon as a payment plugin takes its first payment."
 msgstr "سفارش‌ها به محض اینکه افزونه پرداخت اولین پرداخت را انجام دهد، در اینجا نمایش داده می‌شوند."
 
-#: oc-includes/osclass/classes/admin/form/MediaSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/MediaSettingsScreen.php
 msgid "Original size"
 msgstr "اندازه اصلی"
 
@@ -7394,7 +7641,7 @@ msgstr "خدمات دیگر"
 msgid "Other Vehicles"
 msgstr "وسایل نقلیه دیگر"
 
-#: oc-includes/osclass/classes/admin/form/CommentSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/CommentSettingsScreen.php
 msgid "Other comment settings"
 msgstr "سایر تنظیمات نظر"
 
@@ -7405,6 +7652,14 @@ msgstr ""
 #: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "Overview"
 msgstr "مرور کلی"
+
+#: oc-admin/themes/modern/settings/api.php
+msgid "Owner"
+msgstr ""
+
+#: oc-admin/themes/modern/settings/api.php
+msgid "Owner gone"
+msgstr ""
 
 #: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "PHP"
@@ -7443,7 +7698,7 @@ msgstr "نسخه PHP باید بزرگتر یا مساوی 8.0.0 باشد"
 msgid "PM"
 msgstr "بعد از ظهر"
 
-#: oc-includes/osclass/classes/admin/form/MailServerSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/MailServerSettingsScreen.php
 msgid "POP"
 msgstr "پاپ"
 
@@ -7481,11 +7736,11 @@ msgstr "صفحه"
 msgid "Page %s"
 msgstr "صفحه %s"
 
-#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsScreen.php
 msgid "Page URL"
 msgstr ""
 
-#: oc-includes/osclass/classes/admin/form/MainSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/MainSettingsScreen.php
 msgid "Page description"
 msgstr "شرح صفحه"
 
@@ -7497,7 +7752,7 @@ msgstr "تنظیمات صفحه"
 msgid "Page template"
 msgstr "قالب صفحه"
 
-#: oc-includes/osclass/classes/admin/form/MainSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/MainSettingsScreen.php
 msgid "Page title"
 msgstr "عنوان صفحه"
 
@@ -7531,7 +7786,7 @@ msgstr "پرداخت‌شده"
 msgid "Paid by"
 msgstr ""
 
-#: oc-includes/osclass/classes/admin/form/MainSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/MainSettingsScreen.php
 msgid "Parent categories"
 msgstr "دسته های والدین"
 
@@ -7545,7 +7800,7 @@ msgstr "نقاط پارکینگ"
 
 #: oc-admin/gui/login.php
 #: oc-admin/themes/modern/users/frm.php
-#: oc-includes/osclass/classes/admin/form/MailServerSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/MailServerSettingsScreen.php
 #: oc-includes/osclass/installer/gui/install-database.php
 #: oc-includes/osclass/installer/gui/install-finish.php
 #: oc-includes/osclass/installer/gui/install-target.php
@@ -7554,6 +7809,10 @@ msgstr "رمز عبور"
 
 #: oc-admin/themes/modern/tools/system-info/security.php
 msgid "Password check before a restore"
+msgstr ""
+
+#: oc-includes/osclass/classes/admin/form/ApiSettingsScreen.php
+msgid "Password sign-in"
 msgstr ""
 
 #: oc-includes/osclass/classes/form/AdminForm.php
@@ -7574,7 +7833,7 @@ msgstr "رمزعبورها مطابقت ندارند"
 msgid "Paste a comma-separated keyword list — useful for migrating an existing list from a theme or plugin. Wrap a keyword in asterisks (e.g. *viagra*) to import it as a substring match. Keywords already on file are skipped."
 msgstr "فهرستی از کلمات کلیدی که با کاما از هم جدا شده‌اند را جای‌گذاری کنید؛ این کار برای انتقال یک فهرست موجود از یک پوسته یا افزونه مفید است. برای وارد کردن یک کلمه کلیدی به‌صورت تطبیق زیررشته، آن را داخل علامت ستاره قرار دهید (مثلاً: *viagra*). کلمات کلیدی که از پیش ثبت شده‌اند نادیده گرفته می‌شوند."
 
-#: oc-includes/osclass/classes/admin/form/StorageSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/StorageSettingsScreen.php
 msgid "Path-style URLs"
 msgstr "آدرس‌های URL به سبک مسیر"
 
@@ -7590,7 +7849,15 @@ msgstr "الگوی"
 msgid "Pattern (regex)"
 msgstr "الگو (regex)"
 
-#: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
+#: oc-admin/themes/modern/settings/api.php
+msgid "Paused"
+msgstr ""
+
+#: oc-admin/themes/modern/settings/api.php
+msgid "Paused: %s. Switch it on again once the receiver works."
+msgstr ""
+
+#: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
 msgid "Payment instructions"
 msgstr "دستورالعمل‌های پرداخت"
 
@@ -7624,15 +7891,31 @@ msgstr "در انتظار"
 msgid "Pending jobs: %d &middot; Failed jobs: %d"
 msgstr "کارهای در انتظار: %d &middot; کارهای ناموفق: %d"
 
-#: oc-includes/osclass/classes/admin/form/SpamSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/ApiSettingsScreen.php
+msgid "Per address, without a key"
+msgstr ""
+
+#: oc-includes/osclass/classes/admin/form/ApiSettingsScreen.php
+msgid "Per key or signed-in user"
+msgstr ""
+
+#: oc-includes/osclass/classes/admin/form/SpamSettingsScreen.php
+msgid "Per signed-in user, or per address for guests, per hour. 0 means no limit."
+msgstr ""
+
+#: oc-includes/osclass/classes/admin/form/SpamSettingsScreen.php
 msgid "Per visitor address, per hour. 0 means no limit."
 msgstr ""
 
 #: oc-admin/themes/modern/settings/permalinks.php
 #: oc-includes/osclass/classes/AdminMenu.php
-#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsScreen.php
 msgid "Permalinks"
 msgstr "پیوندهای یکتا"
+
+#: oc-includes/osclass/classes/admin/form/ApiSettingsScreen.php
+msgid "Personal keys"
+msgstr ""
 
 #: oc-includes/osclass/installer/basic_data.php
 msgid "Personals"
@@ -7643,27 +7926,31 @@ msgstr "شخصی"
 msgid "Phone"
 msgstr "تلفن"
 
+#: oc-includes/osclass/classes/admin/form/ApiSettingsScreen.php
+msgid "Phone numbers"
+msgstr ""
+
 #: oc-includes/osclass/classes/storage/StorageJobs.php
 msgid "Photo #%1$d of listing #%2$d"
 msgstr ""
 
-#: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
 msgid "Photo cap"
 msgstr "سقف تعداد عکس"
 
-#: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
 msgid "Photo count, the posting wait, and listing runtime are global limits by "
 msgstr "تعداد عکس‌ها، زمان انتظار برای ارسال آگهی، و مدت زمان اجرای آگهی، همگی محدودیت‌های سراسری هستند بر اساس "
 
-#: oc-includes/osclass/classes/admin/form/MediaSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/MediaSettingsScreen.php
 msgid "Photo format"
 msgstr ""
 
-#: oc-includes/osclass/classes/admin/form/MediaSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/MediaSettingsScreen.php
 msgid "Photo quality"
 msgstr ""
 
-#: oc-includes/osclass/classes/admin/form/MediaSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/MediaSettingsScreen.php
 msgid "Photo shape"
 msgstr ""
 
@@ -7671,7 +7958,7 @@ msgstr ""
 msgid "Photo storage"
 msgstr ""
 
-#: oc-includes/osclass/classes/admin/form/SpamSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/SpamSettingsScreen.php
 msgid "Photo uploads from guests"
 msgstr ""
 
@@ -7680,15 +7967,19 @@ msgstr ""
 msgid "Photos"
 msgstr "عکس"
 
-#: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
 msgid "Photos allowed per listing while the entitlement is held."
 msgstr "تعداد عکس‌های مجاز برای هر آگهی، تا زمانی که این امتیاز فعال است."
 
-#: oc-includes/osclass/classes/admin/form/MediaSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/MediaSettingsScreen.php
 msgid "Photos are only made smaller, never filled out to the sizes above. Your theme decides how to frame them. When off, the empty space is filled with white in JPEG and left see-through in PNG and WebP."
 msgstr ""
 
-#: oc-includes/osclass/classes/admin/form/MediaSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/ApiSettingsScreen.php
+msgid "Photos by address"
+msgstr ""
+
+#: oc-includes/osclass/classes/admin/form/MediaSettingsScreen.php
 msgid "Photos larger than the normal size are shrunk to it first, so large phone photos "
 msgstr ""
 
@@ -7778,7 +8069,7 @@ msgid "Point %1$s at an installed driver (for example %2$s or %3$s) so category 
 msgstr "مقدار %1$s را به یک درایور نصب‌شده (مثلاً %2$s یا %3$s) اشاره دهید تا محاسبات مربوط به درخت‌های دسته‌بندی، داده‌های کاربر و جستجو دیگر در هر درخواست انجام نشوند؛ %4$s تعیین می‌کند یک مقدار چند ثانیه نگه داشته شود."
 
 #: oc-admin/themes/modern/billing/package.php
-#: oc-includes/osclass/classes/admin/form/MediaSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/MediaSettingsScreen.php
 msgid "Position"
 msgstr "موقعیت"
 
@@ -7786,7 +8077,7 @@ msgstr "موقعیت"
 msgid "Preferences"
 msgstr "ترجیحات"
 
-#: oc-includes/osclass/classes/admin/form/StorageSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/StorageSettingsScreen.php
 msgid "Prefills the connection fields below with a starting point for the selected provider. "
 msgstr "فیلدهای اتصال زیر را با یک نقطه شروع برای ارائه‌دهنده انتخاب‌شده، از پیش پر می‌کند. "
 
@@ -7807,11 +8098,11 @@ msgstr ""
 msgid "Preview"
 msgstr "پیشنمایش"
 
-#: oc-includes/osclass/classes/admin/form/MediaSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/MediaSettingsScreen.php
 msgid "Preview Watermark"
 msgstr "پیش نمایش واترمارک"
 
-#: oc-includes/osclass/classes/admin/form/MediaSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/MediaSettingsScreen.php
 msgid "Preview size"
 msgstr "اندازه پیش نمایش"
 
@@ -7839,7 +8130,7 @@ msgstr "اسکرین‌شات قبلی"
 msgid "Price"
 msgstr "قيمت"
 
-#: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
 msgid "Price (credits)"
 msgstr "قیمت (اعتبارات)"
 
@@ -7847,7 +8138,7 @@ msgstr "قیمت (اعتبارات)"
 msgid "Price: no more than 50 characters"
 msgstr "قیمت: بیشتر از ۵۰ کاراکتر نباشد"
 
-#: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
 msgid "Pricing"
 msgstr "قیمت‌گذاری"
 
@@ -7857,6 +8148,10 @@ msgstr "اولیه"
 
 #: oc-includes/osclass/gui/billing/receipt.php
 msgid "Print / Save as PDF"
+msgstr ""
+
+#: oc-includes/osclass/classes/admin/form/ApiSettingsScreen.php
+msgid "Private addresses"
 msgstr ""
 
 #: oc-admin/themes/modern/plugins/index.php
@@ -7877,17 +8172,29 @@ msgid "Protect your site from automated abuse with Google reCAPTCHA or Cloudflar
 msgstr "با استفاده از Google reCAPTCHA یا Cloudflare Turnstile، سایت خود را در برابر سوءاستفاده‌های خودکار محافظت کنید. "
 
 #: oc-admin/themes/modern/billing/order.php
-#: oc-includes/osclass/classes/admin/form/StorageSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/StorageSettingsScreen.php
 msgid "Provider"
 msgstr "ارائه‌دهنده"
+
+#: oc-admin/themes/modern/settings/api.php
+msgid "Public"
+msgstr ""
 
 #: oc-includes/osclass/helpers/hUtils.php
 msgid "Public Profile"
 msgstr "مشخصات عمومی"
 
-#: oc-includes/osclass/classes/admin/form/StorageSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/StorageSettingsScreen.php
 msgid "Public URL"
 msgstr "آدرس URL عمومی"
+
+#: oc-includes/osclass/classes/admin/form/ApiSettingsScreen.php
+msgid "Public cache time"
+msgstr ""
+
+#: oc-admin/themes/modern/settings/api.php
+msgid "Public key: reads public data only"
+msgstr ""
 
 #: oc-includes/osclass/classes/datatables/UsersDataTable.php
 #: oc-includes/osclass/functions.php
@@ -7957,7 +8264,7 @@ msgstr ""
 msgid "Quickly find out how many new listings have been published on your site and how many visits each of the listings gets."
 msgstr "سریعا پیدا کن چه تعداد از آگهی های جدید روی سایت منتشر شده اند و هر آگهی چقدر بازدید داشته است."
 
-#: oc-includes/osclass/classes/admin/form/MainSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/MainSettingsScreen.php
 msgid "RSS shows"
 msgstr "RSS نشان می دهد"
 
@@ -7976,6 +8283,10 @@ msgstr "مقدار %s را حداقل به اندازه تعداد عکس‌ها
 #: oc-admin/themes/modern/tools/system-info/server.php
 msgid "Raise memory without touching php.ini"
 msgstr "افزایش حجم حافظه بدون تغییر در فایل `php.ini`"
+
+#: oc-includes/osclass/classes/admin/form/ApiSettingsScreen.php
+msgid "Rate limits"
+msgstr ""
 
 #: oc-includes/osclass/classes/datatables/UsersDataTable.php
 msgid "Re-send activation email"
@@ -8033,7 +8344,7 @@ msgstr ""
 msgid "Receipt #%d"
 msgstr ""
 
-#: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
 msgid "Receipt e-mail"
 msgstr ""
 
@@ -8042,7 +8353,7 @@ msgstr ""
 msgid "Receipt number"
 msgstr ""
 
-#: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
 msgid "Receipts"
 msgstr ""
 
@@ -8179,12 +8490,12 @@ msgstr "بازسازی تصاویر"
 #: oc-admin/themes/modern/stats/users.php
 #: oc-admin/themes/modern/users/frm.php
 #: oc-admin/themes/modern/users/index.php
-#: oc-includes/osclass/classes/admin/form/StorageSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/StorageSettingsScreen.php
 #: oc-includes/osclass/classes/admin/ui/Picker.php
 msgid "Region"
 msgstr "منطقه"
 
-#: oc-includes/osclass/classes/admin/form/AdvancedSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/AdvancedSettingsScreen.php
 msgid "Region based"
 msgstr "منطقه مستقر"
 
@@ -8212,7 +8523,11 @@ msgstr "کاربر ثبت نام شده"
 msgid "Registered users will appear here once they sign up or you add them."
 msgstr "کاربران ثبت‌نام‌شده پس از ثبت‌نام یا با افزودن آن‌ها توسط شما، در اینجا نمایش داده خواهند شد."
 
-#: oc-includes/osclass/classes/admin/form/KeywordBlockSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/ApiSettingsScreen.php
+msgid "Registration"
+msgstr ""
+
+#: oc-includes/osclass/classes/admin/form/KeywordBlockSettingsScreen.php
 msgid "Reject the listing outright instead of quarantining it for review"
 msgstr "آگهی را به‌طور کامل رد کنید، نه اینکه آن را برای بررسی در قرنطینه قرار دهید"
 
@@ -8228,7 +8543,7 @@ msgstr "منو يادت باشه"
 msgid "Remember that for any doubts you might have you can consult our <a href=\"%1$s\">documentation</a>"
 msgstr "به یاد داشته باشید که برای هر گونه شک و تردید شما ممکن است شما می توانید اسناد <a href=\"%1$s\">ما مشورت</a>"
 
-#: oc-includes/osclass/classes/admin/form/AdvancedSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/AdvancedSettingsScreen.php
 msgid "Remember to enable cookies for the subdomains too."
 msgstr "به یاد داشته باشید برای فعال کردن کوکی ها برای زیر دستان بیش از حد."
 
@@ -8321,7 +8636,7 @@ msgstr ""
 msgid "Repeat new password"
 msgstr "تکرار رمز عبور جدید"
 
-#: oc-includes/osclass/classes/admin/form/KeywordBlockSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/KeywordBlockSettingsScreen.php
 msgid "Report CAPTCHA"
 msgstr "کد CAPTCHA گزارش‌دهی"
 
@@ -8333,7 +8648,7 @@ msgstr "شماره گزارش"
 msgid "Report Statistics"
 msgstr "آمار گزارش"
 
-#: oc-includes/osclass/classes/admin/form/KeywordBlockSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/KeywordBlockSettingsScreen.php
 msgid "Report auto-block"
 msgstr "مسدودسازی خودکار بر اساس گزارش"
 
@@ -8341,11 +8656,11 @@ msgstr "مسدودسازی خودکار بر اساس گزارش"
 msgid "Report counts are always recorded — moderation depends on them."
 msgstr "آمار گزارش‌ها همیشه ثبت می‌شود؛ زیرا فرایند نظارت به آن وابسته است."
 
-#: oc-includes/osclass/classes/admin/form/SpamSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/SpamSettingsScreen.php
 msgid "Report link"
 msgstr ""
 
-#: oc-includes/osclass/classes/admin/form/KeywordBlockSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/KeywordBlockSettingsScreen.php
 msgid "Report threshold"
 msgstr "حداقل میزان گزارش‌دهی"
 
@@ -8368,19 +8683,19 @@ msgstr "گزارشات"
 msgid "Repository"
 msgstr "مخزن"
 
-#: oc-includes/osclass/classes/admin/form/CommentSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/CommentSettingsScreen.php
 msgid "Require a CAPTCHA to post a comment"
 msgstr "برای ارسال دیدگاه، نیاز به کد CAPTCHA وجود دارد"
 
-#: oc-includes/osclass/classes/admin/form/KeywordBlockSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/KeywordBlockSettingsScreen.php
 msgid "Require a CAPTCHA to report a listing"
 msgstr "برای گزارش دادن یک آگهی، نیاز به استفاده از کد CAPTCHA وجود دارد"
 
-#: oc-includes/osclass/classes/admin/form/SpamSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/SpamSettingsScreen.php
 msgid "Require login for alerts"
 msgstr "برای دریافت هشدارها، لازم است وارد سیستم شوید"
 
-#: oc-includes/osclass/classes/admin/form/StorageSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/StorageSettingsScreen.php
 msgid "Required by MinIO and most self-hosted setups; leave off for AWS."
 msgstr "این گزینه برای MinIO و بیشتر پیکربندی‌های خودمیزبان لازم است؛ برای AWS آن را خاموش بگذارید."
 
@@ -8423,6 +8738,10 @@ msgstr "بازنشانی"
 #: oc-admin/themes/modern/users/index.php
 msgid "Reset filters"
 msgstr "تنظیم مجدد فیلترها"
+
+#: oc-includes/osclass/classes/admin/form/ApiSettingsScreen.php
+msgid "Responses"
+msgstr ""
 
 #: oc-includes/osclass/installer/gui/install.php
 msgid "Restart the installer"
@@ -8480,15 +8799,15 @@ msgstr ""
 msgid "Restoring replaces what is on the site now. It cannot be undone. A safety copy of today's database is saved first."
 msgstr ""
 
-#: oc-includes/osclass/classes/backup/BackupManager.php
+#: oc-includes/osclass/classes/backup/BackupService.php
 msgid "Restoring the backup from %s."
 msgstr ""
 
-#: oc-includes/osclass/classes/backup/BackupManager.php
+#: oc-includes/osclass/classes/backup/BackupService.php
 msgid "Restoring the backup."
 msgstr ""
 
-#: oc-includes/osclass/classes/admin/form/MediaSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/MediaSettingsScreen.php
 msgid "Restrictions"
 msgstr "محدودیت ها"
 
@@ -8499,6 +8818,18 @@ msgstr ""
 #: oc-includes/osclass/installer/basic_data.php
 msgid "Retail"
 msgstr "خرده فروشی"
+
+#: oc-admin/themes/modern/settings/api.php
+msgid "Revoke"
+msgstr ""
+
+#: oc-admin/themes/modern/settings/api.php
+msgid "Revoke this key?"
+msgstr ""
+
+#: oc-admin/themes/modern/settings/api.php
+msgid "Revoked"
+msgstr ""
 
 #: oc-admin/themes/modern/items/settings.php
 msgid "Rich Edit"
@@ -8519,6 +8850,14 @@ msgstr "پوشه Root قابل نوشتن است"
 #: oc-includes/osclass/install-functions.php
 msgid "Root folder has to be writable, i.e.: <code>chmod 0755 %s</code>"
 msgstr "پوشه ریشه باید قابل نوشتن باشد، به عنوان <code>chmod 0755 %s</code>"
+
+#: oc-admin/themes/modern/settings/api.php
+msgid "Rotate"
+msgstr ""
+
+#: oc-admin/themes/modern/settings/api.php
+msgid "Rotate secret"
+msgstr ""
 
 #: oc-admin/themes/modern/fields/iframe.php
 msgid "Rows"
@@ -8579,11 +8918,11 @@ msgstr ""
 msgid "S3 bucket \"%s\" (local copies kept)"
 msgstr ""
 
-#: oc-includes/osclass/classes/admin/form/MailServerSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/MailServerSettingsScreen.php
 msgid "SMTP"
 msgstr "SMTP"
 
-#: oc-includes/osclass/classes/admin/form/MailServerSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/MailServerSettingsScreen.php
 msgid "SMTP authentication enabled"
 msgstr "احراز هویت SMTP فعال شد"
 
@@ -8599,7 +8938,7 @@ msgstr "فروش"
 msgid "Sat"
 msgstr "شنبه"
 
-#: oc-includes/osclass/classes/admin/form/MainSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/MainSettingsScreen.php
 #: oc-includes/osclass/helpers/hUtils.php
 msgid "Saturday"
 msgstr "شنبه"
@@ -8616,15 +8955,15 @@ msgstr ""
 msgid "Save a copy of your site. Do it before an update, and now and then anyway."
 msgstr ""
 
-#: oc-includes/osclass/classes/admin/form/MediaSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/MediaSettingsScreen.php
 msgid "Save as JPEG"
 msgstr ""
 
-#: oc-includes/osclass/classes/admin/form/MediaSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/MediaSettingsScreen.php
 msgid "Save as WebP"
 msgstr ""
 
-#: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
 msgid "Save bank transfer settings"
 msgstr "ذخیره تنظیمات انتقال بانکی"
 
@@ -8639,13 +8978,17 @@ msgstr "ذخیره تنظیمات انتقال بانکی"
 #: oc-admin/themes/modern/settings/locations/form.php
 #: oc-admin/themes/modern/settings/mailserver.php
 #: oc-admin/themes/modern/users/settings.php
-#: oc-includes/osclass/classes/admin/form/SitemapSettingsForm.php
-#: oc-includes/osclass/classes/admin/form/SpamSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/SitemapSettingsScreen.php
+#: oc-includes/osclass/classes/admin/form/SpamSettingsScreen.php
 #: oc-includes/osclass/helpers/hAdminUi.php
 msgid "Save changes"
 msgstr "ذخیره تغییرات"
 
-#: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
+#: oc-admin/themes/modern/settings/api.php
+msgid "Save endpoint"
+msgstr ""
+
+#: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
 msgid "Save limits"
 msgstr "ذخیره محدودیت‌ها"
 
@@ -8657,25 +9000,25 @@ msgstr ""
 msgid "Save package"
 msgstr "بسته را ذخیره کنید"
 
-#: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
 msgid "Save pricing"
 msgstr "ذخیره قیمت‌ها"
 
-#: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
 msgid "Save receipt settings"
 msgstr ""
 
-#: oc-includes/osclass/classes/admin/form/SitemapSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/SitemapSettingsScreen.php
 msgid "Save robots.txt"
 msgstr "ذخیره robots.txt"
 
 #: oc-admin/themes/modern/tools/cleanup.php
 #: oc-admin/themes/modern/tools/maintenance.php
-#: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
 msgid "Save settings"
 msgstr "ذخیره تنظیمات"
 
-#: oc-includes/osclass/classes/admin/form/LatestSearchSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/LatestSearchSettingsScreen.php
 msgid "Save the latest user searches"
 msgstr "ذخیره آخرین جستجوهای کاربر"
 
@@ -8699,7 +9042,7 @@ msgstr "همین حالا این رمز عبور را ذخیره کنید؛ دی
 msgid "Save to your S3 bucket"
 msgstr ""
 
-#: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
 msgid "Save upgrade settings"
 msgstr "ذخیره تنظیمات ارتقاء"
 
@@ -8713,15 +9056,15 @@ msgstr "ذخیره شد"
 msgid "Saved backups"
 msgstr ""
 
-#: oc-includes/osclass/classes/backup/BackupManager.php
+#: oc-includes/osclass/classes/backup/BackupService.php
 msgid "Saving the database"
 msgstr ""
 
-#: oc-includes/osclass/classes/backup/BackupManager.php
+#: oc-includes/osclass/classes/backup/BackupService.php
 msgid "Saving the database (table %1$d of %2$d)"
 msgstr ""
 
-#: oc-includes/osclass/classes/backup/BackupManager.php
+#: oc-includes/osclass/classes/backup/BackupService.php
 msgid "Saving to a bucket needs S3 storage turned on in Settings > Storage."
 msgstr ""
 
@@ -8734,26 +9077,30 @@ msgstr ""
 msgid "Saving…"
 msgstr "در حال ذخیره‌سازی…"
 
+#: oc-admin/themes/modern/settings/api.php
+msgid "Scopes"
+msgstr ""
+
 #: oc-admin/themes/modern/parts/market.php
 msgid "Screenshots"
 msgstr "اسکرین‌شات‌ها"
 
 #: oc-admin/themes/modern/parts/market.php
 #: oc-admin/themes/modern/settings/locations/list.php
-#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsScreen.php
 msgid "Search"
 msgstr "جستجو"
 
-#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsScreen.php
 msgid "Search URL"
 msgstr ""
 
-#: oc-includes/osclass/classes/admin/form/SpamSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/SpamSettingsScreen.php
 msgid "Search alert sign-ups"
 msgstr ""
 
 #: oc-admin/themes/modern/settings/spamNbots.php
-#: oc-includes/osclass/classes/admin/form/SpamSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/SpamSettingsScreen.php
 msgid "Search alerts"
 msgstr "هشدارهای جستجو"
 
@@ -8793,7 +9140,7 @@ msgstr ""
 msgid "Search countries"
 msgstr ""
 
-#: oc-includes/osclass/classes/admin/form/MainSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/MainSettingsScreen.php
 msgid "Search engines show it under your home page. Left empty, the home page has no description."
 msgstr ""
 
@@ -8805,35 +9152,35 @@ msgstr ""
 msgid "Search in"
 msgstr ""
 
-#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsScreen.php
 msgid "Search keyword category"
 msgstr "جستجوی دسته کلید واژه"
 
-#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsScreen.php
 msgid "Search keyword city"
 msgstr "شهر کلمه کلیدی جستجو"
 
-#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsScreen.php
 msgid "Search keyword city area"
 msgstr "جستجو کلمه کلیدی منطقه شهرستان"
 
-#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsScreen.php
 msgid "Search keyword country"
 msgstr "جستجو کلمه کلیدی کشور"
 
-#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsScreen.php
 msgid "Search keyword pattern"
 msgstr "الگوی کلمه کلیدی جستجو"
 
-#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsScreen.php
 msgid "Search keyword region"
 msgstr "منطقه کلمه کلیدی جستجو"
 
-#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsScreen.php
 msgid "Search keyword user"
 msgstr "جستجوی کاربر کلمه کلیدی"
 
-#: oc-includes/osclass/classes/admin/form/MainSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/MainSettingsScreen.php
 msgid "Search page shows"
 msgstr "صفحه جستجو نشان می دهد"
 
@@ -8841,7 +9188,7 @@ msgstr "صفحه جستجو نشان می دهد"
 msgid "Search plugins…"
 msgstr "جستجوی افزونه‌ها…"
 
-#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsScreen.php
 msgid "Search prefix URL"
 msgstr ""
 
@@ -8870,7 +9217,7 @@ msgstr "رمز عبور دوم: حداقل 5 کاراکتر را وارد کنی
 msgid "Second password: this field is required"
 msgstr "رمز دوم: این فیلد مورد نیاز است"
 
-#: oc-includes/osclass/classes/admin/form/StorageSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/StorageSettingsScreen.php
 msgid "Secret key"
 msgstr "کلید مخفی"
 
@@ -8886,7 +9233,7 @@ msgstr "بخش‌ها"
 msgid "Security"
 msgstr ""
 
-#: oc-includes/osclass/classes/admin/form/MainSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/MainSettingsScreen.php
 msgid "Security updates"
 msgstr ""
 
@@ -9007,35 +9354,35 @@ msgstr "دسته‌بندی‌هایی را انتخاب کنید که می‌خ
 msgid "Selected: %s"
 msgstr ""
 
-#: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
 msgid "Sell a raised photo cap"
 msgstr "فروش افزایش سقف تعداد عکس"
 
-#: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
 msgid "Sell bump to top"
 msgstr "فروش انتقال آگهی به بالای فهرست"
 
-#: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
 msgid "Sell extra listing slots"
 msgstr "فضاهای اضافی برای انتشار آگهی‌ها را بفروشید"
 
-#: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
 msgid "Sell extra runtime beyond the category limit"
 msgstr "فروش زمان اضافه اجرا فراتر از محدودیت دسته"
 
-#: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
 msgid "Sell featured listings"
 msgstr "فروش آگهی‌های ویژه"
 
-#: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
 msgid "Sell highlighting"
 msgstr "فروش برجسته‌سازی آگهی"
 
-#: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
 msgid "Sell marking a listing urgent"
 msgstr "فروش امکان علامت‌گذاری آگهی به‌صورت فوری"
 
-#: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
 msgid "Sell waiving the flood wait"
 msgstr "فروش صرف‌نظر از دوره انتظار بین ارسال آگهی‌ها"
 
@@ -9047,7 +9394,7 @@ msgstr ""
 msgid "Seller email"
 msgstr "ایمیل فروشنده"
 
-#: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
 msgid "Seller limits"
 msgstr "محدودیت‌های فروشنده"
 
@@ -9055,7 +9402,7 @@ msgstr "محدودیت‌های فروشنده"
 msgid "Seller name"
 msgstr "نام فروشنده"
 
-#: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
 msgid "Selling on this site"
 msgstr "فروش در این وب‌سایت"
 
@@ -9071,6 +9418,10 @@ msgstr ""
 msgid "Send a test email"
 msgstr ""
 
+#: oc-includes/osclass/classes/webhook/Delivery.php
+msgid "Send a webhook"
+msgstr ""
+
 #: oc-admin/themes/modern/items/settings.php
 msgid "Send admin a copy of the \"contact publisher\" email"
 msgstr "ارسال مدیر یک کپی از \"ناشر تماس\" ایمیل"
@@ -9078,6 +9429,14 @@ msgstr "ارسال مدیر یک کپی از \"ناشر تماس\" ایمیل"
 #: oc-admin/themes/modern/items/settings.php
 msgid "Send admin a copy to \"share listing\" email"
 msgstr "ارسال مدیر یک کپی به \"لیست به اشتراک گذاری\" ایمیل"
+
+#: oc-admin/themes/modern/settings/api.php
+msgid "Send events to it from now on"
+msgstr ""
+
+#: oc-admin/themes/modern/settings/api.php
+msgid "Send test"
+msgstr ""
 
 #: oc-admin/themes/modern/emails/frm.php
 msgid "Send test email"
@@ -9088,10 +9447,14 @@ msgid "Send to"
 msgstr ""
 
 #: oc-includes/osclass/classes/Breadcrumb.php
-#: oc-includes/osclass/classes/admin/form/SpamSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/SpamSettingsScreen.php
 #: oc-includes/osclass/functions.php
 msgid "Send to a friend"
 msgstr "ارسال به دوست"
+
+#: oc-admin/themes/modern/settings/api.php
+msgid "Sending"
+msgstr ""
 
 #: oc-admin/themes/modern/emails/frm.php
 msgid "Sending…"
@@ -9113,7 +9476,7 @@ msgstr "گزینه های جداگانه با کاما"
 msgid "September"
 msgstr "سپتامبر"
 
-#: oc-includes/osclass/classes/admin/form/StorageSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/StorageSettingsScreen.php
 msgid "Serve files through time-limited signed URLs."
 msgstr "فایل‌ها را از طریق آدرس‌های URL امضا شده و با محدودیت زمانی ارائه دهید."
 
@@ -9138,19 +9501,19 @@ msgstr "خطا در سرور: دایرکتوری برای آپلود داده‌
 msgid "Server mode"
 msgstr ""
 
-#: oc-includes/osclass/classes/admin/form/MailServerSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/MailServerSettingsScreen.php
 msgid "Server port"
 msgstr "پورت سرور"
 
-#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsScreen.php
 msgid "Server rules (.htaccess)"
 msgstr "قوانین سرور (.htaccess)"
 
-#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsScreen.php
 msgid "Server rules (nginx)"
 msgstr "قوانین سرور (Nginx)"
 
-#: oc-includes/osclass/classes/admin/form/MailServerSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/MailServerSettingsScreen.php
 msgid "Server type"
 msgstr "نوع سرور"
 
@@ -9211,6 +9574,7 @@ msgstr "در حال راه‌اندازی وب‌سایت شما… این کا�
 #: oc-admin/themes/modern/parts/header.php
 #: oc-admin/themes/modern/plugins/index.php
 #: oc-admin/themes/modern/settings/advanced.php
+#: oc-admin/themes/modern/settings/api.php
 #: oc-admin/themes/modern/settings/billing.php
 #: oc-admin/themes/modern/settings/comments.php
 #: oc-admin/themes/modern/settings/currency_form.php
@@ -9289,7 +9653,7 @@ msgstr ""
 msgid "Shopclass checks once a day. Check now if you are expecting something."
 msgstr ""
 
-#: oc-includes/osclass/classes/admin/form/MediaSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/MediaSettingsScreen.php
 msgid "Shopclass doesn't check the watermark image size"
 msgstr "Shopclass اندازه تصویر حاوی نشانه آب را بررسی نمی‌کند"
 
@@ -9450,7 +9814,7 @@ msgstr "نمایش %s تا %s از %s نتیجه (فیلتر شده از %s نت
 msgid "Shown on the banner, and on the 503 page. Plain text only. Leave blank for the default message."
 msgstr ""
 
-#: oc-includes/osclass/classes/admin/form/MediaSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/MediaSettingsScreen.php
 msgid "Shrink photos in the browser before upload."
 msgstr ""
 
@@ -9462,17 +9826,26 @@ msgstr ""
 msgid "Sign out"
 msgstr "ثبت نام کنید"
 
+#: oc-admin/themes/modern/admins/sign_out_all.php
+msgid "Sign out everywhere"
+msgstr ""
+
+#: oc-admin/themes/modern/admins/sign_out_all.php
+#: oc-includes/osclass/classes/datatables/UsersDataTable.php
+msgid "Sign out of all devices"
+msgstr ""
+
 #: oc-includes/osclass/functions.php
 msgid "Sign-in details"
 msgstr ""
 
-#: oc-includes/osclass/classes/admin/form/SpamSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/SpamSettingsScreen.php
 msgid "Sign-in limits"
 msgstr ""
 
 #: oc-admin/themes/modern/settings/spamNbots.php
 #: oc-includes/osclass/classes/admin/SystemChecks.php
-#: oc-includes/osclass/classes/admin/form/SpamSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/SpamSettingsScreen.php
 msgid "Sign-in protection"
 msgstr "محافظت از ورود"
 
@@ -9480,11 +9853,11 @@ msgstr "محافظت از ورود"
 msgid "Sign-in protection is off, so nothing slows down password guessing."
 msgstr ""
 
-#: oc-includes/osclass/classes/admin/form/StorageSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/StorageSettingsScreen.php
 msgid "Signed URL TTL"
 msgstr "مدت اعتبار URL امضا شده"
 
-#: oc-includes/osclass/classes/admin/form/StorageSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/StorageSettingsScreen.php
 msgid "Signed URLs"
 msgstr "آدرس‌های URL امضا شده"
 
@@ -9511,7 +9884,7 @@ msgid "Sitemap"
 msgstr "نقشه سایت"
 
 #: oc-admin/themes/modern/settings/sitemap.php
-#: oc-includes/osclass/classes/admin/form/SitemapSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/SitemapSettingsScreen.php
 msgid "Sitemap settings"
 msgstr "تنظیمات نقشه سایت"
 
@@ -9526,15 +9899,15 @@ msgstr "اندازه"
 msgid "Skip for now"
 msgstr "فعلاً رد کنید"
 
-#: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
 msgid "Skip the posting wait"
 msgstr "رد کردن دوره انتظار ارسال آگهی"
 
-#: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
 msgid "Slot price in credits"
 msgstr "قیمت هر جایگاه بر حسب اعتبار"
 
-#: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
 msgid "Slots per purchase"
 msgstr "تعداد جایگاه‌های آگهی در هر خرید"
 
@@ -9548,7 +9921,7 @@ msgstr ""
 msgid "Slug"
 msgstr "لیسه"
 
-#: oc-includes/osclass/classes/admin/form/MainSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/MainSettingsScreen.php
 msgid "Software updates"
 msgstr "به روز رسانی نرم افزار"
 
@@ -9626,19 +9999,19 @@ msgstr "خرج‌شده"
 msgid "Sporting Goods - Bicycles"
 msgstr "وسایل ورزشی - دوچرخه ‌ها"
 
-#: oc-includes/osclass/classes/admin/form/MainSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/MainSettingsScreen.php
 msgid "Stable and release candidates"
 msgstr ""
 
-#: oc-includes/osclass/classes/admin/form/MainSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/MainSettingsScreen.php
 msgid "Stable releases only"
 msgstr ""
 
-#: oc-includes/osclass/classes/admin/form/MainSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/MainSettingsScreen.php
 msgid "Stable, release candidates and betas"
 msgstr ""
 
-#: oc-includes/osclass/classes/backup/BackupManager.php
+#: oc-includes/osclass/classes/backup/BackupService.php
 msgid "Starting"
 msgstr ""
 
@@ -9665,6 +10038,7 @@ msgstr "آمار"
 #: oc-admin/themes/modern/billing/packages.php
 #: oc-admin/themes/modern/comments/frm.php
 #: oc-admin/themes/modern/fields/submissions.php
+#: oc-admin/themes/modern/settings/api.php
 #: oc-admin/themes/modern/settings/billing.php
 #: oc-admin/themes/modern/settings/locations/data.php
 #: oc-admin/themes/modern/settings/locations/form.php
@@ -9681,7 +10055,7 @@ msgstr "وضعیت"
 msgid "Stay up-to-date on the number of users registered on your site. You can also see a breakdown of the "
 msgstr "همیشه از تعداد کاربران ثبت‌نام‌شده در وب‌سایت خود آگاه باشید. همچنین می‌توانید تفکیک "
 
-#: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
 msgid "Stays hidden at checkout until instructions are written below — "
 msgstr "در هنگام تسویه‌حساب پنهان می‌ماند تا زمانی که دستورالعمل‌ها در پایین نوشته شوند — "
 
@@ -9689,19 +10063,19 @@ msgstr "در هنگام تسویه‌حساب پنهان می‌ماند تا ز
 msgid "Step"
 msgstr "مرحله"
 
-#: oc-includes/osclass/classes/backup/BackupManager.php
+#: oc-includes/osclass/classes/backup/BackupService.php
 msgid "Step 1 of 4: Saving a safety copy"
 msgstr ""
 
-#: oc-includes/osclass/classes/backup/BackupManager.php
+#: oc-includes/osclass/classes/backup/BackupService.php
 msgid "Step 2 of 4: Loading the database (%s statements)"
 msgstr ""
 
-#: oc-includes/osclass/classes/backup/BackupManager.php
+#: oc-includes/osclass/classes/backup/BackupService.php
 msgid "Step 3 of 4: Putting back files (%1$s of %2$s)"
 msgstr ""
 
-#: oc-includes/osclass/classes/backup/BackupManager.php
+#: oc-includes/osclass/classes/backup/BackupService.php
 msgid "Step 4 of 4: Updates and cache"
 msgstr ""
 
@@ -9718,7 +10092,7 @@ msgid "Storage"
 msgstr "ذخیره‌سازی"
 
 #: oc-admin/themes/modern/settings/storage.php
-#: oc-includes/osclass/classes/admin/form/StorageSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/StorageSettingsScreen.php
 msgid "Storage Settings"
 msgstr "تنظیمات ذخیره‌سازی"
 
@@ -9726,15 +10100,15 @@ msgstr "تنظیمات ذخیره‌سازی"
 msgid "Storage queue"
 msgstr "صف ذخیره‌سازی"
 
-#: oc-includes/osclass/classes/admin/form/LatestSearchSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/LatestSearchSettingsScreen.php
 msgid "Store"
 msgstr ""
 
-#: oc-includes/osclass/classes/admin/form/LatestSearchSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/LatestSearchSettingsScreen.php
 msgid "Store 1000 queries"
 msgstr "فروشگاه 1000 نمایش داده شد"
 
-#: oc-includes/osclass/classes/admin/form/MediaSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/MediaSettingsScreen.php
 msgid "Stored alongside the resized copies, so uploads take more space. It is re-saved rather than kept byte for byte, which drops camera metadata."
 msgstr ""
 
@@ -9750,7 +10124,7 @@ msgstr ""
 msgid "Subcategories"
 msgstr "زیردسته‌بندی‌ها"
 
-#: oc-includes/osclass/classes/admin/form/AdvancedSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/AdvancedSettingsScreen.php
 msgid "Subdomain type"
 msgstr "نوع زیر دوم"
 
@@ -9788,7 +10162,7 @@ msgstr "زیررشته"
 msgid "Sun"
 msgstr "یکشنبه"
 
-#: oc-includes/osclass/classes/admin/form/MainSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/MainSettingsScreen.php
 #: oc-includes/osclass/helpers/hUtils.php
 msgid "Sunday"
 msgstr "یکشنبه"
@@ -9805,6 +10179,14 @@ msgstr ""
 msgid "Switch debugging on"
 msgstr "فعال کردن حالت اشکال‌زدایی"
 
+#: oc-admin/themes/modern/settings/api.php
+msgid "Switch off"
+msgstr ""
+
+#: oc-admin/themes/modern/settings/api.php
+msgid "Switch on"
+msgstr ""
+
 #: oc-admin/themes/modern/settings/billing.php
 msgid "Switch on the billing section, and see which payment plugins are installed. "
 msgstr "بخش صورتحساب را فعال کنید و ببینید کدام افزونه‌های پرداخت نصب شده‌اند. "
@@ -9817,7 +10199,7 @@ msgstr "به حالت تاریک تغییر دهید"
 msgid "Switch to light mode"
 msgstr "به حالت روشن تغییر دهید"
 
-#: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
 msgid "Switching this off later hides the Billing menu but keeps every order "
 msgstr "اگر بعداً این گزینه را غیرفعال کنید، منوی صورتحساب پنهان می‌شود، اما همه سفارش‌ها باقی می‌مانند "
 
@@ -9885,23 +10267,23 @@ msgid "Testing…"
 msgstr "در حال آزمایش…"
 
 #: oc-admin/themes/modern/fields/index.php
-#: oc-includes/osclass/classes/admin/form/MediaSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/MediaSettingsScreen.php
 msgid "Text"
 msgstr "پیامک"
 
-#: oc-includes/osclass/classes/admin/form/MediaSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/MediaSettingsScreen.php
 msgid "Text Color"
 msgstr "رنگ متن"
 
-#: oc-includes/osclass/classes/admin/form/MediaSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/MediaSettingsScreen.php
 msgid "Text angle"
 msgstr ""
 
-#: oc-includes/osclass/classes/admin/form/MediaSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/MediaSettingsScreen.php
 msgid "Text offset_x"
 msgstr "متن offset_x"
 
-#: oc-includes/osclass/classes/admin/form/MediaSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/MediaSettingsScreen.php
 msgid "Text offset_y"
 msgstr "متن offset_y"
 
@@ -9918,7 +10300,7 @@ msgid "Thank you for your payment. This is a receipt, not a tax invoice."
 msgstr ""
 
 #: oc-includes/osclass/classes/backup/BackupJobs.php
-#: oc-includes/osclass/classes/backup/BackupManager.php
+#: oc-includes/osclass/classes/backup/BackupService.php
 msgid "That backup is not in the list any more."
 msgstr ""
 
@@ -9970,6 +10352,10 @@ msgstr ""
 msgid "The %s payment plugin is not set up."
 msgstr ""
 
+#: oc-includes/osclass/classes/admin/SystemChecks.php
+msgid "The .htaccess file does not pass the Authorization header to PHP, so the API cannot see keys sent in it. Add this line after \"RewriteEngine On\": %s"
+msgstr ""
+
 #: oc-includes/osclass/install-functions.php
 msgid "The <a href=\"https://github.com/mindstellar/shopclass\">Shopclass</a> team"
 msgstr "تیم <a href=\"https://github.com/mindstellar/shopclass\">Shopclass</a>"
@@ -9978,8 +10364,16 @@ msgstr "تیم <a href=\"https://github.com/mindstellar/shopclass\">Shopclass</a
 msgid "The <strong>Better S3</strong> plugin is currently active. Disable it before turning on "
 msgstr "افزونه <strong>Better S3</strong> در حال حاضر فعال است. آن را پیش از فعال کردن "
 
-#: oc-includes/osclass/classes/admin/form/MailServerSettingsForm.php
+#: oc-admin/themes/modern/settings/api.php
+msgid "The API is served at %s."
+msgstr ""
+
+#: oc-includes/osclass/classes/admin/form/MailServerSettingsScreen.php
 msgid "The PHP <b>openssl</b> extension is not loaded, so SSL and TLS will not work."
+msgstr ""
+
+#: oc-admin/themes/modern/settings/api.php
+msgid "The REST API lets apps, scripts and other sites read and change your site's data. Keys say who is calling and what they may do."
 msgstr ""
 
 #: oc-admin/themes/modern/tools/upgrade.php
@@ -10002,31 +10396,31 @@ msgstr "نام کاربری مدیر تنها می‌تواند شامل حرو�
 msgid "The available version has changed since you loaded this page; refresh and try again."
 msgstr "نسخهٔ موجود از زمانی که این صفحه را بارگذاری کرده‌اید تغییر کرده است؛ صفحه را بازخوانی کرده و دوباره امتحان کنید."
 
-#: oc-includes/osclass/classes/backup/BackupManager.php
+#: oc-includes/osclass/classes/backup/BackupService.php
 msgid "The backup could not be started. Try again."
 msgstr ""
 
-#: oc-includes/osclass/classes/backup/BackupManager.php
+#: oc-includes/osclass/classes/backup/BackupService.php
 msgid "The backup failed while checking the space."
 msgstr ""
 
-#: oc-includes/osclass/classes/backup/BackupManager.php
+#: oc-includes/osclass/classes/backup/BackupService.php
 msgid "The backup failed while copying files."
 msgstr ""
 
-#: oc-includes/osclass/classes/backup/BackupManager.php
+#: oc-includes/osclass/classes/backup/BackupService.php
 msgid "The backup failed while finishing."
 msgstr ""
 
-#: oc-includes/osclass/classes/backup/BackupManager.php
+#: oc-includes/osclass/classes/backup/BackupService.php
 msgid "The backup failed while saving the database."
 msgstr ""
 
-#: oc-includes/osclass/classes/backup/BackupManager.php
+#: oc-includes/osclass/classes/backup/BackupService.php
 msgid "The backup failed while uploading to the bucket."
 msgstr ""
 
-#: oc-includes/osclass/classes/backup/BackupManager.php
+#: oc-includes/osclass/classes/backup/BackupService.php
 msgid "The backup failed."
 msgstr ""
 
@@ -10060,7 +10454,7 @@ msgid "The backup is restored."
 msgstr ""
 
 #: oc-includes/osclass/classes/backup/BackupJobs.php
-#: oc-includes/osclass/classes/backup/BackupManager.php
+#: oc-includes/osclass/classes/backup/BackupService.php
 msgid "The backup was kept on the server instead."
 msgstr ""
 
@@ -10109,7 +10503,7 @@ msgid "The category as well as its subcategories have been enabled"
 msgstr "دسته و همچنین زیر دسته های آن فعال شدند"
 
 #: oc-includes/osclass/classes/controller/admin/ajax/CAdminAjax.php
-msgid "The category is too large to delete at once. It has been hidden"
+msgid "The category is too large to delete at once. It has been hidden and is being emptied in the background."
 msgstr ""
 
 #: oc-admin/themes/modern/tools/system-info/server.php
@@ -10132,7 +10526,7 @@ msgstr "زمینه سفارشی حذف شده است"
 msgid "The daily task deletes entries older than this. Set to 0 to keep them forever."
 msgstr "این وظیفه روزانه، مواردی را که قدیمی‌تر از این مقدار هستند حذف می‌کند. برای نگهداری همیشگی آن‌ها، مقدار را روی ۰ تنظیم کنید."
 
-#: oc-includes/osclass/classes/admin/form/SpamSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/SpamSettingsScreen.php
 msgid "The daily task deletes older records. 0 keeps them forever."
 msgstr ""
 
@@ -10160,7 +10554,7 @@ msgstr "سرور پایگاه داده آن نام کاربری و رمز عبو
 msgid "The database update failed."
 msgstr ""
 
-#: oc-includes/osclass/classes/backup/BackupManager.php
+#: oc-includes/osclass/classes/backup/BackupService.php
 msgid "The database was restored. Visitors still see the maintenance page."
 msgstr ""
 
@@ -10208,7 +10602,7 @@ msgstr ""
 msgid "The installation directory is not writable."
 msgstr "دایرکتوری نصب قابل نوشتن نیست."
 
-#: oc-includes/osclass/classes/admin/form/SpamSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/SpamSettingsScreen.php
 msgid "The key you entered is invalid. Please double-check it"
 msgstr "کلیدی که شما وارد کرده‌اید نامعتبر است. لطفا آن را دوباره چک نمایید"
 
@@ -10224,7 +10618,7 @@ msgstr ""
 msgid "The listing is hidden from the site and from"
 msgstr ""
 
-#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsScreen.php
 msgid "The listing permalink structure must include {ITEM_ID}."
 msgstr ""
 
@@ -10242,6 +10636,10 @@ msgstr ""
 
 #: oc-includes/osclass/classes/upgrade/AutoSecurityUpdate.php
 msgid "The new files did not arrive."
+msgstr ""
+
+#: oc-admin/themes/modern/settings/api.php
+msgid "The new key gets the same type, scopes and expiry. The old key keeps working until you revoke it, so you can switch over first."
 msgstr ""
 
 #: oc-admin/themes/modern/settings/locations/data.php
@@ -10300,7 +10698,7 @@ msgstr "پوشه مربوط به افزونه‌ها در سرور شما قاب
 msgid "The refund could not be started. Try again."
 msgstr ""
 
-#: oc-includes/osclass/classes/backup/BackupManager.php
+#: oc-includes/osclass/classes/backup/BackupService.php
 msgid "The restore could not be started. Try again."
 msgstr ""
 
@@ -10308,31 +10706,31 @@ msgstr ""
 msgid "The restore could not carry on in the background."
 msgstr ""
 
-#: oc-includes/osclass/classes/backup/BackupManager.php
+#: oc-includes/osclass/classes/backup/BackupService.php
 msgid "The restore did not start."
 msgstr ""
 
-#: oc-includes/osclass/classes/backup/BackupManager.php
+#: oc-includes/osclass/classes/backup/BackupService.php
 msgid "The restore stopped while finishing."
 msgstr ""
 
-#: oc-includes/osclass/classes/backup/BackupManager.php
+#: oc-includes/osclass/classes/backup/BackupService.php
 msgid "The restore stopped while loading the database."
 msgstr ""
 
-#: oc-includes/osclass/classes/backup/BackupManager.php
+#: oc-includes/osclass/classes/backup/BackupService.php
 msgid "The restore stopped while putting back files."
 msgstr ""
 
-#: oc-includes/osclass/classes/backup/BackupManager.php
+#: oc-includes/osclass/classes/backup/BackupService.php
 msgid "The restore stopped while running the database updates."
 msgstr ""
 
-#: oc-includes/osclass/classes/backup/BackupManager.php
+#: oc-includes/osclass/classes/backup/BackupService.php
 msgid "The restore stopped."
 msgstr ""
 
-#: oc-includes/osclass/classes/backup/BackupManager.php
+#: oc-includes/osclass/classes/backup/BackupService.php
 msgid "The safety copy could not be put back. The site stays closed. Restore it from the list below."
 msgstr ""
 
@@ -10340,7 +10738,7 @@ msgstr ""
 msgid "The safety copy could not be saved: %s"
 msgstr ""
 
-#: oc-includes/osclass/classes/backup/BackupManager.php
+#: oc-includes/osclass/classes/backup/BackupService.php
 msgid "The safety copy was put back, so the site is as it was before. Visitors still see the maintenance page."
 msgstr ""
 
@@ -10360,7 +10758,7 @@ msgstr "نمایش‌های صفحه جستجو: این فیلد لازم است
 msgid "The search page shows: this field must only contain numeric characters"
 msgstr "صفحه جستجوی نمایش داده شده: این فیلد فقط باید شامل کاراکترهای عددی باشد"
 
-#: oc-includes/osclass/classes/admin/form/SpamSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/SpamSettingsScreen.php
 msgid "The sender cannot send messages for this long. Sign-in and posting still work. You can lift it under Users → Ban rules."
 msgstr ""
 
@@ -10372,8 +10770,16 @@ msgstr ""
 msgid "The server stopped waiting before the work finished. Try again; if it keeps happening, ask your host to allow requests of up to five minutes."
 msgstr ""
 
+#: oc-admin/themes/modern/settings/api.php
+msgid "The signing secret of %s. Copy it now and keep it somewhere safe: it is not shown again."
+msgstr ""
+
 #: oc-includes/osclass/classes/backup/Restorer.php
 msgid "The site could not be put in maintenance mode."
+msgstr ""
+
+#: oc-includes/osclass/classes/admin/form/ApiSettingsScreen.php
+msgid "The site downloads each photo itself. Only public addresses are fetched."
 msgstr ""
 
 #: oc-admin/themes/modern/languages/index.php
@@ -10388,7 +10794,7 @@ msgstr "شاخص نقشه سایت در آدرس %s ارائه می‌شود و 
 msgid "The sitemap is cached for a few hours after it is first requested. Use this if you need "
 msgstr "نقشه سایت پس از اولین درخواست، برای چند ساعت در حافظه کش ذخیره می‌شود. در صورتی که نیاز دارید "
 
-#: oc-includes/osclass/classes/admin/form/MediaSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/MediaSettingsScreen.php
 msgid "The sizes listed below determine the maximum dimensions in pixels to use when uploading a image."
 msgstr "اندازه‌های ذکر شده در ادامه، حداکثر مقادیر پیکسلی را مشخص می‌کنند که هنگام آپلود یک تصویر باید مورد استفاده قرار گیرند."
 
@@ -10520,7 +10926,7 @@ msgstr ""
 msgid "There were no fields to move."
 msgstr "هیچ فیلدی برای جابه‌جایی وجود نداشت."
 
-#: oc-includes/osclass/classes/admin/form/CommentSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/CommentSettingsScreen.php
 msgid "There's a new comment on his listing"
 msgstr "یک نظر جدید در لیست او وجود دارد"
 
@@ -10573,6 +10979,12 @@ msgstr ""
 msgid "This admin signs in with a code from an authenticator app."
 msgstr ""
 
+#: oc-admin/themes/modern/admins/sign_out_all.php
+msgid "This also revokes your %d API key."
+msgid_plural "This also revokes your %d API keys."
+msgstr[0] ""
+msgstr[1] ""
+
 #: oc-admin/themes/modern/tools/system-info.php
 msgid "This applies the waiting updates in order. Keep the page open until it finishes. Take a backup first."
 msgstr ""
@@ -10621,7 +11033,7 @@ msgstr ""
 msgid "This deletes the field definition and removes it from every form. Continue?"
 msgstr "این کار باعث حذف تعریف فیلد مربوطه و نیز حذف آن از تمام فرم‌ها می‌شود. آیا می‌خواهید ادامه دهید؟"
 
-#: oc-includes/osclass/classes/admin/form/LatestSearchSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/LatestSearchSettingsScreen.php
 msgid "This feature can generate a lot of data. It's recommended to purge this data periodically."
 msgstr "این ویژگی می تواند داده های زیادی تولید کند. توصیه می شود که این داده ها را به طور دوره ای پاکسازی کنید."
 
@@ -10687,7 +11099,7 @@ msgstr "این یک نمونه توضیحات صفحه است. این مکان �
 msgid "This keeps going while the page is open. With cron set up it also carries on if you close it."
 msgstr ""
 
-#: oc-includes/osclass/classes/admin/form/SpamSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/SpamSettingsScreen.php
 msgid "This key is valid"
 msgstr "این کلید معتبر است"
 
@@ -10836,11 +11248,11 @@ msgstr ""
 msgid "Thu"
 msgstr "پنجشنبه"
 
-#: oc-includes/osclass/classes/admin/form/MediaSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/MediaSettingsScreen.php
 msgid "Thumbnail size"
 msgstr "اندازه بندانگشتی"
 
-#: oc-includes/osclass/classes/admin/form/MainSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/MainSettingsScreen.php
 #: oc-includes/osclass/helpers/hUtils.php
 msgid "Thursday"
 msgstr "پنج‌شنبه"
@@ -10857,7 +11269,7 @@ msgstr "این گزینه را علامت بزنید تا لینک‌ها در �
 msgid "Tick what to clean and how old it must be. Everything removed is gone for good."
 msgstr ""
 
-#: oc-includes/osclass/classes/backup/BackupManager.php
+#: oc-includes/osclass/classes/backup/BackupService.php
 msgid "Tick what to put back."
 msgstr ""
 
@@ -10865,11 +11277,11 @@ msgstr ""
 msgid "Tickets"
 msgstr "بلیط‌ ها"
 
-#: oc-includes/osclass/classes/admin/form/MainSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/MainSettingsScreen.php
 msgid "Time"
 msgstr "زمان"
 
-#: oc-includes/osclass/classes/admin/form/MainSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/MainSettingsScreen.php
 msgid "Time format"
 msgstr ""
 
@@ -10878,7 +11290,7 @@ msgid "Time limit"
 msgstr ""
 
 #: oc-includes/osclass/classes/admin/SystemChecks.php
-#: oc-includes/osclass/classes/admin/form/MainSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/MainSettingsScreen.php
 msgid "Timezone"
 msgstr "Timezone"
 
@@ -10978,11 +11390,11 @@ msgstr "ابزارها"
 msgid "Tools > Backup and restore"
 msgstr ""
 
-#: oc-includes/osclass/classes/admin/form/MediaSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/MediaSettingsScreen.php
 msgid "Top Left"
 msgstr "بالا سمت چپ"
 
-#: oc-includes/osclass/classes/admin/form/MediaSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/MediaSettingsScreen.php
 msgid "Top Right"
 msgstr "بالا سمت راست"
 
@@ -11006,6 +11418,7 @@ msgstr "تعداد کل کاربران: %s"
 msgid "Toys - Games - Hobbies"
 msgstr "اسباب‌ بازی ها - بازی ها - سرگرمی ‌ها"
 
+#: oc-admin/themes/modern/settings/api.php
 #: oc-admin/themes/modern/tools/system-info/jobs.php
 msgid "Tries"
 msgstr ""
@@ -11032,7 +11445,7 @@ msgstr ""
 msgid "Tue"
 msgstr "سه شنبه"
 
-#: oc-includes/osclass/classes/admin/form/MainSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/MainSettingsScreen.php
 #: oc-includes/osclass/helpers/hUtils.php
 msgid "Tuesday"
 msgstr "سه‌شنبه"
@@ -11061,6 +11474,10 @@ msgstr "OPcache را فعال کنید"
 msgid "Turn on a persistent object cache"
 msgstr "کش اشیاء پایدار را فعال کنید"
 
+#: oc-includes/osclass/classes/admin/form/ApiSettingsScreen.php
+msgid "Turn on the REST API"
+msgstr ""
+
 #: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "Turn on yours"
 msgstr ""
@@ -11073,23 +11490,23 @@ msgstr "اگر پایگاه داده هنوز وجود ندارد و می‌خو
 msgid "Turn this on to delete the tables of a Shopclass install that did not finish, and start again. A finished site is never touched."
 msgstr ""
 
-#: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
 msgid "Turn this on to sell things on your site — featured listings, posting credits, "
 msgstr "این ویژگی را فعال کنید تا بتوانید در سایت خود چیزهایی بفروشید — آگهی‌های ویژه، اعتبار ارسال آگهی، "
 
-#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsScreen.php
 msgid "Turns links like index.php?page=item&id=42 into readable ones like "
 msgstr "لینک‌هایی مانند index.php?page=item&id=42 را به لینک‌های قابل‌خواندن تبدیل می‌کند "
 
-#: oc-includes/osclass/classes/admin/form/SpamSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/SpamSettingsScreen.php
 msgid "Turnstile secret key"
 msgstr "کلید مخفی Turnstile"
 
-#: oc-includes/osclass/classes/admin/form/SpamSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/SpamSettingsScreen.php
 msgid "Turnstile site key"
 msgstr "کلید سایت Turnstile"
 
-#: oc-includes/osclass/classes/admin/form/SpamSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/SpamSettingsScreen.php
 msgid "Turnstile site key and Turnstile secret key"
 msgstr "کلید سایت Turnstile و کلید مخفی Turnstile"
 
@@ -11112,6 +11529,7 @@ msgstr ""
 
 #: oc-admin/themes/modern/fields/iframe.php
 #: oc-admin/themes/modern/media/index.php
+#: oc-admin/themes/modern/settings/api.php
 msgid "Type"
 msgstr "نوع"
 
@@ -11144,11 +11562,11 @@ msgstr "رمز عبور جدید خود را دوباره تایپ کنید"
 msgid "URL"
 msgstr "URL"
 
-#: oc-includes/osclass/classes/admin/form/SitemapSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/SitemapSettingsScreen.php
 msgid "URLs"
 msgstr ""
 
-#: oc-includes/osclass/classes/admin/form/SitemapSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/SitemapSettingsScreen.php
 msgid "URLs per sitemap file"
 msgstr "تعداد URL در هر فایل نقشه سایت"
 
@@ -11282,7 +11700,7 @@ msgstr "به‌روزرسانی همه (%d)"
 msgid "Update available"
 msgstr "به روز رسانی در دسترس"
 
-#: oc-includes/osclass/classes/admin/form/MainSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/MainSettingsScreen.php
 msgid "Update channel"
 msgstr ""
 
@@ -11374,7 +11792,7 @@ msgstr "ارتقاء در حال حاضر"
 msgid "Upgrade to %s"
 msgstr ""
 
-#: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
 msgid "Upgrades"
 msgstr "ارتقاءها"
 
@@ -11410,11 +11828,11 @@ msgstr "بارگذاری در مقصد مورد نظر مجاز نیست"
 msgid "Uploaded"
 msgstr "آپلود شده"
 
-#: oc-includes/osclass/classes/backup/BackupManager.php
+#: oc-includes/osclass/classes/backup/BackupService.php
 msgid "Uploading to the bucket"
 msgstr ""
 
-#: oc-includes/osclass/classes/backup/BackupManager.php
+#: oc-includes/osclass/classes/backup/BackupService.php
 msgid "Uploading to the bucket: %1$s of %2$s"
 msgstr ""
 
@@ -11430,15 +11848,15 @@ msgstr ""
 msgid "Uptime"
 msgstr "زمان کارکرد"
 
-#: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
 msgid "Urgent"
 msgstr "فوری"
 
-#: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
 msgid "Urgent duration (days)"
 msgstr "مدت زمان فوری (روزها)"
 
-#: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
 msgid "Urgent price (credits)"
 msgstr "قیمت فوری (اعتبار)"
 
@@ -11450,11 +11868,11 @@ msgstr "آدرس (URL) برای اعتبار حساب."
 msgid "Url for edit listing"
 msgstr "آدرس برای ویرایش آگهی"
 
-#: oc-includes/osclass/classes/admin/form/MediaSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/MediaSettingsScreen.php
 msgid "Use ImageMagick instead of GD library"
 msgstr "استفاده از ImageMagick به جای کتابخانه GD"
 
-#: oc-includes/osclass/classes/admin/form/MailServerSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/MailServerSettingsScreen.php
 msgid "Use POP before SMTP"
 msgstr "استفاده از POP قبل از SMTP"
 
@@ -11462,11 +11880,11 @@ msgstr "استفاده از POP قبل از SMTP"
 msgid "Use native php function for timezones list."
 msgstr "استفاده از تابع پی اچ پی بومی برای لیست timezones."
 
-#: oc-includes/osclass/classes/admin/form/StorageSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/StorageSettingsScreen.php
 msgid "Use path-style bucket URLs."
 msgstr "از آدرس‌های URL نوع کانتینر با سبک مسیر استفاده کنید."
 
-#: oc-includes/osclass/classes/admin/form/StorageSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/StorageSettingsScreen.php
 msgid "Use this for a private bucket. Leave off for a public bucket or CDN."
 msgstr "این را برای یک کانتینر خصوصی استفاده کنید؛ در مورد کانتینرهای عمومی یا سرویس‌های CDN، نیازی به آن نیست."
 
@@ -11490,6 +11908,7 @@ msgstr "برای شناسایی سریع این صفحه استفاده می ش�
 #: oc-admin/themes/modern/billing/index.php
 #: oc-admin/themes/modern/billing/order.php
 #: oc-admin/themes/modern/media/index.php
+#: oc-admin/themes/modern/settings/api.php
 #: oc-admin/themes/modern/users/index.php
 #: oc-includes/osclass/classes/datatables/ItemsDataTable.php
 #: oc-includes/osclass/classes/form/UserForm.php
@@ -11513,43 +11932,43 @@ msgstr "تنظیمات کاربر"
 msgid "User Statistics"
 msgstr "آمار کاربران"
 
-#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsScreen.php
 msgid "User account"
 msgstr "حساب کاربری"
 
-#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsScreen.php
 msgid "User activate"
 msgstr "کاربر فعال"
 
-#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsScreen.php
 msgid "User activate alert"
 msgstr "کاربر هشدار را فعال می کند"
 
-#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsScreen.php
 msgid "User alerts"
 msgstr "هشدارهای کاربر"
 
-#: oc-includes/osclass/classes/admin/form/AdvancedSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/AdvancedSettingsScreen.php
 msgid "User based"
 msgstr "کاربر مبتنی بر"
 
-#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsScreen.php
 msgid "User change email"
 msgstr "تغییر ایمیل کاربر"
 
-#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsScreen.php
 msgid "User change email confirm"
 msgstr "تغییر ایمیل کاربر تایید"
 
-#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsScreen.php
 msgid "User change password"
 msgstr "تغییر رمز عبور کاربر"
 
-#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsScreen.php
 msgid "User change username"
 msgstr "تغییر نام کاربری کاربر"
 
-#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsScreen.php
 msgid "User dashboard"
 msgstr "داشبورد کاربر"
 
@@ -11557,7 +11976,7 @@ msgstr "داشبورد کاربر"
 msgid "User email"
 msgstr "ایمیل کاربر"
 
-#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsScreen.php
 msgid "User forgot"
 msgstr "کاربر فراموش کرده"
 
@@ -11565,15 +11984,15 @@ msgstr "کاربر فراموش کرده"
 msgid "User ip address"
 msgstr "آی پی کاربر"
 
-#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsScreen.php
 msgid "User listings"
 msgstr "لیست کاربران"
 
-#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsScreen.php
 msgid "User login"
 msgstr "ورود کاربر"
 
-#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsScreen.php
 msgid "User logout"
 msgstr "ورود کاربر"
 
@@ -11585,15 +12004,15 @@ msgstr "نام کاربر"
 msgid "User phone number"
 msgstr "شماره تلفن کاربر"
 
-#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsScreen.php
 msgid "User profile"
 msgstr "پروفایل کاربر"
 
-#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsScreen.php
 msgid "User recover"
 msgstr "کاربر بهبود می یابند"
 
-#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsScreen.php
 msgid "User register"
 msgstr "ثبت نام کاربر"
 
@@ -11610,7 +12029,7 @@ msgstr "نوع کاربر"
 #: oc-admin/themes/modern/users/frm.php
 #: oc-admin/themes/modern/users/index.php
 #: oc-includes/osclass/classes/admin/form/AdminAccountForm.php
-#: oc-includes/osclass/classes/admin/form/MailServerSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/MailServerSettingsScreen.php
 #: oc-includes/osclass/classes/datatables/UsersDataTable.php
 #: oc-includes/osclass/installer/gui/install-database.php
 #: oc-includes/osclass/installer/gui/install-finish.php
@@ -11654,6 +12073,7 @@ msgstr "نام‌های کاربری تنها می‌توانند شامل حر�
 #: oc-admin/themes/modern/users/index.php
 #: oc-admin/themes/modern/users/settings.php
 #: oc-includes/osclass/classes/AdminMenu.php
+#: oc-includes/osclass/classes/admin/form/ApiSettingsScreen.php
 #: oc-includes/osclass/classes/controller/admin/CAdminMedia.php
 msgid "Users"
 msgstr "کاربران"
@@ -11666,7 +12086,7 @@ msgstr "کاربران فعال"
 msgid "Users have to validate their listings"
 msgstr "کاربران باید به اعتبار لیست خود را"
 
-#: oc-includes/osclass/classes/admin/form/CommentSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/CommentSettingsScreen.php
 msgid "Users must be registered and logged in to comment"
 msgstr "کاربران باید ثبت نام کنند و برای اظهار نظر وارد سیستم شوند"
 
@@ -11813,6 +12233,7 @@ msgstr ""
 msgid "Volunteers"
 msgstr "داوطلبان"
 
+#: oc-admin/themes/modern/settings/api.php
 #: oc-admin/themes/modern/tools/system-info/jobs.php
 #: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "Waiting"
@@ -11822,7 +12243,7 @@ msgstr ""
 msgid "Waiting and running"
 msgstr ""
 
-#: oc-includes/osclass/classes/backup/BackupManager.php
+#: oc-includes/osclass/classes/backup/BackupService.php
 msgid "Waiting to start"
 msgstr ""
 
@@ -11830,31 +12251,31 @@ msgstr ""
 msgid "Warn about expiration"
 msgstr "هشدار در مورد انقضا"
 
-#: oc-includes/osclass/classes/admin/form/MediaSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/MediaSettingsScreen.php
 msgid "Watermark"
 msgstr "چاپسفیدیاسایهدارکردن"
 
-#: oc-includes/osclass/classes/admin/form/MediaSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/MediaSettingsScreen.php
 msgid "Watermark Height"
 msgstr "ارتفاع واترمارک"
 
-#: oc-includes/osclass/classes/admin/form/MediaSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/MediaSettingsScreen.php
 msgid "Watermark Image Settings"
 msgstr "تنظیمات تصویر واترمارک"
 
-#: oc-includes/osclass/classes/admin/form/MediaSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/MediaSettingsScreen.php
 msgid "Watermark Text"
 msgstr "متن واترمارک"
 
-#: oc-includes/osclass/classes/admin/form/MediaSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/MediaSettingsScreen.php
 msgid "Watermark Text Settings"
 msgstr "تنظیمات متن واترمارک"
 
-#: oc-includes/osclass/classes/admin/form/MediaSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/MediaSettingsScreen.php
 msgid "Watermark Width"
 msgstr "عرض واترمارک"
 
-#: oc-includes/osclass/classes/admin/form/MediaSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/MediaSettingsScreen.php
 msgid "Watermark type"
 msgstr "نوع واترمارک"
 
@@ -11882,6 +12303,11 @@ msgstr "سرور وب"
 msgid "Web title"
 msgstr "عنوان وب"
 
+#: oc-admin/themes/modern/settings/api.php
+#: oc-includes/osclass/classes/admin/form/ApiSettingsScreen.php
+msgid "Webhooks"
+msgstr ""
+
 #: oc-admin/themes/modern/plugins/index.php
 #: oc-admin/themes/modern/tools/system-info/security.php
 #: oc-admin/themes/modern/users/frm.php
@@ -11897,16 +12323,20 @@ msgstr "آدرس وب‌سایت"
 msgid "Website password reset"
 msgstr ""
 
+#: oc-includes/osclass/classes/admin/form/ApiSettingsScreen.php
+msgid "Websites whose pages may call the API from a browser, one per line, such as https://app.example.com. Use * for any site; keyed calls still need an exact origin."
+msgstr ""
+
 #: oc-includes/osclass/helpers/hUtils.php
 msgid "Wed"
 msgstr "چهارشنبه"
 
-#: oc-includes/osclass/classes/admin/form/MainSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/MainSettingsScreen.php
 #: oc-includes/osclass/helpers/hUtils.php
 msgid "Wednesday"
 msgstr "چهارشنبه"
 
-#: oc-includes/osclass/classes/admin/form/MainSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/MainSettingsScreen.php
 msgid "Week starts on"
 msgstr "هفته شروع می شود در"
 
@@ -11941,11 +12371,11 @@ msgstr ""
 msgid "What happened"
 msgstr "چه اتفاقی افتاد"
 
-#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsScreen.php
 msgid "What it should look like"
 msgstr "این چگونه باید به نظر برسد"
 
-#: oc-includes/osclass/classes/admin/form/BillingSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
 msgid "What posting costs once the free quota runs out, and what a featured "
 msgstr "اینکه انتشار آگهی پس از اتمام سهمیه رایگان چه هزینه‌ای دارد، و یک آگهی ویژه چه "
 
@@ -11957,6 +12387,10 @@ msgstr "موارد قابل حذف"
 msgid "What updating %s would change"
 msgstr ""
 
+#: oc-admin/themes/modern/settings/api.php
+msgid "What uses the key, such as \"Mobile app\" or \"Stock sync\"."
+msgstr ""
+
 #: oc-includes/osclass/gui/billing/receipt.php
 msgid "What was bought"
 msgstr ""
@@ -11965,7 +12399,7 @@ msgstr ""
 msgid "What you bought"
 msgstr ""
 
-#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsScreen.php
 msgid "What your .htaccess file should look like"
 msgstr "فایل .htaccess شما باید چه شکلی باشد"
 
@@ -11994,12 +12428,16 @@ msgstr "وقتی نتوانید فایل `php.ini` را ویرایش کنید، 
 msgid "Where"
 msgstr ""
 
+#: oc-admin/themes/modern/settings/api.php
+msgid "Where the site sends each event, as an https address."
+msgstr ""
+
 #: oc-admin/themes/modern/settings/keywordBlock.php
 #: oc-admin/themes/modern/settings/keywordBlock_frm.php
 msgid "Where to match"
 msgstr "محل تطبیق"
 
-#: oc-includes/osclass/classes/admin/form/MainSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/MainSettingsScreen.php
 msgid "Which new versions this site is offered. Betas and release candidates are for testing."
 msgstr ""
 
@@ -12066,6 +12504,10 @@ msgstr "با %s سازگار است"
 
 #: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "Writes strict SQL mode refused"
+msgstr ""
+
+#: oc-includes/osclass/classes/admin/form/ApiSettingsScreen.php
+msgid "Writes, per key or user"
 msgstr ""
 
 #: oc-includes/osclass/installer/basic_data.php
@@ -12146,7 +12588,7 @@ msgstr "نام کاربری MySQL شما."
 msgid "Your S3 endpoint uses plain http, so a backup and its download link would travel unencrypted. Saving to the bucket is off until the endpoint uses https."
 msgstr ""
 
-#: oc-includes/osclass/classes/backup/BackupManager.php
+#: oc-includes/osclass/classes/backup/BackupService.php
 msgid "Your S3 endpoint uses plain http, so a backup and its download link would travel unencrypted. Use an https endpoint."
 msgstr ""
 
@@ -12171,11 +12613,11 @@ msgstr ""
 msgid "Your backups folder is open to the web. Anyone who guesses a file name could download a backup."
 msgstr ""
 
-#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsScreen.php
 msgid "Your current .htaccess file"
 msgstr "فایل .htaccess فعلی شما"
 
-#: oc-includes/osclass/classes/admin/form/AdvancedSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/AdvancedSettingsScreen.php
 msgid "Your current host is \"%s\". Add it without \"www\"."
 msgstr "هاست کنونی شما هست \"%s\". افزودن بدون \"www\"."
 
@@ -12203,19 +12645,7 @@ msgstr "پایگاه داده شما به‌روزرسانی شده است"
 msgid "Your database is up to date and healthy."
 msgstr ""
 
-#: oc-includes/osclass/classes/actions/ItemActions.php
-msgid "Your email: invalid email address"
-msgstr "آدرس ایمیل شما نامعتبر است"
-
-#: oc-includes/osclass/classes/actions/ItemActions.php
-msgid "Your friend's email: invalid email address"
-msgstr "آدرس ایمیل دوستتان نامعتبر است"
-
-#: oc-includes/osclass/classes/actions/ItemActions.php
-msgid "Your friend's name: this field is required"
-msgstr "نام دوستتان: پر کردن این فیلد الزامی است"
-
-#: oc-includes/osclass/classes/admin/form/AdvancedSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/AdvancedSettingsScreen.php
 msgid "Your host is required to know the subdomain."
 msgstr "میزبان شما ملزم به دانستن زیردستان است."
 
@@ -12227,15 +12657,20 @@ msgstr ""
 msgid "Your listing could not be posted. Please review its content and try again."
 msgstr "آگهی شما قابل انتشار نبود. لطفاً محتوای آن را بررسی کنید و دوباره تلاش نمایید."
 
-#: oc-includes/osclass/classes/actions/ItemActions.php
 #: oc-includes/osclass/classes/form/SendFriendForm.php
 msgid "Your name: this field is required"
 msgstr "نام شما: این فیلد لازم است"
+
+#: oc-admin/themes/modern/settings/api.php
+msgid "Your new key \"%s\". Copy it now and keep it somewhere safe: it is not shown again."
+msgstr ""
 
 #: oc-includes/osclass/functions.php
 msgid "Your orders"
 msgstr ""
 
+#: oc-admin/themes/modern/admins/sign_out_all.php
+#: oc-admin/themes/modern/settings/api.php
 #: oc-admin/themes/modern/tools/backup.php
 msgid "Your password"
 msgstr ""
@@ -12324,6 +12759,10 @@ msgstr ""
 msgid "[%1$s] Security update %2$s installed"
 msgstr ""
 
+#: oc-includes/osclass/classes/webhook/Delivery.php
+msgid "[%s] A webhook endpoint was paused"
+msgstr ""
+
 #: oc-includes/osclass/classes/security/AdminTwoFactor.php
 msgid "[%s] Your admin password is known to someone else"
 msgstr ""
@@ -12348,11 +12787,15 @@ msgstr ""
 msgid "am"
 msgstr "صبح"
 
+#: oc-includes/osclass/classes/admin/form/ApiSettingsScreen.php
+msgid "an hour"
+msgstr ""
+
 #: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "as reported"
 msgstr ""
 
-#: oc-includes/osclass/classes/admin/form/MainSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/MainSettingsScreen.php
 msgid "at most"
 msgstr "در اکثر"
 
@@ -12379,11 +12822,11 @@ msgid "change user password url"
 msgstr "تغییر آدرس رمز عبور کاربر"
 
 #: oc-admin/themes/modern/items/settings.php
-#: oc-includes/osclass/classes/admin/form/SpamSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/SpamSettingsScreen.php
 msgid "characters"
 msgstr ""
 
-#: oc-includes/osclass/classes/admin/form/CommentSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/CommentSettingsScreen.php
 #: oc-includes/osclass/helpers/hAdminUi.php
 msgid "comments per page"
 msgstr ""
@@ -12412,7 +12855,7 @@ msgstr "اعتبارات"
 #: oc-admin/themes/modern/items/settings.php
 #: oc-admin/themes/modern/tools/cleanup.php
 #: oc-admin/themes/modern/tools/logs.php
-#: oc-includes/osclass/classes/admin/form/SpamSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/SpamSettingsScreen.php
 msgid "days"
 msgstr "روز‌ها"
 
@@ -12525,7 +12968,7 @@ msgstr ""
 msgid "last %s ago"
 msgstr ""
 
-#: oc-includes/osclass/classes/admin/form/MainSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/MainSettingsScreen.php
 msgid "listings at most"
 msgstr "لیست در اکثر"
 
@@ -12533,7 +12976,7 @@ msgstr "لیست در اکثر"
 msgid "made before a restore"
 msgstr ""
 
-#: oc-includes/osclass/classes/admin/form/SpamSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/SpamSettingsScreen.php
 msgid "minutes"
 msgstr ""
 
@@ -12549,7 +12992,7 @@ msgstr ""
 msgid "moderator"
 msgstr ""
 
-#: oc-includes/osclass/classes/admin/form/MainSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/MainSettingsScreen.php
 msgid "never"
 msgstr "هرگز"
 
@@ -12557,7 +13000,7 @@ msgstr "هرگز"
 msgid "never ran"
 msgstr ""
 
-#: oc-includes/osclass/classes/admin/form/PermalinkSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/PermalinkSettingsScreen.php
 msgid "nginx does not read .htaccess files. Add the "
 msgstr "nginx فایل‌های .htaccess را نمی‌خواند. اضافه کنید "
 
@@ -12688,15 +13131,15 @@ msgstr "عصر"
 msgid "post_max_size (%1$s) is smaller than upload_max_filesize (%2$s), so uploads over %1$s fail with an empty form."
 msgstr ""
 
-#: oc-includes/osclass/classes/admin/form/CommentSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/CommentSettingsScreen.php
 msgid "previously approved comments"
 msgstr ""
 
-#: oc-includes/osclass/classes/admin/form/MediaSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/MediaSettingsScreen.php
 msgid "px"
 msgstr ""
 
-#: oc-includes/osclass/classes/admin/form/LatestSearchSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/LatestSearchSettingsScreen.php
 msgid "queries"
 msgstr ""
 
@@ -12704,19 +13147,19 @@ msgstr ""
 msgid "ran %s ago"
 msgstr ""
 
-#: oc-includes/osclass/classes/admin/form/SpamSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/SpamSettingsScreen.php
 msgid "reCAPTCHA secret key"
 msgstr "کلید مخفی reCAPTCHA"
 
-#: oc-includes/osclass/classes/admin/form/SpamSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/SpamSettingsScreen.php
 msgid "reCAPTCHA site key"
 msgstr "کلید سایت reCAPTCHA"
 
-#: oc-includes/osclass/classes/admin/form/SpamSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/SpamSettingsScreen.php
 msgid "reCAPTCHA site key and reCAPTCHA secret key"
 msgstr "کلید سایت reCAPTCHA و کلید مخفی reCAPTCHA"
 
-#: oc-includes/osclass/classes/admin/form/SpamSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/SpamSettingsScreen.php
 msgid "reCAPTCHA version"
 msgstr ""
 
@@ -12728,16 +13171,20 @@ msgstr ""
 msgid "read-only"
 msgstr "تنها برای خواندن"
 
-#: oc-includes/osclass/classes/admin/form/KeywordBlockSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/KeywordBlockSettingsScreen.php
 msgid "reporters"
 msgstr ""
 
+#: oc-includes/osclass/classes/admin/form/ApiSettingsScreen.php
+msgid "requests a minute"
+msgstr ""
+
 #: oc-admin/themes/modern/settings/sitemap.php
-#: oc-includes/osclass/classes/admin/form/SitemapSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/SitemapSettingsScreen.php
 msgid "robots.txt"
 msgstr "robots.txt"
 
-#: oc-includes/osclass/classes/admin/form/SitemapSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/SitemapSettingsScreen.php
 msgid "robots.txt contents"
 msgstr "محتوای فایل robots.txt"
 
@@ -12749,15 +13196,16 @@ msgstr "فایل robots.txt توسط سرور وب قابل نوشتن نیست.
 msgid "s_source_file is not a valid url"
 msgstr "s_source_file آدرس معتبری نیست"
 
-#: oc-includes/osclass/classes/backup/BackupManager.php
+#: oc-includes/osclass/classes/backup/BackupService.php
 msgid "saved in your S3 bucket"
 msgstr ""
 
-#: oc-includes/osclass/classes/backup/BackupManager.php
+#: oc-includes/osclass/classes/backup/BackupService.php
 msgid "saved on the server"
 msgstr ""
 
-#: oc-includes/osclass/classes/admin/form/StorageSettingsForm.php
+#: oc-includes/osclass/classes/admin/form/ApiSettingsScreen.php
+#: oc-includes/osclass/classes/admin/form/StorageSettingsScreen.php
 msgid "seconds"
 msgstr ""
 
@@ -12800,7 +13248,7 @@ msgid "to"
 msgstr "به"
 
 #: oc-includes/osclass/classes/backup/BackupJobs.php
-#: oc-includes/osclass/classes/backup/BackupManager.php
+#: oc-includes/osclass/classes/backup/BackupService.php
 msgid "to download"
 msgstr ""
 

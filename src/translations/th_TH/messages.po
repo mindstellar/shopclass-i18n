@@ -14,7 +14,7 @@ msgstr ""
 "X-Crowdin-File: /develop/src/templates/messages.pot\n"
 "X-Crowdin-File-ID: 8261\n"
 "Language-Team: Thai\n"
-"PO-Revision-Date: 2026-10-08 14:28\n"
+"PO-Revision-Date: 2026-10-08 16:24\n"
 
 #: oc-includes/osclass/classes/controller/admin/CAdminAppearance.php
 msgid "\"%1$s\" extends this theme. Delete it first, or switch it to "
@@ -57,7 +57,6 @@ msgstr[0] ""
 msgid "%s (free)"
 msgstr ""
 
-#: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsLocations.php
 #: oc-includes/osclass/classes/location/LocationService.php
 msgid "%s already was in the database"
 msgstr "%s มีอยู่แล้วในฐานข้อมูล"
@@ -70,7 +69,7 @@ msgstr "%s ถูกนำไปใช้กับลิสต์รายกา
 msgid "%s can sign in again."
 msgstr ""
 
-#: oc-includes/osclass/classes/controller/admin/CAdminLanguages.php
+#: oc-includes/osclass/classes/language/LanguageService.php
 msgid "%s can't be disabled because it's the default language"
 msgstr "%s ไม่สามารถยกเลิกการใช้งานได้เนื่องจากเป็นค่าเริ่มต้น"
 
@@ -610,7 +609,7 @@ msgstr ""
 msgid "Country has been edited"
 msgstr "ประเทศได้ทำการแก้ไขแล้ว"
 
-#: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsLocations.php
+#: oc-includes/osclass/classes/location/LocationService.php
 msgid "Country name cannot be blank"
 msgstr "ชื่อประเทศไม่สามารถเว้นว่างได้"
 
@@ -1009,10 +1008,6 @@ msgstr "รูปภาพใหญ่เกินไป"
 msgid "Image with an incorrect extension."
 msgstr "นามสกุลไฟล์รูปภาพไม่ถูกต้อง"
 
-#: oc-includes/osclass/classes/controller/admin/CAdminItems.php
-msgid "Images per listing must only contain numeric characters"
-msgstr "จำนวนรูปภาพต่อรายการต้องเป็นตัวเลขเท่านั้น"
-
 #: oc-includes/osclass/classes/controller/CWebLogin.php
 msgid "Incorrect link"
 msgstr "ลิงค์ไม่ถูกต้อง"
@@ -1362,7 +1357,6 @@ msgstr ""
 msgid "No such comment."
 msgstr ""
 
-#: oc-includes/osclass/classes/api/controller/admin/AdminCurrenciesController.php
 #: oc-includes/osclass/classes/currency/CurrencyService.php
 msgid "No such currency."
 msgstr ""
@@ -1455,14 +1449,6 @@ msgstr ""
 #: oc-includes/osclass/classes/controller/admin/CAdminLanguages.php
 msgid "Number of decimals must only contain numeric characters"
 msgstr "เลขฐานสิบต่อรายการต้องเป็นตัวเลขเท่านั้น"
-
-#: oc-includes/osclass/classes/controller/admin/CAdminItems.php
-msgid "Number of expiration days has to be a numeric value"
-msgstr "จำนวนของวันหมดอายุต้องเป็นตัวเลขเท่านั้น"
-
-#: oc-includes/osclass/classes/controller/admin/CAdminItems.php
-msgid "Number of moderated listings must only contain numeric characters"
-msgstr "ตัวเลขรายการของผู้ตรวจสอบจำเป็นต้องเป็นตัวเลขเท่านั้น"
 
 #: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsStorage.php
 msgid "Offload queued. Images move to remote storage in the background as the storage worker runs."
@@ -1646,11 +1632,7 @@ msgstr ""
 msgid "Photos"
 msgstr ""
 
-#: oc-includes/osclass/classes/controller/CWebContact.php
-#: oc-includes/osclass/classes/controller/CWebItem.php
-#: oc-includes/osclass/classes/controller/CWebLogin.php
-#: oc-includes/osclass/classes/controller/CWebUserNonSecure.php
-#: oc-includes/osclass/classes/controller/admin/CAdminLogin.php
+#: oc-includes/osclass/classes/security/Captcha.php
 #: oc-includes/osclass/classes/user/AccountService.php
 msgid "Please complete the security check."
 msgstr "โปรดทำการตรวจสอบความปลอดภัยให้เสร็จสิ้น"
@@ -2393,6 +2375,7 @@ msgid "The comment was not added by you, you cannot delete it"
 msgstr "ความคิดเห็นนี้ไม่ได้ถูกเพิ่มโดยคุณ, คุณไม่สามารถลบได้"
 
 #: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsLocations.php
+#: oc-includes/osclass/classes/location/LocationService.php
 msgid "The country code must be two letters, like IN or DE"
 msgstr ""
 
@@ -2884,12 +2867,7 @@ msgstr ""
 msgid "There were some problems editing the country"
 msgstr "มีปัญหาเกิดขึ้น ขณะทำการแก้ไขประเทศ"
 
-#: oc-includes/osclass/classes/controller/admin/settings/CAdminSettingsLocations.php
-msgid "This action can't be done because it's a demo site"
-msgstr "การกระทำไม่ามารถทำได้ เนื่องจากนี่เป็เว็บตัวอย่าง"
-
-#: oc-includes/osclass/classes/controller/admin/CAdminTools.php
-#: oc-includes/osclass/classes/controller/base/abstract/BaseModel.php
+#: oc-includes/osclass/classes/security/Demo.php
 msgid "This action cannot be done because it is a demo site"
 msgstr "การกระทำนี้ไม่สามารถทำได้ เพราะนี่เป็นเว็บตัวอย่าง"
 
@@ -3121,10 +3099,6 @@ msgstr "ส่งอีเมลการตรวจสอบความถู
 #: oc-includes/osclass/gui/billing/buy-content.php
 msgid "View your past orders"
 msgstr "ดูคำสั่งซื้อที่ผ่านมาของคุณ"
-
-#: oc-includes/osclass/classes/controller/admin/CAdminItems.php
-msgid "Wait time must only contain numeric characters"
-msgstr "เวลาในการรอคอยต้องใส่เป็นตัวเลข"
 
 #: oc-includes/osclass/classes/controller/CWebLogin.php
 msgid "We have just sent you an email to validate your account, you will have to wait a few minutes to resend it again"

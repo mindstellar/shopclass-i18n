@@ -14,7 +14,7 @@ msgstr ""
 "X-Crowdin-File: /develop/src/templates/core.pot\n"
 "X-Crowdin-File-ID: 8259\n"
 "Language-Team: Persian\n"
-"PO-Revision-Date: 2026-10-11 06:35\n"
+"PO-Revision-Date: 2026-10-12 06:11\n"
 
 #: oc-includes/osclass/functions.php
 msgid " is available"
@@ -39,6 +39,10 @@ msgid "%1$d linked folder was skipped: %2$s (it points outside oc-content)."
 msgid_plural "%1$d linked folders were skipped: %2$s (they point outside oc-content)."
 msgstr[0] ""
 msgstr[1] ""
+
+#: oc-admin/themes/modern/functions.php
+msgid "%1$s %2$s does not fully work on this version of Shopclass. Update it to %3$s or newer."
+msgstr ""
 
 #: oc-admin/themes/modern/parts/ui.php
 msgid "%1$s &raquo; %2$s"
@@ -630,15 +634,15 @@ msgstr "پوشه <code>oc-content/uploads</code> قابل نوشتن است"
 msgid "<code>uploads</code> folder has to be writable, i.e.: "
 msgstr "پوشه <code>uploads</code> باید قابل نوشتن باشد، یعنی: "
 
-#: oc-includes/osclass/emails.php
+#: oc-includes/osclass/classes/mail/CoreEmails.php
 msgid "<p>Dear {WEB_TITLE} admin,</p>"
 msgstr "<p>مدیر {WEB_TITLE} عزیز،</p>"
 
-#: oc-includes/osclass/emails.php
+#: oc-includes/osclass/classes/mail/CoreEmails.php
 msgid "<p>There were some minor errors removing temporary files. "
 msgstr "<p>هنگام حذف فایل‌های موقت، برخی خطاهای جزئی رخ داد. "
 
-#: oc-includes/osclass/emails.php
+#: oc-includes/osclass/classes/mail/CoreEmails.php
 msgid "<p>Your site at {WEB_LINK} has been updated automatically to Shopclass {VERSION}</p>"
 msgstr "<p>وب‌سایت شما در آدرس {WEB_LINK} به‌طور خودکار به نسخه Shopclass {VERSION} به‌روزرسانی شده است</p>"
 
@@ -1111,7 +1115,7 @@ msgid "Adds what is missing and fixes column types. Extra columns and indexes ar
 msgstr ""
 
 #: oc-admin/themes/modern/settings/api.php
-#: oc-includes/osclass/emails.php
+#: oc-includes/osclass/classes/mail/CoreEmails.php
 msgid "Admin"
 msgstr "مدیر"
 
@@ -2025,7 +2029,6 @@ msgstr "قایق‌ ها - کشتی‌ ها"
 
 #: oc-admin/themes/modern/pages/frm.php
 #: oc-includes/osclass/classes/admin/form/StaticPageForm.php
-#: oc-includes/osclass/classes/form/PageForm.php
 msgid "Body"
 msgstr "بدنه"
 
@@ -3684,7 +3687,7 @@ msgstr ""
 #: oc-includes/osclass/classes/form/ItemForm.php
 #: oc-includes/osclass/classes/form/PageForm.php
 #: oc-includes/osclass/classes/form/admin/Item.php
-#: oc-includes/osclass/emails.php
+#: oc-includes/osclass/classes/mail/CoreEmails.php
 msgid "Description"
 msgstr "توضیح"
 
@@ -5629,7 +5632,7 @@ msgid "Land"
 msgstr "زمین"
 
 #: oc-includes/osclass/classes/admin/form/PermalinkSettingsScreen.php
-#: oc-includes/osclass/emails.php
+#: oc-includes/osclass/classes/mail/CoreEmails.php
 #: oc-includes/osclass/installer/gui/install.php
 msgid "Language"
 msgstr "زبان"
@@ -11412,7 +11415,7 @@ msgstr "Timezone"
 #: oc-includes/osclass/classes/form/ItemForm.php
 #: oc-includes/osclass/classes/form/PageForm.php
 #: oc-includes/osclass/classes/form/admin/Item.php
-#: oc-includes/osclass/emails.php
+#: oc-includes/osclass/classes/mail/CoreEmails.php
 msgid "Title"
 msgstr "عنوان"
 
@@ -11986,10 +11989,6 @@ msgstr "استفاده از POP قبل از SMTP"
 #: oc-includes/osclass/helpers/hSearch.php
 msgid "Use my location"
 msgstr ""
-
-#: oc-includes/osclass/timezones.php
-msgid "Use native php function for timezones list."
-msgstr "استفاده از تابع پی اچ پی بومی برای لیست timezones."
 
 #: oc-includes/osclass/classes/admin/form/StorageSettingsScreen.php
 msgid "Use path-style bucket URLs."
@@ -12692,7 +12691,7 @@ msgstr "شما نسخه جدیدی از Shopclass را آپلود کرده‌ا�
 msgid "You haven't checked for %s yet. Check now to browse what's available."
 msgstr "شما هنوز %s را بررسی نکرده‌اید. حالا آن را بررسی کنید تا ببینید چه چیزهایی در دسترس هستند."
 
-#: oc-includes/osclass/utils.php
+#: oc-includes/osclass/classes/mail/Mailer.php
 msgid "You received this e-mail from %s."
 msgstr ""
 
@@ -13411,7 +13410,7 @@ msgstr ""
 msgid "unlimited"
 msgstr "بدون محدودیت"
 
-#: oc-includes/osclass/emails.php
+#: oc-includes/osclass/classes/mail/CoreEmails.php
 msgid "unsubscribe alert"
 msgstr "هشدار لغو عضویت"
 
@@ -13451,11 +13450,11 @@ msgstr ""
 msgid "yes, for one request at a time"
 msgstr ""
 
-#: oc-includes/osclass/emails.php
+#: oc-includes/osclass/classes/mail/CoreEmails.php
 msgid "{WEB_TITLE} - We failed trying to upgrade your site to Shopclass {VERSION}"
 msgstr "{WEB_TITLE} – ما در تلاش برای به‌روزرسانی وب‌سایت شما به نسخه Shopclass {VERSION} با شکست مواجه شدیم"
 
-#: oc-includes/osclass/emails.php
+#: oc-includes/osclass/classes/mail/CoreEmails.php
 msgid "{WEB_TITLE} - Your site has upgraded to Shopclass {VERSION}"
 msgstr "{WEB_TITLE} – وب‌سایت شما به نسخه‌ی جدید Shopclass {VERSION} ارتقا یافته است"
 

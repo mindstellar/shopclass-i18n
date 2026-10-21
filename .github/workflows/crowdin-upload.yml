@@ -1,10 +1,17 @@
-# Sends translations changed here to Crowdin.
+# Sends templates and translations changed here to Crowdin.
 #
 # Crowdin reads the templates from develop on its own, but it imports translations
 # from the repository only once, when the integration is first set up. After that its
 # own copy is what it exports, so a translation merged here directly -- a contributor's
 # pull request, a batch from scripts -- is quietly overwritten by Crowdin's next pull
 # request. Uploading on merge keeps Crowdin's copy in step with the repository.
+#
+# The templates are sent too, when a push moves them, and always before the
+# translations. Crowdin reads them from develop on its own as well, but on its own
+# schedule, and mail.json is matched by position -- so a translation imported while
+# Crowdin still holds the shorter template list lands against the wrong entry. Sending
+# the source first makes the order ours instead of a race. It is the same source the
+# integration would read, so an upload that is already in step changes nothing.
 #
 # Only the languages a push changed are uploaded, one job each, side by side: Crowdin
 # takes minutes to import a language and the CLI accepts one language per run, so
@@ -18,6 +25,7 @@ on:
   push:
     branches: [develop]
     paths:
+      - 'src/templates/**'
       - 'src/translations/**/*.po'
       - 'src/translations/**/mail.json'
   workflow_dispatch:
@@ -26,6 +34,11 @@ on:
         description: 'Crowdin language ids, space separated (e.g. "ru uk pl"). Empty uploads every language.'
         required: false
         default: ''
+      sources:
+        description: 'Send the templates first, so Crowdin matches the translations against this shape.'
+        required: false
+        type: boolean
+        default: false
 
 jobs:
   plan:
@@ -38,6 +51,7 @@ jobs:
        !startsWith(github.event.head_commit.message, 'Re-merge translations'))
     outputs:
       languages: ${{ steps.pick.outputs.languages }}
+      sources: ${{ steps.pick.outputs.sources }}
       ready: ${{ steps.secrets.outputs.ready }}
     steps:
       - name: Checkout
@@ -59,10 +73,11 @@ jobs:
             echo "::notice::CROWDIN_PERSONAL_TOKEN or CROWDIN_PROJECT_ID is not set; skipping the upload."
           fi
 
-      - name: Work out which languages to upload
+      - name: Work out what to upload
         id: pick
         env:
           REQUESTED: ${{ inputs.languages }}
+          SOURCES: ${{ inputs.sources }}
         run: |
           # Folder name -> Crowdin language id. Most ids are the language part alone;
           # these five are regional in Crowdin. English is the source, never a target.
@@ -88,9 +103,52 @@ jobs:
           echo "languages=$json" >> "$GITHUB_OUTPUT"
           echo "Languages to upload: $json"
 
-  upload:
+          # A dispatch asks for the templates outright; a push sends them when it
+          # moved them.
+          if [ "$GITHUB_EVENT_NAME" = "workflow_dispatch" ]; then
+            sources="${SOURCES:-false}"
+          elif git diff --name-only HEAD~1 HEAD -- src/templates | grep -q .; then
+            sources=true
+          else
+            sources=false
+          fi
+          echo "sources=$sources" >> "$GITHUB_OUTPUT"
+          echo "Upload the templates: $sources"
+
+  sources:
     needs: plan
-    if: needs.plan.outputs.ready == 'true' && needs.plan.outputs.languages != '[]'
+    if: needs.plan.outputs.ready == 'true' && needs.plan.outputs.sources == 'true'
+    runs-on: ubuntu-latest
+    # One source import at a time, and never beside a translation import of the same
+    # files: a strings list that moves while translations are being matched against it
+    # is how an entry ends up holding its neighbour's text.
+    concurrency:
+      group: crowdin-upload-sources
+      cancel-in-progress: false
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Upload the templates
+        uses: crowdin/github-action@v3.0.2
+        with:
+          config: crowdin.yml
+          crowdin_branch_name: develop
+          upload_sources: true
+          upload_translations: false
+          download_translations: false
+          project_id: ${{ secrets.CROWDIN_PROJECT_ID }}
+          token: ${{ secrets.CROWDIN_PERSONAL_TOKEN }}
+
+  upload:
+    needs: [plan, sources]
+    # The templates are optional, so this waits for whatever that job did rather than
+    # for success: skipped is the ordinary case, and a failure there means the shape
+    # Crowdin holds is not the one these translations were written against.
+    if: >-
+      always() && needs.plan.outputs.ready == 'true' &&
+      needs.plan.outputs.languages != '[]' &&
+      needs.sources.result != 'failure' && needs.sources.result != 'cancelled'
     runs-on: ubuntu-latest
     strategy:
       # One language failing to import must not cancel the others.

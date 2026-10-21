@@ -64,7 +64,14 @@ export function merge(template, existing, { pluralForms } = {}) {
     for (const [ctx, entries] of Object.entries(template.translations)) {
         out.translations[ctx] = {};
         for (const [msgid, entry] of Object.entries(entries)) {
-            if (msgid === '' && ctx === '') { out.translations[ctx][msgid] = entry; continue; }
+            // The header entry carries the comment block above it. theme.pot still has
+            // gettext's unfilled "SOME DESCRIPTIVE TITLE" stub and a fuzzy flag, which
+            // Crowdin strips on export -- so the locale's own block wins, or the two
+            // put it back and took it away in turn on every round trip.
+            if (msgid === '' && ctx === '') {
+                out.translations[ctx][msgid] = existing.translations?.['']?.[''] || entry;
+                continue;
+            }
             total++;
             const prior = existing.translations?.[ctx]?.[msgid];
             const has = prior && prior.msgstr?.some((s) => s !== '');
@@ -92,19 +99,42 @@ export function nplurals(header) {
 // every re-merge silently replaced a locale's own Language, Last-Translator and
 // Plural-Forms with the template's, which went unnoticed only while every locale
 // happened to carry the template's two-form rule.
-const KEEP = { 'language': 'Language', 'plural-forms': 'Plural-Forms', 'last-translator': 'Last-Translator', 'language-team': 'Language-Team' };
+const KEEP = {
+    'language': 'Language',
+    'plural-forms': 'Plural-Forms',
+    'last-translator': 'Last-Translator',
+    'language-team': 'Language-Team',
+    // Crowdin stamps these on every export and the template cannot know them. Taking
+    // the template's instead rewrote "Project-Id-Version: shopclass" to "Shopclass"
+    // and deleted the five X-Crowdin lines on each re-merge, which Crowdin then wrote
+    // back on its next export -- a header block that flipped all 32 locales every
+    // round trip and buried the real changes.
+    'project-id-version': 'Project-Id-Version',
+    'po-revision-date': 'PO-Revision-Date',
+};
 const canonical = (k) => KEEP[k.toLowerCase()] || k;
 
+/** Headers the locale owns, not the template: kept verbatim, order and all. */
 function pickHeaders(h = {}) {
     const keep = {};
     for (const [k, v] of Object.entries(h)) {
-        if (KEEP[k.toLowerCase()] && v) keep[KEEP[k.toLowerCase()]] = v;
+        // An empty Last-Translator is a value Crowdin writes on purpose, so presence
+        // decides rather than truthiness -- dropping it put the line back every round.
+        if (KEEP[k.toLowerCase()]) keep[KEEP[k.toLowerCase()]] = v;
+        else if (k.toLowerCase().startsWith('x-crowdin-')) keep[k] = v;
     }
     return keep;
 }
 
+// gettext-parser wraps a msgstr at 76 columns; Crowdin exports it on one line. Every
+// translation longer than that was therefore rewritten twice per round trip -- folded
+// here, unfolded by Crowdin -- which is most of what a "New Crowdin updates" pull
+// request contained. Writing unwrapped matches Crowdin, so a diff shows only text that
+// actually changed. The .mo is binary and unaffected.
+const PO_OPTIONS = { foldLength: 0 };
+
 export async function writeCatalogue(dir, domain, catalogue) {
-    await writeFile(`${dir}/${domain}.po`, gettextParser.po.compile(catalogue));
+    await writeFile(`${dir}/${domain}.po`, gettextParser.po.compile(catalogue, PO_OPTIONS));
     await writeFile(`${dir}/${domain}.mo`, gettextParser.mo.compile(catalogue));
 }
 

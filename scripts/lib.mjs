@@ -189,3 +189,53 @@ export function htmlProblems(html) {
     }
     return problems;
 }
+
+/**
+ * Carry a locale's mail wording onto the current template list.
+ *
+ * The same rule the catalogues follow: the template decides which templates exist,
+ * the locale only supplies wording. Until this ran, nothing merged mail.json at all
+ * -- merge.mjs rebuilds the .po files and leaves this one alone -- so the two drifted
+ * in both directions and each drift broke something different.
+ *
+ * A template the source dropped lingered. All 32 locales kept translating template 8
+ * long after shopclass deleted instant alerts, and because crowdin.yml matches these
+ * strings by array position, the extra entry put every later position out of step and
+ * Crowdin handed back the last template holding the one before it.
+ *
+ * A template the source gained never arrived, so npm run check failed on all 32
+ * locales the moment shopclass added email_listing_unpaid_reminder, and stayed failing
+ * until somebody pasted it in by hand.
+ *
+ * A new template arrives holding the English. A .po leaves a new string empty, but an
+ * empty mail body is a mail with nothing in it, and these are what the mailer sends.
+ */
+export function mergeMail(template, existing, locale) {
+    const had = new Map((existing?.template || []).map((t) => [t.fk_i_page_id, t]));
+    let total = 0, carried = 0;
+
+    const out = template.template.map((src) => {
+        total++;
+        const prior = had.get(src.fk_i_page_id);
+        if (prior) carried++;
+        // fk_i_page_id and s_internal_name identify the mail to the sender, so they
+        // come from the template even when the locale disagrees about them.
+        return {
+            fk_i_page_id: src.fk_i_page_id,
+            s_internal_name: src.s_internal_name,
+            s_title: prior?.s_title ?? src.s_title,
+            s_description: prior?.s_description ?? src.s_description,
+        };
+    });
+
+    return { mail: { language: locale, template: out }, total, carried };
+}
+
+// Crowdin rewrites these files on every export, so it decides the shape: four-space
+// indent, "/" written as "\/", unescaped UTF-8, no closing newline. Writing anything
+// else means the file is reformatted twice per round trip, which is what 27 of the 32
+// locales were doing with their two-space indent. Round-tripping a Crowdin export
+// through this comes back byte-identical.
+export async function writeMail(dir, mail) {
+    await writeFile(`${dir}/mail.json`, JSON.stringify(mail, null, 4).replaceAll('/', '\\/'));
+}

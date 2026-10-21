@@ -111,6 +111,18 @@ for (const locale of locales) {
     if (mail.language !== locale) fail(locale, `mail.json language is "${mail.language}"`);
     const got = new Map((mail.template || []).map((t) => [t.fk_i_page_id, t]));
 
+    // An entry the template has dropped is not harmless padding. crowdin.yml matches
+    // these strings by their position in the array ($.template[*].s_description), so
+    // a file one entry longer than the source puts every later position out of step:
+    // the last template comes back holding the one before it and the real last one is
+    // gone. That is how 30 locales lost email_warn_expiration, and why the count is
+    // checked in both directions rather than only for what is missing.
+    for (const id of got.keys()) {
+        if (!wanted.has(id)) {
+            fail(locale, `mail.json has template ${id} (${got.get(id).s_internal_name}), which the template dropped`);
+        }
+    }
+
     for (const [id, src] of wanted) {
         const t = got.get(id);
         if (!t) { fail(locale, `mail.json missing template ${id} (${src.s_internal_name})`); continue; }

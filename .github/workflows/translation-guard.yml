@@ -1,4 +1,5 @@
-# Refuses a pull request that empties translations already here.
+# Refuses a pull request that empties translations already here, or drops a mail
+# template the source still sends.
 #
 # Crowdin's first pull request (#46) emptied 1,746 of them and left twelve plural
 # entries with a blank singular -- for a count of 1 a site would have rendered nothing,
@@ -67,5 +68,5 @@ jobs:
               echo "::warning::This pull request empties translations; allowed by the translations-removed-on-purpose label."
               exit 0 ;;
           esac
-          echo "::error::This pull request empties translations that exist on ${{ github.base_ref }}. If that is intended, add the label 'translations-removed-on-purpose' and say why in the description."
+          echo "::error::This pull request empties translations that exist on ${{ github.base_ref }}, or drops a mail template the source still sends. If that is intended, add the label 'translations-removed-on-purpose' and say why in the description."
           exit 1

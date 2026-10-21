@@ -10,6 +10,13 @@
  * Only strings the change keeps are compared: a msgid the templates dropped is not a
  * loss, it is gone. Likewise a locale that is added or removed whole.
  *
+ * The mail templates are compared the same way, and for the same reason. Crowdin
+ * writes each entry's fk_i_page_id from the file already on its own branch and takes
+ * only the length from the source, so one file out of step costs a whole template:
+ * #59 and #60 both deleted email_warn_expiration from 30 locales and handed its body
+ * to email_new_admin. Nothing caught either one -- the files parsed, no .po string was
+ * emptied, and this script did not read mail.json at all.
+ *
  * Usage: node scripts/diff-translations.mjs <before ref> [after ref]   (after: working tree)
  *        --max-blanked N   how many emptied strings to tolerate (default 25)
  *        --json            machine-readable summary
@@ -44,7 +51,52 @@ const filled = (e) => (e?.msgstr || []).some((s) => s !== '');
 const locales = readdirSync("src/translations")
     .filter((l) => !l.startsWith('en_'));
 
-const report = { blanked: [], formsLost: [], added: 0, changed: 0, ruleChanged: new Set() };
+const report = {
+    blanked: [], formsLost: [], added: 0, changed: 0, ruleChanged: new Set(),
+    mailLost: [], mailStale: [],
+};
+
+const mailOf = (ref, path) => {
+    const raw = ref ? show(ref, path) : (existsSync(path) ? execFileSync('cat', [path]) : null);
+    if (!raw) return null;
+    try { return new Map(JSON.parse(raw).template.map((t) => [t.fk_i_page_id, t])); }
+    catch { return null; }
+};
+
+// Which mail templates the source knows about, and so what counts as a loss: one the
+// source dropped is gone, not lost, and one it still has must survive.
+//
+// Both sides count. A Crowdin branch never updates src/templates, so judging by its
+// copy alone would read every template added since the branch opened as one the source
+// had dropped -- #60 carried email_listing_unpaid_reminder and would have been accused
+// of taking it back.
+const mailSource = (() => {
+    const path = 'src/templates/mail.json';
+    const ids = new Set();
+    for (const ref of [BEFORE, AFTER]) {
+        for (const id of mailOf(ref, path)?.keys() || []) ids.add(id);
+    }
+    return ids.size ? ids : null;
+})();
+
+for (const locale of mailSource ? locales : []) {
+    const path = `src/translations/${locale}/mail.json`;
+    const before = mailOf(BEFORE, path);
+    const after = mailOf(AFTER, path);
+    if (!before || !after) continue;
+
+    for (const [id, entry] of before) {
+        if (after.has(id) || !mailSource.has(id)) continue;
+        report.mailLost.push(`${locale}: template ${id} (${entry.s_internal_name})`);
+    }
+    // An entry the source dropped is what puts the rest out of step, so a change that
+    // brings one back is named here as well: on its own it reads as harmless padding,
+    // and one export later it is a deleted template.
+    for (const [id, entry] of after) {
+        if (mailSource.has(id) || before.has(id)) continue;
+        report.mailStale.push(`${locale}: template ${id} (${entry.s_internal_name}) is back, the source dropped it`);
+    }
+}
 
 for (const locale of locales) {
     for (const domain of DOMAINS) {
@@ -96,9 +148,10 @@ if (asJson) {
         blanked: report.blanked.length, formsLost: report.formsLost.length,
         added: report.added, changed: report.changed,
         ruleChanged: [...report.ruleChanged],
+        mailLost: report.mailLost.length, mailStale: report.mailStale.length,
     }));
 } else {
-    console.log(`added ${report.added} · changed ${report.changed} · blanked ${report.blanked.length} · plural forms lost ${report.formsLost.length}`);
+    console.log(`added ${report.added} · changed ${report.changed} · blanked ${report.blanked.length} · plural forms lost ${report.formsLost.length} · mail templates lost ${report.mailLost.length}`);
     if (report.ruleChanged.size) {
         console.log(`  plural rule changed, forms not compared: ${[...report.ruleChanged].join(', ')}`);
     }
@@ -106,9 +159,15 @@ if (asJson) {
     if (report.blanked.length > 15) console.log(`  … and ${report.blanked.length - 15} more`);
     for (const line of report.formsLost.slice(0, 15)) console.log(`  form     ${line}`);
     if (report.formsLost.length > 15) console.log(`  … and ${report.formsLost.length - 15} more`);
+    for (const line of report.mailLost.slice(0, 15)) console.log(`  mail     ${line}`);
+    if (report.mailLost.length > 15) console.log(`  … and ${report.mailLost.length - 15} more`);
+    for (const line of report.mailStale.slice(0, 5)) console.log(`  mail     ${line}`);
+    if (report.mailStale.length > 5) console.log(`  … and ${report.mailStale.length - 5} more`);
 }
 
 // A translator clearing a handful of bad strings is ordinary work; a wipe is not, and a
-// half-empty plural entry is never intended.
-const bad = report.blanked.length > MAX_BLANKED || report.formsLost.length > 0;
+// half-empty plural entry is never intended. Neither is losing a mail template the
+// source still sends, or taking back one it dropped.
+const bad = report.blanked.length > MAX_BLANKED || report.formsLost.length > 0
+    || report.mailLost.length > 0 || report.mailStale.length > 0;
 process.exit(bad ? 1 : 0);

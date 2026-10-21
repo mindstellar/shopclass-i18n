@@ -27,6 +27,21 @@ files:
         he: he_HE
         ja: ja_JA
         uk: uk_UK
+    # Only these three. fk_i_page_id and s_internal_name name the mail to the sender
+    # and must come from the source -- translated, they drift: Crowdin held "8" as the
+    # German for the id "9" and wrote that label onto template 9's body, which is how
+    # #59, #60 and #61 each deleted email_warn_expiration from 30 locales.
+    #
+    # $.language belongs here even though it is not prose. Each locale's
+    # "language": "de_DE" is a stored translation of the source "en_US"; drop it and
+    # every exported file says en_US, which npm run check refuses on all 30 locales.
+    #
+    # The GitHub integration does not read this list. It created the file on
+    # 2026-09-16 with every field translatable -- 89 strings where there should be 45 --
+    # and a CLI upload of the source does not correct it. Fixing an already-imported
+    # file means patching its import options over the API; this list is what to patch
+    # it to, and what the CLI uses for a file it creates itself.
     translatable_elements:
+      - '$.language'
       - '$.template[*].s_title'
       - '$.template[*].s_description'

@@ -10,7 +10,7 @@
  */
 import { readdir, readFile } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
-import { htmlProblems, readPo } from './lib.mjs';
+import { htmlProblems, placeholderProblems, readPo } from './lib.mjs';
 
 const TRANS = 'src/translations';
 const REQUIRED = ['locale.json', 'mail.json', 'core.po', 'messages.po', 'theme.po'];
@@ -101,6 +101,30 @@ for (const locale of locales) {
         }
         if (wrong) fail(locale, `${domain}.po has ${wrong} plural entr${wrong === 1 ? 'y' : 'ies'} without ${n} form(s)`);
         if (blank) warn(locale, `${domain}.po has ${blank} plural entr${blank === 1 ? 'y' : 'ies'} with some forms still empty`);
+
+        // Shopclass hands these strings to sprintf. A translation asking for more
+        // arguments than its source throws ArgumentCountError on PHP 8 and takes the
+        // page down in that locale alone, so it blocks; one asking for fewer only
+        // reads badly, so it is reported. Machine translation is what made this worth
+        // checking: it rewrote "%%" as "٪٪" and as "% " -- the second of which reads
+        // as %d to sprintf -- and Crowdin's own variables check saw nothing wrong.
+        const over = [], under = [];
+        for (const group of Object.values(cat.translations)) {
+            for (const [msgid, e] of Object.entries(group)) {
+                if (!msgid) continue;
+                for (const [i, str] of (e.msgstr || []).entries()) {
+                    if (!str) continue;
+                    const sources = e.msgid_plural ? [msgid, e.msgid_plural] : [msgid];
+                    for (const problem of placeholderProblems(sources, str)) {
+                        (problem.severity === 'fail' ? over : under)
+                            .push(`"${msgid.slice(0, 48)}" ${problem.detail}`);
+                    }
+                }
+            }
+        }
+        for (const line of over.slice(0, 5)) fail(locale, `${domain}.po ${line}`);
+        if (over.length > 5) fail(locale, `${domain}.po and ${over.length - 5} more like it`);
+        if (under.length) warn(locale, `${domain}.po drops a placeholder in ${under.length} string(s), e.g. ${under[0]}`);
     }
 
     if (!existsSync(`${dir}/mail.json`)) continue;

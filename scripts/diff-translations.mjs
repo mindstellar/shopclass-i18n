@@ -17,6 +17,12 @@
  * to email_new_admin. Nothing caught either one -- the files parsed, no .po string was
  * emptied, and this script did not read mail.json at all.
  *
+ * A format specifier is checked the same way. "%%" means one literal percent and takes
+ * no argument; machine translation rewrote it as a single "% " in four locales, which
+ * sprintf reads as a conversion and PHP 8 answers with a fatal ArgumentCountError --
+ * visible only to that locale's users. Only newly broken strings count: nine were
+ * already here, written by hand, before anything checked.
+ *
  * Usage: node scripts/diff-translations.mjs <before ref> [after ref]   (after: working tree)
  *        --max-blanked N   how many emptied strings to tolerate (default 25)
  *        --json            machine-readable summary
@@ -24,7 +30,7 @@
 import { execFileSync } from 'node:child_process';
 import { readdirSync, existsSync } from 'node:fs';
 import gettextParser from 'gettext-parser';
-import { DOMAINS, readPo, withUtf8Header } from './lib.mjs';
+import { DOMAINS, placeholderProblems, readPo, withUtf8Header } from './lib.mjs';
 
 const argv = process.argv.slice(2);
 const flag = (n, d) => { const i = argv.indexOf(n); return i > -1 ? argv[i + 1] : d; };
@@ -53,7 +59,7 @@ const locales = readdirSync("src/translations")
 
 const report = {
     blanked: [], formsLost: [], added: 0, changed: 0, ruleChanged: new Set(),
-    mailLost: [], mailStale: [],
+    mailLost: [], mailStale: [], placeholders: [],
 };
 
 const mailOf = (ref, path) => {
@@ -98,6 +104,27 @@ for (const locale of mailSource ? locales : []) {
     }
 }
 
+// A translation that asks sprintf for more arguments than its source is a fatal
+// ArgumentCountError on PHP 8, in that locale alone. npm run check blocks it, but the
+// pull request guard runs on its own, so it is counted here too -- and only when the
+// change introduces it, because nine such strings were already in the repo before
+// anything looked. Machine translation is what made it urgent: it rewrote "%%" as a
+// single "% " in four locales, which sprintf then reads as a conversion.
+function checkPlaceholders(locale, domain, msgid, was, now) {
+    const sources = now.msgid_plural ? [msgid, now.msgid_plural] : [msgid];
+    const fails = (entry) => new Set((entry?.msgstr || []).flatMap((str) => str
+        ? placeholderProblems(sources, str).filter((p) => p.severity === 'fail').map((p) => p.code)
+        : []));
+    const had = fails(was);
+    const said = (code) => code === 'lost:%%'
+        ? 'dropped a %% escape, so the bare % reads as a conversion'
+        : code.startsWith('extra:') ? `gained an extra ${code.slice(6)}` : code;
+    for (const code of fails(now)) {
+        if (had.has(code)) continue;
+        report.placeholders.push(`${locale}/${domain}: ${JSON.stringify(msgid).slice(0, 50)} ${said(code)}`);
+    }
+}
+
 for (const locale of locales) {
     for (const domain of DOMAINS) {
         const path = `src/translations/${locale}/${domain}.po`;
@@ -124,8 +151,9 @@ for (const locale of locales) {
                     report.blanked.push(`${locale}/${domain}: ${JSON.stringify(msgid).slice(0, 60)}`);
                     continue;
                 }
-                if (!filled(was) && filled(now)) { report.added++; continue; }
+                if (!filled(was) && filled(now)) { report.added++; checkPlaceholders(locale, domain, msgid, was, now); continue; }
                 if (!filled(was)) continue;
+                checkPlaceholders(locale, domain, msgid, was, now);
 
                 // A plural entry that keeps some forms and loses others renders an empty
                 // string for the counts that hit the lost form -- not even English.
@@ -149,9 +177,10 @@ if (asJson) {
         added: report.added, changed: report.changed,
         ruleChanged: [...report.ruleChanged],
         mailLost: report.mailLost.length, mailStale: report.mailStale.length,
+        placeholders: report.placeholders.length,
     }));
 } else {
-    console.log(`added ${report.added} · changed ${report.changed} · blanked ${report.blanked.length} · plural forms lost ${report.formsLost.length} · mail templates lost ${report.mailLost.length}`);
+    console.log(`added ${report.added} · changed ${report.changed} · blanked ${report.blanked.length} · plural forms lost ${report.formsLost.length} · mail templates lost ${report.mailLost.length} · placeholders broken ${report.placeholders.length}`);
     if (report.ruleChanged.size) {
         console.log(`  plural rule changed, forms not compared: ${[...report.ruleChanged].join(', ')}`);
     }
@@ -163,11 +192,14 @@ if (asJson) {
     if (report.mailLost.length > 15) console.log(`  … and ${report.mailLost.length - 15} more`);
     for (const line of report.mailStale.slice(0, 5)) console.log(`  mail     ${line}`);
     if (report.mailStale.length > 5) console.log(`  … and ${report.mailStale.length - 5} more`);
+    for (const line of report.placeholders.slice(0, 15)) console.log(`  format   ${line}`);
+    if (report.placeholders.length > 15) console.log(`  … and ${report.placeholders.length - 15} more`);
 }
 
 // A translator clearing a handful of bad strings is ordinary work; a wipe is not, and a
 // half-empty plural entry is never intended. Neither is losing a mail template the
 // source still sends, or taking back one it dropped.
 const bad = report.blanked.length > MAX_BLANKED || report.formsLost.length > 0
-    || report.mailLost.length > 0 || report.mailStale.length > 0;
+    || report.mailLost.length > 0 || report.mailStale.length > 0
+    || report.placeholders.length > 0;
 process.exit(bad ? 1 : 0);

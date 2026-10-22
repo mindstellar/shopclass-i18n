@@ -1,5 +1,5 @@
-# Refuses a pull request that empties translations already here, or drops a mail
-# template the source still sends.
+# Refuses a pull request that empties translations already here, drops a mail template
+# the source still sends, or breaks a printf placeholder.
 #
 # Crowdin's first pull request (#46) emptied 1,746 of them and left twelve plural
 # entries with a blank singular -- for a count of 1 a site would have rendered nothing,
@@ -9,7 +9,10 @@
 #   - strings the templates dropped, and locales added or removed whole;
 #   - a plural entry resized because the locale's rule changed;
 #   - a translator clearing up to 25 bad strings by hand.
-# A larger wipe, or a plural entry losing a form under an unchanged rule, fails.
+# A larger wipe, or a plural entry losing a form under an unchanged rule, fails. So
+# does a translation that asks sprintf for an argument its source does not have, or
+# that drops a "%%" escape and leaves a bare percent against the next letter: PHP 8
+# answers either with a fatal error, in that one locale, where nobody is looking.
 # For a removal that is genuinely intended, add the label below and say why.
 #
 # Crowdin's own pull requests raise no pull_request event at all, so they are swept by
@@ -68,5 +71,5 @@ jobs:
               echo "::warning::This pull request empties translations; allowed by the translations-removed-on-purpose label."
               exit 0 ;;
           esac
-          echo "::error::This pull request empties translations that exist on ${{ github.base_ref }}, or drops a mail template the source still sends. If that is intended, add the label 'translations-removed-on-purpose' and say why in the description."
+          echo "::error::This pull request empties translations that exist on ${{ github.base_ref }}, drops a mail template the source still sends, or breaks a printf placeholder. See the step summary for which. A broken placeholder is a crash and the label does not excuse it; for an intended removal, add 'translations-removed-on-purpose' and say why in the description."
           exit 1

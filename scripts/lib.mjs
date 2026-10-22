@@ -191,6 +191,96 @@ export function htmlProblems(html) {
 }
 
 /**
+ * Every substitution a string asks the caller to fill in.
+ *
+ * printf is counted by conversion, not by text: "%1$s" and "%s" both yield "s", and
+ * "%%" yields a literal percent that takes no argument. Braces are counted too,
+ * because the mailer and the JavaScript use {PLACEHOLDER} and {0} instead.
+ *
+ * Only PHP's own conversion letters count, and the space flag is not honoured. Both
+ * narrowings are there to keep prose out of the result: "It covers at most 40% of a
+ * photo" would otherwise read as a %o, and each locale renders that percent followed
+ * by its own word -- "40% der", "40% van" -- so 11 locales looked like they had each
+ * invented a different conversion. The same narrowing drops "%S" and "% z", which are
+ * not conversions PHP knows; losing the real "%s" beside them is still counted.
+ *
+ * Returned sorted, so two strings compare as multisets -- order is a translator's
+ * choice and "%1$s in %2$s" may legitimately become "in %2$s: %1$s".
+ */
+const SPEC = /%(%)|%(?:\d+\$)?[-+0#']*\d*(?:\.\d+)?([bcdeEfFgGosuxX])|(\{[A-Za-z_][A-Za-z0-9_]*\}|\{\d+\})/g;
+
+export function placeholders(text) {
+    const found = [];
+    for (const [, literal, conv, brace] of String(text ?? '').matchAll(SPEC)) {
+        found.push(literal ? '%%' : brace || conv);
+    }
+    return found.sort();
+}
+
+/**
+ * What a translation got wrong about its placeholders.
+ *
+ * Shopclass calls sprintf on these. A translation that asks for MORE arguments than
+ * the source is a fatal ArgumentCountError on PHP 8 -- the page dies, in that locale
+ * only, which is the hardest kind of bug to see from here. One that asks for FEWER
+ * is merely wrong: the value is dropped and the sentence reads oddly.
+ *
+ * "%%" is its own trap. It means one literal percent and consumes no argument, so a
+ * machine translator that renders it as "٪٪" or drops one of the two signs turns the
+ * rest of the string into conversions that were never meant to be read that way.
+ * Crowdin's "variables" QA check does not look at it. Four machine translations
+ * broke exactly this before anything here noticed.
+ *
+ * `sources` may be several strings, and then anything between the smallest and the
+ * largest of their counts passes. A plural entry needs that: with nplurals=1 the
+ * single form covers every count, so Thai renders "One location has been deleted"
+ * from the plural msgid and must keep its %s -- while a three-form language uses
+ * form 0 for 1, 21 and 31 and may keep or drop it. Judging each form against one
+ * msgid alone called all of that broken.
+ *
+ * Returns a list of { code, severity, detail }.
+ */
+export function placeholderProblems(sources, msgstr) {
+    const count = (list) => list.reduce((m, k) => m.set(k, (m.get(k) || 0) + 1), new Map());
+    const counts = (Array.isArray(sources) ? sources : [sources])
+        .filter((t) => t !== undefined && t !== null && t !== '')
+        .map((t) => count(placeholders(t)));
+    if (!counts.length) return [];
+    const got = count(placeholders(msgstr));
+
+    const keys = new Set(counts.flatMap((c) => [...c.keys()]).concat([...got.keys()]));
+    const problems = [];
+    for (const key of keys) {
+        const have = got.get(key) || 0;
+        const wanted = counts.map((c) => c.get(key) || 0);
+        const most = Math.max(...wanted), least = Math.min(...wanted);
+        if (have >= least && have <= most) continue;
+        const name = key.startsWith('{') ? key : `%${key === '%%' ? '%' : key}`;
+        const range = least === most ? `${least}` : `${least} to ${most}`;
+        // A brace token is substituted by name, so an invented one is never filled and
+        // ships as literal text. A printf conversion is positional, so one too many is
+        // a fatal ArgumentCountError instead.
+        const why = key.startsWith('{')
+            ? 'nothing fills it, so it ships as text'
+            : 'sprintf will throw';
+        if (have > most) {
+            problems.push({ code: `extra:${key}`, severity: 'fail',
+                detail: `has ${have} ${name} where the source has ${range} -- ${why}` });
+            continue;
+        }
+        // Dropping a "%%" is the one loss that is not cosmetic. It means one literal
+        // percent, so what is left is a bare "%" against the next letter, and sprintf
+        // reads that as a conversion nobody passed an argument for.
+        problems.push(key === '%%'
+            ? { code: 'lost:%%', severity: 'fail',
+                detail: `has ${have} %% where the source has ${range} -- the bare % left behind reads as a conversion` }
+            : { code: `lost:${key}`, severity: 'warn',
+                detail: `has ${have} ${name} where the source has ${range}` });
+    }
+    return problems;
+}
+
+/**
  * Carry a locale's mail wording onto the current template list.
  *
  * The same rule the catalogues follow: the template decides which templates exist,

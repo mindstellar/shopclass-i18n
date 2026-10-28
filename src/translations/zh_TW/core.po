@@ -145,8 +145,9 @@ msgid "%1$s of %2$s selected"
 msgstr ""
 
 #: oc-admin/themes/modern/billing/index.php
-msgid "%1$s orders · %2$s paid · %3$s awaiting payment"
-msgstr "%1$s 筆訂單 · %2$s 筆已付款 · %3$s 筆待付款"
+msgid "%1$s order · %2$s paid · %3$s awaiting payment"
+msgid_plural "%1$s orders · %2$s paid · %3$s awaiting payment"
+msgstr[0] ""
 
 #: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "%1$s per file · %2$s per request"
@@ -411,6 +412,10 @@ msgid "%d time"
 msgid_plural "%d times"
 msgstr[0] ""
 
+#: oc-admin/themes/modern/items/frm.php
+msgid "%d to fix"
+msgstr ""
+
 #: oc-includes/osclass/classes/job/JobWorker.php
 msgid "%d to retry"
 msgstr "%d 重新嘗試"
@@ -420,7 +425,6 @@ msgid "%d try"
 msgid_plural "%d tries"
 msgstr[0] ""
 
-#: oc-admin/themes/modern/parts/ui.php
 #: oc-includes/osclass/helpers/hAdminUi.php
 msgid "%d unsaved changes"
 msgstr "%d 未儲存的變更"
@@ -611,6 +615,11 @@ msgstr "%s 必須是整數"
 msgid "%s needs these plugins"
 msgstr ""
 
+#: oc-admin/themes/modern/billing/index.php
+msgid "%s order"
+msgid_plural "%s orders"
+msgstr[0] ""
+
 #: oc-admin/themes/modern/settings/locations/form.php
 #: oc-admin/themes/modern/settings/locations/list.php
 #: oc-admin/themes/modern/settings/locations/preview.php
@@ -659,6 +668,10 @@ msgstr "（例如 192.168.10-20.*）"
 msgid "(no values)"
 msgstr "（無值）"
 
+#: oc-admin/themes/modern/settings/locations/form.php
+msgid "(site default)"
+msgstr ""
+
 #: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "/api/ belongs to the site's API, so these static pages or categories cannot be reached. Give them another slug: %s"
 msgstr ""
@@ -703,7 +716,6 @@ msgstr ""
 msgid "1 thing needs fixing before this can be saved."
 msgstr "有一件事需要先解決，才能拯救這個。"
 
-#: oc-admin/themes/modern/parts/ui.php
 #: oc-includes/osclass/helpers/hAdminUi.php
 msgid "1 unsaved change"
 msgstr "1 個未儲存的變更"
@@ -794,6 +806,10 @@ msgstr ""
 
 #: oc-includes/osclass/classes/mail/CoreEmails.php
 msgid "<p>Hi {USER_NAME},</p><p>Your order {ORDER_NUMBER} from {WEB_TITLE} was cancelled. If you paid for it, you are not charged: any amount taken is returned to you.</p>{ORDER_LINES}<p>{ORDER_LINK}</p>"
+msgstr ""
+
+#: oc-includes/osclass/classes/mail/CoreEmails.php
+msgid "<p>Hi {USER_NAME},</p><p>Your order {ORDER_NUMBER} from {WEB_TITLE} was cancelled. Your listing stays on hold until the fee is paid.</p>{ORDER_LINES}<p>{ORDER_LINK}</p>"
 msgstr ""
 
 #: oc-includes/osclass/classes/mail/CoreEmails.php
@@ -901,11 +917,7 @@ msgstr ""
 msgid "A link needs a label and an address."
 msgstr ""
 
-#: oc-includes/osclass/classes/menu/MenuItems.php
-msgid "A link needs a label."
-msgstr ""
-
-#: oc-includes/osclass/classes/menu/MenuItems.php
+#: oc-admin/themes/modern/appearance/menus.php
 msgid "A link needs an address that starts with http://, https:// or /."
 msgstr ""
 
@@ -938,6 +950,14 @@ msgstr ""
 msgid "A menu with that id already exists."
 msgstr ""
 
+#: oc-admin/themes/modern/items/frm.php
+msgid "A name the Shipping plugin groups items by, such as bulky."
+msgstr ""
+
+#: oc-includes/osclass/classes/admin/ajax/CategoryAjax.php
+msgid "A new category has been added"
+msgstr ""
+
 #: oc-includes/osclass/classes/admin/form/CommentSettingsScreen.php
 msgid "A new comment is posted"
 msgstr "發佈新評論"
@@ -959,7 +979,7 @@ msgid "A plugin the Aisle theme needs is missing, so the site stays a classified
 msgstr ""
 
 #: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
-msgid "A price of 0 makes extra slots free."
+msgid "A price of 0 makes extra places free."
 msgstr ""
 
 #: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
@@ -1012,7 +1032,7 @@ msgid "A security fix for the version you run (6.4.0 to 6.4.1) is installed at n
 msgstr "你執行的版本（6.4.0 到 6.4.1）的安全修補會在晚上安裝，當它使用滿一天後，聯絡信箱會被告知使用情況。預設是關閉的。"
 
 #: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
-msgid "A seller over the limit writes the listing first and pays for the slot on the last step. Off, they are sent to buy a slot before they can post."
+msgid "A seller over the limit writes the listing first and pays for the extra place on the last step. Off, they are sent to buy one before they can post."
 msgstr ""
 
 #: oc-includes/osclass/classes/menu/MenuService.php
@@ -1193,6 +1213,7 @@ msgstr "活動日誌"
 
 #: oc-admin/themes/modern/appearance/menus.php
 #: oc-admin/themes/modern/comments/frm.php
+#: oc-admin/themes/modern/fields/index.php
 #: oc-admin/themes/modern/settings/currencies.php
 #: oc-admin/themes/modern/settings/currency_form.php
 #: oc-admin/themes/modern/users/index.php
@@ -1233,6 +1254,7 @@ msgstr "新增管理員"
 msgid "Add ban rule"
 msgstr ""
 
+#: oc-admin/themes/modern/categories/iframe.php
 #: oc-admin/themes/modern/categories/index.php
 msgid "Add category"
 msgstr "新增分類"
@@ -1328,6 +1350,11 @@ msgstr "新增照片"
 #: oc-admin/themes/modern/plugins/index.php
 msgid "Add plugin"
 msgstr "添加外掛程式"
+
+#: oc-admin/themes/modern/items/frm.php
+#: oc-admin/themes/modern/items/index.php
+msgid "Add product"
+msgstr ""
 
 #: oc-admin/themes/modern/settings/locations/form.php
 #: oc-admin/themes/modern/settings/locations/list.php
@@ -1778,7 +1805,11 @@ msgid "An order records one attempt to pay. Shopclass stores what was bought and
 msgstr "訂單記錄了一次付款嘗試。Shopclass 會儲存購買的內容以及 "
 
 #: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
-msgid "An unpaid order is cancelled after this many days. A bank transfer or cash on delivery order's stock goes back on sale. A listing waiting for payment is deleted after the same number of days; the seller is reminded a day before."
+msgid "An unpaid bank transfer or cash on delivery order is cancelled after this many days, and its stock goes back on sale."
+msgstr ""
+
+#: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
+msgid "An unpaid order is cancelled after this many days. A listing waiting for payment is deleted after the same number of days; the seller is reminded a day before."
 msgstr ""
 
 #: oc-admin/themes/modern/plugins/index.php
@@ -2181,6 +2212,10 @@ msgstr "回到頁面"
 #: oc-admin/themes/modern/plugins/add.php
 msgid "Back to plugins"
 msgstr "回到插件"
+
+#: oc-admin/themes/modern/items/frm.php
+msgid "Back to products"
+msgstr ""
 
 #: oc-admin/gui/two_factor.php
 msgid "Back to the sign-in page"
@@ -2603,7 +2638,7 @@ msgid "Buyer"
 msgstr ""
 
 #: oc-admin/themes/modern/items/frm.php
-msgid "Buyers can add this item to a cart"
+msgid "Buyers can add this product to a cart."
 msgstr ""
 
 #: oc-includes/osclass/classes/controller/admin/CAdminPlugins.php
@@ -2674,6 +2709,7 @@ msgstr "無法寫入 config.php。請確認是否提供寫入權限。"
 #: oc-admin/themes/modern/fields/iframe.php
 #: oc-admin/themes/modern/fields/index.php
 #: oc-admin/themes/modern/fields/submissions.php
+#: oc-admin/themes/modern/items/frm.php
 #: oc-admin/themes/modern/languages/index.php
 #: oc-admin/themes/modern/parts/media-picker.php
 #: oc-admin/themes/modern/parts/ui.php
@@ -2741,6 +2777,7 @@ msgstr ""
 
 #: oc-admin/themes/modern/settings/spamNbots.php
 #: oc-includes/osclass/classes/admin/form/SpamSettingsScreen.php
+#: oc-includes/osclass/helpers/hAdminUi.php
 msgid "Captcha"
 msgstr "驗證碼"
 
@@ -3037,6 +3074,7 @@ msgid "Choose an option"
 msgstr "選擇選項"
 
 #: oc-admin/themes/modern/functions.php
+#: oc-includes/osclass/classes/admin/ui/Field.php
 msgid "Choose image"
 msgstr "選擇圖片"
 
@@ -3223,6 +3261,10 @@ msgid "Close"
 msgstr "關閉"
 
 #: oc-admin/themes/modern/billing/order.php
+msgid "Close an order that will not be paid."
+msgstr ""
+
+#: oc-admin/themes/modern/billing/order.php
 msgid "Close an order that will not be paid. Stock held for it goes back on sale."
 msgstr ""
 
@@ -3315,6 +3357,10 @@ msgid "Comment Statistics"
 msgstr "評論統計"
 
 #: oc-includes/osclass/classes/EmailVariables.php
+msgid "Comment approved"
+msgstr ""
+
+#: oc-includes/osclass/classes/EmailVariables.php
 msgid "Comment author email"
 msgstr "評論作者電子郵件"
 
@@ -3394,6 +3440,10 @@ msgstr ""
 msgid "Company"
 msgstr "公司"
 
+#: oc-admin/themes/modern/items/frm.php
+msgid "Compare-at price"
+msgstr ""
+
 #: oc-admin/themes/modern/parts/market.php
 msgid "Compatibility"
 msgstr "相容性"
@@ -3418,6 +3468,7 @@ msgstr ""
 msgid "Computers"
 msgstr ""
 
+#: oc-admin/themes/modern/fields/iframe.php
 #: oc-includes/osclass/installer/data/fields-classifieds.php
 msgid "Condition"
 msgstr ""
@@ -3438,9 +3489,29 @@ msgstr "為廣告清單圖片設定相容於 S3 的物件儲存。開啟後，�
 msgid "Configure the XML sitemap: how many URLs go in each file, which extra location pages to "
 msgstr "設定 XML 網站地圖：每個檔案包含多少個 URL、要將哪些額外的位置頁面 "
 
+#: oc-includes/osclass/classes/EmailVariables.php
+msgid "Confirm a new e-mail address"
+msgstr ""
+
+#: oc-includes/osclass/classes/EmailVariables.php
+msgid "Confirm a new listing"
+msgstr ""
+
+#: oc-includes/osclass/classes/EmailVariables.php
+msgid "Confirm a new listing, guest"
+msgstr ""
+
+#: oc-includes/osclass/classes/EmailVariables.php
+msgid "Confirm a search alert"
+msgstr ""
+
 #: oc-includes/osclass/classes/admin/form/AdminAccountForm.php
 msgid "Confirm new password"
 msgstr "確認新密碼"
+
+#: oc-includes/osclass/classes/EmailVariables.php
+msgid "Confirm your account"
+msgstr ""
 
 #: oc-includes/osclass/classes/security/MessageHold.php
 msgid "Confirm your message on %s"
@@ -4488,6 +4559,7 @@ msgstr ""
 msgid "Desktop"
 msgstr ""
 
+#: oc-admin/themes/modern/items/frm.php
 #: oc-admin/themes/modern/parts/market.php
 #: oc-admin/themes/modern/parts/package-ui.php
 #: oc-admin/themes/modern/settings/locations/form.php
@@ -4782,6 +4854,10 @@ msgstr "留在本地磁碟上的每張圖片都會排入佇列，以上傳至使
 msgid "Each one adjusts from 2 to 20 kg. Space saving and easy to change."
 msgstr ""
 
+#: oc-admin/themes/modern/items/frm.php
+msgid "Each option row below has its own SKU, price, compare-at price and stock. A row with no price sells at this price."
+msgstr ""
+
 #: oc-admin/themes/modern/settings/storage.php
 msgid "Each remote image is queued for download and switched back to local storage. "
 msgstr "每張遠端圖片都會排入下載佇列，並切換回本地儲存。 "
@@ -4879,6 +4955,10 @@ msgstr "編輯清單"
 msgid "Edit page"
 msgstr "編輯頁面"
 
+#: oc-admin/themes/modern/items/frm.php
+msgid "Edit product"
+msgstr ""
+
 #: oc-admin/themes/modern/parts/header.php
 msgid "Edit profile"
 msgstr "編輯個人檔案"
@@ -4890,6 +4970,10 @@ msgstr "編輯區域"
 #: oc-includes/osclass/classes/admin/form/BanRuleForm.php
 msgid "Edit rule"
 msgstr "管理規則"
+
+#: oc-admin/themes/modern/billing/order.php
+msgid "Edit tracking"
+msgstr ""
 
 #: oc-admin/themes/modern/billing/wallet.php
 #: oc-admin/themes/modern/comments/frm.php
@@ -5303,8 +5387,8 @@ msgid "Extra photos"
 msgstr "額外照片"
 
 #: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
-msgid "Extra slots"
-msgstr "額外名額"
+msgid "Extra places"
+msgstr ""
 
 #: oc-includes/osclass/installer/data/sample-shop.php
 msgid "Face serum"
@@ -5389,13 +5473,21 @@ msgstr ""
 msgid "Field"
 msgstr "欄位"
 
-#: oc-admin/themes/modern/fields/index.php
+#: oc-includes/osclass/classes/admin/ajax/FieldAjax.php
 msgid "Field could not be added"
 msgstr "無法新增欄位"
+
+#: oc-admin/themes/modern/fields/iframe.php
+msgid "Field to check"
+msgstr ""
 
 #: oc-admin/themes/modern/fields/index.php
 msgid "Fields"
 msgstr "欄位"
+
+#: oc-admin/themes/modern/items/frm.php
+msgid "Fields for this category"
+msgstr ""
 
 #: oc-includes/osclass/installer/data/sample-shop.php
 msgid "Fifty natural wood blocks in a cotton bag. Smooth edges and safe finishes."
@@ -5454,6 +5546,18 @@ msgstr ""
 #: oc-includes/osclass/install-functions.php
 msgid "Fill in the host, database name and username first."
 msgstr "請先填寫主機、資料庫名稱和使用者名稱。"
+
+#: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
+msgid "Filled into a product saved without a location. Products already saved keep theirs."
+msgstr ""
+
+#: oc-admin/themes/modern/items/frm.php
+msgid "Filled with your shop e-mail. You can change it."
+msgstr ""
+
+#: oc-admin/themes/modern/items/frm.php
+msgid "Filled with your shop name. You can change it."
+msgstr ""
 
 #: oc-admin/themes/modern/billing/index.php
 #: oc-admin/themes/modern/settings/locations/data.php
@@ -5602,7 +5706,7 @@ msgstr "忘記您的密碼？"
 msgid "Form"
 msgstr "表單"
 
-#: oc-admin/themes/modern/fields/index.php
+#: oc-includes/osclass/classes/admin/ajax/FormBuilderAjax.php
 msgid "Form could not be created"
 msgstr "無法建立表單"
 
@@ -5829,6 +5933,18 @@ msgstr "無需付款即可給予 %s 點數 — 用於站外結算， "
 
 #: oc-admin/themes/modern/items/frm.php
 msgid "Give each option a name and at least one value first."
+msgstr ""
+
+#: oc-admin/themes/modern/fields/index.php
+msgid "Give it a name."
+msgstr ""
+
+#: oc-includes/osclass/classes/admin/ajax/FieldAjax.php
+msgid "Give the field a name."
+msgstr ""
+
+#: oc-includes/osclass/classes/admin/ajax/FormBuilderAjax.php
+msgid "Give the form a name."
 msgstr ""
 
 #: oc-includes/osclass/installer/gui/install.php
@@ -6060,6 +6176,10 @@ msgstr "清單必須等待多久才能再次推頂。"
 #: oc-includes/osclass/classes/admin/form/StorageSettingsScreen.php
 msgid "How long a signed URL stays valid (60-604800)."
 msgstr "簽名網址有效期（60-604800）。"
+
+#: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
+msgid "How long an unpaid order waits before it is cancelled."
+msgstr ""
 
 #: oc-includes/osclass/classes/admin/form/ApiSettingsScreen.php
 msgid "How long browsers and CDNs may keep an anonymous answer."
@@ -6917,6 +7037,10 @@ msgstr "最近清單顯示：這是必填欄位"
 msgid "Latest listings shown: this field must only contain numeric characters"
 msgstr "最近清單顯示：這個欄位只接受數字字元"
 
+#: oc-includes/osclass/classes/admin/form/MainSettingsScreen.php
+msgid "Latest products shown"
+msgstr ""
+
 #: oc-admin/themes/modern/settings/searches.php
 #: oc-includes/osclass/classes/AdminMenu.php
 #: oc-includes/osclass/classes/admin/form/LatestSearchSettingsScreen.php
@@ -6955,6 +7079,10 @@ msgstr "留空以保留目前密碼。"
 #: oc-includes/osclass/classes/admin/form/StorageSettingsScreen.php
 msgid "Leave blank to keep the currently saved secret key"
 msgstr "留空以保留目前儲存的密鑰"
+
+#: oc-admin/themes/modern/items/frm.php
+msgid "Leave empty to sell without counting."
+msgstr ""
 
 #: oc-admin/themes/modern/appearance/menus.php
 msgid "Leave empty to use its own name."
@@ -7031,6 +7159,10 @@ msgstr ""
 #: oc-includes/osclass/installer/data/fields-classifieds.php
 #: oc-includes/osclass/installer/data/sample-classifieds.php
 msgid "Like new"
+msgstr ""
+
+#: oc-admin/themes/modern/items/frm.php
+msgid "Like sizes or colours, each with its own stock."
 msgstr ""
 
 #: oc-admin/themes/modern/settings/spamNbots.php
@@ -7123,6 +7255,10 @@ msgstr "上市統計"
 msgid "Listing URL"
 msgstr "列表網址"
 
+#: oc-includes/osclass/classes/EmailVariables.php
+msgid "Listing about to expire"
+msgstr ""
+
 #: oc-includes/osclass/classes/admin/form/PermalinkSettingsScreen.php
 msgid "Listing actions"
 msgstr "清單操作"
@@ -7193,6 +7329,10 @@ msgid "Listing new"
 msgstr "上市新"
 
 #: oc-includes/osclass/classes/EmailVariables.php
+msgid "Listing posted, guest"
+msgstr ""
+
+#: oc-includes/osclass/classes/EmailVariables.php
 msgid "Listing price"
 msgstr "清單中的價格"
 
@@ -7211,6 +7351,10 @@ msgstr ""
 #: oc-includes/osclass/classes/admin/form/PermalinkSettingsScreen.php
 msgid "Listing send friend"
 msgstr "清單發送好友"
+
+#: oc-includes/osclass/classes/EmailVariables.php
+msgid "Listing sent to a friend"
+msgstr ""
 
 #: oc-admin/themes/modern/main/index.php
 #: oc-includes/osclass/classes/admin/form/CleanupSettingsScreen.php
@@ -7331,7 +7475,7 @@ msgid "Live"
 msgstr "現場演出"
 
 #: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
-msgid "Live listings a seller may have at once. 0 means no limit. Pending listings count; only expiry or deletion frees a slot."
+msgid "Live listings a seller may have at once. 0 means no limit. Pending listings count; only expiry or deletion frees a place."
 msgstr ""
 
 #: oc-includes/osclass/classes/admin/SystemChecks.php
@@ -7650,6 +7794,11 @@ msgstr "管理頁面"
 msgid "Manage plugins"
 msgstr "管理外掛"
 
+#: oc-admin/themes/modern/items/index.php
+#: oc-includes/osclass/classes/AdminMenu.php
+msgid "Manage products"
+msgstr ""
+
 #: oc-admin/themes/modern/comments/index.php
 msgid "Manage the comments that users publish on the listings on your site."
 msgstr "管理使用者在您網站上的清單所發佈的留言。"
@@ -7891,6 +8040,10 @@ msgstr "訊息"
 msgid "Message thread"
 msgstr ""
 
+#: oc-includes/osclass/classes/EmailVariables.php
+msgid "Message to a user"
+msgstr ""
+
 #: oc-includes/osclass/classes/security/MessageHold.php
 msgid "Message waiting for its sender to confirm"
 msgstr ""
@@ -8015,6 +8168,7 @@ msgstr "審核線上留言：這是必填欄位"
 msgid "Moderated comments: this field must only contain numeric characters"
 msgstr "審核線上留言：這個欄位只接受數字字元"
 
+#: oc-admin/themes/modern/comments/frm.php
 #: oc-admin/themes/modern/settings/keywordBlock.php
 msgid "Moderation"
 msgstr "審核"
@@ -8080,7 +8234,7 @@ msgid "Most downloaded"
 msgstr "最多下載"
 
 #: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
-msgid "Most unpaid orders one buyer may hold at once, card orders included. 0 means no limit."
+msgid "Most unpaid bank transfer orders one buyer may hold at once. Cash on delivery and card orders are not limited. 0 means no limit."
 msgstr ""
 
 #: oc-includes/osclass/installer/data/categories-classifieds.php
@@ -8163,15 +8317,12 @@ msgstr "Php 的 Mysqli 擴展"
 msgid "MySQLi extension is required. How to "
 msgstr "需要 MySQLi 擴充功能。如何 "
 
-#: oc-includes/osclass/classes/admin/ajax/FieldAjax.php
-msgid "NEW custom field"
-msgstr "新自訂欄位"
-
 #: oc-admin/themes/modern/admins/index.php
 #: oc-admin/themes/modern/appearance/menus.php
 #: oc-admin/themes/modern/billing/package.php
 #: oc-admin/themes/modern/billing/packages.php
 #: oc-admin/themes/modern/emails/index.php
+#: oc-admin/themes/modern/fields/index.php
 #: oc-admin/themes/modern/items/frm.php
 #: oc-admin/themes/modern/languages/frm.php
 #: oc-admin/themes/modern/languages/index.php
@@ -8214,6 +8365,10 @@ msgstr "名稱從"
 msgid "Name of the friend who wants send"
 msgstr "傳送給朋友，他的名稱是..."
 
+#: oc-admin/themes/modern/items/frm.php
+msgid "Name, category and description"
+msgstr ""
+
 #: oc-includes/osclass/classes/controller/CWebContact.php
 msgid "Name: %s"
 msgstr "姓名：%s"
@@ -8242,6 +8397,10 @@ msgstr "姓名：這是必填欄位"
 #: oc-admin/themes/modern/settings/locations/list.php
 msgid "Names are matched from their first letters."
 msgstr "名字會從首字母開始配對。"
+
+#: oc-admin/themes/modern/settings/locations/form.php
+msgid "Names per language"
+msgstr ""
 
 #: oc-admin/themes/modern/settings/locations/list.php
 msgid "Names starting with"
@@ -8284,13 +8443,10 @@ msgstr ""
 msgid "Needs PHP %s"
 msgstr "需要 PHP %s"
 
-#: oc-includes/osclass/classes/admin/form/KeywordBlockSettingsScreen.php
-msgid "Needs a CAPTCHA provider configured under Settings &raquo; reCAPTCHA/Turnstile; "
-msgstr "需要在設定中設定一個驗證碼提供者 &raquo; reCAPTCHA/閘門; "
-
 #: oc-includes/osclass/classes/admin/form/CommentSettingsScreen.php
-msgid "Needs a CAPTCHA provider configured under Settings &raquo; reCAPTCHA/Turnstile; otherwise no challenge is shown."
-msgstr "需要在 設定 &raquo; reCAPTCHA/Turnstile 下設定 CAPTCHA 提供者；否則不會顯示任何驗證。"
+#: oc-includes/osclass/classes/admin/form/KeywordBlockSettingsScreen.php
+msgid "Needs a CAPTCHA provider configured under %s; otherwise no challenge is shown."
+msgstr ""
 
 #: oc-admin/themes/modern/tools/system-info/database.php
 msgid "Needs a closer look"
@@ -8357,6 +8513,10 @@ msgstr "新地址"
 msgid "New addresses"
 msgstr "新地址"
 
+#: oc-includes/osclass/classes/EmailVariables.php
+msgid "New admin account"
+msgstr ""
+
 #: oc-admin/themes/modern/stats/items.php
 msgid "New alerts"
 msgstr "新警報"
@@ -8364,6 +8524,19 @@ msgstr "新警報"
 #: oc-admin/themes/modern/admins/two_factor.php
 msgid "New backup codes"
 msgstr "新的備用代碼"
+
+#: oc-admin/themes/modern/categories/iframe.php
+#: oc-admin/themes/modern/categories/index.php
+msgid "New category"
+msgstr ""
+
+#: oc-includes/osclass/classes/EmailVariables.php
+msgid "New comment on your listing"
+msgstr ""
+
+#: oc-includes/osclass/classes/EmailVariables.php
+msgid "New comment, to the admin"
+msgstr ""
 
 #: oc-includes/osclass/functions.php
 msgid "New comments"
@@ -8381,10 +8554,6 @@ msgstr "新期限"
 msgid "New field"
 msgstr "新欄位"
 
-#: oc-includes/osclass/classes/admin/ajax/FormBuilderAjax.php
-msgid "New field group"
-msgstr "新欄位群組"
-
 #: oc-admin/themes/modern/fields/index.php
 msgid "New form"
 msgstr "新表單"
@@ -8400,6 +8569,10 @@ msgstr ""
 #: oc-admin/themes/modern/stats/items.php
 msgid "New listing"
 msgstr "新清單"
+
+#: oc-includes/osclass/classes/EmailVariables.php
+msgid "New listing, to the admin"
+msgstr ""
 
 #: oc-includes/osclass/classes/admin/form/ApiSettingsScreen.php
 msgid "New listings, per user"
@@ -8442,6 +8615,10 @@ msgstr "新訂戶"
 #: oc-admin/themes/modern/parts/market.php
 msgid "New themes show up here as they are published. You can also upload one yourself."
 msgstr "新主題會隨著發佈而陸續出現。你也可以自己上傳一個。"
+
+#: oc-includes/osclass/classes/EmailVariables.php
+msgid "New user, to the admin"
+msgstr ""
 
 #: oc-admin/themes/modern/stats/users.php
 msgid "New users"
@@ -8768,6 +8945,10 @@ msgstr ""
 msgid "No setting matches."
 msgstr ""
 
+#: oc-admin/themes/modern/items/frm.php
+msgid "No shipping. Products in a digital category are delivered as downloads."
+msgstr ""
+
 #: oc-admin/themes/modern/functions.php
 msgid "No subcategory"
 msgstr "沒有子分類"
@@ -8895,6 +9076,10 @@ msgstr ""
 #: oc-includes/osclass/classes/backup/Builder.php
 msgid "Not enough space on the server: needs about %1$s, %2$s free. Nothing was saved."
 msgstr "伺服器空間不足：需求約 %1$s, %2$s 自由。什麼都沒被救回來。"
+
+#: oc-admin/themes/modern/items/frm.php
+msgid "Not for sale online. Buyers see the price and contact you."
+msgstr ""
 
 #: oc-admin/themes/modern/appearance/dependencies.php
 msgid "Not in the market"
@@ -9160,10 +9345,6 @@ msgstr "將所有本機圖片卸載至遠端儲存空間"
 msgid "Old price"
 msgstr ""
 
-#: oc-admin/themes/modern/items/frm.php
-msgid "Old price, shown crossed out (blank: no sale)"
-msgstr ""
-
 #: oc-admin/themes/modern/messages/index.php
 msgid "Older"
 msgstr ""
@@ -9181,6 +9362,10 @@ msgstr "關於"
 msgid "On a match"
 msgstr "比對相符時"
 
+#: oc-admin/themes/modern/items/frm.php
+msgid "On this page"
+msgstr ""
+
 #: oc-admin/themes/modern/tools/backup.php
 msgid "One backup at a time."
 msgstr "一次一個備份。"
@@ -9192,10 +9377,6 @@ msgstr "一次只備用一個。等那個跑完。"
 #: oc-includes/osclass/classes/admin/form/LatestSearchSettingsScreen.php
 msgid "One day"
 msgstr "有一天"
-
-#: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
-msgid "One delivery method, \"Standard delivery\", at a flat charge. Amounts are in the listings' currency."
-msgstr ""
 
 #: oc-includes/osclass/classes/admin/form/LatestSearchSettingsScreen.php
 msgid "One hour"
@@ -9321,6 +9502,10 @@ msgstr ""
 msgid "Optional fields"
 msgstr "可選欄位"
 
+#: oc-admin/themes/modern/items/frm.php
+msgid "Optional · empty uses the store address"
+msgstr ""
+
 #: oc-admin/themes/modern/settings/api.php
 msgid "Optional, such as \"Stock sync\"."
 msgstr ""
@@ -9350,6 +9535,7 @@ msgid "Optional. Your business name, address and tax number, printed at the top 
 msgstr ""
 
 #: oc-admin/themes/modern/fields/iframe.php
+#: oc-admin/themes/modern/items/frm.php
 msgid "Options"
 msgstr "選項"
 
@@ -9360,12 +9546,6 @@ msgstr "必須提供選項。"
 #: oc-includes/osclass/installer/data/sample-classifieds.php
 msgid "Orange"
 msgstr ""
-
-#: oc-admin/themes/modern/billing/index.php
-#: oc-admin/themes/modern/billing/order.php
-#: oc-includes/osclass/classes/datatables/PagesDataTable.php
-msgid "Order"
-msgstr "排序"
 
 #: oc-admin/themes/modern/billing/order.php
 msgid "Order #%d"
@@ -9388,6 +9568,7 @@ msgid "Order saved"
 msgstr "排序"
 
 #: oc-admin/themes/modern/billing/index.php
+#: oc-admin/themes/modern/settings/billing.php
 #: oc-includes/osclass/classes/AdminMenu.php
 #: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
 msgid "Orders"
@@ -9641,6 +9822,10 @@ msgstr "密碼"
 msgid "Password check before a restore"
 msgstr ""
 
+#: oc-includes/osclass/classes/EmailVariables.php
+msgid "Password reset"
+msgstr ""
+
 #: oc-includes/osclass/classes/admin/form/ApiSettingsScreen.php
 msgid "Password sign-in"
 msgstr ""
@@ -9812,10 +9997,6 @@ msgstr "照片#%1$d 列錄#%2$d"
 msgid "Photo %d"
 msgstr ""
 
-#: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
-msgid "Photo cap"
-msgstr "照片上限"
-
 #: oc-includes/osclass/classes/admin/form/MediaSettingsScreen.php
 msgid "Photo format"
 msgstr "照片格式"
@@ -9846,8 +10027,12 @@ msgid "Photos"
 msgstr "照片"
 
 #: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
-msgid "Photos allowed per listing while the entitlement is held."
-msgstr "持有該權益時每個清單允許的照片數量。"
+msgid "Photos allowed"
+msgstr ""
+
+#: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
+msgid "Photos allowed per listing while the seller holds it."
+msgstr ""
 
 #: oc-includes/osclass/classes/admin/form/MediaSettingsScreen.php
 msgid "Photos are only made smaller. When off, empty space is white in JPEG and see-through in PNG and WebP."
@@ -9885,6 +10070,10 @@ msgstr ""
 msgid "Picking a user fills the contact fields below. The listing belongs to"
 msgstr "選擇使用者會填滿下方的聯絡欄位。該列表屬於"
 
+#: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
+msgid "Place price in credits"
+msgstr ""
+
 #: oc-admin/themes/modern/appearance/widgets.php
 msgid "Placed on this page in the page builder. Edit it there."
 msgstr "放在頁面建構器中。在那裡編輯。"
@@ -9896,6 +10085,10 @@ msgstr "預留位置"
 #: oc-admin/themes/modern/emails/frm.php
 msgid "Placeholders"
 msgstr "佔位符"
+
+#: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
+msgid "Places per purchase"
+msgstr ""
 
 #: oc-admin/gui/recover.php
 msgid "Please enter your username or e-mail address"
@@ -10062,6 +10255,10 @@ msgstr "價格"
 msgid "Price (credits)"
 msgstr "價格 (點數)"
 
+#: oc-admin/themes/modern/items/frm.php
+msgid "Price and stock"
+msgstr ""
+
 #: oc-includes/osclass/classes/mail/CoreEmails.php
 msgid "Price drop: {ITEM_TITLE}"
 msgstr ""
@@ -10102,6 +10299,12 @@ msgstr ""
 
 #: oc-includes/osclass/installer/data/fields-shop.php
 msgid "Product details"
+msgstr ""
+
+#: oc-admin/themes/modern/items/index.php
+#: oc-admin/themes/modern/items/settings.php
+#: oc-includes/osclass/classes/AdminMenu.php
+msgid "Products"
 msgstr ""
 
 #: oc-admin/themes/modern/users/frm.php
@@ -10182,6 +10385,10 @@ msgstr ""
 msgid "Published"
 msgstr "發表"
 
+#: oc-admin/themes/modern/items/frm.php
+msgid "Publishing"
+msgstr ""
+
 #: oc-admin/themes/modern/appearance/customise.php
 msgid "Publishing…"
 msgstr ""
@@ -10210,6 +10417,10 @@ msgstr "你的認證器應用程式的 QR 碼"
 #: oc-admin/themes/modern/billing/order.php
 #: oc-includes/osclass/classes/billing/Receipts.php
 msgid "Qty"
+msgstr ""
+
+#: oc-includes/osclass/classes/EmailVariables.php
+msgid "Question about a listing"
 msgstr ""
 
 #: oc-includes/osclass/classes/EmailVariables.php
@@ -10752,6 +10963,13 @@ msgstr ""
 msgid "Reported listings"
 msgstr "清單報告"
 
+#: oc-admin/themes/modern/items/reported.php
+#: oc-admin/themes/modern/main/index.php
+#: oc-includes/osclass/classes/AdminMenu.php
+#: oc-includes/osclass/classes/Cleanup.php
+msgid "Reported products"
+msgstr ""
+
 #: oc-includes/osclass/classes/AdminMenu.php
 msgid "Reports"
 msgstr "報告"
@@ -11104,7 +11322,6 @@ msgstr "儲存銀行轉帳設定"
 #: oc-admin/themes/modern/fields/group_iframe.php
 #: oc-admin/themes/modern/fields/iframe.php
 #: oc-admin/themes/modern/pages/frm.php
-#: oc-admin/themes/modern/parts/ui.php
 #: oc-admin/themes/modern/settings/locations/form.php
 #: oc-admin/themes/modern/settings/mailserver.php
 #: oc-includes/osclass/classes/admin/form/SitemapSettingsScreen.php
@@ -11183,6 +11400,10 @@ msgstr "請立即儲存此密碼 — 它不會再次顯示。我們也已透過�
 
 #: oc-admin/themes/modern/tools/backup.php
 msgid "Save to your S3 bucket"
+msgstr ""
+
+#: oc-admin/themes/modern/billing/order.php
+msgid "Save tracking"
 msgstr ""
 
 #: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
@@ -11268,6 +11489,22 @@ msgstr ""
 
 #: oc-includes/osclass/classes/admin/form/SpamSettingsScreen.php
 msgid "Search alert sign-ups"
+msgstr ""
+
+#: oc-includes/osclass/classes/EmailVariables.php
+msgid "Search alert, daily"
+msgstr ""
+
+#: oc-includes/osclass/classes/EmailVariables.php
+msgid "Search alert, hourly"
+msgstr ""
+
+#: oc-includes/osclass/classes/EmailVariables.php
+msgid "Search alert, instant"
+msgstr ""
+
+#: oc-includes/osclass/classes/EmailVariables.php
+msgid "Search alert, weekly"
 msgstr ""
 
 #: oc-admin/themes/modern/settings/spamNbots.php
@@ -11418,6 +11655,7 @@ msgstr "第二個密碼：此欄位是必需的"
 msgid "Secret key"
 msgstr "秘密金鑰"
 
+#: oc-admin/themes/modern/tools/logs.php
 #: oc-includes/osclass/classes/datatables/LogsDataTable.php
 msgid "Section"
 msgstr "區段"
@@ -11476,7 +11714,16 @@ msgstr ""
 msgid "Select"
 msgstr "選擇"
 
+#: oc-admin/themes/modern/settings/currencies.php
 #: oc-admin/themes/modern/settings/locations/list.php
+#: oc-includes/osclass/classes/controller/admin/CAdminLanguages.php
+#: oc-includes/osclass/classes/datatables/BanRulesDataTable.php
+#: oc-includes/osclass/classes/datatables/CommentsDataTable.php
+#: oc-includes/osclass/classes/datatables/ItemsDataTable.php
+#: oc-includes/osclass/classes/datatables/KeywordBlocksDataTable.php
+#: oc-includes/osclass/classes/datatables/MediaDataTable.php
+#: oc-includes/osclass/classes/datatables/PagesDataTable.php
+#: oc-includes/osclass/classes/datatables/UsersDataTable.php
 msgid "Select %s"
 msgstr "精選 %s"
 
@@ -11518,7 +11765,18 @@ msgstr "選擇一個區域"
 msgid "Select a region..."
 msgstr "選擇一個區域..."
 
+#: oc-admin/themes/modern/admins/index.php
+#: oc-admin/themes/modern/languages/index.php
 #: oc-admin/themes/modern/media/index.php
+#: oc-admin/themes/modern/settings/currencies.php
+#: oc-includes/osclass/classes/datatables/AlertsDataTable.php
+#: oc-includes/osclass/classes/datatables/BanRulesDataTable.php
+#: oc-includes/osclass/classes/datatables/CommentsDataTable.php
+#: oc-includes/osclass/classes/datatables/ItemsDataTable.php
+#: oc-includes/osclass/classes/datatables/KeywordBlocksDataTable.php
+#: oc-includes/osclass/classes/datatables/MediaDataTable.php
+#: oc-includes/osclass/classes/datatables/PagesDataTable.php
+#: oc-includes/osclass/classes/datatables/UsersDataTable.php
 msgid "Select all"
 msgstr ""
 
@@ -11562,16 +11820,16 @@ msgid "Selected: %s"
 msgstr "精選： %s"
 
 #: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
-msgid "Sell a raised photo cap"
-msgstr "販售提高照片上限"
-
-#: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
 msgid "Sell bump to top"
 msgstr "販售推至頂部"
 
 #: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
-msgid "Sell extra listing slots"
-msgstr "販售額外清單名額"
+msgid "Sell extra listing places"
+msgstr ""
+
+#: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
+msgid "Sell extra photos"
+msgstr ""
 
 #: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
 msgid "Sell extra runtime beyond the category limit"
@@ -11594,17 +11852,20 @@ msgid "Sell marking a listing urgent"
 msgstr "販售將清單標記為緊急"
 
 #: oc-admin/themes/modern/items/frm.php
-msgid "Sell this item"
+msgid "Sell online"
 msgstr ""
 
 #: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
-msgid "Sell waiving the flood wait"
-msgstr "販售免除防灌水等待時間"
+msgid "Sell skipping the posting wait"
+msgstr ""
 
-#: oc-admin/themes/modern/items/frm.php
 #: oc-admin/themes/modern/messages/index.php
 msgid "Seller"
 msgstr "賣家"
+
+#: oc-admin/themes/modern/items/frm.php
+msgid "Seller and contact"
+msgstr ""
 
 #: oc-includes/osclass/classes/EmailVariables.php
 msgid "Seller email"
@@ -11831,6 +12092,7 @@ msgstr "正在設定您的網站… 在共享主機上這可能需要一分鐘 �
 #: oc-includes/osclass/classes/admin/form/UserSettingsScreen.php
 #: oc-includes/osclass/classes/controller/admin/CAdminMedia.php
 #: oc-includes/osclass/gui/admin/settings-page.php
+#: oc-includes/osclass/helpers/hAdminUi.php
 msgid "Settings"
 msgstr "設定"
 
@@ -11855,12 +12117,20 @@ msgid "Share listing"
 msgstr "分享清單"
 
 #: oc-admin/themes/modern/billing/order.php
+msgid "Ship order #%d without a tracking number?"
+msgstr ""
+
+#: oc-admin/themes/modern/billing/order.php
 msgid "Ship this order"
 msgstr ""
 
 #: oc-admin/themes/modern/billing/index.php
 #: oc-admin/themes/modern/billing/order.php
 msgid "Shipped"
+msgstr ""
+
+#: oc-admin/themes/modern/items/frm.php
+msgid "Shipping"
 msgstr ""
 
 #: oc-admin/themes/modern/items/frm.php
@@ -12100,12 +12370,20 @@ msgstr "顯示第 %s ~ %s 項，全部共有 %s 個"
 msgid "Showing %s to %s of %s results (filtered from %s total results)"
 msgstr "顯示第 %s ~ %s 項，全部共有 %s 個中 (%s 的全部過濾結果)"
 
+#: oc-admin/themes/modern/items/frm.php
+msgid "Shown crossed out next to the price. Leave empty when not on sale."
+msgstr ""
+
 #: oc-includes/osclass/classes/admin/form/MaintenanceSettingsScreen.php
 msgid "Shown on the banner, and on the 503 page. Plain text only. Leave blank for the default message."
 msgstr "顯示在橫幅和 503 頁面上。僅提供純文字。預設訊息請留空。"
 
 #: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
 msgid "Shown to the buyer as written."
+msgstr ""
+
+#: oc-admin/themes/modern/settings/locations/form.php
+msgid "Shown to visitors reading the site in that language. Blank uses the name above."
 msgstr ""
 
 #: oc-includes/osclass/classes/admin/form/MediaSettingsScreen.php
@@ -12224,6 +12502,10 @@ msgstr "網站地圖設定"
 msgid "Size"
 msgstr "大小"
 
+#: oc-admin/themes/modern/items/frm.php
+msgid "Sizes, colours and other choices"
+msgstr ""
+
 #: oc-includes/osclass/installer/data/categories-shop.php
 msgid "Skincare"
 msgstr ""
@@ -12247,14 +12529,6 @@ msgstr "跳過發佈等待時間"
 #: oc-includes/osclass/classes/install/ShopSetup.php
 msgid "Skipped, because the Aisle theme is not installed."
 msgstr ""
-
-#: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
-msgid "Slot price in credits"
-msgstr "以點數計算的名額價格"
-
-#: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
-msgid "Slots per purchase"
-msgstr "每次購買名額數量"
 
 #: oc-admin/themes/modern/tools/system-info/jobs.php
 msgid "Slow work, such as emptying a large category or moving photos to a bucket, waits here. Cron runs it on every tick."
@@ -12381,6 +12655,7 @@ msgstr "垃圾"
 
 #: oc-admin/themes/modern/settings/spamNbots.php
 #: oc-includes/osclass/classes/AdminMenu.php
+#: oc-includes/osclass/helpers/hAdminUi.php
 msgid "Spam and bots"
 msgstr "垃圾和機器人"
 
@@ -12425,6 +12700,10 @@ msgstr "穩定版、候選版本與測試版"
 msgid "Stainless steel workbench"
 msgstr ""
 
+#: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
+msgid "Standard delivery at one charge. With the Shipping plugin on, its zones set the charge instead. Amounts are in the listings' currency."
+msgstr ""
+
 #: oc-includes/osclass/classes/backup/BackupService.php
 msgid "Starting"
 msgstr "開始"
@@ -12454,7 +12733,6 @@ msgstr "統計"
 #: oc-admin/themes/modern/billing/index.php
 #: oc-admin/themes/modern/billing/order.php
 #: oc-admin/themes/modern/billing/packages.php
-#: oc-admin/themes/modern/comments/frm.php
 #: oc-admin/themes/modern/fields/submissions.php
 #: oc-admin/themes/modern/messages/thread.php
 #: oc-admin/themes/modern/settings/api.php
@@ -12503,10 +12781,6 @@ msgstr "還有待做的"
 msgid "Stock"
 msgstr ""
 
-#: oc-admin/themes/modern/items/frm.php
-msgid "Stock (blank does not track)"
-msgstr ""
-
 #: oc-admin/themes/modern/billing/order.php
 msgid "Stock ran out after this order was paid. Short:"
 msgstr ""
@@ -12545,6 +12819,10 @@ msgstr "商店"
 msgid "Store 1000 queries"
 msgstr "存儲 1000 個查詢"
 
+#: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
+msgid "Store address"
+msgstr ""
+
 #: oc-includes/osclass/classes/admin/ui/Picker.php
 msgid "Street address"
 msgstr "街道地址"
@@ -12574,6 +12852,7 @@ msgid "Subdomain type"
 msgstr "亞多曼類型"
 
 #: oc-admin/themes/modern/emails/frm.php
+#: oc-admin/themes/modern/emails/index.php
 msgid "Subject"
 msgstr "主題"
 
@@ -12686,6 +12965,10 @@ msgstr "從此帳號收回點數。您稍後可以再次新增，而且 "
 msgid "Take payment at the end of posting"
 msgstr ""
 
+#: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
+msgid "Take payment for shop orders and plugin extras. While off, the Billing menu is hidden."
+msgstr ""
+
 #: oc-includes/osclass/installer/data/categories-classifieds.php
 msgid "Team Sports"
 msgstr ""
@@ -12723,7 +13006,6 @@ msgstr "測試至以下 %s"
 msgid "Testing…"
 msgstr "測試中…"
 
-#: oc-admin/themes/modern/fields/index.php
 #: oc-includes/osclass/classes/admin/form/MediaSettingsScreen.php
 msgid "Text"
 msgstr "發簡訊"
@@ -12828,6 +13110,10 @@ msgstr "<a href=\"https://github.com/mindstellar/shopclass\">Shopclass</a> 團�
 #: oc-admin/themes/modern/settings/storage.php
 msgid "The <strong>Better S3</strong> plugin is currently active. Disable it before turning on "
 msgstr "<strong>Better S3</strong> 外掛目前處於啟用狀態。在開啟前請先將其停用 "
+
+#: oc-admin/themes/modern/settings/api.php
+msgid "The API is off, so keys and webhooks do nothing until you switch it on above."
+msgstr ""
 
 #: oc-admin/themes/modern/settings/api.php
 msgid "The API is served at %s."
@@ -12961,6 +13247,10 @@ msgstr ""
 
 #: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
 msgid "The buyer sees your instructions at checkout and pays outside the site. You mark the order paid."
+msgstr ""
+
+#: oc-admin/themes/modern/billing/order.php
+msgid "The buyer will see the order as shipped with no carrier or tracking. You can add them later."
 msgstr ""
 
 #: oc-includes/osclass/classes/admin/SystemChecks.php
@@ -13111,10 +13401,6 @@ msgstr ""
 msgid "The installation directory is not writable."
 msgstr "安裝目錄無法寫入。"
 
-#: oc-admin/themes/modern/items/frm.php
-msgid "The item sells at the listing price."
-msgstr ""
-
 #: oc-includes/osclass/classes/admin/form/SpamSettingsScreen.php
 msgid "The key you entered is invalid. Please double-check it"
 msgstr "您輸入的 Akismet API Key 是無效的，請確認後再輸入。"
@@ -13133,6 +13419,14 @@ msgstr ""
 
 #: oc-includes/osclass/classes/admin/DatabaseTools.php
 msgid "The last build failed: %s"
+msgstr ""
+
+#: oc-includes/osclass/classes/menu/MenuItems.php
+msgid "The link \"%s\" needs an address that starts with http://, https:// or /."
+msgstr ""
+
+#: oc-includes/osclass/classes/menu/MenuItems.php
+msgid "The link to \"%s\" needs a label."
 msgstr ""
 
 #: oc-admin/themes/modern/settings/locations.php
@@ -13688,10 +13982,6 @@ msgstr ""
 msgid "This is an example page description. This is a good place to put your Terms of Service or any other help information."
 msgstr "範例頁面說明。可以在這裡放置服務條款或任何有用的資訊。"
 
-#: oc-admin/themes/modern/items/frm.php
-msgid "This item comes in options"
-msgstr ""
-
 #: oc-admin/themes/modern/tools/backup.php
 msgid "This keeps going while the page is open. With cron set up it also carries on if you close it."
 msgstr "這個過程在頁面開啟時持續進行。設定好 Cron 後，關閉頁面時它也會繼續。"
@@ -13783,6 +14073,10 @@ msgstr "這會永久刪除此頁面及其在頁尾中的任何連結。"
 
 #: oc-includes/osclass/classes/market/PluginDependencies.php
 msgid "This plugin is not in the market. Get its zip file from the theme author and upload it under Plugins, Add plugin."
+msgstr ""
+
+#: oc-admin/themes/modern/items/frm.php
+msgid "This product comes in options"
 msgstr ""
 
 #: oc-admin/themes/modern/billing/order.php
@@ -13936,7 +14230,6 @@ msgid "Timezone"
 msgstr "時區"
 
 #: oc-admin/themes/modern/comments/frm.php
-#: oc-admin/themes/modern/emails/index.php
 #: oc-admin/themes/modern/items/frm.php
 #: oc-admin/themes/modern/pages/frm.php
 #: oc-admin/themes/modern/stats/comments.php
@@ -14246,6 +14539,7 @@ msgid "Two-step sign-in"
 msgstr "兩步驟登入"
 
 #: oc-admin/themes/modern/fields/iframe.php
+#: oc-admin/themes/modern/fields/index.php
 #: oc-admin/themes/modern/media/index.php
 #: oc-admin/themes/modern/settings/api.php
 msgid "Type"
@@ -14388,6 +14682,10 @@ msgstr "取消舉報有額外的費用"
 msgid "Unmark as spam"
 msgstr "取消舉報為垃圾訊息"
 
+#: oc-includes/osclass/classes/EmailVariables.php
+msgid "Unpaid listing reminder"
+msgstr ""
+
 #: oc-admin/themes/modern/appearance/menus.php
 msgid "Unsaved changes"
 msgstr ""
@@ -14395,6 +14693,10 @@ msgstr ""
 #: oc-includes/osclass/classes/EmailVariables.php
 msgid "Unsubscribe link."
 msgstr "取消訂閱連結。"
+
+#: oc-admin/themes/modern/appearance/widgets.php
+msgid "Unused: %s"
+msgstr ""
 
 #: oc-includes/osclass/classes/datatables/PagesDataTable.php
 msgid "Up"
@@ -14469,6 +14771,10 @@ msgstr "更新清單"
 #: oc-includes/osclass/functions.php
 msgid "Update my profile"
 msgstr "更新我的更人資料"
+
+#: oc-admin/themes/modern/items/frm.php
+msgid "Update product"
+msgstr ""
 
 #: oc-admin/themes/modern/parts/package-ui.php
 msgid "Update ready"
@@ -14672,8 +14978,12 @@ msgid "Used report link"
 msgstr ""
 
 #: oc-admin/themes/modern/pages/frm.php
-msgid "Used to quickly identify this page"
-msgstr "用於快速識別此頁面"
+msgid "Used to identify this page. Left empty on a new page, it is built from the title."
+msgstr ""
+
+#: oc-admin/themes/modern/items/frm.php
+msgid "Used to work out delivery cost"
+msgstr ""
 
 #: oc-admin/themes/modern/billing/credits.php
 #: oc-admin/themes/modern/billing/index.php
@@ -15199,12 +15509,16 @@ msgid "Weight (g)"
 msgstr ""
 
 #: oc-admin/themes/modern/items/frm.php
-msgid "Weight in grams"
+msgid "Weight is set per row in Options."
 msgstr ""
 
 #: oc-includes/osclass/installer/gui/install.php
 msgid "Welcome to Shopclass"
 msgstr "歡迎使用 Shopclass"
+
+#: oc-includes/osclass/classes/EmailVariables.php
+msgid "Welcome, new account"
+msgstr ""
 
 #: oc-includes/osclass/installer/data/sample-classifieds.php
 msgid "Well kept five-door hatchback with full service history. New tyres and a fresh MOT."
@@ -15231,6 +15545,10 @@ msgstr "買家在結帳時可選擇的內容 — 價格、貨幣以及多少 "
 #: oc-admin/themes/modern/tools/system-info/jobs.php
 msgid "What background work did, newest first. The full history is in the <a href=\"%s\">activity log</a>."
 msgstr "背景工作所做的，最新。完整歷史見 <a href=\"%s\">活動記錄</a>."
+
+#: oc-admin/themes/modern/items/frm.php
+msgid "What buyers pay and how many you have"
+msgstr ""
 
 #: oc-admin/themes/modern/billing/order.php
 #: oc-admin/themes/modern/billing/wallet.php
@@ -15294,6 +15612,10 @@ msgstr "當您無法修改 php.ini 時，Shopclass 會在啟動時自行將 PHP 
 msgid "Where"
 msgstr "其中"
 
+#: oc-admin/themes/modern/items/frm.php
+msgid "Where the item is"
+msgstr ""
+
 #: oc-admin/themes/modern/settings/api.php
 msgid "Where the site sends each event, as an https address."
 msgstr ""
@@ -15318,6 +15640,10 @@ msgstr ""
 #: oc-includes/osclass/classes/datatables/LogsDataTable.php
 msgid "Who"
 msgstr "操作者"
+
+#: oc-admin/themes/modern/items/frm.php
+msgid "Who posted it and how buyers reach them"
+msgstr ""
 
 #: oc-includes/osclass/classes/datatables/KeywordBlocksDataTable.php
 msgid "Whole word"
@@ -16205,6 +16531,10 @@ msgstr ""
 msgid "previously approved comments"
 msgstr "先前核准的評論"
 
+#: oc-includes/osclass/classes/admin/form/MainSettingsScreen.php
+msgid "products at most"
+msgstr ""
+
 #: oc-includes/osclass/classes/admin/form/LatestSearchSettingsScreen.php
 msgid "queries"
 msgstr "查詢"
@@ -16444,4 +16774,40 @@ msgstr "— Shopclass"
 
 #: oc-includes/osclass/classes/Session.php
 msgid "…and %d more"
+msgstr ""
+
+#: oc-admin/themes/modern/billing/index.php
+#: oc-admin/themes/modern/billing/order.php
+msgctxt "purchase order"
+msgid "Order"
+msgstr ""
+
+#: oc-includes/osclass/classes/datatables/PagesDataTable.php
+msgctxt "sort position"
+msgid "Order"
+msgstr ""
+
+#: oc-admin/themes/modern/items/frm.php
+msgctxt "item for sale"
+msgid "Product"
+msgstr ""
+
+#: oc-admin/themes/modern/settings/currencies.php
+msgctxt "currency symbol"
+msgid "Symbol"
+msgstr ""
+
+#: oc-admin/themes/modern/comments/frm.php
+msgctxt "comment is shown on the site"
+msgid "Visible"
+msgstr ""
+
+#: oc-admin/themes/modern/items/frm.php
+msgctxt "product weight"
+msgid "Weight"
+msgstr ""
+
+#: oc-admin/themes/modern/items/frm.php
+msgctxt "unit: grams"
+msgid "g"
 msgstr ""

@@ -152,8 +152,10 @@ msgid "%1$s of %2$s selected"
 msgstr "%1$s का %2$s चयनित"
 
 #: oc-admin/themes/modern/billing/index.php
-msgid "%1$s orders · %2$s paid · %3$s awaiting payment"
-msgstr "%1$s ऑर्डर · %2$s भुगतान किए गए · %3$s भुगतान का इंतज़ार कर रहे हैं"
+msgid "%1$s order · %2$s paid · %3$s awaiting payment"
+msgid_plural "%1$s orders · %2$s paid · %3$s awaiting payment"
+msgstr[0] ""
+msgstr[1] ""
 
 #: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "%1$s per file · %2$s per request"
@@ -447,6 +449,10 @@ msgid_plural "%d times"
 msgstr[0] "%d समय"
 msgstr[1] "%d टाइम्स"
 
+#: oc-admin/themes/modern/items/frm.php
+msgid "%d to fix"
+msgstr ""
+
 #: oc-includes/osclass/classes/job/JobWorker.php
 msgid "%d to retry"
 msgstr "%d पुनः प्रयास करने के लिए"
@@ -457,7 +463,6 @@ msgid_plural "%d tries"
 msgstr[0] "%d कोशिश"
 msgstr[1] "%d कोशिश करता है"
 
-#: oc-admin/themes/modern/parts/ui.php
 #: oc-includes/osclass/helpers/hAdminUi.php
 msgid "%d unsaved changes"
 msgstr "%d सहेजे न गए परिवर्तन"
@@ -655,6 +660,12 @@ msgstr "%s एक पूर्ण संख्या होनी चाहि�
 msgid "%s needs these plugins"
 msgstr "%s इन प्लगइन्स की जरूरत है"
 
+#: oc-admin/themes/modern/billing/index.php
+msgid "%s order"
+msgid_plural "%s orders"
+msgstr[0] ""
+msgstr[1] ""
+
 #: oc-admin/themes/modern/settings/locations/form.php
 #: oc-admin/themes/modern/settings/locations/list.php
 #: oc-admin/themes/modern/settings/locations/preview.php
@@ -705,6 +716,10 @@ msgstr "(उदाहरण के लिए 192.168.10-20.*)"
 msgid "(no values)"
 msgstr "(कोई मान नहीं)"
 
+#: oc-admin/themes/modern/settings/locations/form.php
+msgid "(site default)"
+msgstr ""
+
 #: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "/api/ belongs to the site's API, so these static pages or categories cannot be reached. Give them another slug: %s"
 msgstr "/api/ साइट के एपीआई से संबंधित है, इसलिए इन स्थिर पृष्ठों या श्रेणियों तक नहीं पहुंचा जा सकता है। उन्हें एक और स्लग दें: %s"
@@ -749,7 +764,6 @@ msgstr ""
 msgid "1 thing needs fixing before this can be saved."
 msgstr "इसे सहेजने से पहले 1 चीज को ठीक करने की जरूरत है।"
 
-#: oc-admin/themes/modern/parts/ui.php
 #: oc-includes/osclass/helpers/hAdminUi.php
 msgid "1 unsaved change"
 msgstr "1 न सहेजा गया परिवर्तन"
@@ -841,6 +855,10 @@ msgstr "<p>नमस्ते {USER_NAME},</p><p>आपका आदेश {ORDE
 #: oc-includes/osclass/classes/mail/CoreEmails.php
 msgid "<p>Hi {USER_NAME},</p><p>Your order {ORDER_NUMBER} from {WEB_TITLE} was cancelled. If you paid for it, you are not charged: any amount taken is returned to you.</p>{ORDER_LINES}<p>{ORDER_LINK}</p>"
 msgstr "<p>नमस्ते {USER_NAME},</p><p>आपका आदेश {ORDER_NUMBER} से {WEB_TITLE} रद्द कर दिया गया था। यदि आपने इसके लिए भुगतान किया है, तो आपसे शुल्क नहीं लिया जाता है: ली गई कोई भी राशि आपको वापस कर दी जाती है।</p>{ORDER_LINES}<p>{ORDER_LINK}</p>"
+
+#: oc-includes/osclass/classes/mail/CoreEmails.php
+msgid "<p>Hi {USER_NAME},</p><p>Your order {ORDER_NUMBER} from {WEB_TITLE} was cancelled. Your listing stays on hold until the fee is paid.</p>{ORDER_LINES}<p>{ORDER_LINK}</p>"
+msgstr ""
 
 #: oc-includes/osclass/classes/mail/CoreEmails.php
 msgid "<p>Hi {USER_NAME},</p><p>Your order {ORDER_NUMBER} from {WEB_TITLE} was delivered. We hope you enjoy it.</p>{ORDER_PRODUCTS}<p>{ORDER_LINK}</p>"
@@ -947,11 +965,7 @@ msgstr "एक काम 15 मिनट से अधिक समय से �
 msgid "A link needs a label and an address."
 msgstr ""
 
-#: oc-includes/osclass/classes/menu/MenuItems.php
-msgid "A link needs a label."
-msgstr ""
-
-#: oc-includes/osclass/classes/menu/MenuItems.php
+#: oc-admin/themes/modern/appearance/menus.php
 msgid "A link needs an address that starts with http://, https:// or /."
 msgstr ""
 
@@ -984,6 +998,14 @@ msgstr ""
 msgid "A menu with that id already exists."
 msgstr ""
 
+#: oc-admin/themes/modern/items/frm.php
+msgid "A name the Shipping plugin groups items by, such as bulky."
+msgstr ""
+
+#: oc-includes/osclass/classes/admin/ajax/CategoryAjax.php
+msgid "A new category has been added"
+msgstr ""
+
 #: oc-includes/osclass/classes/admin/form/CommentSettingsScreen.php
 msgid "A new comment is posted"
 msgstr "एक नई टिप्पणी पोस्ट की गई है"
@@ -1005,8 +1027,8 @@ msgid "A plugin the Aisle theme needs is missing, so the site stays a classified
 msgstr ""
 
 #: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
-msgid "A price of 0 makes extra slots free."
-msgstr "0 की कीमत अतिरिक्त स्लॉट को मुफ्त बनाती है।"
+msgid "A price of 0 makes extra places free."
+msgstr ""
 
 #: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
 msgid "A price of 0 makes featuring free."
@@ -1059,8 +1081,8 @@ msgid "A security fix for the version you run (6.4.0 to 6.4.1) is installed at n
 msgstr "आपके द्वारा चलाए जाने वाले संस्करण (6.4.0 से 6.4.1) के लिए एक सुरक्षा फिक्स रात में एक दिन पुराना होने के बाद स्थापित किया जाता है, और संपर्क ई-मेल को बताया जाता है कि यह कैसे हुआ। डिफ़ॉल्ट रूप से बंद।"
 
 #: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
-msgid "A seller over the limit writes the listing first and pays for the slot on the last step. Off, they are sent to buy a slot before they can post."
-msgstr "सीमा से अधिक विक्रेता पहले लिस्टिंग लिखता है और अंतिम चरण पर स्लॉट के लिए भुगतान करता है। बंद, उन्हें पोस्ट करने से पहले एक स्लॉट खरीदने के लिए भेजा जाता है।"
+msgid "A seller over the limit writes the listing first and pays for the extra place on the last step. Off, they are sent to buy one before they can post."
+msgstr ""
 
 #: oc-includes/osclass/classes/menu/MenuService.php
 msgid "A site can keep at most %d menus besides the main and footer menus."
@@ -1240,6 +1262,7 @@ msgstr "गतिविधि लॉग"
 
 #: oc-admin/themes/modern/appearance/menus.php
 #: oc-admin/themes/modern/comments/frm.php
+#: oc-admin/themes/modern/fields/index.php
 #: oc-admin/themes/modern/settings/currencies.php
 #: oc-admin/themes/modern/settings/currency_form.php
 #: oc-admin/themes/modern/users/index.php
@@ -1280,6 +1303,7 @@ msgstr "व्यवस्थापक जोड़ें"
 msgid "Add ban rule"
 msgstr "प्रतिबंध नियम जोड़ें"
 
+#: oc-admin/themes/modern/categories/iframe.php
 #: oc-admin/themes/modern/categories/index.php
 msgid "Add category"
 msgstr "श्रेणी जोड़ें"
@@ -1375,6 +1399,11 @@ msgstr "फ़ोटो जोड़ें"
 #: oc-admin/themes/modern/plugins/index.php
 msgid "Add plugin"
 msgstr "प्लगइन जोड़ें"
+
+#: oc-admin/themes/modern/items/frm.php
+#: oc-admin/themes/modern/items/index.php
+msgid "Add product"
+msgstr ""
 
 #: oc-admin/themes/modern/settings/locations/form.php
 #: oc-admin/themes/modern/settings/locations/list.php
@@ -1825,8 +1854,12 @@ msgid "An order records one attempt to pay. Shopclass stores what was bought and
 msgstr "एक ऑर्डर, भुगतान करने के एक प्रयास का रिकॉर्ड होता है। Shopclass यह रिकॉर्ड रखता है कि क्या खरीदा गया था और क्या "
 
 #: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
-msgid "An unpaid order is cancelled after this many days. A bank transfer or cash on delivery order's stock goes back on sale. A listing waiting for payment is deleted after the same number of days; the seller is reminded a day before."
-msgstr "इतने दिनों के बाद एक अवैतनिक आदेश रद्द कर दिया जाता है। एक बैंक हस्तांतरण या कैश ऑन डिलीवरी ऑर्डर का स्टॉक बिक्री पर वापस चला जाता है। भुगतान की प्रतीक्षा कर रही एक लिस्टिंग उसी दिनों के बाद हटा दी जाती है; विक्रेता को एक दिन पहले याद दिलाया जाता है।"
+msgid "An unpaid bank transfer or cash on delivery order is cancelled after this many days, and its stock goes back on sale."
+msgstr ""
+
+#: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
+msgid "An unpaid order is cancelled after this many days. A listing waiting for payment is deleted after the same number of days; the seller is reminded a day before."
+msgstr ""
 
 #: oc-admin/themes/modern/plugins/index.php
 msgid "An update is ready for this plugin. Open the Updates tab to apply it."
@@ -2231,6 +2264,10 @@ msgstr "पृष्ठों पर वापस जाएं"
 #: oc-admin/themes/modern/plugins/add.php
 msgid "Back to plugins"
 msgstr "प्लगइन्स पर वापस जाएं"
+
+#: oc-admin/themes/modern/items/frm.php
+msgid "Back to products"
+msgstr ""
 
 #: oc-admin/gui/two_factor.php
 msgid "Back to the sign-in page"
@@ -2653,8 +2690,8 @@ msgid "Buyer"
 msgstr ""
 
 #: oc-admin/themes/modern/items/frm.php
-msgid "Buyers can add this item to a cart"
-msgstr "खरीदार इस आइटम को कार्ट में जोड़ सकते हैं"
+msgid "Buyers can add this product to a cart."
+msgstr ""
 
 #: oc-includes/osclass/classes/controller/admin/CAdminPlugins.php
 msgid "By"
@@ -2724,6 +2761,7 @@ msgstr "कॉन्फिग.php फाइल में नहीं लिख 
 #: oc-admin/themes/modern/fields/iframe.php
 #: oc-admin/themes/modern/fields/index.php
 #: oc-admin/themes/modern/fields/submissions.php
+#: oc-admin/themes/modern/items/frm.php
 #: oc-admin/themes/modern/languages/index.php
 #: oc-admin/themes/modern/parts/media-picker.php
 #: oc-admin/themes/modern/parts/ui.php
@@ -2791,6 +2829,7 @@ msgstr ""
 
 #: oc-admin/themes/modern/settings/spamNbots.php
 #: oc-includes/osclass/classes/admin/form/SpamSettingsScreen.php
+#: oc-includes/osclass/helpers/hAdminUi.php
 msgid "Captcha"
 msgstr "कैप्चा"
 
@@ -3087,6 +3126,7 @@ msgid "Choose an option"
 msgstr "एक विकल्प चुनें"
 
 #: oc-admin/themes/modern/functions.php
+#: oc-includes/osclass/classes/admin/ui/Field.php
 msgid "Choose image"
 msgstr "छवि चुनें"
 
@@ -3273,6 +3313,10 @@ msgid "Close"
 msgstr "बंद करें"
 
 #: oc-admin/themes/modern/billing/order.php
+msgid "Close an order that will not be paid."
+msgstr ""
+
+#: oc-admin/themes/modern/billing/order.php
 msgid "Close an order that will not be paid. Stock held for it goes back on sale."
 msgstr "एक आदेश बंद करें जिसका भुगतान नहीं किया जाएगा। इसके लिए रखा गया स्टॉक बिक्री पर वापस चला जाता है।"
 
@@ -3365,6 +3409,10 @@ msgid "Comment Statistics"
 msgstr "टिप्पणी के आंकड़े"
 
 #: oc-includes/osclass/classes/EmailVariables.php
+msgid "Comment approved"
+msgstr ""
+
+#: oc-includes/osclass/classes/EmailVariables.php
 msgid "Comment author email"
 msgstr "टिप्पणी लेखक ईमेल"
 
@@ -3444,6 +3492,10 @@ msgstr ""
 msgid "Company"
 msgstr "कंपनी"
 
+#: oc-admin/themes/modern/items/frm.php
+msgid "Compare-at price"
+msgstr ""
+
 #: oc-admin/themes/modern/parts/market.php
 msgid "Compatibility"
 msgstr "संगतता"
@@ -3468,6 +3520,7 @@ msgstr ""
 msgid "Computers"
 msgstr ""
 
+#: oc-admin/themes/modern/fields/iframe.php
 #: oc-includes/osclass/installer/data/fields-classifieds.php
 msgid "Condition"
 msgstr ""
@@ -3488,9 +3541,29 @@ msgstr "लिस्टिंग छवियों के लिए S3-सं�
 msgid "Configure the XML sitemap: how many URLs go in each file, which extra location pages to "
 msgstr "XML साइटमैप को कॉन्फ़िगर करें: प्रत्येक फ़ाइल में कितने URL होंगे, कौन-से अतिरिक्त लोकेशन पेज "
 
+#: oc-includes/osclass/classes/EmailVariables.php
+msgid "Confirm a new e-mail address"
+msgstr ""
+
+#: oc-includes/osclass/classes/EmailVariables.php
+msgid "Confirm a new listing"
+msgstr ""
+
+#: oc-includes/osclass/classes/EmailVariables.php
+msgid "Confirm a new listing, guest"
+msgstr ""
+
+#: oc-includes/osclass/classes/EmailVariables.php
+msgid "Confirm a search alert"
+msgstr ""
+
 #: oc-includes/osclass/classes/admin/form/AdminAccountForm.php
 msgid "Confirm new password"
 msgstr "नए पासवर्ड की पुष्टि करें"
+
+#: oc-includes/osclass/classes/EmailVariables.php
+msgid "Confirm your account"
+msgstr ""
 
 #: oc-includes/osclass/classes/security/MessageHold.php
 msgid "Confirm your message on %s"
@@ -4538,6 +4611,7 @@ msgstr "विवरण 1 से 1 हो सकता है %d पात्र
 msgid "Desktop"
 msgstr "डेस्कटॉप"
 
+#: oc-admin/themes/modern/items/frm.php
 #: oc-admin/themes/modern/parts/market.php
 #: oc-admin/themes/modern/parts/package-ui.php
 #: oc-admin/themes/modern/settings/locations/form.php
@@ -4832,6 +4906,10 @@ msgstr "स्थानीय डिस्क पर मौजूद प्र�
 msgid "Each one adjusts from 2 to 20 kg. Space saving and easy to change."
 msgstr ""
 
+#: oc-admin/themes/modern/items/frm.php
+msgid "Each option row below has its own SKU, price, compare-at price and stock. A row with no price sells at this price."
+msgstr ""
+
 #: oc-admin/themes/modern/settings/storage.php
 msgid "Each remote image is queued for download and switched back to local storage. "
 msgstr "प्रत्येक दूरस्थ छवि को डाउनलोड के लिए कतार में रखा जाता है, एवं फिर उसे पुनः स्थानीय भंडारण में स्थानांतरित कर दिया जाता है। "
@@ -4929,6 +5007,10 @@ msgstr "लिस्टिंग संपादित करें"
 msgid "Edit page"
 msgstr "पेज संपादित करें"
 
+#: oc-admin/themes/modern/items/frm.php
+msgid "Edit product"
+msgstr ""
+
 #: oc-admin/themes/modern/parts/header.php
 msgid "Edit profile"
 msgstr "प्रोफ़ाइल संपादित करें"
@@ -4940,6 +5022,10 @@ msgstr "क्षेत्र संपादित करें"
 #: oc-includes/osclass/classes/admin/form/BanRuleForm.php
 msgid "Edit rule"
 msgstr "नियम संपादित करें"
+
+#: oc-admin/themes/modern/billing/order.php
+msgid "Edit tracking"
+msgstr ""
 
 #: oc-admin/themes/modern/billing/wallet.php
 #: oc-admin/themes/modern/comments/frm.php
@@ -5353,8 +5439,8 @@ msgid "Extra photos"
 msgstr "अतिरिक्त फोटो"
 
 #: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
-msgid "Extra slots"
-msgstr "अतिरिक्त स्लॉट"
+msgid "Extra places"
+msgstr ""
 
 #: oc-includes/osclass/installer/data/sample-shop.php
 msgid "Face serum"
@@ -5439,13 +5525,21 @@ msgstr ""
 msgid "Field"
 msgstr "फील्ड"
 
-#: oc-admin/themes/modern/fields/index.php
+#: oc-includes/osclass/classes/admin/ajax/FieldAjax.php
 msgid "Field could not be added"
 msgstr "फील्ड को जोड़ा नहीं जा सका"
+
+#: oc-admin/themes/modern/fields/iframe.php
+msgid "Field to check"
+msgstr ""
 
 #: oc-admin/themes/modern/fields/index.php
 msgid "Fields"
 msgstr "फील्ड्स"
+
+#: oc-admin/themes/modern/items/frm.php
+msgid "Fields for this category"
+msgstr ""
 
 #: oc-includes/osclass/installer/data/sample-shop.php
 msgid "Fifty natural wood blocks in a cotton bag. Smooth edges and safe finishes."
@@ -5504,6 +5598,18 @@ msgstr "प्रति अनुरोध फ़ाइलें"
 #: oc-includes/osclass/install-functions.php
 msgid "Fill in the host, database name and username first."
 msgstr "पहले होस्ट, डेटाबेस का नाम एवं यूजरनेम भरें।"
+
+#: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
+msgid "Filled into a product saved without a location. Products already saved keep theirs."
+msgstr ""
+
+#: oc-admin/themes/modern/items/frm.php
+msgid "Filled with your shop e-mail. You can change it."
+msgstr ""
+
+#: oc-admin/themes/modern/items/frm.php
+msgid "Filled with your shop name. You can change it."
+msgstr ""
 
 #: oc-admin/themes/modern/billing/index.php
 #: oc-admin/themes/modern/settings/locations/data.php
@@ -5652,7 +5758,7 @@ msgstr "अपना पासवर्ड भूल गए?"
 msgid "Form"
 msgstr "फॉर्म"
 
-#: oc-admin/themes/modern/fields/index.php
+#: oc-includes/osclass/classes/admin/ajax/FormBuilderAjax.php
 msgid "Form could not be created"
 msgstr "फॉर्म बनाया नहीं जा सका"
 
@@ -5880,6 +5986,18 @@ msgstr "%s क्रेडिट बिना किसी भुगतान �
 #: oc-admin/themes/modern/items/frm.php
 msgid "Give each option a name and at least one value first."
 msgstr "प्रत्येक विकल्प को पहले एक नाम और कम से कम एक मान दें।"
+
+#: oc-admin/themes/modern/fields/index.php
+msgid "Give it a name."
+msgstr ""
+
+#: oc-includes/osclass/classes/admin/ajax/FieldAjax.php
+msgid "Give the field a name."
+msgstr ""
+
+#: oc-includes/osclass/classes/admin/ajax/FormBuilderAjax.php
+msgid "Give the form a name."
+msgstr ""
 
 #: oc-includes/osclass/installer/gui/install.php
 msgid "Go to the admin panel"
@@ -6110,6 +6228,10 @@ msgstr "किसी लिस्टिंग को दोबारा बम�
 #: oc-includes/osclass/classes/admin/form/StorageSettingsScreen.php
 msgid "How long a signed URL stays valid (60-604800)."
 msgstr "हस्ताक्षरित URL कितने समय तक मान्य रहता है (60-604800)."
+
+#: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
+msgid "How long an unpaid order waits before it is cancelled."
+msgstr ""
 
 #: oc-includes/osclass/classes/admin/form/ApiSettingsScreen.php
 msgid "How long browsers and CDNs may keep an anonymous answer."
@@ -6967,6 +7089,10 @@ msgstr "नवीनतम लिस्टिंग दिखाई गई: इ�
 msgid "Latest listings shown: this field must only contain numeric characters"
 msgstr "नवीनतम लिस्टिंग दिखाई गई: इस फ़ील्ड में केवल संख्यात्मक वर्ण होने चाहिए"
 
+#: oc-includes/osclass/classes/admin/form/MainSettingsScreen.php
+msgid "Latest products shown"
+msgstr ""
+
 #: oc-admin/themes/modern/settings/searches.php
 #: oc-includes/osclass/classes/AdminMenu.php
 #: oc-includes/osclass/classes/admin/form/LatestSearchSettingsScreen.php
@@ -7005,6 +7131,10 @@ msgstr "वर्तमान पासवर्ड रखने के लि�
 #: oc-includes/osclass/classes/admin/form/StorageSettingsScreen.php
 msgid "Leave blank to keep the currently saved secret key"
 msgstr "वर्तमान में सहेजी गई गुप्त कुंजी को बरकरार रखने के लिए इसे खाली छोड़ दें"
+
+#: oc-admin/themes/modern/items/frm.php
+msgid "Leave empty to sell without counting."
+msgstr ""
 
 #: oc-admin/themes/modern/appearance/menus.php
 msgid "Leave empty to use its own name."
@@ -7081,6 +7211,10 @@ msgstr ""
 #: oc-includes/osclass/installer/data/fields-classifieds.php
 #: oc-includes/osclass/installer/data/sample-classifieds.php
 msgid "Like new"
+msgstr ""
+
+#: oc-admin/themes/modern/items/frm.php
+msgid "Like sizes or colours, each with its own stock."
 msgstr ""
 
 #: oc-admin/themes/modern/settings/spamNbots.php
@@ -7173,6 +7307,10 @@ msgstr "लिस्टिंग आंकड़े"
 msgid "Listing URL"
 msgstr "लिस्टिंग यूआरएल"
 
+#: oc-includes/osclass/classes/EmailVariables.php
+msgid "Listing about to expire"
+msgstr ""
+
 #: oc-includes/osclass/classes/admin/form/PermalinkSettingsScreen.php
 msgid "Listing actions"
 msgstr "लिस्टिंग कार्रवाइयाँ"
@@ -7243,6 +7381,10 @@ msgid "Listing new"
 msgstr "नई लिस्टिंग"
 
 #: oc-includes/osclass/classes/EmailVariables.php
+msgid "Listing posted, guest"
+msgstr ""
+
+#: oc-includes/osclass/classes/EmailVariables.php
 msgid "Listing price"
 msgstr "लिस्टिंग मूल्य"
 
@@ -7261,6 +7403,10 @@ msgstr "खोज बिंदुओं को सूचीबद्ध कर�
 #: oc-includes/osclass/classes/admin/form/PermalinkSettingsScreen.php
 msgid "Listing send friend"
 msgstr "लिस्टिंग दोस्त भेजें"
+
+#: oc-includes/osclass/classes/EmailVariables.php
+msgid "Listing sent to a friend"
+msgstr ""
 
 #: oc-admin/themes/modern/main/index.php
 #: oc-includes/osclass/classes/admin/form/CleanupSettingsScreen.php
@@ -7382,8 +7528,8 @@ msgid "Live"
 msgstr "रहना"
 
 #: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
-msgid "Live listings a seller may have at once. 0 means no limit. Pending listings count; only expiry or deletion frees a slot."
-msgstr "लाइव लिस्टिंग एक विक्रेता के पास एक बार में हो सकती है। 0 का मतलब कोई सीमा नहीं है। लंबित लिस्टिंग की गिनती; केवल समाप्ति या विलोपन एक स्लॉट को मुक्त करता है।"
+msgid "Live listings a seller may have at once. 0 means no limit. Pending listings count; only expiry or deletion frees a place."
+msgstr ""
 
 #: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "Live messages"
@@ -7701,6 +7847,11 @@ msgstr "पेज ों का प्रबंधन करें"
 msgid "Manage plugins"
 msgstr "प्लगइन्स का प्रबंधन करें"
 
+#: oc-admin/themes/modern/items/index.php
+#: oc-includes/osclass/classes/AdminMenu.php
+msgid "Manage products"
+msgstr ""
+
 #: oc-admin/themes/modern/comments/index.php
 msgid "Manage the comments that users publish on the listings on your site."
 msgstr "अपनी वेबसाइट की लिस्टिंग पर उपयोगकर्ताओं द्वारा पोस्ट की गई टिप्पणियों का प्रबंधन करें।"
@@ -7942,6 +8093,10 @@ msgstr "संदेश"
 msgid "Message thread"
 msgstr ""
 
+#: oc-includes/osclass/classes/EmailVariables.php
+msgid "Message to a user"
+msgstr ""
+
 #: oc-includes/osclass/classes/security/MessageHold.php
 msgid "Message waiting for its sender to confirm"
 msgstr "संदेश अपने प्रेषक की पुष्टि की प्रतीक्षा कर रहा है"
@@ -8066,6 +8221,7 @@ msgstr "मॉडरेट टिप्पणियां: इस फ़ील�
 msgid "Moderated comments: this field must only contain numeric characters"
 msgstr "मॉडरेट टिप्पणियां: इस फ़ील्ड में केवल संख्यात्मक वर्ण होने चाहिए"
 
+#: oc-admin/themes/modern/comments/frm.php
 #: oc-admin/themes/modern/settings/keywordBlock.php
 msgid "Moderation"
 msgstr "मॉडरेशन"
@@ -8131,7 +8287,7 @@ msgid "Most downloaded"
 msgstr "सबसे अधिक डाउनलोड किए गए"
 
 #: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
-msgid "Most unpaid orders one buyer may hold at once, card orders included. 0 means no limit."
+msgid "Most unpaid bank transfer orders one buyer may hold at once. Cash on delivery and card orders are not limited. 0 means no limit."
 msgstr ""
 
 #: oc-includes/osclass/installer/data/categories-classifieds.php
@@ -8214,15 +8370,12 @@ msgstr "पीएचपी के लिए MySQLi एक्सटेंशन"
 msgid "MySQLi extension is required. How to "
 msgstr "MySQLi एक्सटेंशन की आवश्यकता है। इसे कैसे प्राप्त किया जाए? "
 
-#: oc-includes/osclass/classes/admin/ajax/FieldAjax.php
-msgid "NEW custom field"
-msgstr "नया कस्टम फ़ील्ड"
-
 #: oc-admin/themes/modern/admins/index.php
 #: oc-admin/themes/modern/appearance/menus.php
 #: oc-admin/themes/modern/billing/package.php
 #: oc-admin/themes/modern/billing/packages.php
 #: oc-admin/themes/modern/emails/index.php
+#: oc-admin/themes/modern/fields/index.php
 #: oc-admin/themes/modern/items/frm.php
 #: oc-admin/themes/modern/languages/frm.php
 #: oc-admin/themes/modern/languages/index.php
@@ -8265,6 +8418,10 @@ msgstr "से नाम"
 msgid "Name of the friend who wants send"
 msgstr "उस मित्र का नाम जो भेजना चाहता है"
 
+#: oc-admin/themes/modern/items/frm.php
+msgid "Name, category and description"
+msgstr ""
+
 #: oc-includes/osclass/classes/controller/CWebContact.php
 msgid "Name: %s"
 msgstr "नाम: %s"
@@ -8293,6 +8450,10 @@ msgstr "नाम: इस फ़ील्ड की आवश्यकता ह
 #: oc-admin/themes/modern/settings/locations/list.php
 msgid "Names are matched from their first letters."
 msgstr "नाम उनके पहले अक्षरों से मेल खाते हैं।"
+
+#: oc-admin/themes/modern/settings/locations/form.php
+msgid "Names per language"
+msgstr ""
 
 #: oc-admin/themes/modern/settings/locations/list.php
 msgid "Names starting with"
@@ -8335,13 +8496,10 @@ msgstr ""
 msgid "Needs PHP %s"
 msgstr "PHP की जरूरत है %s"
 
-#: oc-includes/osclass/classes/admin/form/KeywordBlockSettingsScreen.php
-msgid "Needs a CAPTCHA provider configured under Settings &raquo; reCAPTCHA/Turnstile; "
-msgstr "सेटिंग्स के तहत कॉन्फ़िगर किए गए कैप्चा प्रदाता की आवश्यकता है &raquo; reCAPTCHA/टर्नस्टाइल; "
-
 #: oc-includes/osclass/classes/admin/form/CommentSettingsScreen.php
-msgid "Needs a CAPTCHA provider configured under Settings &raquo; reCAPTCHA/Turnstile; otherwise no challenge is shown."
-msgstr "सेटिंग्स &raquo; reCAPTCHA/Turnstile के तहत एक कैप्चा प्रदाता को कॉन्फ़िगर करने की आवश्यकता है; अन्यथा कोई चुनौती नहीं दिखाई जाएगी।"
+#: oc-includes/osclass/classes/admin/form/KeywordBlockSettingsScreen.php
+msgid "Needs a CAPTCHA provider configured under %s; otherwise no challenge is shown."
+msgstr ""
 
 #: oc-admin/themes/modern/tools/system-info/database.php
 msgid "Needs a closer look"
@@ -8408,6 +8566,10 @@ msgstr "नया पता"
 msgid "New addresses"
 msgstr "नए पते"
 
+#: oc-includes/osclass/classes/EmailVariables.php
+msgid "New admin account"
+msgstr ""
+
 #: oc-admin/themes/modern/stats/items.php
 msgid "New alerts"
 msgstr "नया अलर्ट"
@@ -8415,6 +8577,19 @@ msgstr "नया अलर्ट"
 #: oc-admin/themes/modern/admins/two_factor.php
 msgid "New backup codes"
 msgstr "नए बैकअप कोड"
+
+#: oc-admin/themes/modern/categories/iframe.php
+#: oc-admin/themes/modern/categories/index.php
+msgid "New category"
+msgstr ""
+
+#: oc-includes/osclass/classes/EmailVariables.php
+msgid "New comment on your listing"
+msgstr ""
+
+#: oc-includes/osclass/classes/EmailVariables.php
+msgid "New comment, to the admin"
+msgstr ""
 
 #: oc-includes/osclass/functions.php
 msgid "New comments"
@@ -8432,10 +8607,6 @@ msgstr "नई समाप्ति"
 msgid "New field"
 msgstr "नया फील्ड"
 
-#: oc-includes/osclass/classes/admin/ajax/FormBuilderAjax.php
-msgid "New field group"
-msgstr "नया फील्ड ग्रुप"
-
 #: oc-admin/themes/modern/fields/index.php
 msgid "New form"
 msgstr "नया फॉर्म"
@@ -8451,6 +8622,10 @@ msgstr "नई कुंजी"
 #: oc-admin/themes/modern/stats/items.php
 msgid "New listing"
 msgstr "नई लिस्टिंग"
+
+#: oc-includes/osclass/classes/EmailVariables.php
+msgid "New listing, to the admin"
+msgstr ""
 
 #: oc-includes/osclass/classes/admin/form/ApiSettingsScreen.php
 msgid "New listings, per user"
@@ -8493,6 +8668,10 @@ msgstr "नए ग्राहक"
 #: oc-admin/themes/modern/parts/market.php
 msgid "New themes show up here as they are published. You can also upload one yourself."
 msgstr "नए थीम यहां दिखाई देती हैं क्योंकि वे प्रकाशित होते हैं। आप इसे स्वयं भी अपलोड कर सकते हैं।"
+
+#: oc-includes/osclass/classes/EmailVariables.php
+msgid "New user, to the admin"
+msgstr ""
 
 #: oc-admin/themes/modern/stats/users.php
 msgid "New users"
@@ -8819,6 +8998,10 @@ msgstr "अभी तक कोई अनुभाग नहीं। नीच�
 msgid "No setting matches."
 msgstr "कोई सेटिंग मैच नहीं।"
 
+#: oc-admin/themes/modern/items/frm.php
+msgid "No shipping. Products in a digital category are delivered as downloads."
+msgstr ""
+
 #: oc-admin/themes/modern/functions.php
 msgid "No subcategory"
 msgstr "कोई उपश्रेणी नहीं"
@@ -8946,6 +9129,10 @@ msgstr "इसे डाउनलोड करने के लिए सर्�
 #: oc-includes/osclass/classes/backup/Builder.php
 msgid "Not enough space on the server: needs about %1$s, %2$s free. Nothing was saved."
 msgstr "सर्वर पर पर्याप्त जगह नहीं: इसके बारे में जरूरत है %1$s, %2$s नि: शुल्क। कुछ भी नहीं बचाया गया।"
+
+#: oc-admin/themes/modern/items/frm.php
+msgid "Not for sale online. Buyers see the price and contact you."
+msgstr ""
 
 #: oc-admin/themes/modern/appearance/dependencies.php
 msgid "Not in the market"
@@ -9211,10 +9398,6 @@ msgstr "सभी स्थानीय छवियों को दूरस�
 msgid "Old price"
 msgstr ""
 
-#: oc-admin/themes/modern/items/frm.php
-msgid "Old price, shown crossed out (blank: no sale)"
-msgstr ""
-
 #: oc-admin/themes/modern/messages/index.php
 msgid "Older"
 msgstr ""
@@ -9232,6 +9415,10 @@ msgstr "पर"
 msgid "On a match"
 msgstr "मैच होने पर"
 
+#: oc-admin/themes/modern/items/frm.php
+msgid "On this page"
+msgstr ""
+
 #: oc-admin/themes/modern/tools/backup.php
 msgid "One backup at a time."
 msgstr "एक समय में एक बैकअप।"
@@ -9243,10 +9430,6 @@ msgstr "एक समय में एक बैकअप। चलने वा
 #: oc-includes/osclass/classes/admin/form/LatestSearchSettingsScreen.php
 msgid "One day"
 msgstr "एक दिन"
-
-#: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
-msgid "One delivery method, \"Standard delivery\", at a flat charge. Amounts are in the listings' currency."
-msgstr "एक डिलीवरी विधि, \"मानक डिलीवरी\", एक फ्लैट चार्ज पर। राशियाँ लिस्टिंग की मुद्रा में हैं।"
 
 #: oc-includes/osclass/classes/admin/form/LatestSearchSettingsScreen.php
 msgid "One hour"
@@ -9373,6 +9556,10 @@ msgstr "विकल्प नाम, जैसे रंग"
 msgid "Optional fields"
 msgstr "वैकल्पिक फ़ील्ड"
 
+#: oc-admin/themes/modern/items/frm.php
+msgid "Optional · empty uses the store address"
+msgstr ""
+
 #: oc-admin/themes/modern/settings/api.php
 msgid "Optional, such as \"Stock sync\"."
 msgstr "वैकल्पिक, जैसे \"स्टॉक सिंक\"।"
@@ -9402,6 +9589,7 @@ msgid "Optional. Your business name, address and tax number, printed at the top 
 msgstr "वैकल्पिक। आपके व्यवसाय का नाम, पता और कर संख्या, शीर्ष पर मुद्रित "
 
 #: oc-admin/themes/modern/fields/iframe.php
+#: oc-admin/themes/modern/items/frm.php
 msgid "Options"
 msgstr "विकल्प"
 
@@ -9412,12 +9600,6 @@ msgstr "विकल्पों की आवश्यकता है।"
 #: oc-includes/osclass/installer/data/sample-classifieds.php
 msgid "Orange"
 msgstr ""
-
-#: oc-admin/themes/modern/billing/index.php
-#: oc-admin/themes/modern/billing/order.php
-#: oc-includes/osclass/classes/datatables/PagesDataTable.php
-msgid "Order"
-msgstr "आदेश"
 
 #: oc-admin/themes/modern/billing/order.php
 msgid "Order #%d"
@@ -9440,6 +9622,7 @@ msgid "Order saved"
 msgstr "आदेश बचाया"
 
 #: oc-admin/themes/modern/billing/index.php
+#: oc-admin/themes/modern/settings/billing.php
 #: oc-includes/osclass/classes/AdminMenu.php
 #: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
 msgid "Orders"
@@ -9693,6 +9876,10 @@ msgstr "पासवर्ड"
 msgid "Password check before a restore"
 msgstr "पुनर्स्थापना से पहले पासवर्ड की जाँच करें"
 
+#: oc-includes/osclass/classes/EmailVariables.php
+msgid "Password reset"
+msgstr ""
+
 #: oc-includes/osclass/classes/admin/form/ApiSettingsScreen.php
 msgid "Password sign-in"
 msgstr "पासवर्ड साइन-इन"
@@ -9864,10 +10051,6 @@ msgstr "फोटो #%1$d लिस्टिंग की #%2$d"
 msgid "Photo %d"
 msgstr "फोटो %d"
 
-#: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
-msgid "Photo cap"
-msgstr "फोटो सीमा"
-
 #: oc-includes/osclass/classes/admin/form/MediaSettingsScreen.php
 msgid "Photo format"
 msgstr "फोटो प्रारूप"
@@ -9898,8 +10081,12 @@ msgid "Photos"
 msgstr "तस्वीरें"
 
 #: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
-msgid "Photos allowed per listing while the entitlement is held."
-msgstr "जब तक यह अधिकार प्राप्त है, प्रत्येक लिस्टिंग में अनुमत फोटो की संख्या।"
+msgid "Photos allowed"
+msgstr ""
+
+#: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
+msgid "Photos allowed per listing while the seller holds it."
+msgstr ""
 
 #: oc-includes/osclass/classes/admin/form/MediaSettingsScreen.php
 msgid "Photos are only made smaller. When off, empty space is white in JPEG and see-through in PNG and WebP."
@@ -9937,6 +10124,10 @@ msgstr "इसे संपादित करने के लिए एक अ
 msgid "Picking a user fills the contact fields below. The listing belongs to"
 msgstr "उपयोगकर्ता को चुनना नीचे दिए गए संपर्क फ़ील्ड को भरता है। लिस्टिंग किससे संबंधित है"
 
+#: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
+msgid "Place price in credits"
+msgstr ""
+
 #: oc-admin/themes/modern/appearance/widgets.php
 msgid "Placed on this page in the page builder. Edit it there."
 msgstr "पेज बिल्डर में इस पेज पर रखा गया है। इसे वहां संपादित करें।"
@@ -9948,6 +10139,10 @@ msgstr "प्लेसहोल्डर"
 #: oc-admin/themes/modern/emails/frm.php
 msgid "Placeholders"
 msgstr "प्लेसहोल्डर"
+
+#: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
+msgid "Places per purchase"
+msgstr ""
 
 #: oc-admin/gui/recover.php
 msgid "Please enter your username or e-mail address"
@@ -10114,6 +10309,10 @@ msgstr "दाम"
 msgid "Price (credits)"
 msgstr "मूल्य (क्रेडिट)"
 
+#: oc-admin/themes/modern/items/frm.php
+msgid "Price and stock"
+msgstr ""
+
 #: oc-includes/osclass/classes/mail/CoreEmails.php
 msgid "Price drop: {ITEM_TITLE}"
 msgstr "कीमत में गिरावट: {ITEM_TITLE}"
@@ -10154,6 +10353,12 @@ msgstr "उत्पाद अलर्ट"
 
 #: oc-includes/osclass/installer/data/fields-shop.php
 msgid "Product details"
+msgstr ""
+
+#: oc-admin/themes/modern/items/index.php
+#: oc-admin/themes/modern/items/settings.php
+#: oc-includes/osclass/classes/AdminMenu.php
+msgid "Products"
 msgstr ""
 
 #: oc-admin/themes/modern/users/frm.php
@@ -10234,6 +10439,10 @@ msgstr "भुगतान के बिना प्रकाशित कर�
 msgid "Published"
 msgstr "प्रकाशित"
 
+#: oc-admin/themes/modern/items/frm.php
+msgid "Publishing"
+msgstr ""
+
 #: oc-admin/themes/modern/appearance/customise.php
 msgid "Publishing…"
 msgstr "प्रकाशन-व्‍यवसाय…"
@@ -10263,6 +10472,10 @@ msgstr "आपके प्रमाणक ऐप के लिए क्यू�
 #: oc-includes/osclass/classes/billing/Receipts.php
 msgid "Qty"
 msgstr "मात्रा"
+
+#: oc-includes/osclass/classes/EmailVariables.php
+msgid "Question about a listing"
+msgstr ""
 
 #: oc-includes/osclass/classes/EmailVariables.php
 msgid "Question about your listing"
@@ -10804,6 +11017,13 @@ msgstr "द्वारा रिपोर्ट किया गया %s"
 msgid "Reported listings"
 msgstr "रिपोर्ट की गई लिस्टिंग"
 
+#: oc-admin/themes/modern/items/reported.php
+#: oc-admin/themes/modern/main/index.php
+#: oc-includes/osclass/classes/AdminMenu.php
+#: oc-includes/osclass/classes/Cleanup.php
+msgid "Reported products"
+msgstr ""
+
 #: oc-includes/osclass/classes/AdminMenu.php
 msgid "Reports"
 msgstr "रिपोर्ट"
@@ -11156,7 +11376,6 @@ msgstr "बैंक ट्रांसफर सेटिंग्स को �
 #: oc-admin/themes/modern/fields/group_iframe.php
 #: oc-admin/themes/modern/fields/iframe.php
 #: oc-admin/themes/modern/pages/frm.php
-#: oc-admin/themes/modern/parts/ui.php
 #: oc-admin/themes/modern/settings/locations/form.php
 #: oc-admin/themes/modern/settings/mailserver.php
 #: oc-includes/osclass/classes/admin/form/SitemapSettingsScreen.php
@@ -11236,6 +11455,10 @@ msgstr "इस पासवर्ड को अभी ही सेव कर �
 #: oc-admin/themes/modern/tools/backup.php
 msgid "Save to your S3 bucket"
 msgstr "अपने S3 बाल्टी में सहेजें"
+
+#: oc-admin/themes/modern/billing/order.php
+msgid "Save tracking"
+msgstr ""
 
 #: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
 msgid "Save upgrade settings"
@@ -11321,6 +11544,22 @@ msgstr ""
 #: oc-includes/osclass/classes/admin/form/SpamSettingsScreen.php
 msgid "Search alert sign-ups"
 msgstr "अलर्ट साइन-अप खोजें"
+
+#: oc-includes/osclass/classes/EmailVariables.php
+msgid "Search alert, daily"
+msgstr ""
+
+#: oc-includes/osclass/classes/EmailVariables.php
+msgid "Search alert, hourly"
+msgstr ""
+
+#: oc-includes/osclass/classes/EmailVariables.php
+msgid "Search alert, instant"
+msgstr ""
+
+#: oc-includes/osclass/classes/EmailVariables.php
+msgid "Search alert, weekly"
+msgstr ""
 
 #: oc-admin/themes/modern/settings/spamNbots.php
 #: oc-includes/osclass/classes/admin/form/SpamSettingsScreen.php
@@ -11470,6 +11709,7 @@ msgstr "दूसरा पासवर्ड: इस फ़ील्ड की 
 msgid "Secret key"
 msgstr "गुप्त कुंजी"
 
+#: oc-admin/themes/modern/tools/logs.php
 #: oc-includes/osclass/classes/datatables/LogsDataTable.php
 msgid "Section"
 msgstr "अनुभाग"
@@ -11528,7 +11768,16 @@ msgstr "देखें क्यों"
 msgid "Select"
 msgstr "चुनना"
 
+#: oc-admin/themes/modern/settings/currencies.php
 #: oc-admin/themes/modern/settings/locations/list.php
+#: oc-includes/osclass/classes/controller/admin/CAdminLanguages.php
+#: oc-includes/osclass/classes/datatables/BanRulesDataTable.php
+#: oc-includes/osclass/classes/datatables/CommentsDataTable.php
+#: oc-includes/osclass/classes/datatables/ItemsDataTable.php
+#: oc-includes/osclass/classes/datatables/KeywordBlocksDataTable.php
+#: oc-includes/osclass/classes/datatables/MediaDataTable.php
+#: oc-includes/osclass/classes/datatables/PagesDataTable.php
+#: oc-includes/osclass/classes/datatables/UsersDataTable.php
 msgid "Select %s"
 msgstr "चुनें %s"
 
@@ -11570,7 +11819,18 @@ msgstr "किसी क्षेत्र का चयन करें"
 msgid "Select a region..."
 msgstr "एक क्षेत्र का चयन करें ..."
 
+#: oc-admin/themes/modern/admins/index.php
+#: oc-admin/themes/modern/languages/index.php
 #: oc-admin/themes/modern/media/index.php
+#: oc-admin/themes/modern/settings/currencies.php
+#: oc-includes/osclass/classes/datatables/AlertsDataTable.php
+#: oc-includes/osclass/classes/datatables/BanRulesDataTable.php
+#: oc-includes/osclass/classes/datatables/CommentsDataTable.php
+#: oc-includes/osclass/classes/datatables/ItemsDataTable.php
+#: oc-includes/osclass/classes/datatables/KeywordBlocksDataTable.php
+#: oc-includes/osclass/classes/datatables/MediaDataTable.php
+#: oc-includes/osclass/classes/datatables/PagesDataTable.php
+#: oc-includes/osclass/classes/datatables/UsersDataTable.php
 msgid "Select all"
 msgstr "सभी का चयन करें"
 
@@ -11614,16 +11874,16 @@ msgid "Selected: %s"
 msgstr "चयनित: %s"
 
 #: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
-msgid "Sell a raised photo cap"
-msgstr "बढ़ी हुई फोटो सीमा बेचें"
-
-#: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
 msgid "Sell bump to top"
 msgstr "लिस्टिंग को शीर्ष पर लाने की सुविधा बेचें"
 
 #: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
-msgid "Sell extra listing slots"
-msgstr "अतिरिक्त लिस्टिंग स्लॉट बेचें"
+msgid "Sell extra listing places"
+msgstr ""
+
+#: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
+msgid "Sell extra photos"
+msgstr ""
 
 #: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
 msgid "Sell extra runtime beyond the category limit"
@@ -11646,17 +11906,20 @@ msgid "Sell marking a listing urgent"
 msgstr "किसी लिस्टिंग को तत्काल के रूप में चिह्नित करने की सुविधा बेचें"
 
 #: oc-admin/themes/modern/items/frm.php
-msgid "Sell this item"
-msgstr "इस आइटम को बेचें"
+msgid "Sell online"
+msgstr ""
 
 #: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
-msgid "Sell waiving the flood wait"
-msgstr "पोस्टिंग प्रतीक्षा अवधि माफ करने की सुविधा बेचें"
+msgid "Sell skipping the posting wait"
+msgstr ""
 
-#: oc-admin/themes/modern/items/frm.php
 #: oc-admin/themes/modern/messages/index.php
 msgid "Seller"
 msgstr "विक्रेता"
+
+#: oc-admin/themes/modern/items/frm.php
+msgid "Seller and contact"
+msgstr ""
 
 #: oc-includes/osclass/classes/EmailVariables.php
 msgid "Seller email"
@@ -11883,6 +12146,7 @@ msgstr "आपकी वेबसाइट सेटअप हो रही ह�
 #: oc-includes/osclass/classes/admin/form/UserSettingsScreen.php
 #: oc-includes/osclass/classes/controller/admin/CAdminMedia.php
 #: oc-includes/osclass/gui/admin/settings-page.php
+#: oc-includes/osclass/helpers/hAdminUi.php
 msgid "Settings"
 msgstr "सेटिंग्स"
 
@@ -11907,6 +12171,10 @@ msgid "Share listing"
 msgstr "लिस्टिंग साझा करें"
 
 #: oc-admin/themes/modern/billing/order.php
+msgid "Ship order #%d without a tracking number?"
+msgstr ""
+
+#: oc-admin/themes/modern/billing/order.php
 msgid "Ship this order"
 msgstr "इस आदेश को शिप करें"
 
@@ -11914,6 +12182,10 @@ msgstr "इस आदेश को शिप करें"
 #: oc-admin/themes/modern/billing/order.php
 msgid "Shipped"
 msgstr "भेज दिया"
+
+#: oc-admin/themes/modern/items/frm.php
+msgid "Shipping"
+msgstr ""
 
 #: oc-admin/themes/modern/items/frm.php
 msgid "Shipping class"
@@ -12152,6 +12424,10 @@ msgstr "%s परिणामों की %s के लिए %s दिखा �
 msgid "Showing %s to %s of %s results (filtered from %s total results)"
 msgstr "%s परिणामों की %s के लिए %s दिखा रहा है ( %s कुल परिणामों से फ़िल्टर)"
 
+#: oc-admin/themes/modern/items/frm.php
+msgid "Shown crossed out next to the price. Leave empty when not on sale."
+msgstr ""
+
 #: oc-includes/osclass/classes/admin/form/MaintenanceSettingsScreen.php
 msgid "Shown on the banner, and on the 503 page. Plain text only. Leave blank for the default message."
 msgstr "बैनर पर और 503 पेज पर दिखाया गया है। केवल सादा पाठ। डिफ़ॉल्ट संदेश के लिए खाली छोड़ दें।"
@@ -12159,6 +12435,10 @@ msgstr "बैनर पर और 503 पेज पर दिखाया ग�
 #: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
 msgid "Shown to the buyer as written."
 msgstr "खरीदार को लिखित रूप में दिखाया गया है।"
+
+#: oc-admin/themes/modern/settings/locations/form.php
+msgid "Shown to visitors reading the site in that language. Blank uses the name above."
+msgstr ""
 
 #: oc-includes/osclass/classes/admin/form/MediaSettingsScreen.php
 msgid "Shrink photos in the browser before upload."
@@ -12276,6 +12556,10 @@ msgstr "साइटमैप सेटिंग्स"
 msgid "Size"
 msgstr "आकार"
 
+#: oc-admin/themes/modern/items/frm.php
+msgid "Sizes, colours and other choices"
+msgstr ""
+
 #: oc-includes/osclass/installer/data/categories-shop.php
 msgid "Skincare"
 msgstr ""
@@ -12299,14 +12583,6 @@ msgstr "पोस्टिंग के इंतज़ार को छोड�
 #: oc-includes/osclass/classes/install/ShopSetup.php
 msgid "Skipped, because the Aisle theme is not installed."
 msgstr ""
-
-#: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
-msgid "Slot price in credits"
-msgstr "क्रेडिट्स में स्लॉट की कीमत"
-
-#: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
-msgid "Slots per purchase"
-msgstr "प्रति खरीद स्लॉट"
 
 #: oc-admin/themes/modern/tools/system-info/jobs.php
 msgid "Slow work, such as emptying a large category or moving photos to a bucket, waits here. Cron runs it on every tick."
@@ -12433,6 +12709,7 @@ msgstr "स्पैम"
 
 #: oc-admin/themes/modern/settings/spamNbots.php
 #: oc-includes/osclass/classes/AdminMenu.php
+#: oc-includes/osclass/helpers/hAdminUi.php
 msgid "Spam and bots"
 msgstr "स्पैम और बॉट"
 
@@ -12477,6 +12754,10 @@ msgstr "स्थिर, रिलीज उम्मीदवार और ब�
 msgid "Stainless steel workbench"
 msgstr ""
 
+#: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
+msgid "Standard delivery at one charge. With the Shipping plugin on, its zones set the charge instead. Amounts are in the listings' currency."
+msgstr ""
+
 #: oc-includes/osclass/classes/backup/BackupService.php
 msgid "Starting"
 msgstr "शुरूआत"
@@ -12506,7 +12787,6 @@ msgstr "सांख्यिकी"
 #: oc-admin/themes/modern/billing/index.php
 #: oc-admin/themes/modern/billing/order.php
 #: oc-admin/themes/modern/billing/packages.php
-#: oc-admin/themes/modern/comments/frm.php
 #: oc-admin/themes/modern/fields/submissions.php
 #: oc-admin/themes/modern/messages/thread.php
 #: oc-admin/themes/modern/settings/api.php
@@ -12555,10 +12835,6 @@ msgstr "अभी भी करना बाकी है"
 msgid "Stock"
 msgstr "भंडार"
 
-#: oc-admin/themes/modern/items/frm.php
-msgid "Stock (blank does not track)"
-msgstr "स्टॉक (रिक्त ट्रैक नहीं करता है)"
-
 #: oc-admin/themes/modern/billing/order.php
 msgid "Stock ran out after this order was paid. Short:"
 msgstr "इस आदेश का भुगतान करने के बाद स्टॉक खत्म हो गया। छोटा:"
@@ -12597,6 +12873,10 @@ msgstr "स्टोर"
 msgid "Store 1000 queries"
 msgstr "स्टोर 1000 क्वेश्चन"
 
+#: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
+msgid "Store address"
+msgstr ""
+
 #: oc-includes/osclass/classes/admin/ui/Picker.php
 msgid "Street address"
 msgstr "सड़क का पता"
@@ -12626,6 +12906,7 @@ msgid "Subdomain type"
 msgstr "सबडोमेन प्रकार"
 
 #: oc-admin/themes/modern/emails/frm.php
+#: oc-admin/themes/modern/emails/index.php
 msgid "Subject"
 msgstr "विषय"
 
@@ -12738,6 +13019,10 @@ msgstr "इस खाते से क्रेडिट वापस ले ल
 msgid "Take payment at the end of posting"
 msgstr "पोस्टिंग के अंत में भुगतान लें"
 
+#: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
+msgid "Take payment for shop orders and plugin extras. While off, the Billing menu is hidden."
+msgstr ""
+
 #: oc-includes/osclass/installer/data/categories-classifieds.php
 msgid "Team Sports"
 msgstr ""
@@ -12775,7 +13060,6 @@ msgstr "तक परीक्षण किया गया %s"
 msgid "Testing…"
 msgstr "टेस्टिंग…"
 
-#: oc-admin/themes/modern/fields/index.php
 #: oc-includes/osclass/classes/admin/form/MediaSettingsScreen.php
 msgid "Text"
 msgstr "टेक्स्ट"
@@ -12880,6 +13164,10 @@ msgstr "<a href=\"https://github.com/mindstellar/shopclass\">Shopclass</a> ट�
 #: oc-admin/themes/modern/settings/storage.php
 msgid "The <strong>Better S3</strong> plugin is currently active. Disable it before turning on "
 msgstr "<strong>Better S3</strong> प्लगइन अभी सक्रिय है। चालू करने से पहले इसे अक्षम करें "
+
+#: oc-admin/themes/modern/settings/api.php
+msgid "The API is off, so keys and webhooks do nothing until you switch it on above."
+msgstr ""
 
 #: oc-admin/themes/modern/settings/api.php
 msgid "The API is served at %s."
@@ -13014,6 +13302,10 @@ msgstr "खरीदार कूरियर का भुगतान कर�
 #: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
 msgid "The buyer sees your instructions at checkout and pays outside the site. You mark the order paid."
 msgstr "खरीदार चेकआउट पर आपके निर्देशों को देखता है और साइट के बाहर भुगतान करता है। आप भुगतान किए गए आदेश को चिह्नित करें।"
+
+#: oc-admin/themes/modern/billing/order.php
+msgid "The buyer will see the order as shipped with no carrier or tracking. You can add them later."
+msgstr ""
 
 #: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "The cache is working."
@@ -13164,10 +13456,6 @@ msgstr "फाइलें किसकी हैं? %s."
 msgid "The installation directory is not writable."
 msgstr "इंस्टॉलेशन डायरेक्टरी पर लिखना संभव नहीं है।"
 
-#: oc-admin/themes/modern/items/frm.php
-msgid "The item sells at the listing price."
-msgstr ""
-
 #: oc-includes/osclass/classes/admin/form/SpamSettingsScreen.php
 msgid "The key you entered is invalid. Please double-check it"
 msgstr "आपके द्वारा दर्ज की गई कुंजी अमान्य है। कृपया इसे डबल-चेक करें"
@@ -13186,6 +13474,14 @@ msgstr ""
 
 #: oc-includes/osclass/classes/admin/DatabaseTools.php
 msgid "The last build failed: %s"
+msgstr ""
+
+#: oc-includes/osclass/classes/menu/MenuItems.php
+msgid "The link \"%s\" needs an address that starts with http://, https:// or /."
+msgstr ""
+
+#: oc-includes/osclass/classes/menu/MenuItems.php
+msgid "The link to \"%s\" needs a label."
 msgstr ""
 
 #: oc-admin/themes/modern/settings/locations.php
@@ -13743,10 +14039,6 @@ msgstr "यह एक एज बिल्ड है। :edge छवि को �
 msgid "This is an example page description. This is a good place to put your Terms of Service or any other help information."
 msgstr "यह एक उदाहरण पृष्ठ विवरण है। यह आपकी सेवा की शर्तों या किसी अन्य सहायता जानकारी को रखने के लिए एक अच्छी जगह है।"
 
-#: oc-admin/themes/modern/items/frm.php
-msgid "This item comes in options"
-msgstr "यह आइटम विकल्पों में आता है"
-
 #: oc-admin/themes/modern/tools/backup.php
 msgid "This keeps going while the page is open. With cron set up it also carries on if you close it."
 msgstr "पेज खुला रहने पर यह चलता रहता है। क्रॉन सेट अप के साथ यदि आप इसे बंद करते हैं तो यह भी चलता रहता है।"
@@ -13839,6 +14131,10 @@ msgstr "इस कार्रवाई से वह पृष्ठ एवं 
 #: oc-includes/osclass/classes/market/PluginDependencies.php
 msgid "This plugin is not in the market. Get its zip file from the theme author and upload it under Plugins, Add plugin."
 msgstr "यह प्लगइन बाजार में नहीं है। थीम लेखक से इसकी ज़िप फ़ाइल प्राप्त करें और इसे प्लगइन्स, प्लगइन जोड़ें के तहत अपलोड करें।"
+
+#: oc-admin/themes/modern/items/frm.php
+msgid "This product comes in options"
+msgstr ""
 
 #: oc-admin/themes/modern/billing/order.php
 msgid "This records that the money was given back. Nothing is sent to the payment provider."
@@ -13991,7 +14287,6 @@ msgid "Timezone"
 msgstr "टाइमज़ोन"
 
 #: oc-admin/themes/modern/comments/frm.php
-#: oc-admin/themes/modern/emails/index.php
 #: oc-admin/themes/modern/items/frm.php
 #: oc-admin/themes/modern/pages/frm.php
 #: oc-admin/themes/modern/stats/comments.php
@@ -14301,6 +14596,7 @@ msgid "Two-step sign-in"
 msgstr "दो-चरणीय साइन-इन"
 
 #: oc-admin/themes/modern/fields/iframe.php
+#: oc-admin/themes/modern/fields/index.php
 #: oc-admin/themes/modern/media/index.php
 #: oc-admin/themes/modern/settings/api.php
 msgid "Type"
@@ -14443,6 +14739,10 @@ msgstr "प्रीमियम के रूप में अचिह्न�
 msgid "Unmark as spam"
 msgstr "स्पैम के रूप में अचिह्न"
 
+#: oc-includes/osclass/classes/EmailVariables.php
+msgid "Unpaid listing reminder"
+msgstr ""
+
 #: oc-admin/themes/modern/appearance/menus.php
 msgid "Unsaved changes"
 msgstr ""
@@ -14450,6 +14750,10 @@ msgstr ""
 #: oc-includes/osclass/classes/EmailVariables.php
 msgid "Unsubscribe link."
 msgstr "लिंक अनसब्सक्राइब करें।"
+
+#: oc-admin/themes/modern/appearance/widgets.php
+msgid "Unused: %s"
+msgstr ""
 
 #: oc-includes/osclass/classes/datatables/PagesDataTable.php
 msgid "Up"
@@ -14524,6 +14828,10 @@ msgstr "अपडेट लिस्टिंग"
 #: oc-includes/osclass/functions.php
 msgid "Update my profile"
 msgstr "मेरी प्रोफ़ाइल अपडेट करें"
+
+#: oc-admin/themes/modern/items/frm.php
+msgid "Update product"
+msgstr ""
 
 #: oc-admin/themes/modern/parts/package-ui.php
 msgid "Update ready"
@@ -14727,8 +15035,12 @@ msgid "Used report link"
 msgstr "उपयोग की गई रिपोर्ट लिंक"
 
 #: oc-admin/themes/modern/pages/frm.php
-msgid "Used to quickly identify this page"
-msgstr "इस पृष्ठ को जल्दी से पहचानने के लिए उपयोग किया जाता है"
+msgid "Used to identify this page. Left empty on a new page, it is built from the title."
+msgstr ""
+
+#: oc-admin/themes/modern/items/frm.php
+msgid "Used to work out delivery cost"
+msgstr ""
 
 #: oc-admin/themes/modern/billing/credits.php
 #: oc-admin/themes/modern/billing/index.php
@@ -15254,12 +15566,16 @@ msgid "Weight (g)"
 msgstr "वजन (जी)"
 
 #: oc-admin/themes/modern/items/frm.php
-msgid "Weight in grams"
-msgstr "ग्राम में वजन"
+msgid "Weight is set per row in Options."
+msgstr ""
 
 #: oc-includes/osclass/installer/gui/install.php
 msgid "Welcome to Shopclass"
 msgstr "Shopclass में आपका स्वागत है"
+
+#: oc-includes/osclass/classes/EmailVariables.php
+msgid "Welcome, new account"
+msgstr ""
 
 #: oc-includes/osclass/installer/data/sample-classifieds.php
 msgid "Well kept five-door hatchback with full service history. New tyres and a fresh MOT."
@@ -15286,6 +15602,10 @@ msgstr "खरीदार चेकआउट पर जो चुन सकत�
 #: oc-admin/themes/modern/tools/system-info/jobs.php
 msgid "What background work did, newest first. The full history is in the <a href=\"%s\">activity log</a>."
 msgstr "क्या पृष्ठभूमि का काम किया, सबसे नया पहले। पूरा इतिहास में है <a href=\"%s\">गतिविधि लॉग</a>."
+
+#: oc-admin/themes/modern/items/frm.php
+msgid "What buyers pay and how many you have"
+msgstr ""
 
 #: oc-admin/themes/modern/billing/order.php
 #: oc-admin/themes/modern/billing/wallet.php
@@ -15349,6 +15669,10 @@ msgstr "जब आप php.ini फ़ाइल को संपादित न�
 msgid "Where"
 msgstr "कहां है"
 
+#: oc-admin/themes/modern/items/frm.php
+msgid "Where the item is"
+msgstr ""
+
 #: oc-admin/themes/modern/settings/api.php
 msgid "Where the site sends each event, as an https address."
 msgstr "जहां साइट प्रत्येक ईवेंट को https पते के रूप में भेजती है।"
@@ -15373,6 +15697,10 @@ msgstr ""
 #: oc-includes/osclass/classes/datatables/LogsDataTable.php
 msgid "Who"
 msgstr "कौन"
+
+#: oc-admin/themes/modern/items/frm.php
+msgid "Who posted it and how buyers reach them"
+msgstr ""
 
 #: oc-includes/osclass/classes/datatables/KeywordBlocksDataTable.php
 msgid "Whole word"
@@ -16261,6 +16589,10 @@ msgstr "post_max_size (%1$s) upload_max_filesize ( से छोटा है%2$
 msgid "previously approved comments"
 msgstr "पहले से स्वीकृत टिप्पणियाँ"
 
+#: oc-includes/osclass/classes/admin/form/MainSettingsScreen.php
+msgid "products at most"
+msgstr ""
+
 #: oc-includes/osclass/classes/admin/form/LatestSearchSettingsScreen.php
 msgid "queries"
 msgstr "पूछताछ"
@@ -16501,3 +16833,39 @@ msgstr "— Shopclass"
 #: oc-includes/osclass/classes/Session.php
 msgid "…and %d more"
 msgstr "…तथा %d अधिक"
+
+#: oc-admin/themes/modern/billing/index.php
+#: oc-admin/themes/modern/billing/order.php
+msgctxt "purchase order"
+msgid "Order"
+msgstr ""
+
+#: oc-includes/osclass/classes/datatables/PagesDataTable.php
+msgctxt "sort position"
+msgid "Order"
+msgstr ""
+
+#: oc-admin/themes/modern/items/frm.php
+msgctxt "item for sale"
+msgid "Product"
+msgstr ""
+
+#: oc-admin/themes/modern/settings/currencies.php
+msgctxt "currency symbol"
+msgid "Symbol"
+msgstr ""
+
+#: oc-admin/themes/modern/comments/frm.php
+msgctxt "comment is shown on the site"
+msgid "Visible"
+msgstr ""
+
+#: oc-admin/themes/modern/items/frm.php
+msgctxt "product weight"
+msgid "Weight"
+msgstr ""
+
+#: oc-admin/themes/modern/items/frm.php
+msgctxt "unit: grams"
+msgid "g"
+msgstr ""

@@ -145,8 +145,9 @@ msgid "%1$s of %2$s selected"
 msgstr ""
 
 #: oc-admin/themes/modern/billing/index.php
-msgid "%1$s orders · %2$s paid · %3$s awaiting payment"
-msgstr "%1$s件の注文 · %2$s件 支払い済み · %3$s件 支払い待ち"
+msgid "%1$s order · %2$s paid · %3$s awaiting payment"
+msgid_plural "%1$s orders · %2$s paid · %3$s awaiting payment"
+msgstr[0] ""
 
 #: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "%1$s per file · %2$s per request"
@@ -411,6 +412,10 @@ msgid "%d time"
 msgid_plural "%d times"
 msgstr[0] "%d 回"
 
+#: oc-admin/themes/modern/items/frm.php
+msgid "%d to fix"
+msgstr ""
+
 #: oc-includes/osclass/classes/job/JobWorker.php
 msgid "%d to retry"
 msgstr "%d を再試行する"
@@ -420,7 +425,6 @@ msgid "%d try"
 msgid_plural "%d tries"
 msgstr[0] "%d 回試行中"
 
-#: oc-admin/themes/modern/parts/ui.php
 #: oc-includes/osclass/helpers/hAdminUi.php
 msgid "%d unsaved changes"
 msgstr "%d 未保存の変更"
@@ -611,6 +615,11 @@ msgstr "%s は整数でなければなりません"
 msgid "%s needs these plugins"
 msgstr "%s はこれらのプラグインが必要です"
 
+#: oc-admin/themes/modern/billing/index.php
+msgid "%s order"
+msgid_plural "%s orders"
+msgstr[0] ""
+
 #: oc-admin/themes/modern/settings/locations/form.php
 #: oc-admin/themes/modern/settings/locations/list.php
 #: oc-admin/themes/modern/settings/locations/preview.php
@@ -659,6 +668,10 @@ msgstr "（例：192.168.10-20.*)"
 msgid "(no values)"
 msgstr "(値なし)"
 
+#: oc-admin/themes/modern/settings/locations/form.php
+msgid "(site default)"
+msgstr ""
+
 #: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "/api/ belongs to the site's API, so these static pages or categories cannot be reached. Give them another slug: %s"
 msgstr "/api/はサイトのAPIに属しているため、これらの固定ページやカテゴリに到達できません。別のスラグを与えてください： %s"
@@ -703,7 +716,6 @@ msgstr ""
 msgid "1 thing needs fixing before this can be saved."
 msgstr "これを保存する前に1つの事を修正する必要があります。"
 
-#: oc-admin/themes/modern/parts/ui.php
 #: oc-includes/osclass/helpers/hAdminUi.php
 msgid "1 unsaved change"
 msgstr "1つの保存されていない変更"
@@ -794,6 +806,10 @@ msgstr ""
 
 #: oc-includes/osclass/classes/mail/CoreEmails.php
 msgid "<p>Hi {USER_NAME},</p><p>Your order {ORDER_NUMBER} from {WEB_TITLE} was cancelled. If you paid for it, you are not charged: any amount taken is returned to you.</p>{ORDER_LINES}<p>{ORDER_LINK}</p>"
+msgstr ""
+
+#: oc-includes/osclass/classes/mail/CoreEmails.php
+msgid "<p>Hi {USER_NAME},</p><p>Your order {ORDER_NUMBER} from {WEB_TITLE} was cancelled. Your listing stays on hold until the fee is paid.</p>{ORDER_LINES}<p>{ORDER_LINK}</p>"
 msgstr ""
 
 #: oc-includes/osclass/classes/mail/CoreEmails.php
@@ -901,11 +917,7 @@ msgstr "ジョブは15分以上実行されています。実行中に停止し�
 msgid "A link needs a label and an address."
 msgstr ""
 
-#: oc-includes/osclass/classes/menu/MenuItems.php
-msgid "A link needs a label."
-msgstr ""
-
-#: oc-includes/osclass/classes/menu/MenuItems.php
+#: oc-admin/themes/modern/appearance/menus.php
 msgid "A link needs an address that starts with http://, https:// or /."
 msgstr ""
 
@@ -938,6 +950,14 @@ msgstr ""
 msgid "A menu with that id already exists."
 msgstr ""
 
+#: oc-admin/themes/modern/items/frm.php
+msgid "A name the Shipping plugin groups items by, such as bulky."
+msgstr ""
+
+#: oc-includes/osclass/classes/admin/ajax/CategoryAjax.php
+msgid "A new category has been added"
+msgstr ""
+
 #: oc-includes/osclass/classes/admin/form/CommentSettingsScreen.php
 msgid "A new comment is posted"
 msgstr "新しいコメントが投稿されました"
@@ -959,8 +979,8 @@ msgid "A plugin the Aisle theme needs is missing, so the site stays a classified
 msgstr ""
 
 #: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
-msgid "A price of 0 makes extra slots free."
-msgstr "価格が0の場合、余分なスロットは自由になります。"
+msgid "A price of 0 makes extra places free."
+msgstr ""
 
 #: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
 msgid "A price of 0 makes featuring free."
@@ -1012,8 +1032,8 @@ msgid "A security fix for the version you run (6.4.0 to 6.4.1) is installed at n
 msgstr "実行したバージョン(6.4.0~6.4)のセキュリティ修正。 ) は一日経つと夜にインストールされ、連絡先のメールが送信されます。デフォルトではオフになります。"
 
 #: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
-msgid "A seller over the limit writes the listing first and pays for the slot on the last step. Off, they are sent to buy a slot before they can post."
-msgstr "上限を越える売り手は最初にリストを書き、最後のステップのスロットのために支払う。 オフ、彼らは彼らがポストすることができる前にスロットを購入するために送信されます。"
+msgid "A seller over the limit writes the listing first and pays for the extra place on the last step. Off, they are sent to buy one before they can post."
+msgstr ""
 
 #: oc-includes/osclass/classes/menu/MenuService.php
 msgid "A site can keep at most %d menus besides the main and footer menus."
@@ -1193,6 +1213,7 @@ msgstr "アクティビティログ"
 
 #: oc-admin/themes/modern/appearance/menus.php
 #: oc-admin/themes/modern/comments/frm.php
+#: oc-admin/themes/modern/fields/index.php
 #: oc-admin/themes/modern/settings/currencies.php
 #: oc-admin/themes/modern/settings/currency_form.php
 #: oc-admin/themes/modern/users/index.php
@@ -1233,6 +1254,7 @@ msgstr "管理者を追加"
 msgid "Add ban rule"
 msgstr "BANルールを追加"
 
+#: oc-admin/themes/modern/categories/iframe.php
 #: oc-admin/themes/modern/categories/index.php
 msgid "Add category"
 msgstr "カテゴリを追加"
@@ -1328,6 +1350,11 @@ msgstr "写真を追加"
 #: oc-admin/themes/modern/plugins/index.php
 msgid "Add plugin"
 msgstr "プラグインを追加"
+
+#: oc-admin/themes/modern/items/frm.php
+#: oc-admin/themes/modern/items/index.php
+msgid "Add product"
+msgstr ""
 
 #: oc-admin/themes/modern/settings/locations/form.php
 #: oc-admin/themes/modern/settings/locations/list.php
@@ -1776,8 +1803,12 @@ msgid "An order records one attempt to pay. Shopclass stores what was bought and
 msgstr "注文は1回の支払い試行を記録します。Shopclassは何が購入されたかと、どの "
 
 #: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
-msgid "An unpaid order is cancelled after this many days. A bank transfer or cash on delivery order's stock goes back on sale. A listing waiting for payment is deleted after the same number of days; the seller is reminded a day before."
-msgstr "未払いの注文は、この多くの日後にキャンセルされます。銀行振込または配送注文の現金が販売されています。 支払いを待っているリストは、同じ日数の後に削除されます; 売り手は前の日を思い出させられます."
+msgid "An unpaid bank transfer or cash on delivery order is cancelled after this many days, and its stock goes back on sale."
+msgstr ""
+
+#: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
+msgid "An unpaid order is cancelled after this many days. A listing waiting for payment is deleted after the same number of days; the seller is reminded a day before."
+msgstr ""
 
 #: oc-admin/themes/modern/plugins/index.php
 msgid "An update is ready for this plugin. Open the Updates tab to apply it."
@@ -2179,6 +2210,10 @@ msgstr "ページに戻る"
 #: oc-admin/themes/modern/plugins/add.php
 msgid "Back to plugins"
 msgstr "プラグインに戻る"
+
+#: oc-admin/themes/modern/items/frm.php
+msgid "Back to products"
+msgstr ""
 
 #: oc-admin/gui/two_factor.php
 msgid "Back to the sign-in page"
@@ -2601,8 +2636,8 @@ msgid "Buyer"
 msgstr ""
 
 #: oc-admin/themes/modern/items/frm.php
-msgid "Buyers can add this item to a cart"
-msgstr "バイヤーはこのアイテムをカートに追加できます"
+msgid "Buyers can add this product to a cart."
+msgstr ""
 
 #: oc-includes/osclass/classes/controller/admin/CAdminPlugins.php
 msgid "By"
@@ -2672,6 +2707,7 @@ msgstr "config.phpへの書き込みができません。ファイルが書き�
 #: oc-admin/themes/modern/fields/iframe.php
 #: oc-admin/themes/modern/fields/index.php
 #: oc-admin/themes/modern/fields/submissions.php
+#: oc-admin/themes/modern/items/frm.php
 #: oc-admin/themes/modern/languages/index.php
 #: oc-admin/themes/modern/parts/media-picker.php
 #: oc-admin/themes/modern/parts/ui.php
@@ -2739,6 +2775,7 @@ msgstr ""
 
 #: oc-admin/themes/modern/settings/spamNbots.php
 #: oc-includes/osclass/classes/admin/form/SpamSettingsScreen.php
+#: oc-includes/osclass/helpers/hAdminUi.php
 msgid "Captcha"
 msgstr "キャプチャ"
 
@@ -3035,6 +3072,7 @@ msgid "Choose an option"
 msgstr "オプションを選択"
 
 #: oc-admin/themes/modern/functions.php
+#: oc-includes/osclass/classes/admin/ui/Field.php
 msgid "Choose image"
 msgstr "画像を選択"
 
@@ -3221,6 +3259,10 @@ msgid "Close"
 msgstr "閉じる"
 
 #: oc-admin/themes/modern/billing/order.php
+msgid "Close an order that will not be paid."
+msgstr ""
+
+#: oc-admin/themes/modern/billing/order.php
 msgid "Close an order that will not be paid. Stock held for it goes back on sale."
 msgstr "支払われない注文を閉じます。株式は販売に戻ります。"
 
@@ -3313,6 +3355,10 @@ msgid "Comment Statistics"
 msgstr "コメント統計情報"
 
 #: oc-includes/osclass/classes/EmailVariables.php
+msgid "Comment approved"
+msgstr ""
+
+#: oc-includes/osclass/classes/EmailVariables.php
 msgid "Comment author email"
 msgstr "コメント投稿者メールアドレス"
 
@@ -3392,6 +3438,10 @@ msgstr ""
 msgid "Company"
 msgstr "会社"
 
+#: oc-admin/themes/modern/items/frm.php
+msgid "Compare-at price"
+msgstr ""
+
 #: oc-admin/themes/modern/parts/market.php
 msgid "Compatibility"
 msgstr "互換性"
@@ -3416,6 +3466,7 @@ msgstr ""
 msgid "Computers"
 msgstr ""
 
+#: oc-admin/themes/modern/fields/iframe.php
 #: oc-includes/osclass/installer/data/fields-classifieds.php
 msgid "Condition"
 msgstr ""
@@ -3436,9 +3487,29 @@ msgstr "広告画像用のS3互換オブジェクトストレージを設定し�
 msgid "Configure the XML sitemap: how many URLs go in each file, which extra location pages to "
 msgstr "XMLサイトマップの設定: 各ファイルに含めるURLの数、どの追加エリアページを "
 
+#: oc-includes/osclass/classes/EmailVariables.php
+msgid "Confirm a new e-mail address"
+msgstr ""
+
+#: oc-includes/osclass/classes/EmailVariables.php
+msgid "Confirm a new listing"
+msgstr ""
+
+#: oc-includes/osclass/classes/EmailVariables.php
+msgid "Confirm a new listing, guest"
+msgstr ""
+
+#: oc-includes/osclass/classes/EmailVariables.php
+msgid "Confirm a search alert"
+msgstr ""
+
 #: oc-includes/osclass/classes/admin/form/AdminAccountForm.php
 msgid "Confirm new password"
 msgstr "新しいパスワードの確認"
+
+#: oc-includes/osclass/classes/EmailVariables.php
+msgid "Confirm your account"
+msgstr ""
 
 #: oc-includes/osclass/classes/security/MessageHold.php
 msgid "Confirm your message on %s"
@@ -4486,6 +4557,7 @@ msgstr "説明は 1 から %d 文字にできます。"
 msgid "Desktop"
 msgstr "デスクトップ"
 
+#: oc-admin/themes/modern/items/frm.php
 #: oc-admin/themes/modern/parts/market.php
 #: oc-admin/themes/modern/parts/package-ui.php
 #: oc-admin/themes/modern/settings/locations/form.php
@@ -4780,6 +4852,10 @@ msgstr "ローカルディスクにまだ保存されている各画像は、ア
 msgid "Each one adjusts from 2 to 20 kg. Space saving and easy to change."
 msgstr ""
 
+#: oc-admin/themes/modern/items/frm.php
+msgid "Each option row below has its own SKU, price, compare-at price and stock. A row with no price sells at this price."
+msgstr ""
+
 #: oc-admin/themes/modern/settings/storage.php
 msgid "Each remote image is queued for download and switched back to local storage. "
 msgstr "各リモート画像はダウンロードのためにキューに追加され、ローカルストレージに切り替えられます。 "
@@ -4877,6 +4953,10 @@ msgstr "広告を編修"
 msgid "Edit page"
 msgstr "ページの編集"
 
+#: oc-admin/themes/modern/items/frm.php
+msgid "Edit product"
+msgstr ""
+
 #: oc-admin/themes/modern/parts/header.php
 msgid "Edit profile"
 msgstr "プロフィールの編集"
@@ -4888,6 +4968,10 @@ msgstr "地域を編集"
 #: oc-includes/osclass/classes/admin/form/BanRuleForm.php
 msgid "Edit rule"
 msgstr "ルールを編集"
+
+#: oc-admin/themes/modern/billing/order.php
+msgid "Edit tracking"
+msgstr ""
 
 #: oc-admin/themes/modern/billing/wallet.php
 #: oc-admin/themes/modern/comments/frm.php
@@ -5301,8 +5385,8 @@ msgid "Extra photos"
 msgstr "追加写真"
 
 #: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
-msgid "Extra slots"
-msgstr "追加のスロット"
+msgid "Extra places"
+msgstr ""
 
 #: oc-includes/osclass/installer/data/sample-shop.php
 msgid "Face serum"
@@ -5387,13 +5471,21 @@ msgstr ""
 msgid "Field"
 msgstr "フィールド"
 
-#: oc-admin/themes/modern/fields/index.php
+#: oc-includes/osclass/classes/admin/ajax/FieldAjax.php
 msgid "Field could not be added"
 msgstr "フィールドを追加できませんでした"
+
+#: oc-admin/themes/modern/fields/iframe.php
+msgid "Field to check"
+msgstr ""
 
 #: oc-admin/themes/modern/fields/index.php
 msgid "Fields"
 msgstr "フィールド"
+
+#: oc-admin/themes/modern/items/frm.php
+msgid "Fields for this category"
+msgstr ""
 
 #: oc-includes/osclass/installer/data/sample-shop.php
 msgid "Fifty natural wood blocks in a cotton bag. Smooth edges and safe finishes."
@@ -5452,6 +5544,18 @@ msgstr "リクエストごとのファイル"
 #: oc-includes/osclass/install-functions.php
 msgid "Fill in the host, database name and username first."
 msgstr "まず、ホスト、データベース名、ユーザー名を入力してください。"
+
+#: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
+msgid "Filled into a product saved without a location. Products already saved keep theirs."
+msgstr ""
+
+#: oc-admin/themes/modern/items/frm.php
+msgid "Filled with your shop e-mail. You can change it."
+msgstr ""
+
+#: oc-admin/themes/modern/items/frm.php
+msgid "Filled with your shop name. You can change it."
+msgstr ""
 
 #: oc-admin/themes/modern/billing/index.php
 #: oc-admin/themes/modern/settings/locations/data.php
@@ -5600,7 +5704,7 @@ msgstr "パスワードをお忘れですか?"
 msgid "Form"
 msgstr "フォーム"
 
-#: oc-admin/themes/modern/fields/index.php
+#: oc-includes/osclass/classes/admin/ajax/FormBuilderAjax.php
 msgid "Form could not be created"
 msgstr "フォームを作成できませんでした"
 
@@ -5828,6 +5932,18 @@ msgstr "支払いなしで%sにクレジットを付与します — サイト�
 #: oc-admin/themes/modern/items/frm.php
 msgid "Give each option a name and at least one value first."
 msgstr "各オプションに最初に名前と少なくとも1つの値を与えます。"
+
+#: oc-admin/themes/modern/fields/index.php
+msgid "Give it a name."
+msgstr ""
+
+#: oc-includes/osclass/classes/admin/ajax/FieldAjax.php
+msgid "Give the field a name."
+msgstr ""
+
+#: oc-includes/osclass/classes/admin/ajax/FormBuilderAjax.php
+msgid "Give the form a name."
+msgstr ""
 
 #: oc-includes/osclass/installer/gui/install.php
 msgid "Go to the admin panel"
@@ -6058,6 +6174,10 @@ msgstr "広告を再度バンプできるようになるまでの待機時間。
 #: oc-includes/osclass/classes/admin/form/StorageSettingsScreen.php
 msgid "How long a signed URL stays valid (60-604800)."
 msgstr "署名済みURLの有効期間(60-604800)"
+
+#: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
+msgid "How long an unpaid order waits before it is cancelled."
+msgstr ""
 
 #: oc-includes/osclass/classes/admin/form/ApiSettingsScreen.php
 msgid "How long browsers and CDNs may keep an anonymous answer."
@@ -6915,6 +7035,10 @@ msgstr "最新の広告を表示：必須"
 msgid "Latest listings shown: this field must only contain numeric characters"
 msgstr "最新の広告を表示：数字のみ入力可"
 
+#: oc-includes/osclass/classes/admin/form/MainSettingsScreen.php
+msgid "Latest products shown"
+msgstr ""
+
 #: oc-admin/themes/modern/settings/searches.php
 #: oc-includes/osclass/classes/AdminMenu.php
 #: oc-includes/osclass/classes/admin/form/LatestSearchSettingsScreen.php
@@ -6953,6 +7077,10 @@ msgstr "現在のパスワードを保持するには空白のままにしてく
 #: oc-includes/osclass/classes/admin/form/StorageSettingsScreen.php
 msgid "Leave blank to keep the currently saved secret key"
 msgstr "現在保存されているシークレットキーを保持する場合は空欄のままにしてください"
+
+#: oc-admin/themes/modern/items/frm.php
+msgid "Leave empty to sell without counting."
+msgstr ""
 
 #: oc-admin/themes/modern/appearance/menus.php
 msgid "Leave empty to use its own name."
@@ -7029,6 +7157,10 @@ msgstr ""
 #: oc-includes/osclass/installer/data/fields-classifieds.php
 #: oc-includes/osclass/installer/data/sample-classifieds.php
 msgid "Like new"
+msgstr ""
+
+#: oc-admin/themes/modern/items/frm.php
+msgid "Like sizes or colours, each with its own stock."
 msgstr ""
 
 #: oc-admin/themes/modern/settings/spamNbots.php
@@ -7121,6 +7253,10 @@ msgstr "リストの統計情報"
 msgid "Listing URL"
 msgstr "リスティングURL"
 
+#: oc-includes/osclass/classes/EmailVariables.php
+msgid "Listing about to expire"
+msgstr ""
+
 #: oc-includes/osclass/classes/admin/form/PermalinkSettingsScreen.php
 msgid "Listing actions"
 msgstr "広告アクション"
@@ -7191,6 +7327,10 @@ msgid "Listing new"
 msgstr "新規リスト"
 
 #: oc-includes/osclass/classes/EmailVariables.php
+msgid "Listing posted, guest"
+msgstr ""
+
+#: oc-includes/osclass/classes/EmailVariables.php
 msgid "Listing price"
 msgstr "掲載各区"
 
@@ -7209,6 +7349,10 @@ msgstr "検索ポイントの一覧"
 #: oc-includes/osclass/classes/admin/form/PermalinkSettingsScreen.php
 msgid "Listing send friend"
 msgstr "友達を一覧表示する"
+
+#: oc-includes/osclass/classes/EmailVariables.php
+msgid "Listing sent to a friend"
+msgstr ""
 
 #: oc-admin/themes/modern/main/index.php
 #: oc-includes/osclass/classes/admin/form/CleanupSettingsScreen.php
@@ -7329,8 +7473,8 @@ msgid "Live"
 msgstr "ライブ"
 
 #: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
-msgid "Live listings a seller may have at once. 0 means no limit. Pending listings count; only expiry or deletion frees a slot."
-msgstr "販売者に一度のライブリストがあります。0 は制限なしを意味します。保留中のリスティング数; 有効期限または削除のみスロットを解放します。"
+msgid "Live listings a seller may have at once. 0 means no limit. Pending listings count; only expiry or deletion frees a place."
+msgstr ""
 
 #: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "Live messages"
@@ -7648,6 +7792,11 @@ msgstr "ページを管理"
 msgid "Manage plugins"
 msgstr "プラグインの管理"
 
+#: oc-admin/themes/modern/items/index.php
+#: oc-includes/osclass/classes/AdminMenu.php
+msgid "Manage products"
+msgstr ""
+
 #: oc-admin/themes/modern/comments/index.php
 msgid "Manage the comments that users publish on the listings on your site."
 msgstr "サイトの広告にユーザーが公開したコメントを管理します。"
@@ -7889,6 +8038,10 @@ msgstr "メッセージ"
 msgid "Message thread"
 msgstr ""
 
+#: oc-includes/osclass/classes/EmailVariables.php
+msgid "Message to a user"
+msgstr ""
+
 #: oc-includes/osclass/classes/security/MessageHold.php
 msgid "Message waiting for its sender to confirm"
 msgstr "送信者が確認するのを待っているメッセージ"
@@ -8013,6 +8166,7 @@ msgstr "司会コメント数：必須"
 msgid "Moderated comments: this field must only contain numeric characters"
 msgstr "司会コメント数：数字のみ入力可"
 
+#: oc-admin/themes/modern/comments/frm.php
 #: oc-admin/themes/modern/settings/keywordBlock.php
 msgid "Moderation"
 msgstr "モデレーション"
@@ -8078,7 +8232,7 @@ msgid "Most downloaded"
 msgstr "最多ダウンロード"
 
 #: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
-msgid "Most unpaid orders one buyer may hold at once, card orders included. 0 means no limit."
+msgid "Most unpaid bank transfer orders one buyer may hold at once. Cash on delivery and card orders are not limited. 0 means no limit."
 msgstr ""
 
 #: oc-includes/osclass/installer/data/categories-classifieds.php
@@ -8161,15 +8315,12 @@ msgstr "PHP用のMySQLi拡張"
 msgid "MySQLi extension is required. How to "
 msgstr "MySQLi拡張機能が必要です。インストール方法は "
 
-#: oc-includes/osclass/classes/admin/ajax/FieldAjax.php
-msgid "NEW custom field"
-msgstr "新しいカスタムフィールド"
-
 #: oc-admin/themes/modern/admins/index.php
 #: oc-admin/themes/modern/appearance/menus.php
 #: oc-admin/themes/modern/billing/package.php
 #: oc-admin/themes/modern/billing/packages.php
 #: oc-admin/themes/modern/emails/index.php
+#: oc-admin/themes/modern/fields/index.php
 #: oc-admin/themes/modern/items/frm.php
 #: oc-admin/themes/modern/languages/frm.php
 #: oc-admin/themes/modern/languages/index.php
@@ -8212,6 +8363,10 @@ msgstr "名前"
 msgid "Name of the friend who wants send"
 msgstr "送付先の友達の名前"
 
+#: oc-admin/themes/modern/items/frm.php
+msgid "Name, category and description"
+msgstr ""
+
 #: oc-includes/osclass/classes/controller/CWebContact.php
 msgid "Name: %s"
 msgstr "名前: %s"
@@ -8240,6 +8395,10 @@ msgstr "名前フィールドは必須です"
 #: oc-admin/themes/modern/settings/locations/list.php
 msgid "Names are matched from their first letters."
 msgstr "名前は最初の文字から一致します。"
+
+#: oc-admin/themes/modern/settings/locations/form.php
+msgid "Names per language"
+msgstr ""
 
 #: oc-admin/themes/modern/settings/locations/list.php
 msgid "Names starting with"
@@ -8282,13 +8441,10 @@ msgstr ""
 msgid "Needs PHP %s"
 msgstr "PHPが必要 %s"
 
-#: oc-includes/osclass/classes/admin/form/KeywordBlockSettingsScreen.php
-msgid "Needs a CAPTCHA provider configured under Settings &raquo; reCAPTCHA/Turnstile; "
-msgstr "設定 &raquo; reCAPTCHA/Turnstileで設定されたCAPTCHAプロバイダが必要です。 "
-
 #: oc-includes/osclass/classes/admin/form/CommentSettingsScreen.php
-msgid "Needs a CAPTCHA provider configured under Settings &raquo; reCAPTCHA/Turnstile; otherwise no challenge is shown."
-msgstr "設定 &raquo; reCAPTCHA/Turnstile でCAPTCHAプロバイダーを設定する必要があります。そうしないと、チャレンジは表示されません。"
+#: oc-includes/osclass/classes/admin/form/KeywordBlockSettingsScreen.php
+msgid "Needs a CAPTCHA provider configured under %s; otherwise no challenge is shown."
+msgstr ""
 
 #: oc-admin/themes/modern/tools/system-info/database.php
 msgid "Needs a closer look"
@@ -8355,6 +8511,10 @@ msgstr "新しいアドレス"
 msgid "New addresses"
 msgstr "新しいアドレス"
 
+#: oc-includes/osclass/classes/EmailVariables.php
+msgid "New admin account"
+msgstr ""
+
 #: oc-admin/themes/modern/stats/items.php
 msgid "New alerts"
 msgstr "新しいアラート"
@@ -8362,6 +8522,19 @@ msgstr "新しいアラート"
 #: oc-admin/themes/modern/admins/two_factor.php
 msgid "New backup codes"
 msgstr "新しいバックアップコード"
+
+#: oc-admin/themes/modern/categories/iframe.php
+#: oc-admin/themes/modern/categories/index.php
+msgid "New category"
+msgstr ""
+
+#: oc-includes/osclass/classes/EmailVariables.php
+msgid "New comment on your listing"
+msgstr ""
+
+#: oc-includes/osclass/classes/EmailVariables.php
+msgid "New comment, to the admin"
+msgstr ""
 
 #: oc-includes/osclass/functions.php
 msgid "New comments"
@@ -8379,10 +8552,6 @@ msgstr "新しい有効期限"
 msgid "New field"
 msgstr "新しいフィールド"
 
-#: oc-includes/osclass/classes/admin/ajax/FormBuilderAjax.php
-msgid "New field group"
-msgstr "新しいフィールドグループ"
-
 #: oc-admin/themes/modern/fields/index.php
 msgid "New form"
 msgstr "新しいフォーム"
@@ -8398,6 +8567,10 @@ msgstr "新しいキー"
 #: oc-admin/themes/modern/stats/items.php
 msgid "New listing"
 msgstr "新規リスト"
+
+#: oc-includes/osclass/classes/EmailVariables.php
+msgid "New listing, to the admin"
+msgstr ""
 
 #: oc-includes/osclass/classes/admin/form/ApiSettingsScreen.php
 msgid "New listings, per user"
@@ -8440,6 +8613,10 @@ msgstr "新規加入者数"
 #: oc-admin/themes/modern/parts/market.php
 msgid "New themes show up here as they are published. You can also upload one yourself."
 msgstr "新しいテーマが公開されると表示されます。自分でアップロードすることもできます。"
+
+#: oc-includes/osclass/classes/EmailVariables.php
+msgid "New user, to the admin"
+msgstr ""
 
 #: oc-admin/themes/modern/stats/users.php
 msgid "New users"
@@ -8766,6 +8943,10 @@ msgstr "セクションはまだありません。以下に追加してくださ
 msgid "No setting matches."
 msgstr "設定が一致しません。"
 
+#: oc-admin/themes/modern/items/frm.php
+msgid "No shipping. Products in a digital category are delivered as downloads."
+msgstr ""
+
 #: oc-admin/themes/modern/functions.php
 msgid "No subcategory"
 msgstr "サブカテゴリはありません"
@@ -8893,6 +9074,10 @@ msgstr "サーバーの空き容量が不足しています。 %1$s、 %2$s フ�
 #: oc-includes/osclass/classes/backup/Builder.php
 msgid "Not enough space on the server: needs about %1$s, %2$s free. Nothing was saved."
 msgstr "サーバー上に十分なスペースがありません: %1$s、 %2$s が解放されています。何も保存されませんでした。"
+
+#: oc-admin/themes/modern/items/frm.php
+msgid "Not for sale online. Buyers see the price and contact you."
+msgstr ""
 
 #: oc-admin/themes/modern/appearance/dependencies.php
 msgid "Not in the market"
@@ -9158,10 +9343,6 @@ msgstr "すべてのローカル画像をリモートストレージにオフロ
 msgid "Old price"
 msgstr ""
 
-#: oc-admin/themes/modern/items/frm.php
-msgid "Old price, shown crossed out (blank: no sale)"
-msgstr ""
-
 #: oc-admin/themes/modern/messages/index.php
 msgid "Older"
 msgstr ""
@@ -9179,6 +9360,10 @@ msgstr "オン"
 msgid "On a match"
 msgstr "一致した場合"
 
+#: oc-admin/themes/modern/items/frm.php
+msgid "On this page"
+msgstr ""
+
 #: oc-admin/themes/modern/tools/backup.php
 msgid "One backup at a time."
 msgstr "一度に1つのバックアップ。"
@@ -9190,10 +9375,6 @@ msgstr "一度に1つのバックアップがあります。実行中のバッ�
 #: oc-includes/osclass/classes/admin/form/LatestSearchSettingsScreen.php
 msgid "One day"
 msgstr "1日"
-
-#: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
-msgid "One delivery method, \"Standard delivery\", at a flat charge. Amounts are in the listings' currency."
-msgstr "1つの配送方法「標準配送」は、平らな料金で行われます。金額は、商品の通貨に含まれています。"
 
 #: oc-includes/osclass/classes/admin/form/LatestSearchSettingsScreen.php
 msgid "One hour"
@@ -9319,6 +9500,10 @@ msgstr "色などのオプション名"
 msgid "Optional fields"
 msgstr "任意フィールド"
 
+#: oc-admin/themes/modern/items/frm.php
+msgid "Optional · empty uses the store address"
+msgstr ""
+
 #: oc-admin/themes/modern/settings/api.php
 msgid "Optional, such as \"Stock sync\"."
 msgstr "「ストック同期」などのオプション。"
@@ -9348,6 +9533,7 @@ msgid "Optional. Your business name, address and tax number, printed at the top 
 msgstr "省略可能です。あなたの名前、住所、税金番号、トップに印刷されています "
 
 #: oc-admin/themes/modern/fields/iframe.php
+#: oc-admin/themes/modern/items/frm.php
 msgid "Options"
 msgstr "オプション"
 
@@ -9358,12 +9544,6 @@ msgstr "オプションが必要です。"
 #: oc-includes/osclass/installer/data/sample-classifieds.php
 msgid "Orange"
 msgstr ""
-
-#: oc-admin/themes/modern/billing/index.php
-#: oc-admin/themes/modern/billing/order.php
-#: oc-includes/osclass/classes/datatables/PagesDataTable.php
-msgid "Order"
-msgstr "順序"
 
 #: oc-admin/themes/modern/billing/order.php
 msgid "Order #%d"
@@ -9386,6 +9566,7 @@ msgid "Order saved"
 msgstr "並び替えを保存しました。"
 
 #: oc-admin/themes/modern/billing/index.php
+#: oc-admin/themes/modern/settings/billing.php
 #: oc-includes/osclass/classes/AdminMenu.php
 #: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
 msgid "Orders"
@@ -9639,6 +9820,10 @@ msgstr "パスワード"
 msgid "Password check before a restore"
 msgstr "復元前にパスワードを確認する"
 
+#: oc-includes/osclass/classes/EmailVariables.php
+msgid "Password reset"
+msgstr ""
+
 #: oc-includes/osclass/classes/admin/form/ApiSettingsScreen.php
 msgid "Password sign-in"
 msgstr "パスワードのサインイン"
@@ -9810,10 +9995,6 @@ msgstr "Photo #%1$d of listing #%2$d"
 msgid "Photo %d"
 msgstr "写真 %d"
 
-#: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
-msgid "Photo cap"
-msgstr "写真枚数の上限"
-
 #: oc-includes/osclass/classes/admin/form/MediaSettingsScreen.php
 msgid "Photo format"
 msgstr "写真の形式"
@@ -9844,8 +10025,12 @@ msgid "Photos"
 msgstr "写真"
 
 #: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
-msgid "Photos allowed per listing while the entitlement is held."
-msgstr "権利の保持中に広告1件あたり許可される写真枚数。"
+msgid "Photos allowed"
+msgstr ""
+
+#: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
+msgid "Photos allowed per listing while the seller holds it."
+msgstr ""
 
 #: oc-includes/osclass/classes/admin/form/MediaSettingsScreen.php
 msgid "Photos are only made smaller. When off, empty space is white in JPEG and see-through in PNG and WebP."
@@ -9883,6 +10068,10 @@ msgstr "編集するセクションを選択します。"
 msgid "Picking a user fills the contact fields below. The listing belongs to"
 msgstr "ユーザーを選択すると、以下の連絡先フィールドに入力します。リストは次のフィールドに属します。"
 
+#: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
+msgid "Place price in credits"
+msgstr ""
+
 #: oc-admin/themes/modern/appearance/widgets.php
 msgid "Placed on this page in the page builder. Edit it there."
 msgstr "ページビルダー内のこのページに配置されています。そこで編集します。"
@@ -9894,6 +10083,10 @@ msgstr "プレースホルダー"
 #: oc-admin/themes/modern/emails/frm.php
 msgid "Placeholders"
 msgstr "プレースホルダー"
+
+#: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
+msgid "Places per purchase"
+msgstr ""
 
 #: oc-admin/gui/recover.php
 msgid "Please enter your username or e-mail address"
@@ -10060,6 +10253,10 @@ msgstr "価格"
 msgid "Price (credits)"
 msgstr "価格（クレジット）"
 
+#: oc-admin/themes/modern/items/frm.php
+msgid "Price and stock"
+msgstr ""
+
 #: oc-includes/osclass/classes/mail/CoreEmails.php
 msgid "Price drop: {ITEM_TITLE}"
 msgstr "価格低下: {ITEM_TITLE}"
@@ -10100,6 +10297,12 @@ msgstr "商品アラート"
 
 #: oc-includes/osclass/installer/data/fields-shop.php
 msgid "Product details"
+msgstr ""
+
+#: oc-admin/themes/modern/items/index.php
+#: oc-admin/themes/modern/items/settings.php
+#: oc-includes/osclass/classes/AdminMenu.php
+msgid "Products"
 msgstr ""
 
 #: oc-admin/themes/modern/users/frm.php
@@ -10180,6 +10383,10 @@ msgstr "支払いなしで公開"
 msgid "Published"
 msgstr "公開済み"
 
+#: oc-admin/themes/modern/items/frm.php
+msgid "Publishing"
+msgstr ""
+
 #: oc-admin/themes/modern/appearance/customise.php
 msgid "Publishing…"
 msgstr ""
@@ -10209,6 +10416,10 @@ msgstr "認証アプリの QR コード"
 #: oc-includes/osclass/classes/billing/Receipts.php
 msgid "Qty"
 msgstr "数量"
+
+#: oc-includes/osclass/classes/EmailVariables.php
+msgid "Question about a listing"
+msgstr ""
 
 #: oc-includes/osclass/classes/EmailVariables.php
 msgid "Question about your listing"
@@ -10750,6 +10961,13 @@ msgstr "%sが報告しました"
 msgid "Reported listings"
 msgstr "報告をうけた広告"
 
+#: oc-admin/themes/modern/items/reported.php
+#: oc-admin/themes/modern/main/index.php
+#: oc-includes/osclass/classes/AdminMenu.php
+#: oc-includes/osclass/classes/Cleanup.php
+msgid "Reported products"
+msgstr ""
+
 #: oc-includes/osclass/classes/AdminMenu.php
 msgid "Reports"
 msgstr "レポート"
@@ -11102,7 +11320,6 @@ msgstr "銀行振込設定を保存"
 #: oc-admin/themes/modern/fields/group_iframe.php
 #: oc-admin/themes/modern/fields/iframe.php
 #: oc-admin/themes/modern/pages/frm.php
-#: oc-admin/themes/modern/parts/ui.php
 #: oc-admin/themes/modern/settings/locations/form.php
 #: oc-admin/themes/modern/settings/mailserver.php
 #: oc-includes/osclass/classes/admin/form/SitemapSettingsScreen.php
@@ -11182,6 +11399,10 @@ msgstr "このパスワードは今すぐ保存してください — 再度表�
 #: oc-admin/themes/modern/tools/backup.php
 msgid "Save to your S3 bucket"
 msgstr "S3バケットに保存"
+
+#: oc-admin/themes/modern/billing/order.php
+msgid "Save tracking"
+msgstr ""
 
 #: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
 msgid "Save upgrade settings"
@@ -11267,6 +11488,22 @@ msgstr ""
 #: oc-includes/osclass/classes/admin/form/SpamSettingsScreen.php
 msgid "Search alert sign-ups"
 msgstr "アラートのサインアップを検索"
+
+#: oc-includes/osclass/classes/EmailVariables.php
+msgid "Search alert, daily"
+msgstr ""
+
+#: oc-includes/osclass/classes/EmailVariables.php
+msgid "Search alert, hourly"
+msgstr ""
+
+#: oc-includes/osclass/classes/EmailVariables.php
+msgid "Search alert, instant"
+msgstr ""
+
+#: oc-includes/osclass/classes/EmailVariables.php
+msgid "Search alert, weekly"
+msgstr ""
 
 #: oc-admin/themes/modern/settings/spamNbots.php
 #: oc-includes/osclass/classes/admin/form/SpamSettingsScreen.php
@@ -11416,6 +11653,7 @@ msgstr "2番目のパスワード: このフィールドは必須です"
 msgid "Secret key"
 msgstr "シークレットキー"
 
+#: oc-admin/themes/modern/tools/logs.php
 #: oc-includes/osclass/classes/datatables/LogsDataTable.php
 msgid "Section"
 msgstr "セクション"
@@ -11474,7 +11712,16 @@ msgstr "理由を見る"
 msgid "Select"
 msgstr "選択"
 
+#: oc-admin/themes/modern/settings/currencies.php
 #: oc-admin/themes/modern/settings/locations/list.php
+#: oc-includes/osclass/classes/controller/admin/CAdminLanguages.php
+#: oc-includes/osclass/classes/datatables/BanRulesDataTable.php
+#: oc-includes/osclass/classes/datatables/CommentsDataTable.php
+#: oc-includes/osclass/classes/datatables/ItemsDataTable.php
+#: oc-includes/osclass/classes/datatables/KeywordBlocksDataTable.php
+#: oc-includes/osclass/classes/datatables/MediaDataTable.php
+#: oc-includes/osclass/classes/datatables/PagesDataTable.php
+#: oc-includes/osclass/classes/datatables/UsersDataTable.php
 msgid "Select %s"
 msgstr "%s を選択"
 
@@ -11516,7 +11763,18 @@ msgstr "地域を選択して下さい"
 msgid "Select a region..."
 msgstr "地域を選択..."
 
+#: oc-admin/themes/modern/admins/index.php
+#: oc-admin/themes/modern/languages/index.php
 #: oc-admin/themes/modern/media/index.php
+#: oc-admin/themes/modern/settings/currencies.php
+#: oc-includes/osclass/classes/datatables/AlertsDataTable.php
+#: oc-includes/osclass/classes/datatables/BanRulesDataTable.php
+#: oc-includes/osclass/classes/datatables/CommentsDataTable.php
+#: oc-includes/osclass/classes/datatables/ItemsDataTable.php
+#: oc-includes/osclass/classes/datatables/KeywordBlocksDataTable.php
+#: oc-includes/osclass/classes/datatables/MediaDataTable.php
+#: oc-includes/osclass/classes/datatables/PagesDataTable.php
+#: oc-includes/osclass/classes/datatables/UsersDataTable.php
 msgid "Select all"
 msgstr "すべて選択"
 
@@ -11560,16 +11818,16 @@ msgid "Selected: %s"
 msgstr "選択済: %s"
 
 #: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
-msgid "Sell a raised photo cap"
-msgstr "写真上限の引き上げを販売"
-
-#: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
 msgid "Sell bump to top"
 msgstr "トップへのバンプを販売"
 
 #: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
-msgid "Sell extra listing slots"
-msgstr "追加の広告枠を販売する"
+msgid "Sell extra listing places"
+msgstr ""
+
+#: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
+msgid "Sell extra photos"
+msgstr ""
 
 #: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
 msgid "Sell extra runtime beyond the category limit"
@@ -11592,17 +11850,20 @@ msgid "Sell marking a listing urgent"
 msgstr "広告の緊急指定を販売する"
 
 #: oc-admin/themes/modern/items/frm.php
-msgid "Sell this item"
-msgstr "このアイテムを販売"
+msgid "Sell online"
+msgstr ""
 
 #: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
-msgid "Sell waiving the flood wait"
-msgstr "連続投稿待機時間の免除を販売する"
+msgid "Sell skipping the posting wait"
+msgstr ""
 
-#: oc-admin/themes/modern/items/frm.php
 #: oc-admin/themes/modern/messages/index.php
 msgid "Seller"
 msgstr "販売者"
+
+#: oc-admin/themes/modern/items/frm.php
+msgid "Seller and contact"
+msgstr ""
 
 #: oc-includes/osclass/classes/EmailVariables.php
 msgid "Seller email"
@@ -11829,6 +12090,7 @@ msgstr "サイトの設定中です…共有ホスティングの場合、少し
 #: oc-includes/osclass/classes/admin/form/UserSettingsScreen.php
 #: oc-includes/osclass/classes/controller/admin/CAdminMedia.php
 #: oc-includes/osclass/gui/admin/settings-page.php
+#: oc-includes/osclass/helpers/hAdminUi.php
 msgid "Settings"
 msgstr "設定"
 
@@ -11853,6 +12115,10 @@ msgid "Share listing"
 msgstr "広告の共有"
 
 #: oc-admin/themes/modern/billing/order.php
+msgid "Ship order #%d without a tracking number?"
+msgstr ""
+
+#: oc-admin/themes/modern/billing/order.php
 msgid "Ship this order"
 msgstr "この注文を発送する"
 
@@ -11860,6 +12126,10 @@ msgstr "この注文を発送する"
 #: oc-admin/themes/modern/billing/order.php
 msgid "Shipped"
 msgstr "配送済み"
+
+#: oc-admin/themes/modern/items/frm.php
+msgid "Shipping"
+msgstr ""
 
 #: oc-admin/themes/modern/items/frm.php
 msgid "Shipping class"
@@ -12098,6 +12368,10 @@ msgstr "%s件中、%s - %s を表示"
 msgid "Showing %s to %s of %s results (filtered from %s total results)"
 msgstr "%s件中、%s - %s を表示（全%s件からフィルタ）"
 
+#: oc-admin/themes/modern/items/frm.php
+msgid "Shown crossed out next to the price. Leave empty when not on sale."
+msgstr ""
+
 #: oc-includes/osclass/classes/admin/form/MaintenanceSettingsScreen.php
 msgid "Shown on the banner, and on the 503 page. Plain text only. Leave blank for the default message."
 msgstr "バナーに表示され、503ページに表示されます。プレーンテキストのみ表示されます。デフォルトのメッセージは空白のままにしてください。"
@@ -12105,6 +12379,10 @@ msgstr "バナーに表示され、503ページに表示されます。プレー
 #: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
 msgid "Shown to the buyer as written."
 msgstr "バイヤーに書かれているように示す。"
+
+#: oc-admin/themes/modern/settings/locations/form.php
+msgid "Shown to visitors reading the site in that language. Blank uses the name above."
+msgstr ""
 
 #: oc-includes/osclass/classes/admin/form/MediaSettingsScreen.php
 msgid "Shrink photos in the browser before upload."
@@ -12222,6 +12500,10 @@ msgstr "サイトマップ設定"
 msgid "Size"
 msgstr "サイズ"
 
+#: oc-admin/themes/modern/items/frm.php
+msgid "Sizes, colours and other choices"
+msgstr ""
+
 #: oc-includes/osclass/installer/data/categories-shop.php
 msgid "Skincare"
 msgstr ""
@@ -12245,14 +12527,6 @@ msgstr "投稿の待機時間をスキップ"
 #: oc-includes/osclass/classes/install/ShopSetup.php
 msgid "Skipped, because the Aisle theme is not installed."
 msgstr ""
-
-#: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
-msgid "Slot price in credits"
-msgstr "クレジットでのスロット価格"
-
-#: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
-msgid "Slots per purchase"
-msgstr "1回の購入あたりのスロット数"
 
 #: oc-admin/themes/modern/tools/system-info/jobs.php
 msgid "Slow work, such as emptying a large category or moving photos to a bucket, waits here. Cron runs it on every tick."
@@ -12379,6 +12653,7 @@ msgstr "スパム"
 
 #: oc-admin/themes/modern/settings/spamNbots.php
 #: oc-includes/osclass/classes/AdminMenu.php
+#: oc-includes/osclass/helpers/hAdminUi.php
 msgid "Spam and bots"
 msgstr "スパムとボット"
 
@@ -12423,6 +12698,10 @@ msgstr "安定した、リリース候補とベータ版。"
 msgid "Stainless steel workbench"
 msgstr ""
 
+#: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
+msgid "Standard delivery at one charge. With the Shipping plugin on, its zones set the charge instead. Amounts are in the listings' currency."
+msgstr ""
+
 #: oc-includes/osclass/classes/backup/BackupService.php
 msgid "Starting"
 msgstr "開始"
@@ -12452,7 +12731,6 @@ msgstr "統計"
 #: oc-admin/themes/modern/billing/index.php
 #: oc-admin/themes/modern/billing/order.php
 #: oc-admin/themes/modern/billing/packages.php
-#: oc-admin/themes/modern/comments/frm.php
 #: oc-admin/themes/modern/fields/submissions.php
 #: oc-admin/themes/modern/messages/thread.php
 #: oc-admin/themes/modern/settings/api.php
@@ -12501,10 +12779,6 @@ msgstr "まだ実行中です"
 msgid "Stock"
 msgstr "在庫数"
 
-#: oc-admin/themes/modern/items/frm.php
-msgid "Stock (blank does not track)"
-msgstr "在庫数（空白では追跡できません）"
-
 #: oc-admin/themes/modern/billing/order.php
 msgid "Stock ran out after this order was paid. Short:"
 msgstr "この注文が支払われた後に在庫切れになりました。"
@@ -12543,6 +12817,10 @@ msgstr "ストア"
 msgid "Store 1000 queries"
 msgstr "1000個のクエリを保存"
 
+#: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
+msgid "Store address"
+msgstr ""
+
 #: oc-includes/osclass/classes/admin/ui/Picker.php
 msgid "Street address"
 msgstr "住所"
@@ -12572,6 +12850,7 @@ msgid "Subdomain type"
 msgstr "サブドメインの種類"
 
 #: oc-admin/themes/modern/emails/frm.php
+#: oc-admin/themes/modern/emails/index.php
 msgid "Subject"
 msgstr "件名"
 
@@ -12684,6 +12963,10 @@ msgstr "このアカウントからクレジットを回収します。後から
 msgid "Take payment at the end of posting"
 msgstr "投稿終了時にお支払いください"
 
+#: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
+msgid "Take payment for shop orders and plugin extras. While off, the Billing menu is hidden."
+msgstr ""
+
 #: oc-includes/osclass/installer/data/categories-classifieds.php
 msgid "Team Sports"
 msgstr ""
@@ -12721,7 +13004,6 @@ msgstr "%sまでテスト"
 msgid "Testing…"
 msgstr "テスト中です…"
 
-#: oc-admin/themes/modern/fields/index.php
 #: oc-includes/osclass/classes/admin/form/MediaSettingsScreen.php
 msgid "Text"
 msgstr "テキスト"
@@ -12826,6 +13108,10 @@ msgstr "<a href=\"https://github.com/mindstellar/shopclass\">Shopclass</a> チ�
 #: oc-admin/themes/modern/settings/storage.php
 msgid "The <strong>Better S3</strong> plugin is currently active. Disable it before turning on "
 msgstr "<strong>Better S3</strong>プラグインは現在アクティブです。次を有効にする前に無効にしてください "
+
+#: oc-admin/themes/modern/settings/api.php
+msgid "The API is off, so keys and webhooks do nothing until you switch it on above."
+msgstr ""
 
 #: oc-admin/themes/modern/settings/api.php
 msgid "The API is served at %s."
@@ -12960,6 +13246,10 @@ msgstr "を買い手は宅配便を支払う。 船を注文未払い;マーク�
 #: oc-includes/osclass/classes/admin/form/BillingSettingsScreen.php
 msgid "The buyer sees your instructions at checkout and pays outside the site. You mark the order paid."
 msgstr "購入者は、チェックアウト時にあなたの指示を見て、サイト外で支払います。支払われた注文をマークします。"
+
+#: oc-admin/themes/modern/billing/order.php
+msgid "The buyer will see the order as shipped with no carrier or tracking. You can add them later."
+msgstr ""
 
 #: oc-includes/osclass/classes/admin/SystemChecks.php
 msgid "The cache is working."
@@ -13109,10 +13399,6 @@ msgstr "ファイルは %sに属しています。"
 msgid "The installation directory is not writable."
 msgstr "インストールディレクトリは書き込み不可です。"
 
-#: oc-admin/themes/modern/items/frm.php
-msgid "The item sells at the listing price."
-msgstr ""
-
 #: oc-includes/osclass/classes/admin/form/SpamSettingsScreen.php
 msgid "The key you entered is invalid. Please double-check it"
 msgstr "入力されたキーは不正です。もう一度確認してください"
@@ -13131,6 +13417,14 @@ msgstr ""
 
 #: oc-includes/osclass/classes/admin/DatabaseTools.php
 msgid "The last build failed: %s"
+msgstr ""
+
+#: oc-includes/osclass/classes/menu/MenuItems.php
+msgid "The link \"%s\" needs an address that starts with http://, https:// or /."
+msgstr ""
+
+#: oc-includes/osclass/classes/menu/MenuItems.php
+msgid "The link to \"%s\" needs a label."
 msgstr ""
 
 #: oc-admin/themes/modern/settings/locations.php
@@ -13686,10 +13980,6 @@ msgstr "これはエッジビルドです。:edge イメージを引っ張って
 msgid "This is an example page description. This is a good place to put your Terms of Service or any other help information."
 msgstr "これはページ記述のサンプルです。利用規約その他、各種ヘルプ情報をいれるに適切な場所です。"
 
-#: oc-admin/themes/modern/items/frm.php
-msgid "This item comes in options"
-msgstr "このアイテムにはオプションがあります"
-
 #: oc-admin/themes/modern/tools/backup.php
 msgid "This keeps going while the page is open. With cron set up it also carries on if you close it."
 msgstr "ページが開いている間、これは続いています。cronが設定されている場合は閉じても継続します。"
@@ -13782,6 +14072,10 @@ msgstr "これにより、このページおよびフッター内にあるこの
 #: oc-includes/osclass/classes/market/PluginDependencies.php
 msgid "This plugin is not in the market. Get its zip file from the theme author and upload it under Plugins, Add plugin."
 msgstr "このプラグインは市場にありません。テーマ作成者からzipファイルを取得し、プラグインを追加してください。"
+
+#: oc-admin/themes/modern/items/frm.php
+msgid "This product comes in options"
+msgstr ""
 
 #: oc-admin/themes/modern/billing/order.php
 msgid "This records that the money was given back. Nothing is sent to the payment provider."
@@ -13934,7 +14228,6 @@ msgid "Timezone"
 msgstr "Timezone"
 
 #: oc-admin/themes/modern/comments/frm.php
-#: oc-admin/themes/modern/emails/index.php
 #: oc-admin/themes/modern/items/frm.php
 #: oc-admin/themes/modern/pages/frm.php
 #: oc-admin/themes/modern/stats/comments.php
@@ -14244,6 +14537,7 @@ msgid "Two-step sign-in"
 msgstr "2段階認証のサインイン"
 
 #: oc-admin/themes/modern/fields/iframe.php
+#: oc-admin/themes/modern/fields/index.php
 #: oc-admin/themes/modern/media/index.php
 #: oc-admin/themes/modern/settings/api.php
 msgid "Type"
@@ -14386,6 +14680,10 @@ msgstr "プレミアムから外す"
 msgid "Unmark as spam"
 msgstr "スパムマークを除去"
 
+#: oc-includes/osclass/classes/EmailVariables.php
+msgid "Unpaid listing reminder"
+msgstr ""
+
 #: oc-admin/themes/modern/appearance/menus.php
 msgid "Unsaved changes"
 msgstr ""
@@ -14393,6 +14691,10 @@ msgstr ""
 #: oc-includes/osclass/classes/EmailVariables.php
 msgid "Unsubscribe link."
 msgstr "購読中止リンク"
+
+#: oc-admin/themes/modern/appearance/widgets.php
+msgid "Unused: %s"
+msgstr ""
 
 #: oc-includes/osclass/classes/datatables/PagesDataTable.php
 msgid "Up"
@@ -14467,6 +14769,10 @@ msgstr "広告をアップデート"
 #: oc-includes/osclass/functions.php
 msgid "Update my profile"
 msgstr "プロフィールを更新する"
+
+#: oc-admin/themes/modern/items/frm.php
+msgid "Update product"
+msgstr ""
 
 #: oc-admin/themes/modern/parts/package-ui.php
 msgid "Update ready"
@@ -14670,8 +14976,12 @@ msgid "Used report link"
 msgstr "使用されたレポート リンク"
 
 #: oc-admin/themes/modern/pages/frm.php
-msgid "Used to quickly identify this page"
-msgstr "このページをすばやく識別するために使用されます"
+msgid "Used to identify this page. Left empty on a new page, it is built from the title."
+msgstr ""
+
+#: oc-admin/themes/modern/items/frm.php
+msgid "Used to work out delivery cost"
+msgstr ""
 
 #: oc-admin/themes/modern/billing/credits.php
 #: oc-admin/themes/modern/billing/index.php
@@ -15197,12 +15507,16 @@ msgid "Weight (g)"
 msgstr "重量 (g)"
 
 #: oc-admin/themes/modern/items/frm.php
-msgid "Weight in grams"
-msgstr "グラムの重量"
+msgid "Weight is set per row in Options."
+msgstr ""
 
 #: oc-includes/osclass/installer/gui/install.php
 msgid "Welcome to Shopclass"
 msgstr "Shopclassへようこそ"
+
+#: oc-includes/osclass/classes/EmailVariables.php
+msgid "Welcome, new account"
+msgstr ""
 
 #: oc-includes/osclass/installer/data/sample-classifieds.php
 msgid "Well kept five-door hatchback with full service history. New tyres and a fresh MOT."
@@ -15229,6 +15543,10 @@ msgstr "購入者がチェックアウト時に選択できるもの — 価格�
 #: oc-admin/themes/modern/tools/system-info/jobs.php
 msgid "What background work did, newest first. The full history is in the <a href=\"%s\">activity log</a>."
 msgstr "バックグラウンドでの作業は、最新のものです。完全な履歴は、 <a href=\"%s\">アクティビティログ</a> にあります。"
+
+#: oc-admin/themes/modern/items/frm.php
+msgid "What buyers pay and how many you have"
+msgstr ""
 
 #: oc-admin/themes/modern/billing/order.php
 #: oc-admin/themes/modern/billing/wallet.php
@@ -15292,6 +15610,10 @@ msgstr "php.iniを編集できない場合、Shopclassは起動時に自動的�
 msgid "Where"
 msgstr "場所"
 
+#: oc-admin/themes/modern/items/frm.php
+msgid "Where the item is"
+msgstr ""
+
 #: oc-admin/themes/modern/settings/api.php
 msgid "Where the site sends each event, as an https address."
 msgstr "サイトが各イベントを、httpsアドレスとして送信する場所。"
@@ -15316,6 +15638,10 @@ msgstr ""
 #: oc-includes/osclass/classes/datatables/LogsDataTable.php
 msgid "Who"
 msgstr "実行者"
+
+#: oc-admin/themes/modern/items/frm.php
+msgid "Who posted it and how buyers reach them"
+msgstr ""
 
 #: oc-includes/osclass/classes/datatables/KeywordBlocksDataTable.php
 msgid "Whole word"
@@ -16203,6 +16529,10 @@ msgstr "post_max_size (%1$s) は upload_max_filesize (%2$s) より小さいた�
 msgid "previously approved comments"
 msgstr "以前承認されたコメント"
 
+#: oc-includes/osclass/classes/admin/form/MainSettingsScreen.php
+msgid "products at most"
+msgstr ""
+
 #: oc-includes/osclass/classes/admin/form/LatestSearchSettingsScreen.php
 msgid "queries"
 msgstr "クエリ"
@@ -16443,3 +16773,39 @@ msgstr "— Shopclass"
 #: oc-includes/osclass/classes/Session.php
 msgid "…and %d more"
 msgstr "…と %d その他"
+
+#: oc-admin/themes/modern/billing/index.php
+#: oc-admin/themes/modern/billing/order.php
+msgctxt "purchase order"
+msgid "Order"
+msgstr ""
+
+#: oc-includes/osclass/classes/datatables/PagesDataTable.php
+msgctxt "sort position"
+msgid "Order"
+msgstr ""
+
+#: oc-admin/themes/modern/items/frm.php
+msgctxt "item for sale"
+msgid "Product"
+msgstr ""
+
+#: oc-admin/themes/modern/settings/currencies.php
+msgctxt "currency symbol"
+msgid "Symbol"
+msgstr ""
+
+#: oc-admin/themes/modern/comments/frm.php
+msgctxt "comment is shown on the site"
+msgid "Visible"
+msgstr ""
+
+#: oc-admin/themes/modern/items/frm.php
+msgctxt "product weight"
+msgid "Weight"
+msgstr ""
+
+#: oc-admin/themes/modern/items/frm.php
+msgctxt "unit: grams"
+msgid "g"
+msgstr ""

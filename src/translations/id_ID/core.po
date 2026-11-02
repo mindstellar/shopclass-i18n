@@ -73,6 +73,7 @@ msgid_plural "%1$d plugins do not say they work with %2$s:"
 msgstr[0] ""
 
 #: oc-admin/themes/modern/media/index.php
+#: oc-includes/osclass/gui/billing/document.php
 #: oc-includes/osclass/gui/billing/receipt.php
 msgid "%1$s %2$s"
 msgstr ""
@@ -197,6 +198,10 @@ msgstr ""
 
 #: oc-admin/themes/modern/tools/backup.php
 msgid "%1$s, %2$s, %3$s. This only removes the backup file."
+msgstr ""
+
+#: oc-admin/themes/modern/billing/order.php
+msgid "%1$s, units (up to %2$d)"
 msgstr ""
 
 #: oc-includes/osclass/classes/datatables/BanRulesDataTable.php
@@ -466,6 +471,7 @@ msgstr[0] ""
 
 #: oc-admin/themes/modern/billing/order.php
 #: oc-includes/classes/billing/Receipts.php
+#: oc-includes/osclass/gui/billing/document.php
 #: oc-includes/osclass/gui/billing/receipt.php
 msgid "%s (included)"
 msgstr ""
@@ -525,6 +531,11 @@ msgstr[0] ""
 #: oc-includes/classes/billing/Receipts.php
 msgid "%s credits"
 msgstr ""
+
+#: oc-admin/themes/modern/billing/documents.php
+msgid "%s document"
+msgid_plural "%s documents"
+msgstr[0] ""
 
 #: oc-includes/classes/media/image/Processor.php
 msgid "%s does not exist!"
@@ -845,7 +856,19 @@ msgid "<p>Hi {USER_NAME},</p><p>Thank you for your order from {WEB_TITLE}. We ha
 msgstr ""
 
 #: oc-includes/classes/core/mail/CoreEmails.php
+msgid "<p>Hi {USER_NAME},</p><p>We refunded {REFUND_AMOUNT} for order {ORDER_NUMBER} to your original payment method ({PAYMENT_METHOD}). It can take 3-5 working days to show up.</p><p>{CREDIT_NOTE_LINK}</p><p>{ORDER_LINK}</p>"
+msgstr ""
+
+#: oc-includes/classes/core/mail/CoreEmails.php
 msgid "<p>Hi {USER_NAME},</p><p>We refunded {REFUND_AMOUNT} for order {ORDER_NUMBER} to your original payment method ({PAYMENT_METHOD}). It can take 3-5 working days to show up.</p>{ORDER_LINES}<p>{ORDER_LINK}</p>"
+msgstr ""
+
+#: oc-includes/classes/core/mail/CoreEmails.php
+msgid "<p>Hi {USER_NAME},</p><p>We refunded {REFUND_AMOUNT} for order {ORDER_NUMBER}.</p><p>{CREDIT_NOTE_LINK}</p><p>{ORDER_LINK}</p>"
+msgstr ""
+
+#: oc-includes/classes/core/mail/CoreEmails.php
+msgid "<p>Hi {USER_NAME},</p><p>We refunded {REFUND_AMOUNT} for order {ORDER_NUMBER}.</p>{ORDER_LINES}<p>{CREDIT_NOTE_LINK}</p><p>{ORDER_LINK}</p>"
 msgstr ""
 
 #: oc-includes/classes/core/mail/CoreEmails.php
@@ -1026,6 +1049,10 @@ msgstr ""
 msgid "A new comment is posted"
 msgstr "Komentar baru diposting"
 
+#: oc-includes/classes/admin/form/BillingSettingsScreen.php
+msgid "A numbered invoice is made when an order is paid, and a credit note when money is refunded. "
+msgstr ""
+
 #: oc-admin/themes/modern/billing/packages.php
 msgid "A package is what a buyer picks at checkout. Add one to start selling credits."
 msgstr "Paket adalah apa yang dipilih pembeli saat proses pembayaran. Tambahkan satu untuk mulai menjual kredit."
@@ -1048,6 +1075,10 @@ msgstr ""
 
 #: oc-includes/classes/core/install/ShopSetup.php
 msgid "A plugin the Aisle theme needs is missing, so the site stays a classifieds site."
+msgstr ""
+
+#: oc-includes/classes/admin/form/BillingSettingsScreen.php
+msgid "A prefix is up to 12 capital letters, digits, dashes or slashes."
 msgstr ""
 
 #: oc-includes/classes/admin/form/BillingSettingsScreen.php
@@ -1564,6 +1595,10 @@ msgstr ""
 msgid "Adjustable dumbbells, pair"
 msgstr ""
 
+#: oc-includes/classes/billing/Invoices.php
+msgid "Adjustment"
+msgstr ""
+
 #: oc-admin/themes/modern/settings/api.php
 #: oc-includes/classes/core/mail/CoreEmails.php
 msgid "Admin"
@@ -1859,9 +1894,14 @@ msgstr "Kompatibel dengan Amazon S3"
 #: oc-admin/themes/modern/billing/index.php
 #: oc-admin/themes/modern/billing/order.php
 #: oc-includes/classes/billing/Receipts.php
+#: oc-includes/osclass/gui/billing/document.php
 #: oc-includes/osclass/gui/billing/receipt.php
 msgid "Amount"
 msgstr "Jumlah"
+
+#: oc-admin/themes/modern/billing/order.php
+msgid "Amount (%s)"
+msgstr ""
 
 #: oc-includes/classes/billing/Receipts.php
 #: oc-includes/osclass/gui/billing/receipt.php
@@ -1908,6 +1948,10 @@ msgstr "Timbul galat saat mengirim email"
 #: oc-includes/classes/admin/ajax/FieldAjax.php
 msgid "An error occurred while updating"
 msgstr "Timbul galat saat memperbarui"
+
+#: oc-admin/themes/modern/billing/documents.php
+msgid "An invoice is made when an order is paid."
+msgstr ""
 
 #: oc-admin/themes/modern/billing/order.php
 msgid "An order records one attempt to pay. Shopclass stores what was bought and what "
@@ -2177,6 +2221,10 @@ msgstr "Setidaknya %d karakter. Dicocokkan sebagai kata utuh kecuali \"Substring
 #: oc-includes/osclass/install-functions.php
 msgid "At least PHP %s (PHP %s or higher recommended) is required to run Shopclass. "
 msgstr "Setidaknya PHP %s (disarankan PHP %s atau lebih tinggi) diperlukan untuk menjalankan Shopclass. "
+
+#: oc-includes/classes/billing/Billing.php
+msgid "At most %s is left to refund"
+msgstr ""
 
 #: oc-includes/classes/admin/form/ItemSettingsScreen.php
 msgid "Attach"
@@ -2520,7 +2568,12 @@ msgstr ""
 msgid "Bicycles & E-bikes"
 msgstr ""
 
+#: oc-includes/osclass/gui/billing/document.php
+msgid "Billed to"
+msgstr ""
+
 #: oc-admin/themes/modern/billing/credits.php
+#: oc-admin/themes/modern/billing/documents.php
 #: oc-admin/themes/modern/billing/index.php
 #: oc-admin/themes/modern/billing/order.php
 #: oc-admin/themes/modern/billing/package.php
@@ -2758,6 +2811,7 @@ msgstr ""
 msgid "Buy credits"
 msgstr ""
 
+#: oc-admin/themes/modern/billing/documents.php
 #: oc-admin/themes/modern/messages/index.php
 msgid "Buyer"
 msgstr ""
@@ -3342,6 +3396,7 @@ msgstr ""
 msgid "Clear cache"
 msgstr "Bersihkan cache"
 
+#: oc-admin/themes/modern/billing/documents.php
 #: oc-admin/themes/modern/billing/index.php
 msgid "Clear filter"
 msgstr "Bersihkan filter"
@@ -3994,6 +4049,25 @@ msgstr "Dibuat"
 msgid "Credit movements"
 msgstr "Mutasi kredit"
 
+#: oc-admin/themes/modern/billing/documents.php
+#: oc-admin/themes/modern/billing/order.php
+#: oc-includes/classes/billing/DocumentPage.php
+#: oc-includes/classes/billing/Invoices.php
+msgid "Credit note"
+msgstr ""
+
+#: oc-includes/osclass/gui/billing/receipt.php
+msgid "Credit note %s"
+msgstr ""
+
+#: oc-includes/classes/admin/form/BillingSettingsScreen.php
+msgid "Credit note number prefix"
+msgstr ""
+
+#: oc-admin/themes/modern/billing/documents.php
+msgid "Credit notes"
+msgstr ""
+
 #: oc-admin/themes/modern/billing/credits.php
 #: oc-admin/themes/modern/billing/index.php
 #: oc-admin/themes/modern/billing/order.php
@@ -4215,6 +4289,7 @@ msgstr ""
 msgid "Database version"
 msgstr ""
 
+#: oc-admin/themes/modern/billing/documents.php
 #: oc-admin/themes/modern/billing/index.php
 #: oc-admin/themes/modern/billing/order.php
 #: oc-admin/themes/modern/billing/wallet.php
@@ -4233,6 +4308,7 @@ msgstr ""
 #: oc-includes/osclass/classes/datatables/LogsDataTable.php
 #: oc-includes/osclass/classes/datatables/MediaDataTable.php
 #: oc-includes/osclass/classes/datatables/UsersDataTable.php
+#: oc-includes/osclass/gui/billing/document.php
 #: oc-includes/osclass/installer/data/fields-classifieds.php
 msgid "Date"
 msgstr "Tanggal"
@@ -4251,6 +4327,7 @@ msgid "Date format: this field is required"
 msgstr "Format tanggal: bidang ini diperlukan"
 
 #: oc-includes/classes/billing/Receipts.php
+#: oc-includes/osclass/gui/billing/document.php
 #: oc-includes/osclass/gui/billing/receipt.php
 msgid "Date paid"
 msgstr ""
@@ -4815,6 +4892,10 @@ msgstr "Dokumentasi"
 msgid "Documentation on date and time formatting"
 msgstr "Dokumentasi pada pemformatan tanggal dan waktu"
 
+#: oc-admin/themes/modern/billing/order.php
+msgid "Documents"
+msgstr ""
+
 #: oc-includes/osclass/installer/data/categories-classifieds.php
 msgid "Dogs"
 msgstr ""
@@ -4835,6 +4916,10 @@ msgstr "Kebawah"
 #: oc-admin/themes/modern/admins/two_factor.php
 #: oc-admin/themes/modern/tools/backup.php
 msgid "Download"
+msgstr ""
+
+#: oc-admin/themes/modern/billing/documents.php
+msgid "Download CSV"
 msgstr ""
 
 #: oc-admin/themes/modern/settings/storage.php
@@ -5319,6 +5404,10 @@ msgstr "Masukkan alamat email kontak yang valid."
 msgid "Enter a valid email address."
 msgstr "Masukkan alamat email yang valid."
 
+#: oc-includes/classes/billing/Billing.php
+msgid "Enter an amount or choose what to refund"
+msgstr ""
+
 #: oc-admin/themes/modern/emails/frm.php
 msgid "Enter an email address to send the test to."
 msgstr ""
@@ -5418,6 +5507,10 @@ msgstr ""
 
 #: oc-admin/themes/modern/parts/market.php
 msgid "Every installed theme is up to date"
+msgstr ""
+
+#: oc-admin/themes/modern/billing/documents.php
+msgid "Every invoice and credit note issued, newest first. They are never changed or deleted."
 msgstr ""
 
 #: oc-admin/themes/modern/users/frm.php
@@ -5715,6 +5808,7 @@ msgstr ""
 msgid "Filled with your shop name. You can change it."
 msgstr ""
 
+#: oc-admin/themes/modern/billing/documents.php
 #: oc-admin/themes/modern/billing/index.php
 #: oc-admin/themes/modern/settings/locations/data.php
 msgid "Filter"
@@ -5840,6 +5934,10 @@ msgstr ""
 
 #: oc-includes/classes/admin/form/MainSettingsScreen.php
 msgid "For calendars in plugins and themes."
+msgstr ""
+
+#: oc-includes/osclass/gui/billing/document.php
+msgid "For invoice %s"
 msgstr ""
 
 #: oc-includes/classes/admin/form/MediaSettingsScreen.php
@@ -5981,6 +6079,7 @@ msgstr ""
 msgid "Friendly young Labrador needs a home"
 msgstr ""
 
+#: oc-admin/themes/modern/billing/documents.php
 #: oc-includes/osclass/classes/form/FieldForm.php
 #: oc-includes/osclass/helpers/hItems.php
 msgid "From"
@@ -6817,9 +6916,40 @@ msgstr "Pembaruan tema tidak valid uri"
 msgid "Invalid upgrade package info"
 msgstr "Info paket pemutakhiran tidak valid"
 
+#: oc-includes/classes/billing/DocumentPage.php
+#: oc-includes/classes/billing/Invoices.php
+msgid "Invoice"
+msgstr ""
+
+#: oc-includes/classes/billing/Receipts.php
+msgid "Invoice %1$s from %2$s"
+msgstr ""
+
+#: oc-includes/osclass/gui/billing/receipt.php
+msgid "Invoice %s"
+msgstr ""
+
+#: oc-includes/classes/admin/form/BillingSettingsScreen.php
+msgid "Invoice number prefix"
+msgstr ""
+
+#: oc-admin/themes/modern/billing/documents.php
+#: oc-admin/themes/modern/billing/index.php
+#: oc-includes/classes/admin/form/BillingSettingsScreen.php
+msgid "Invoices"
+msgstr ""
+
+#: oc-admin/themes/modern/billing/documents.php
+msgid "Invoices and credit notes"
+msgstr ""
+
 #: oc-includes/classes/core/utility/Utils.php
 msgid "Is allow_url_fopen enabled?"
 msgstr "Apakah allow_url_fopen diaktifkan?"
+
+#: oc-includes/classes/admin/form/BillingSettingsScreen.php
+msgid "Issue numbered invoices"
+msgstr ""
 
 #: oc-admin/themes/modern/parts/market.php
 msgid "Issue tracker"
@@ -6875,6 +7005,7 @@ msgstr ""
 
 #: oc-admin/themes/modern/billing/order.php
 #: oc-includes/classes/billing/Receipts.php
+#: oc-includes/osclass/gui/billing/document.php
 #: oc-includes/osclass/gui/billing/receipt.php
 msgid "Item"
 msgstr ""
@@ -7275,6 +7406,10 @@ msgstr ""
 #: oc-includes/classes/admin/form/StorageSettingsScreen.php
 msgid "Leave blank to keep the currently saved secret key"
 msgstr "Biarkan kosong untuk mempertahankan kunci rahasia yang saat ini disimpan"
+
+#: oc-admin/themes/modern/billing/order.php
+msgid "Leave empty to refund the chosen units with their share of tax."
+msgstr ""
 
 #: oc-admin/themes/modern/items/frm.php
 msgid "Leave empty to sell without counting."
@@ -8449,6 +8584,10 @@ msgstr ""
 msgid "More options"
 msgstr "Opsi lainnya"
 
+#: oc-includes/classes/billing/Billing.php
+msgid "More units were chosen than are left to refund"
+msgstr ""
+
 #: oc-admin/themes/modern/parts/market.php
 msgid "Most downloaded"
 msgstr "Paling banyak diunduh"
@@ -8992,6 +9131,10 @@ msgstr "Belum ada mutasi kredit"
 msgid "No details are available for this package yet."
 msgstr "Belum ada rincian yang tersedia untuk paket ini."
 
+#: oc-admin/themes/modern/billing/documents.php
+msgid "No documents match this filter"
+msgstr ""
+
 #: oc-admin/themes/modern/emails/index.php
 msgid "No email templates"
 msgstr "Tidak ada template email"
@@ -9043,6 +9186,10 @@ msgstr ""
 #: oc-includes/osclass/installer/gui/install-target.php
 msgid "No internet connection. You can continue and add your location later from the admin panel."
 msgstr "Tidak ada koneksi internet. Anda dapat melanjutkan dan menambahkan tempat Anda nanti dari panel admin."
+
+#: oc-admin/themes/modern/billing/documents.php
+msgid "No invoices yet"
+msgstr ""
 
 #: oc-admin/themes/modern/appearance/menus.php
 msgid "No items yet. Add some under Add items."
@@ -9393,6 +9540,10 @@ msgstr "Belum ada pergerakan"
 msgid "Nothing here yet"
 msgstr "Belum ada apa-apa di sini"
 
+#: oc-admin/themes/modern/billing/order.php
+msgid "Nothing is sent to the payment provider. Refund the money there, this records it."
+msgstr ""
+
 #: oc-admin/themes/modern/items/index.php
 msgid "Nothing is waiting for payment"
 msgstr ""
@@ -9474,6 +9625,11 @@ msgstr "Nov"
 #: oc-includes/osclass/helpers/hUtils.php
 msgid "November"
 msgstr "November"
+
+#: oc-admin/themes/modern/billing/documents.php
+#: oc-admin/themes/modern/billing/order.php
+msgid "Number"
+msgstr ""
 
 #: oc-includes/classes/admin/form/SitemapSettingsScreen.php
 msgid "Number of URLs per XML item sitemap file. Extra listings roll into additional "
@@ -9585,6 +9741,14 @@ msgstr ""
 msgid "Off by default: it can be abused to send spam."
 msgstr ""
 
+#: oc-admin/themes/modern/billing/order.php
+msgid "Off for units that were shipped and are not coming back."
+msgstr ""
+
+#: oc-admin/themes/modern/billing/order.php
+msgid "Off to only record a refund you have already made."
+msgstr ""
+
 #: oc-admin/themes/modern/messages/index.php
 #: oc-admin/themes/modern/stats/reports.php
 #: oc-includes/osclass/classes/datatables/ItemsDataTable.php
@@ -9671,6 +9835,10 @@ msgstr ""
 
 #: oc-includes/classes/billing/Billing.php
 msgid "Only a paid order can be refunded"
+msgstr ""
+
+#: oc-includes/classes/billing/Billing.php
+msgid "Only a shop order can be refunded in part"
 msgstr ""
 
 #: oc-includes/classes/admin/form/ItemSettingsScreen.php
@@ -9821,7 +9989,12 @@ msgstr "Opsi diperlukan."
 msgid "Orange"
 msgstr ""
 
+#: oc-includes/osclass/gui/billing/document.php
+msgid "Order"
+msgstr ""
+
 #: oc-admin/themes/modern/billing/order.php
+#: oc-includes/classes/billing/Invoices.php
 msgid "Order #%d"
 msgstr "Pesanan #%d"
 
@@ -9833,6 +10006,10 @@ msgstr ""
 msgid "Order e-mail"
 msgstr ""
 
+#: oc-includes/classes/billing/Invoices.php
+msgid "Order invoice"
+msgstr ""
+
 #: oc-includes/classes/admin/form/BillingSettingsScreen.php
 msgid "Order number prefix"
 msgstr ""
@@ -9841,6 +10018,7 @@ msgstr ""
 msgid "Order saved"
 msgstr "Pesanan disimpan"
 
+#: oc-admin/themes/modern/billing/documents.php
 #: oc-admin/themes/modern/billing/index.php
 #: oc-admin/themes/modern/settings/billing.php
 #: oc-includes/classes/admin/form/BillingSettingsScreen.php
@@ -10086,13 +10264,25 @@ msgstr "Kategori induk dinonaktifkan, Anda tidak dapat mengaktifkan kategori ter
 msgid "Parking & Storage"
 msgstr ""
 
+#: oc-includes/classes/billing/Billing.php
+msgid "Part of this order was already refunded. Refund the rest in the payment provider's dashboard, then record it."
+msgstr ""
+
 #: oc-includes/classes/core/mail/CoreEmails.php
 msgid "Part of your order {ORDER_NUMBER} has shipped"
+msgstr ""
+
+#: oc-includes/classes/core/mail/CoreEmails.php
+msgid "Part of your order {ORDER_NUMBER} was refunded"
 msgstr ""
 
 #: oc-includes/osclass/installer/data/categories-classifieds.php
 #: oc-includes/osclass/installer/data/fields-classifieds.php
 msgid "Part-time"
+msgstr ""
+
+#: oc-admin/themes/modern/billing/order.php
+msgid "Partly refunded"
 msgstr ""
 
 #: oc-includes/osclass/installer/data/categories-classifieds.php
@@ -10179,6 +10369,7 @@ msgstr "Petunjuk pembayaran"
 #: oc-admin/themes/modern/billing/order.php
 #: oc-admin/themes/modern/settings/billing.php
 #: oc-includes/classes/billing/Receipts.php
+#: oc-includes/osclass/gui/billing/document.php
 #: oc-includes/osclass/gui/billing/receipt.php
 msgid "Payment method"
 msgstr "Metode pembayaran"
@@ -10193,6 +10384,7 @@ msgid "Payment receipt e-mail"
 msgstr ""
 
 #: oc-includes/classes/billing/Receipts.php
+#: oc-includes/osclass/gui/billing/document.php
 #: oc-includes/osclass/gui/billing/receipt.php
 msgid "Payment reference"
 msgstr ""
@@ -10547,6 +10739,7 @@ msgstr "Tangkapan layar sebelumnya"
 #: oc-admin/themes/modern/items/frm.php
 #: oc-includes/classes/admin/form/ItemSettingsScreen.php
 #: oc-includes/classes/core/form/admin/Item.php
+#: oc-includes/osclass/gui/billing/document.php
 #: oc-includes/osclass/gui/billing/receipt.php
 msgid "Price"
 msgstr "Harga"
@@ -10576,8 +10769,13 @@ msgstr "Penetapan harga"
 msgid "Primary"
 msgstr "Utama"
 
+#: oc-includes/osclass/gui/billing/document.php
 #: oc-includes/osclass/gui/billing/receipt.php
 msgid "Print / Save as PDF"
+msgstr ""
+
+#: oc-admin/themes/modern/billing/order.php
+msgid "Printed on the credit note."
 msgstr ""
 
 #: oc-includes/classes/admin/form/ApiSettingsScreen.php
@@ -10756,12 +10954,17 @@ msgstr ""
 msgid "Put back:"
 msgstr ""
 
+#: oc-admin/themes/modern/billing/order.php
+msgid "Put the units back in stock"
+msgstr ""
+
 #: oc-admin/themes/modern/admins/two_factor.php
 msgid "QR code for your authenticator app"
 msgstr ""
 
 #: oc-admin/themes/modern/billing/order.php
 #: oc-includes/classes/billing/Receipts.php
+#: oc-includes/osclass/gui/billing/document.php
 #: oc-includes/osclass/gui/billing/receipt.php
 msgid "Qty"
 msgstr ""
@@ -10879,7 +11082,9 @@ msgstr "Siap"
 msgid "Ready, built %s"
 msgstr ""
 
+#: oc-admin/themes/modern/billing/order.php
 #: oc-admin/themes/modern/tools/system-info/jobs.php
+#: oc-includes/osclass/gui/billing/document.php
 msgid "Reason"
 msgstr ""
 
@@ -10908,6 +11113,7 @@ msgid "Recalculate counts"
 msgstr ""
 
 #: oc-admin/themes/modern/billing/order.php
+#: oc-includes/classes/billing/Invoices.php
 #: oc-includes/classes/billing/Receipts.php
 msgid "Receipt"
 msgstr ""
@@ -11006,11 +11212,24 @@ msgstr "Referensi"
 
 #: oc-admin/themes/modern/billing/order.php
 #: oc-admin/themes/modern/billing/wallet.php
+#: oc-includes/classes/billing/Invoices.php
 msgid "Refund"
 msgstr "Pengembalian uang"
 
 #: oc-admin/themes/modern/billing/order.php
+msgid "Refund an amount or some of the units. A credit note is made. Up to %s is left to refund."
+msgstr ""
+
+#: oc-admin/themes/modern/billing/order.php
 msgid "Refund order #%d?"
+msgstr ""
+
+#: oc-admin/themes/modern/billing/order.php
+msgid "Refund part"
+msgstr ""
+
+#: oc-admin/themes/modern/billing/order.php
+msgid "Refund part of order #%d"
 msgstr ""
 
 #: oc-admin/themes/modern/billing/order.php
@@ -11032,7 +11251,15 @@ msgid "Refunded at the provider but not recorded here. Record it with Record a r
 msgstr ""
 
 #: oc-includes/classes/billing/Billing.php
+msgid "Refunded at the provider but not recorded here. Record it with Refund part."
+msgstr ""
+
+#: oc-includes/classes/billing/Billing.php
 msgid "Refunded at the provider, but the order had already been marked refunded. Check the credit movements."
+msgstr ""
+
+#: oc-includes/classes/billing/Billing.php
+msgid "Refunded at the provider, but the order had already been refunded here. Check the credit notes."
 msgstr ""
 
 #: oc-includes/classes/admin/SystemChecks.php
@@ -11398,6 +11625,7 @@ msgstr ""
 msgid "Resend the activation to"
 msgstr "Mengirim ulang aktivasi ke"
 
+#: oc-admin/themes/modern/billing/documents.php
 #: oc-admin/themes/modern/parts/ui.php
 #: oc-admin/themes/modern/tools/logs.php
 #: oc-admin/themes/modern/tools/system-info/security.php
@@ -11611,6 +11839,7 @@ msgid "SKU"
 msgstr ""
 
 #: oc-includes/classes/billing/Receipts.php
+#: oc-includes/osclass/gui/billing/document.php
 #: oc-includes/osclass/gui/billing/receipt.php
 msgid "SKU %s"
 msgstr ""
@@ -11637,6 +11866,10 @@ msgstr ""
 
 #: oc-includes/classes/admin/ui/Picker.php
 msgid "Same as parent (%s)"
+msgstr ""
+
+#: oc-includes/classes/admin/form/BillingSettingsScreen.php
+msgid "Same rules. Credit notes have their own numbers."
 msgstr ""
 
 #: oc-admin/themes/modern/items/index.php
@@ -12318,6 +12551,10 @@ msgstr ""
 
 #: oc-admin/themes/modern/emails/frm.php
 msgid "Send test email"
+msgstr ""
+
+#: oc-admin/themes/modern/billing/order.php
+msgid "Send the money back through %s"
 msgstr ""
 
 #: oc-admin/themes/modern/emails/frm.php
@@ -13755,6 +13992,10 @@ msgstr ""
 msgid "The counts also refresh once a day on their own."
 msgstr ""
 
+#: oc-includes/classes/billing/Billing.php
+msgid "The credit note could not be made. Nothing was refunded."
+msgstr ""
+
 #: oc-admin/themes/modern/appearance/widgets.php
 msgid "The current theme does not declare any widget sections."
 msgstr "Tema saat ini tidak mendeklarasikan bagian widget apa pun."
@@ -13849,6 +14090,10 @@ msgstr ""
 #: oc-includes/classes/market/Installer.php
 msgid "The installation directory is not writable."
 msgstr "Direktori instalasi tidak dapat ditulis."
+
+#: oc-includes/classes/billing/Receipts.php
+msgid "The invoice for your order %1$s from %2$s is ready."
+msgstr ""
 
 #: oc-includes/classes/admin/form/SpamSettingsScreen.php
 msgid "The key you entered is invalid. Please double-check it"
@@ -14000,6 +14245,10 @@ msgstr ""
 
 #: oc-admin/themes/modern/messages/index.php
 msgid "The recipient will get this message and the new-message e-mail."
+msgstr ""
+
+#: oc-includes/classes/billing/Billing.php
+msgid "The refund could not be recorded. Try again."
 msgstr ""
 
 #: oc-includes/classes/billing/Billing.php
@@ -14382,6 +14631,7 @@ msgstr "Ini dapat memakan waktu satu menit pada situs besar. Silakan biarkan hal
 msgid "This can take a moment on a large category."
 msgstr "Ini dapat memakan waktu beberapa saat pada kategori yang besar."
 
+#: oc-admin/themes/modern/billing/order.php
 #: oc-admin/themes/modern/settings/locations/form.php
 msgid "This cannot be undone."
 msgstr ""
@@ -14483,8 +14733,16 @@ msgstr "Ini hanya menghapusnya dari proses pembayaran. Pesanan yang sudah dibuat
 msgid "This order cannot be refunded "
 msgstr ""
 
+#: oc-includes/classes/billing/Billing.php
+msgid "This order has no invoice, so it can only be refunded in full"
+msgstr ""
+
 #: oc-admin/themes/modern/billing/order.php
 msgid "This order is marked packed. The buyer gets no mail about it."
+msgstr ""
+
+#: oc-includes/classes/billing/Billing.php
+msgid "This order was refunded meanwhile"
 msgstr ""
 
 #: oc-includes/classes/admin/ajax/MarketAjax.php
@@ -14501,6 +14759,10 @@ msgstr ""
 
 #: oc-includes/classes/billing/Billing.php
 msgid "This payment method cannot refund from here"
+msgstr ""
+
+#: oc-includes/classes/billing/Billing.php
+msgid "This payment method cannot refund part of an order from here"
 msgstr ""
 
 #: oc-includes/osclass/gui/billing/receipt.php
@@ -14758,6 +15020,7 @@ msgstr ""
 msgid "Titles can be 1 to %d characters."
 msgstr ""
 
+#: oc-admin/themes/modern/billing/documents.php
 #: oc-includes/osclass/classes/form/FieldForm.php
 msgid "To"
 msgstr ""
@@ -14835,10 +15098,16 @@ msgstr "Kiri Atas"
 msgid "Top Right"
 msgstr "Kanan Atas"
 
+#: oc-admin/themes/modern/billing/documents.php
 #: oc-admin/themes/modern/billing/order.php
 #: oc-includes/classes/billing/Receipts.php
+#: oc-includes/osclass/gui/billing/document.php
 #: oc-includes/osclass/gui/billing/receipt.php
 msgid "Total"
+msgstr ""
+
+#: oc-includes/osclass/gui/billing/document.php
+msgid "Total credited"
 msgstr ""
 
 #: oc-admin/themes/modern/stats/items.php
@@ -14906,6 +15175,10 @@ msgstr ""
 #: oc-admin/themes/modern/billing/index.php
 msgid "Try a different status or payment method."
 msgstr "Coba status atau metode pembayaran yang berbeda."
+
+#: oc-admin/themes/modern/billing/documents.php
+msgid "Try a different type or dates."
+msgstr ""
 
 #: oc-admin/themes/modern/settings/locations/data.php
 #: oc-admin/themes/modern/tools/backup.php
@@ -15029,6 +15302,7 @@ msgstr ""
 msgid "Two-step sign-in"
 msgstr ""
 
+#: oc-admin/themes/modern/billing/documents.php
 #: oc-admin/themes/modern/fields/iframe.php
 #: oc-admin/themes/modern/fields/index.php
 #: oc-admin/themes/modern/media/index.php
@@ -15204,6 +15478,10 @@ msgstr ""
 #: oc-includes/classes/market/Compatibility.php
 msgid "Up to %s"
 msgstr "Hingga %s"
+
+#: oc-includes/classes/admin/form/BillingSettingsScreen.php
+msgid "Up to 12 capital letters, digits, dashes or slashes."
+msgstr ""
 
 #: oc-admin/themes/modern/settings/locations/data.php
 msgid "Up to date"
@@ -15758,6 +16036,7 @@ msgstr "Versi:"
 msgid "Versions"
 msgstr "Versi"
 
+#: oc-admin/themes/modern/billing/order.php
 #: oc-admin/themes/modern/fields/submissions.php
 #: oc-admin/themes/modern/messages/index.php
 msgid "View"
@@ -15771,6 +16050,10 @@ msgstr "Menampilkan komentar"
 msgid "View counting"
 msgstr ""
 
+#: oc-includes/classes/core/mail/CoreEmails.php
+msgid "View credit note %s"
+msgstr ""
+
 #: oc-admin/themes/modern/parts/market.php
 msgid "View details for %s"
 msgstr "Lihat detail untuk %s"
@@ -15778,6 +16061,10 @@ msgstr "Lihat detail untuk %s"
 #: oc-admin/themes/modern/media/index.php
 msgid "View full image"
 msgstr "Lihat gambar penuh"
+
+#: oc-includes/classes/billing/Receipts.php
+msgid "View invoice %s"
+msgstr ""
 
 #: oc-admin/themes/modern/items/frm.php
 msgid "View listing"
@@ -17304,6 +17591,7 @@ msgstr "— Shopclass"
 msgid "…and %d more"
 msgstr ""
 
+#: oc-admin/themes/modern/billing/documents.php
 #: oc-admin/themes/modern/billing/index.php
 #: oc-admin/themes/modern/billing/order.php
 msgctxt "purchase order"

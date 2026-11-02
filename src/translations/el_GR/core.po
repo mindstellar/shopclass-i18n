@@ -77,6 +77,7 @@ msgstr[0] "%1$d plugin δεν λέει ότι λειτουργεί με %2$s:"
 msgstr[1] "%1$d τα plugins δεν λένε ότι λειτουργούν με %2$s:"
 
 #: oc-admin/themes/modern/media/index.php
+#: oc-includes/osclass/gui/billing/document.php
 #: oc-includes/osclass/gui/billing/receipt.php
 msgid "%1$s %2$s"
 msgstr "%1$s %2$s"
@@ -207,6 +208,10 @@ msgstr ""
 #: oc-admin/themes/modern/tools/backup.php
 msgid "%1$s, %2$s, %3$s. This only removes the backup file."
 msgstr "%1$s, %2$s, %3$s. Αυτό αφαιρεί μόνο το αρχείο αντιγράφου ασφαλείας."
+
+#: oc-admin/themes/modern/billing/order.php
+msgid "%1$s, units (up to %2$d)"
+msgstr ""
 
 #: oc-includes/osclass/classes/datatables/BanRulesDataTable.php
 msgid "%1$s, until %2$s"
@@ -506,6 +511,7 @@ msgstr[1] "%d γράφει απορρίφθηκε από αυστηρή λειτ
 
 #: oc-admin/themes/modern/billing/order.php
 #: oc-includes/classes/billing/Receipts.php
+#: oc-includes/osclass/gui/billing/document.php
 #: oc-includes/osclass/gui/billing/receipt.php
 msgid "%s (included)"
 msgstr "%s (συμπεριλαμβάνεται)"
@@ -567,6 +573,12 @@ msgstr[1] ""
 #: oc-includes/classes/billing/Receipts.php
 msgid "%s credits"
 msgstr "%s μονάδες"
+
+#: oc-admin/themes/modern/billing/documents.php
+msgid "%s document"
+msgid_plural "%s documents"
+msgstr[0] ""
+msgstr[1] ""
 
 #: oc-includes/classes/media/image/Processor.php
 msgid "%s does not exist!"
@@ -894,7 +906,19 @@ msgid "<p>Hi {USER_NAME},</p><p>Thank you for your order from {WEB_TITLE}. We ha
 msgstr ""
 
 #: oc-includes/classes/core/mail/CoreEmails.php
+msgid "<p>Hi {USER_NAME},</p><p>We refunded {REFUND_AMOUNT} for order {ORDER_NUMBER} to your original payment method ({PAYMENT_METHOD}). It can take 3-5 working days to show up.</p><p>{CREDIT_NOTE_LINK}</p><p>{ORDER_LINK}</p>"
+msgstr ""
+
+#: oc-includes/classes/core/mail/CoreEmails.php
 msgid "<p>Hi {USER_NAME},</p><p>We refunded {REFUND_AMOUNT} for order {ORDER_NUMBER} to your original payment method ({PAYMENT_METHOD}). It can take 3-5 working days to show up.</p>{ORDER_LINES}<p>{ORDER_LINK}</p>"
+msgstr ""
+
+#: oc-includes/classes/core/mail/CoreEmails.php
+msgid "<p>Hi {USER_NAME},</p><p>We refunded {REFUND_AMOUNT} for order {ORDER_NUMBER}.</p><p>{CREDIT_NOTE_LINK}</p><p>{ORDER_LINK}</p>"
+msgstr ""
+
+#: oc-includes/classes/core/mail/CoreEmails.php
+msgid "<p>Hi {USER_NAME},</p><p>We refunded {REFUND_AMOUNT} for order {ORDER_NUMBER}.</p>{ORDER_LINES}<p>{CREDIT_NOTE_LINK}</p><p>{ORDER_LINK}</p>"
 msgstr ""
 
 #: oc-includes/classes/core/mail/CoreEmails.php
@@ -1075,6 +1099,10 @@ msgstr ""
 msgid "A new comment is posted"
 msgstr "Ένα νέο σχόλιο δημοσιεύτηκε"
 
+#: oc-includes/classes/admin/form/BillingSettingsScreen.php
+msgid "A numbered invoice is made when an order is paid, and a credit note when money is refunded. "
+msgstr ""
+
 #: oc-admin/themes/modern/billing/packages.php
 msgid "A package is what a buyer picks at checkout. Add one to start selling credits."
 msgstr "Ένα πακέτο είναι αυτό που επιλέγει ο αγοραστής κατά την ολοκλήρωση της αγοράς. Προσθέστε ένα για να ξεκινήσετε να πουλάτε πιστώσεις."
@@ -1097,6 +1125,10 @@ msgstr ""
 
 #: oc-includes/classes/core/install/ShopSetup.php
 msgid "A plugin the Aisle theme needs is missing, so the site stays a classifieds site."
+msgstr ""
+
+#: oc-includes/classes/admin/form/BillingSettingsScreen.php
+msgid "A prefix is up to 12 capital letters, digits, dashes or slashes."
 msgstr ""
 
 #: oc-includes/classes/admin/form/BillingSettingsScreen.php
@@ -1614,6 +1646,10 @@ msgstr "Προσθέτει τι λείπει και διορθώνει τους 
 msgid "Adjustable dumbbells, pair"
 msgstr ""
 
+#: oc-includes/classes/billing/Invoices.php
+msgid "Adjustment"
+msgstr ""
+
 #: oc-admin/themes/modern/settings/api.php
 #: oc-includes/classes/core/mail/CoreEmails.php
 msgid "Admin"
@@ -1911,9 +1947,14 @@ msgstr "Συμβατό με το Amazon S3"
 #: oc-admin/themes/modern/billing/index.php
 #: oc-admin/themes/modern/billing/order.php
 #: oc-includes/classes/billing/Receipts.php
+#: oc-includes/osclass/gui/billing/document.php
 #: oc-includes/osclass/gui/billing/receipt.php
 msgid "Amount"
 msgstr "Ποσό"
+
+#: oc-admin/themes/modern/billing/order.php
+msgid "Amount (%s)"
+msgstr ""
 
 #: oc-includes/classes/billing/Receipts.php
 #: oc-includes/osclass/gui/billing/receipt.php
@@ -1960,6 +2001,10 @@ msgstr "Παρουσιάστηκε σφάλμα κατά την αποστολή
 #: oc-includes/classes/admin/ajax/FieldAjax.php
 msgid "An error occurred while updating"
 msgstr "Παρουσιάστηκε σφάλμα κατά την ενημέρωση"
+
+#: oc-admin/themes/modern/billing/documents.php
+msgid "An invoice is made when an order is paid."
+msgstr ""
 
 #: oc-admin/themes/modern/billing/order.php
 msgid "An order records one attempt to pay. Shopclass stores what was bought and what "
@@ -2231,6 +2276,10 @@ msgstr "Τουλάχιστον %d χαρακτήρες. Αντιστοιχίζε
 #: oc-includes/osclass/install-functions.php
 msgid "At least PHP %s (PHP %s or higher recommended) is required to run Shopclass. "
 msgstr "Απαιτείται τουλάχιστον PHP %s (συνιστάται PHP %s ή νεότερη έκδοση) για να λειτουργήσει το Shopclass. "
+
+#: oc-includes/classes/billing/Billing.php
+msgid "At most %s is left to refund"
+msgstr ""
 
 #: oc-includes/classes/admin/form/ItemSettingsScreen.php
 msgid "Attach"
@@ -2575,7 +2624,12 @@ msgstr ""
 msgid "Bicycles & E-bikes"
 msgstr ""
 
+#: oc-includes/osclass/gui/billing/document.php
+msgid "Billed to"
+msgstr ""
+
 #: oc-admin/themes/modern/billing/credits.php
+#: oc-admin/themes/modern/billing/documents.php
 #: oc-admin/themes/modern/billing/index.php
 #: oc-admin/themes/modern/billing/order.php
 #: oc-admin/themes/modern/billing/package.php
@@ -2813,6 +2867,7 @@ msgstr ""
 msgid "Buy credits"
 msgstr "Αγοράστε μονάδες"
 
+#: oc-admin/themes/modern/billing/documents.php
 #: oc-admin/themes/modern/messages/index.php
 msgid "Buyer"
 msgstr ""
@@ -3397,6 +3452,7 @@ msgstr ""
 msgid "Clear cache"
 msgstr "Καθαρισμός προσωρινής μνήμης"
 
+#: oc-admin/themes/modern/billing/documents.php
 #: oc-admin/themes/modern/billing/index.php
 msgid "Clear filter"
 msgstr "Εκκαθάριση φίλτρου"
@@ -4049,6 +4105,25 @@ msgstr "Δημιουργήθηκε"
 msgid "Credit movements"
 msgstr "Κινήσεις πιστώσεων"
 
+#: oc-admin/themes/modern/billing/documents.php
+#: oc-admin/themes/modern/billing/order.php
+#: oc-includes/classes/billing/DocumentPage.php
+#: oc-includes/classes/billing/Invoices.php
+msgid "Credit note"
+msgstr ""
+
+#: oc-includes/osclass/gui/billing/receipt.php
+msgid "Credit note %s"
+msgstr ""
+
+#: oc-includes/classes/admin/form/BillingSettingsScreen.php
+msgid "Credit note number prefix"
+msgstr ""
+
+#: oc-admin/themes/modern/billing/documents.php
+msgid "Credit notes"
+msgstr ""
+
 #: oc-admin/themes/modern/billing/credits.php
 #: oc-admin/themes/modern/billing/index.php
 #: oc-admin/themes/modern/billing/order.php
@@ -4270,6 +4345,7 @@ msgstr "Ενημέρωση βάσης δεδομένων"
 msgid "Database version"
 msgstr "Έκδοση βάσης δεδομένων"
 
+#: oc-admin/themes/modern/billing/documents.php
 #: oc-admin/themes/modern/billing/index.php
 #: oc-admin/themes/modern/billing/order.php
 #: oc-admin/themes/modern/billing/wallet.php
@@ -4288,6 +4364,7 @@ msgstr "Έκδοση βάσης δεδομένων"
 #: oc-includes/osclass/classes/datatables/LogsDataTable.php
 #: oc-includes/osclass/classes/datatables/MediaDataTable.php
 #: oc-includes/osclass/classes/datatables/UsersDataTable.php
+#: oc-includes/osclass/gui/billing/document.php
 #: oc-includes/osclass/installer/data/fields-classifieds.php
 msgid "Date"
 msgstr "Ημερομηνία"
@@ -4306,6 +4383,7 @@ msgid "Date format: this field is required"
 msgstr "Μορφή ημερομηνίας: αυτό το πεδίο είναι απαραίτητο"
 
 #: oc-includes/classes/billing/Receipts.php
+#: oc-includes/osclass/gui/billing/document.php
 #: oc-includes/osclass/gui/billing/receipt.php
 msgid "Date paid"
 msgstr "Ημερομηνία πληρωμής"
@@ -4870,6 +4948,10 @@ msgstr "Τεκμηρίωση"
 msgid "Documentation on date and time formatting"
 msgstr "Τεκμηρίωση κατά την ημερομηνία και την ώρα μορφοποίησης"
 
+#: oc-admin/themes/modern/billing/order.php
+msgid "Documents"
+msgstr ""
+
 #: oc-includes/osclass/installer/data/categories-classifieds.php
 msgid "Dogs"
 msgstr ""
@@ -4891,6 +4973,10 @@ msgstr "Κάτω"
 #: oc-admin/themes/modern/tools/backup.php
 msgid "Download"
 msgstr "Λήψη"
+
+#: oc-admin/themes/modern/billing/documents.php
+msgid "Download CSV"
+msgstr ""
 
 #: oc-admin/themes/modern/settings/storage.php
 msgid "Download all remote images back to local (offline copy)"
@@ -5374,6 +5460,10 @@ msgstr "Εισάγετε μια έγκυρη διεύθυνση e-mail επικ�
 msgid "Enter a valid email address."
 msgstr "Εισάγετε μια έγκυρη διεύθυνση e-mail."
 
+#: oc-includes/classes/billing/Billing.php
+msgid "Enter an amount or choose what to refund"
+msgstr ""
+
 #: oc-admin/themes/modern/emails/frm.php
 msgid "Enter an email address to send the test to."
 msgstr "Εισάγετε μια διεύθυνση ηλεκτρονικού ταχυδρομείου για να στείλετε το τεστ."
@@ -5474,6 +5564,10 @@ msgstr "Κάθε εγκατεστημένο plugin είναι ενημερωμέ
 #: oc-admin/themes/modern/parts/market.php
 msgid "Every installed theme is up to date"
 msgstr "Κάθε εγκατεστημένο θέμα είναι ενημερωμένο"
+
+#: oc-admin/themes/modern/billing/documents.php
+msgid "Every invoice and credit note issued, newest first. They are never changed or deleted."
+msgstr ""
 
 #: oc-admin/themes/modern/users/frm.php
 msgid "Every new listing"
@@ -5770,6 +5864,7 @@ msgstr ""
 msgid "Filled with your shop name. You can change it."
 msgstr ""
 
+#: oc-admin/themes/modern/billing/documents.php
 #: oc-admin/themes/modern/billing/index.php
 #: oc-admin/themes/modern/settings/locations/data.php
 msgid "Filter"
@@ -5895,6 +5990,10 @@ msgstr "Για 24 ώρες κάθε παράδοση φέρει δύο υπογ�
 
 #: oc-includes/classes/admin/form/MainSettingsScreen.php
 msgid "For calendars in plugins and themes."
+msgstr ""
+
+#: oc-includes/osclass/gui/billing/document.php
+msgid "For invoice %s"
 msgstr ""
 
 #: oc-includes/classes/admin/form/MediaSettingsScreen.php
@@ -6036,6 +6135,7 @@ msgstr "Τα φιλικά URL χρησιμοποιούν λέξεις αντί �
 msgid "Friendly young Labrador needs a home"
 msgstr ""
 
+#: oc-admin/themes/modern/billing/documents.php
 #: oc-includes/osclass/classes/form/FieldForm.php
 #: oc-includes/osclass/helpers/hItems.php
 msgid "From"
@@ -6872,9 +6972,40 @@ msgstr "Μη έγκυρη ενημέρωση θέματος uri"
 msgid "Invalid upgrade package info"
 msgstr "Μη έγκυρες πληροφορίες πακέτου αναβάθμισης"
 
+#: oc-includes/classes/billing/DocumentPage.php
+#: oc-includes/classes/billing/Invoices.php
+msgid "Invoice"
+msgstr ""
+
+#: oc-includes/classes/billing/Receipts.php
+msgid "Invoice %1$s from %2$s"
+msgstr ""
+
+#: oc-includes/osclass/gui/billing/receipt.php
+msgid "Invoice %s"
+msgstr ""
+
+#: oc-includes/classes/admin/form/BillingSettingsScreen.php
+msgid "Invoice number prefix"
+msgstr ""
+
+#: oc-admin/themes/modern/billing/documents.php
+#: oc-admin/themes/modern/billing/index.php
+#: oc-includes/classes/admin/form/BillingSettingsScreen.php
+msgid "Invoices"
+msgstr ""
+
+#: oc-admin/themes/modern/billing/documents.php
+msgid "Invoices and credit notes"
+msgstr ""
+
 #: oc-includes/classes/core/utility/Utils.php
 msgid "Is allow_url_fopen enabled?"
 msgstr "Είναι allow_url_fopen ενεργοποιημένο?"
+
+#: oc-includes/classes/admin/form/BillingSettingsScreen.php
+msgid "Issue numbered invoices"
+msgstr ""
 
 #: oc-admin/themes/modern/parts/market.php
 msgid "Issue tracker"
@@ -6930,6 +7061,7 @@ msgstr "Σταμάτησε και δεν τελείωσε. Τίποτα δεν �
 
 #: oc-admin/themes/modern/billing/order.php
 #: oc-includes/classes/billing/Receipts.php
+#: oc-includes/osclass/gui/billing/document.php
 #: oc-includes/osclass/gui/billing/receipt.php
 msgid "Item"
 msgstr "Αντικείμενο"
@@ -7330,6 +7462,10 @@ msgstr "Αφήστε κενό για να κρατήσει τον τρέχοντ
 #: oc-includes/classes/admin/form/StorageSettingsScreen.php
 msgid "Leave blank to keep the currently saved secret key"
 msgstr "Αφήστε το κενό για να διατηρήσετε το τρέχον αποθηκευμένο μυστικό κλειδί"
+
+#: oc-admin/themes/modern/billing/order.php
+msgid "Leave empty to refund the chosen units with their share of tax."
+msgstr ""
 
 #: oc-admin/themes/modern/items/frm.php
 msgid "Leave empty to sell without counting."
@@ -8505,6 +8641,10 @@ msgstr "Περισσότερες λεπτομέρειες διεύθυνσης"
 msgid "More options"
 msgstr "Περισσότερες επιλογές"
 
+#: oc-includes/classes/billing/Billing.php
+msgid "More units were chosen than are left to refund"
+msgstr ""
+
 #: oc-admin/themes/modern/parts/market.php
 msgid "Most downloaded"
 msgstr "Με τις περισσότερες λήψεις"
@@ -9048,6 +9188,10 @@ msgstr "Δεν έχουν μεταφερθεί πιστώσεις ακόμη"
 msgid "No details are available for this package yet."
 msgstr "Δεν υπάρχουν ακόμη διαθέσιμες πληροφορίες για αυτό το πακέτο."
 
+#: oc-admin/themes/modern/billing/documents.php
+msgid "No documents match this filter"
+msgstr ""
+
 #: oc-admin/themes/modern/emails/index.php
 msgid "No email templates"
 msgstr "Δεν υπάρχουν πρότυπα E-mail"
@@ -9099,6 +9243,10 @@ msgstr ""
 #: oc-includes/osclass/installer/gui/install-target.php
 msgid "No internet connection. You can continue and add your location later from the admin panel."
 msgstr "Δεν υπάρχει σύνδεση στο διαδίκτυο. Μπορείτε να συνεχίσετε και να προσθέσετε την τοποθεσία σας αργότερα από τον πίνακα διαχείρισης."
+
+#: oc-admin/themes/modern/billing/documents.php
+msgid "No invoices yet"
+msgstr ""
 
 #: oc-admin/themes/modern/appearance/menus.php
 msgid "No items yet. Add some under Add items."
@@ -9449,6 +9597,10 @@ msgstr "Δεν έχει σημειωθεί κίνηση ακόμη"
 msgid "Nothing here yet"
 msgstr "Δεν υπάρχει τίποτα εδώ προς το παρόν"
 
+#: oc-admin/themes/modern/billing/order.php
+msgid "Nothing is sent to the payment provider. Refund the money there, this records it."
+msgstr ""
+
 #: oc-admin/themes/modern/items/index.php
 msgid "Nothing is waiting for payment"
 msgstr ""
@@ -9530,6 +9682,11 @@ msgstr "Νοε"
 #: oc-includes/osclass/helpers/hUtils.php
 msgid "November"
 msgstr "Νοέμβριος"
+
+#: oc-admin/themes/modern/billing/documents.php
+#: oc-admin/themes/modern/billing/order.php
+msgid "Number"
+msgstr ""
 
 #: oc-includes/classes/admin/form/SitemapSettingsScreen.php
 msgid "Number of URLs per XML item sitemap file. Extra listings roll into additional "
@@ -9641,6 +9798,14 @@ msgstr "Απενεργοποιημένη από προεπιλογή: ένας �
 msgid "Off by default: it can be abused to send spam."
 msgstr "Απενεργοποιημένη από προεπιλογή: μπορεί να γίνει κατάχρηση για την αποστολή ανεπιθύμητης αλληλογραφίας."
 
+#: oc-admin/themes/modern/billing/order.php
+msgid "Off for units that were shipped and are not coming back."
+msgstr ""
+
+#: oc-admin/themes/modern/billing/order.php
+msgid "Off to only record a refund you have already made."
+msgstr ""
+
 #: oc-admin/themes/modern/messages/index.php
 #: oc-admin/themes/modern/stats/reports.php
 #: oc-includes/osclass/classes/datatables/ItemsDataTable.php
@@ -9729,6 +9894,10 @@ msgstr "Απομένει μόνο το %s του χώρου στο δίσκο. �
 #: oc-includes/classes/billing/Billing.php
 msgid "Only a paid order can be refunded"
 msgstr "Μόνο μια πληρωμένη παραγγελία μπορεί να επιστραφεί"
+
+#: oc-includes/classes/billing/Billing.php
+msgid "Only a shop order can be refunded in part"
+msgstr ""
 
 #: oc-includes/classes/admin/form/ItemSettingsScreen.php
 msgid "Only allow registered users to contact publisher"
@@ -9878,7 +10047,12 @@ msgstr "Απαιτούνται επιλογές."
 msgid "Orange"
 msgstr ""
 
+#: oc-includes/osclass/gui/billing/document.php
+msgid "Order"
+msgstr ""
+
 #: oc-admin/themes/modern/billing/order.php
+#: oc-includes/classes/billing/Invoices.php
 msgid "Order #%d"
 msgstr "Εντολή #%d"
 
@@ -9890,6 +10064,10 @@ msgstr "Παραγγελία %1$s, πληρώθηκε στις %2$s από %3$s.
 msgid "Order e-mail"
 msgstr "Email παραγγελίας"
 
+#: oc-includes/classes/billing/Invoices.php
+msgid "Order invoice"
+msgstr ""
+
 #: oc-includes/classes/admin/form/BillingSettingsScreen.php
 msgid "Order number prefix"
 msgstr "Πρόθεμα αριθμού παραγγελίας"
@@ -9898,6 +10076,7 @@ msgstr "Πρόθεμα αριθμού παραγγελίας"
 msgid "Order saved"
 msgstr "Η σειρά αποθηκεύθηκε"
 
+#: oc-admin/themes/modern/billing/documents.php
 #: oc-admin/themes/modern/billing/index.php
 #: oc-admin/themes/modern/settings/billing.php
 #: oc-includes/classes/admin/form/BillingSettingsScreen.php
@@ -10143,13 +10322,25 @@ msgstr "Η γονική κατηγορία είναι απενεργοποιημ
 msgid "Parking & Storage"
 msgstr ""
 
+#: oc-includes/classes/billing/Billing.php
+msgid "Part of this order was already refunded. Refund the rest in the payment provider's dashboard, then record it."
+msgstr ""
+
 #: oc-includes/classes/core/mail/CoreEmails.php
 msgid "Part of your order {ORDER_NUMBER} has shipped"
+msgstr ""
+
+#: oc-includes/classes/core/mail/CoreEmails.php
+msgid "Part of your order {ORDER_NUMBER} was refunded"
 msgstr ""
 
 #: oc-includes/osclass/installer/data/categories-classifieds.php
 #: oc-includes/osclass/installer/data/fields-classifieds.php
 msgid "Part-time"
+msgstr ""
+
+#: oc-admin/themes/modern/billing/order.php
+msgid "Partly refunded"
 msgstr ""
 
 #: oc-includes/osclass/installer/data/categories-classifieds.php
@@ -10236,6 +10427,7 @@ msgstr "Οδηγίες πληρωμής"
 #: oc-admin/themes/modern/billing/order.php
 #: oc-admin/themes/modern/settings/billing.php
 #: oc-includes/classes/billing/Receipts.php
+#: oc-includes/osclass/gui/billing/document.php
 #: oc-includes/osclass/gui/billing/receipt.php
 msgid "Payment method"
 msgstr "Μέθοδος πληρωμής"
@@ -10250,6 +10442,7 @@ msgid "Payment receipt e-mail"
 msgstr "Email απόδειξης πληρωμής"
 
 #: oc-includes/classes/billing/Receipts.php
+#: oc-includes/osclass/gui/billing/document.php
 #: oc-includes/osclass/gui/billing/receipt.php
 msgid "Payment reference"
 msgstr "Αναφορά πληρωμής"
@@ -10604,6 +10797,7 @@ msgstr "Προηγούμενο στιγμιότυπο οθόνης"
 #: oc-admin/themes/modern/items/frm.php
 #: oc-includes/classes/admin/form/ItemSettingsScreen.php
 #: oc-includes/classes/core/form/admin/Item.php
+#: oc-includes/osclass/gui/billing/document.php
 #: oc-includes/osclass/gui/billing/receipt.php
 msgid "Price"
 msgstr "Τιμή"
@@ -10633,9 +10827,14 @@ msgstr "Τιμολόγηση"
 msgid "Primary"
 msgstr "Κύρια"
 
+#: oc-includes/osclass/gui/billing/document.php
 #: oc-includes/osclass/gui/billing/receipt.php
 msgid "Print / Save as PDF"
 msgstr "Εκτύπωση / Αποθήκευση ως PDF"
+
+#: oc-admin/themes/modern/billing/order.php
+msgid "Printed on the credit note."
+msgstr ""
 
 #: oc-includes/classes/admin/form/ApiSettingsScreen.php
 msgid "Private addresses"
@@ -10813,12 +11012,17 @@ msgstr "Βάλτε πίσω"
 msgid "Put back:"
 msgstr "Βάλτε πίσω:"
 
+#: oc-admin/themes/modern/billing/order.php
+msgid "Put the units back in stock"
+msgstr ""
+
 #: oc-admin/themes/modern/admins/two_factor.php
 msgid "QR code for your authenticator app"
 msgstr "Κωδικός QR για την εφαρμογή ελέγχου ταυτότητας"
 
 #: oc-admin/themes/modern/billing/order.php
 #: oc-includes/classes/billing/Receipts.php
+#: oc-includes/osclass/gui/billing/document.php
 #: oc-includes/osclass/gui/billing/receipt.php
 msgid "Qty"
 msgstr "Ποσότητα"
@@ -10936,7 +11140,9 @@ msgstr "Έτοιμο"
 msgid "Ready, built %s"
 msgstr ""
 
+#: oc-admin/themes/modern/billing/order.php
 #: oc-admin/themes/modern/tools/system-info/jobs.php
+#: oc-includes/osclass/gui/billing/document.php
 msgid "Reason"
 msgstr "Λόγος"
 
@@ -10965,6 +11171,7 @@ msgid "Recalculate counts"
 msgstr "Επανυπολογισμός μετρήσεων"
 
 #: oc-admin/themes/modern/billing/order.php
+#: oc-includes/classes/billing/Invoices.php
 #: oc-includes/classes/billing/Receipts.php
 msgid "Receipt"
 msgstr "Απόδειξη"
@@ -11063,12 +11270,25 @@ msgstr "Αναφορά"
 
 #: oc-admin/themes/modern/billing/order.php
 #: oc-admin/themes/modern/billing/wallet.php
+#: oc-includes/classes/billing/Invoices.php
 msgid "Refund"
 msgstr "Επιστροφή χρημάτων"
 
 #: oc-admin/themes/modern/billing/order.php
+msgid "Refund an amount or some of the units. A credit note is made. Up to %s is left to refund."
+msgstr ""
+
+#: oc-admin/themes/modern/billing/order.php
 msgid "Refund order #%d?"
 msgstr "Επιστροφή παραγγελίας #%d?"
+
+#: oc-admin/themes/modern/billing/order.php
+msgid "Refund part"
+msgstr ""
+
+#: oc-admin/themes/modern/billing/order.php
+msgid "Refund part of order #%d"
+msgstr ""
 
 #: oc-admin/themes/modern/billing/order.php
 msgid "Refund this payment through %s. The buyer gets the money back "
@@ -11089,8 +11309,16 @@ msgid "Refunded at the provider but not recorded here. Record it with Record a r
 msgstr "Επιστρέφεται στον πάροχο, αλλά δεν καταγράφεται εδώ. Καταγράψτε το με επιστροφή χρημάτων."
 
 #: oc-includes/classes/billing/Billing.php
+msgid "Refunded at the provider but not recorded here. Record it with Refund part."
+msgstr ""
+
+#: oc-includes/classes/billing/Billing.php
 msgid "Refunded at the provider, but the order had already been marked refunded. Check the credit movements."
 msgstr "Επιστρέφεται στον πάροχο, αλλά η παραγγελία είχε ήδη επισημανθεί ότι έχει επιστραφεί. Ελέγξτε τις κινήσεις πίστωσης."
+
+#: oc-includes/classes/billing/Billing.php
+msgid "Refunded at the provider, but the order had already been refunded here. Check the credit notes."
+msgstr ""
 
 #: oc-includes/classes/admin/SystemChecks.php
 msgid "Refused writes are not recorded while the activity log is off, so this cannot confirm there are none."
@@ -11455,6 +11683,7 @@ msgstr "Επαναποστολή e-mail ενεργοποίησης"
 msgid "Resend the activation to"
 msgstr "Επαναλάβετε την αποστολή της ενεργοποίησης"
 
+#: oc-admin/themes/modern/billing/documents.php
 #: oc-admin/themes/modern/parts/ui.php
 #: oc-admin/themes/modern/tools/logs.php
 #: oc-admin/themes/modern/tools/system-info/security.php
@@ -11668,6 +11897,7 @@ msgid "SKU"
 msgstr "SKU"
 
 #: oc-includes/classes/billing/Receipts.php
+#: oc-includes/osclass/gui/billing/document.php
 #: oc-includes/osclass/gui/billing/receipt.php
 msgid "SKU %s"
 msgstr "SKU %s"
@@ -11695,6 +11925,10 @@ msgstr "Ίδιο με τον γονέα"
 #: oc-includes/classes/admin/ui/Picker.php
 msgid "Same as parent (%s)"
 msgstr "Ίδιο με τον γονέα (%s)"
+
+#: oc-includes/classes/admin/form/BillingSettingsScreen.php
+msgid "Same rules. Credit notes have their own numbers."
+msgstr ""
 
 #: oc-admin/themes/modern/items/index.php
 msgid "Sample fields from the installer are on this site."
@@ -12376,6 +12610,10 @@ msgstr "Αποστολή δοκιμής"
 #: oc-admin/themes/modern/emails/frm.php
 msgid "Send test email"
 msgstr "Αποστολή δοκιμαστικού email"
+
+#: oc-admin/themes/modern/billing/order.php
+msgid "Send the money back through %s"
+msgstr ""
 
 #: oc-admin/themes/modern/emails/frm.php
 msgid "Send to"
@@ -13812,6 +14050,10 @@ msgstr ""
 msgid "The counts also refresh once a day on their own."
 msgstr "Οι μετρήσεις επίσης να ανανεώσετε μια φορά την ημέρα μόνοι τους."
 
+#: oc-includes/classes/billing/Billing.php
+msgid "The credit note could not be made. Nothing was refunded."
+msgstr ""
+
 #: oc-admin/themes/modern/appearance/widgets.php
 msgid "The current theme does not declare any widget sections."
 msgstr "Το τρέχον θέμα δεν δηλώνει ενότητες widget."
@@ -13907,6 +14149,10 @@ msgstr "Τα αρχεία ανήκουν στο %s."
 #: oc-includes/classes/market/Installer.php
 msgid "The installation directory is not writable."
 msgstr "Ο κατάλογος εγκατάστασης δεν είναι εγγράψιμος."
+
+#: oc-includes/classes/billing/Receipts.php
+msgid "The invoice for your order %1$s from %2$s is ready."
+msgstr ""
 
 #: oc-includes/classes/admin/form/SpamSettingsScreen.php
 msgid "The key you entered is invalid. Please double-check it"
@@ -14058,6 +14304,10 @@ msgstr ""
 
 #: oc-admin/themes/modern/messages/index.php
 msgid "The recipient will get this message and the new-message e-mail."
+msgstr ""
+
+#: oc-includes/classes/billing/Billing.php
+msgid "The refund could not be recorded. Try again."
 msgstr ""
 
 #: oc-includes/classes/billing/Billing.php
@@ -14441,6 +14691,7 @@ msgstr "Αυτό μπορεί να διαρκέσει λίγο σε μια με�
 msgid "This can take a moment on a large category."
 msgstr "Αυτό μπορεί να διαρκέσει λίγο σε μια μεγάλη κατηγορία."
 
+#: oc-admin/themes/modern/billing/order.php
 #: oc-admin/themes/modern/settings/locations/form.php
 msgid "This cannot be undone."
 msgstr "Αυτό δεν μπορεί να αναιρεθεί."
@@ -14543,8 +14794,16 @@ msgstr "Αυτό απλώς το αφαιρεί από την ολοκλήρωσ
 msgid "This order cannot be refunded "
 msgstr "Αυτή η παραγγελία δεν μπορεί να επιστραφεί "
 
+#: oc-includes/classes/billing/Billing.php
+msgid "This order has no invoice, so it can only be refunded in full"
+msgstr ""
+
 #: oc-admin/themes/modern/billing/order.php
 msgid "This order is marked packed. The buyer gets no mail about it."
+msgstr ""
+
+#: oc-includes/classes/billing/Billing.php
+msgid "This order was refunded meanwhile"
 msgstr ""
 
 #: oc-includes/classes/admin/ajax/MarketAjax.php
@@ -14562,6 +14821,10 @@ msgstr ""
 #: oc-includes/classes/billing/Billing.php
 msgid "This payment method cannot refund from here"
 msgstr "Αυτή η μέθοδος πληρωμής δεν μπορεί να επιστρέψει από εδώ"
+
+#: oc-includes/classes/billing/Billing.php
+msgid "This payment method cannot refund part of an order from here"
+msgstr ""
 
 #: oc-includes/osclass/gui/billing/receipt.php
 msgid "This payment was refunded."
@@ -14818,6 +15081,7 @@ msgstr "Τίτλος ή περιγραφή"
 msgid "Titles can be 1 to %d characters."
 msgstr ""
 
+#: oc-admin/themes/modern/billing/documents.php
 #: oc-includes/osclass/classes/form/FieldForm.php
 msgid "To"
 msgstr "Προς"
@@ -14895,11 +15159,17 @@ msgstr "Πάνω Αριστερά"
 msgid "Top Right"
 msgstr "Πάνω Δεξιά"
 
+#: oc-admin/themes/modern/billing/documents.php
 #: oc-admin/themes/modern/billing/order.php
 #: oc-includes/classes/billing/Receipts.php
+#: oc-includes/osclass/gui/billing/document.php
 #: oc-includes/osclass/gui/billing/receipt.php
 msgid "Total"
 msgstr "Σύνολο"
+
+#: oc-includes/osclass/gui/billing/document.php
+msgid "Total credited"
+msgstr ""
 
 #: oc-admin/themes/modern/stats/items.php
 msgid "Total number of listings' views"
@@ -14966,6 +15236,10 @@ msgstr ""
 #: oc-admin/themes/modern/billing/index.php
 msgid "Try a different status or payment method."
 msgstr "Δοκιμάστε διαφορετική κατάσταση ή μέθοδο πληρωμής."
+
+#: oc-admin/themes/modern/billing/documents.php
+msgid "Try a different type or dates."
+msgstr ""
 
 #: oc-admin/themes/modern/settings/locations/data.php
 #: oc-admin/themes/modern/tools/backup.php
@@ -15089,6 +15363,7 @@ msgstr ""
 msgid "Two-step sign-in"
 msgstr "Είσοδος δύο βημάτων"
 
+#: oc-admin/themes/modern/billing/documents.php
 #: oc-admin/themes/modern/fields/iframe.php
 #: oc-admin/themes/modern/fields/index.php
 #: oc-admin/themes/modern/media/index.php
@@ -15264,6 +15539,10 @@ msgstr ""
 #: oc-includes/classes/market/Compatibility.php
 msgid "Up to %s"
 msgstr "Μέχρι %s"
+
+#: oc-includes/classes/admin/form/BillingSettingsScreen.php
+msgid "Up to 12 capital letters, digits, dashes or slashes."
+msgstr ""
 
 #: oc-admin/themes/modern/settings/locations/data.php
 msgid "Up to date"
@@ -15818,6 +16097,7 @@ msgstr "Έκδοση:"
 msgid "Versions"
 msgstr "Εκδόσεις"
 
+#: oc-admin/themes/modern/billing/order.php
 #: oc-admin/themes/modern/fields/submissions.php
 #: oc-admin/themes/modern/messages/index.php
 msgid "View"
@@ -15831,6 +16111,10 @@ msgstr "Προβολή σχολίων"
 msgid "View counting"
 msgstr "Προβολή καταμέτρησης"
 
+#: oc-includes/classes/core/mail/CoreEmails.php
+msgid "View credit note %s"
+msgstr ""
+
 #: oc-admin/themes/modern/parts/market.php
 msgid "View details for %s"
 msgstr "Προβολή λεπτομερειών για το %s"
@@ -15838,6 +16122,10 @@ msgstr "Προβολή λεπτομερειών για το %s"
 #: oc-admin/themes/modern/media/index.php
 msgid "View full image"
 msgstr "Προβολή πλήρους εικόνας"
+
+#: oc-includes/classes/billing/Receipts.php
+msgid "View invoice %s"
+msgstr ""
 
 #: oc-admin/themes/modern/items/frm.php
 msgid "View listing"
@@ -17365,6 +17653,7 @@ msgstr "— Shopclass"
 msgid "…and %d more"
 msgstr "…και %d περισσότερα"
 
+#: oc-admin/themes/modern/billing/documents.php
 #: oc-admin/themes/modern/billing/index.php
 #: oc-admin/themes/modern/billing/order.php
 msgctxt "purchase order"

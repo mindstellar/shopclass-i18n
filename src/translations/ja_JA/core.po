@@ -73,6 +73,7 @@ msgid_plural "%1$d plugins do not say they work with %2$s:"
 msgstr[0] "%1$d プラグインは、 %2$s で動作しているとは言いません:"
 
 #: oc-admin/themes/modern/media/index.php
+#: oc-includes/osclass/gui/billing/document.php
 #: oc-includes/osclass/gui/billing/receipt.php
 msgid "%1$s %2$s"
 msgstr ""
@@ -198,6 +199,10 @@ msgstr "%1$s%%カウント: %2$s 場所の %3$s"
 #: oc-admin/themes/modern/tools/backup.php
 msgid "%1$s, %2$s, %3$s. This only removes the backup file."
 msgstr "%1$s, %2$s, %3$s. バックアップファイルのみ削除します。"
+
+#: oc-admin/themes/modern/billing/order.php
+msgid "%1$s, units (up to %2$d)"
+msgstr ""
 
 #: oc-includes/osclass/classes/datatables/BanRulesDataTable.php
 msgid "%1$s, until %2$s"
@@ -466,6 +471,7 @@ msgstr[0] "%d の書き込みは、過去 7 日間で strict SQL モードで拒
 
 #: oc-admin/themes/modern/billing/order.php
 #: oc-includes/classes/billing/Receipts.php
+#: oc-includes/osclass/gui/billing/document.php
 #: oc-includes/osclass/gui/billing/receipt.php
 msgid "%s (included)"
 msgstr "%s (含む)"
@@ -525,6 +531,11 @@ msgstr[0] "%s 国"
 #: oc-includes/classes/billing/Receipts.php
 msgid "%s credits"
 msgstr "%s クレジット"
+
+#: oc-admin/themes/modern/billing/documents.php
+msgid "%s document"
+msgid_plural "%s documents"
+msgstr[0] ""
 
 #: oc-includes/classes/media/image/Processor.php
 msgid "%s does not exist!"
@@ -845,7 +856,19 @@ msgid "<p>Hi {USER_NAME},</p><p>Thank you for your order from {WEB_TITLE}. We ha
 msgstr ""
 
 #: oc-includes/classes/core/mail/CoreEmails.php
+msgid "<p>Hi {USER_NAME},</p><p>We refunded {REFUND_AMOUNT} for order {ORDER_NUMBER} to your original payment method ({PAYMENT_METHOD}). It can take 3-5 working days to show up.</p><p>{CREDIT_NOTE_LINK}</p><p>{ORDER_LINK}</p>"
+msgstr ""
+
+#: oc-includes/classes/core/mail/CoreEmails.php
 msgid "<p>Hi {USER_NAME},</p><p>We refunded {REFUND_AMOUNT} for order {ORDER_NUMBER} to your original payment method ({PAYMENT_METHOD}). It can take 3-5 working days to show up.</p>{ORDER_LINES}<p>{ORDER_LINK}</p>"
+msgstr ""
+
+#: oc-includes/classes/core/mail/CoreEmails.php
+msgid "<p>Hi {USER_NAME},</p><p>We refunded {REFUND_AMOUNT} for order {ORDER_NUMBER}.</p><p>{CREDIT_NOTE_LINK}</p><p>{ORDER_LINK}</p>"
+msgstr ""
+
+#: oc-includes/classes/core/mail/CoreEmails.php
+msgid "<p>Hi {USER_NAME},</p><p>We refunded {REFUND_AMOUNT} for order {ORDER_NUMBER}.</p>{ORDER_LINES}<p>{CREDIT_NOTE_LINK}</p><p>{ORDER_LINK}</p>"
 msgstr ""
 
 #: oc-includes/classes/core/mail/CoreEmails.php
@@ -1026,6 +1049,10 @@ msgstr ""
 msgid "A new comment is posted"
 msgstr "新しいコメントが投稿されました"
 
+#: oc-includes/classes/admin/form/BillingSettingsScreen.php
+msgid "A numbered invoice is made when an order is paid, and a credit note when money is refunded. "
+msgstr ""
+
 #: oc-admin/themes/modern/billing/packages.php
 msgid "A package is what a buyer picks at checkout. Add one to start selling credits."
 msgstr "パッケージとは、購入者がチェックアウト時に選択するものです。クレジットの販売を開始するには、パッケージを追加してください。"
@@ -1048,6 +1075,10 @@ msgstr ""
 
 #: oc-includes/classes/core/install/ShopSetup.php
 msgid "A plugin the Aisle theme needs is missing, so the site stays a classifieds site."
+msgstr ""
+
+#: oc-includes/classes/admin/form/BillingSettingsScreen.php
+msgid "A prefix is up to 12 capital letters, digits, dashes or slashes."
 msgstr ""
 
 #: oc-includes/classes/admin/form/BillingSettingsScreen.php
@@ -1564,6 +1595,10 @@ msgstr "不足しているものを追加し、列の種類を修正します。
 msgid "Adjustable dumbbells, pair"
 msgstr ""
 
+#: oc-includes/classes/billing/Invoices.php
+msgid "Adjustment"
+msgstr ""
+
 #: oc-admin/themes/modern/settings/api.php
 #: oc-includes/classes/core/mail/CoreEmails.php
 msgid "Admin"
@@ -1859,9 +1894,14 @@ msgstr "Amazon S3互換"
 #: oc-admin/themes/modern/billing/index.php
 #: oc-admin/themes/modern/billing/order.php
 #: oc-includes/classes/billing/Receipts.php
+#: oc-includes/osclass/gui/billing/document.php
 #: oc-includes/osclass/gui/billing/receipt.php
 msgid "Amount"
 msgstr "金額"
+
+#: oc-admin/themes/modern/billing/order.php
+msgid "Amount (%s)"
+msgstr ""
 
 #: oc-includes/classes/billing/Receipts.php
 #: oc-includes/osclass/gui/billing/receipt.php
@@ -1908,6 +1948,10 @@ msgstr "メール送信時にエラーが発生しました"
 #: oc-includes/classes/admin/ajax/FieldAjax.php
 msgid "An error occurred while updating"
 msgstr "アップデート中にエラーが発生しました"
+
+#: oc-admin/themes/modern/billing/documents.php
+msgid "An invoice is made when an order is paid."
+msgstr ""
 
 #: oc-admin/themes/modern/billing/order.php
 msgid "An order records one attempt to pay. Shopclass stores what was bought and what "
@@ -2177,6 +2221,10 @@ msgstr "少なくとも%d文字必要です。以下で「部分一致」にチ�
 #: oc-includes/osclass/install-functions.php
 msgid "At least PHP %s (PHP %s or higher recommended) is required to run Shopclass. "
 msgstr "Shopclassを実行するには、PHP %s以上（PHP %s以上を推奨）が必要です。 "
+
+#: oc-includes/classes/billing/Billing.php
+msgid "At most %s is left to refund"
+msgstr ""
 
 #: oc-includes/classes/admin/form/ItemSettingsScreen.php
 msgid "Attach"
@@ -2520,7 +2568,12 @@ msgstr ""
 msgid "Bicycles & E-bikes"
 msgstr ""
 
+#: oc-includes/osclass/gui/billing/document.php
+msgid "Billed to"
+msgstr ""
+
 #: oc-admin/themes/modern/billing/credits.php
+#: oc-admin/themes/modern/billing/documents.php
 #: oc-admin/themes/modern/billing/index.php
 #: oc-admin/themes/modern/billing/order.php
 #: oc-admin/themes/modern/billing/package.php
@@ -2758,6 +2811,7 @@ msgstr ""
 msgid "Buy credits"
 msgstr "クレジットを購入"
 
+#: oc-admin/themes/modern/billing/documents.php
 #: oc-admin/themes/modern/messages/index.php
 msgid "Buyer"
 msgstr ""
@@ -3342,6 +3396,7 @@ msgstr ""
 msgid "Clear cache"
 msgstr "キャッシュをクリア"
 
+#: oc-admin/themes/modern/billing/documents.php
 #: oc-admin/themes/modern/billing/index.php
 msgid "Clear filter"
 msgstr "フィルターをクリア"
@@ -3994,6 +4049,25 @@ msgstr "作成日時"
 msgid "Credit movements"
 msgstr "クレジットの変動"
 
+#: oc-admin/themes/modern/billing/documents.php
+#: oc-admin/themes/modern/billing/order.php
+#: oc-includes/classes/billing/DocumentPage.php
+#: oc-includes/classes/billing/Invoices.php
+msgid "Credit note"
+msgstr ""
+
+#: oc-includes/osclass/gui/billing/receipt.php
+msgid "Credit note %s"
+msgstr ""
+
+#: oc-includes/classes/admin/form/BillingSettingsScreen.php
+msgid "Credit note number prefix"
+msgstr ""
+
+#: oc-admin/themes/modern/billing/documents.php
+msgid "Credit notes"
+msgstr ""
+
 #: oc-admin/themes/modern/billing/credits.php
 #: oc-admin/themes/modern/billing/index.php
 #: oc-admin/themes/modern/billing/order.php
@@ -4215,6 +4289,7 @@ msgstr "データベースの更新"
 msgid "Database version"
 msgstr "データベースのバージョン"
 
+#: oc-admin/themes/modern/billing/documents.php
 #: oc-admin/themes/modern/billing/index.php
 #: oc-admin/themes/modern/billing/order.php
 #: oc-admin/themes/modern/billing/wallet.php
@@ -4233,6 +4308,7 @@ msgstr "データベースのバージョン"
 #: oc-includes/osclass/classes/datatables/LogsDataTable.php
 #: oc-includes/osclass/classes/datatables/MediaDataTable.php
 #: oc-includes/osclass/classes/datatables/UsersDataTable.php
+#: oc-includes/osclass/gui/billing/document.php
 #: oc-includes/osclass/installer/data/fields-classifieds.php
 msgid "Date"
 msgstr "日付"
@@ -4251,6 +4327,7 @@ msgid "Date format: this field is required"
 msgstr "日付フォーマット: このフィールドは必須です"
 
 #: oc-includes/classes/billing/Receipts.php
+#: oc-includes/osclass/gui/billing/document.php
 #: oc-includes/osclass/gui/billing/receipt.php
 msgid "Date paid"
 msgstr "支払日"
@@ -4815,6 +4892,10 @@ msgstr "ドキュメント"
 msgid "Documentation on date and time formatting"
 msgstr "日付と時刻の書式設定に関するドキュメント"
 
+#: oc-admin/themes/modern/billing/order.php
+msgid "Documents"
+msgstr ""
+
 #: oc-includes/osclass/installer/data/categories-classifieds.php
 msgid "Dogs"
 msgstr ""
@@ -4836,6 +4917,10 @@ msgstr "下"
 #: oc-admin/themes/modern/tools/backup.php
 msgid "Download"
 msgstr "ダウンロード"
+
+#: oc-admin/themes/modern/billing/documents.php
+msgid "Download CSV"
+msgstr ""
 
 #: oc-admin/themes/modern/settings/storage.php
 msgid "Download all remote images back to local (offline copy)"
@@ -5319,6 +5404,10 @@ msgstr "有効な連絡先Eメールアドレスを入力してください。"
 msgid "Enter a valid email address."
 msgstr "有効なEメールアドレスを入力してください。"
 
+#: oc-includes/classes/billing/Billing.php
+msgid "Enter an amount or choose what to refund"
+msgstr ""
+
 #: oc-admin/themes/modern/emails/frm.php
 msgid "Enter an email address to send the test to."
 msgstr "テストを送信するメールアドレスを入力します。"
@@ -5419,6 +5508,10 @@ msgstr "インストールされているすべてのプラグインは最新で
 #: oc-admin/themes/modern/parts/market.php
 msgid "Every installed theme is up to date"
 msgstr "インストールされているすべてのテーマは最新です"
+
+#: oc-admin/themes/modern/billing/documents.php
+msgid "Every invoice and credit note issued, newest first. They are never changed or deleted."
+msgstr ""
 
 #: oc-admin/themes/modern/users/frm.php
 msgid "Every new listing"
@@ -5715,6 +5808,7 @@ msgstr ""
 msgid "Filled with your shop name. You can change it."
 msgstr ""
 
+#: oc-admin/themes/modern/billing/documents.php
 #: oc-admin/themes/modern/billing/index.php
 #: oc-admin/themes/modern/settings/locations/data.php
 msgid "Filter"
@@ -5840,6 +5934,10 @@ msgstr "24時間、各納品には2つの署名が付いており、それぞれ
 
 #: oc-includes/classes/admin/form/MainSettingsScreen.php
 msgid "For calendars in plugins and themes."
+msgstr ""
+
+#: oc-includes/osclass/gui/billing/document.php
+msgid "For invoice %s"
 msgstr ""
 
 #: oc-includes/classes/admin/form/MediaSettingsScreen.php
@@ -5981,6 +6079,7 @@ msgstr "フレンドリーURLは疑問符や数字の代わりに単語を使用
 msgid "Friendly young Labrador needs a home"
 msgstr ""
 
+#: oc-admin/themes/modern/billing/documents.php
 #: oc-includes/osclass/classes/form/FieldForm.php
 #: oc-includes/osclass/helpers/hItems.php
 msgid "From"
@@ -6817,9 +6916,40 @@ msgstr "テーマの更新が無効です"
 msgid "Invalid upgrade package info"
 msgstr "無効なアップグレードパッケージ情報"
 
+#: oc-includes/classes/billing/DocumentPage.php
+#: oc-includes/classes/billing/Invoices.php
+msgid "Invoice"
+msgstr ""
+
+#: oc-includes/classes/billing/Receipts.php
+msgid "Invoice %1$s from %2$s"
+msgstr ""
+
+#: oc-includes/osclass/gui/billing/receipt.php
+msgid "Invoice %s"
+msgstr ""
+
+#: oc-includes/classes/admin/form/BillingSettingsScreen.php
+msgid "Invoice number prefix"
+msgstr ""
+
+#: oc-admin/themes/modern/billing/documents.php
+#: oc-admin/themes/modern/billing/index.php
+#: oc-includes/classes/admin/form/BillingSettingsScreen.php
+msgid "Invoices"
+msgstr ""
+
+#: oc-admin/themes/modern/billing/documents.php
+msgid "Invoices and credit notes"
+msgstr ""
+
 #: oc-includes/classes/core/utility/Utils.php
 msgid "Is allow_url_fopen enabled?"
 msgstr "allow_url_fopen は有効ですか?"
+
+#: oc-includes/classes/admin/form/BillingSettingsScreen.php
+msgid "Issue numbered invoices"
+msgstr ""
 
 #: oc-admin/themes/modern/parts/market.php
 msgid "Issue tracker"
@@ -6875,6 +7005,7 @@ msgstr "停止し、終了しませんでした。何も保存されませんで
 
 #: oc-admin/themes/modern/billing/order.php
 #: oc-includes/classes/billing/Receipts.php
+#: oc-includes/osclass/gui/billing/document.php
 #: oc-includes/osclass/gui/billing/receipt.php
 msgid "Item"
 msgstr "項目"
@@ -7275,6 +7406,10 @@ msgstr "現在のパスワードを保持するには空白のままにしてく
 #: oc-includes/classes/admin/form/StorageSettingsScreen.php
 msgid "Leave blank to keep the currently saved secret key"
 msgstr "現在保存されているシークレットキーを保持する場合は空欄のままにしてください"
+
+#: oc-admin/themes/modern/billing/order.php
+msgid "Leave empty to refund the chosen units with their share of tax."
+msgstr ""
 
 #: oc-admin/themes/modern/items/frm.php
 msgid "Leave empty to sell without counting."
@@ -8449,6 +8584,10 @@ msgstr "詳細な住所の詳細"
 msgid "More options"
 msgstr "詳細オプション"
 
+#: oc-includes/classes/billing/Billing.php
+msgid "More units were chosen than are left to refund"
+msgstr ""
+
 #: oc-admin/themes/modern/parts/market.php
 msgid "Most downloaded"
 msgstr "最多ダウンロード"
@@ -8992,6 +9131,10 @@ msgstr "まだクレジットの移動はありません"
 msgid "No details are available for this package yet."
 msgstr "このパッケージの詳細情報はまだ利用できません。"
 
+#: oc-admin/themes/modern/billing/documents.php
+msgid "No documents match this filter"
+msgstr ""
+
 #: oc-admin/themes/modern/emails/index.php
 msgid "No email templates"
 msgstr "メールテンプレートはありません"
@@ -9043,6 +9186,10 @@ msgstr ""
 #: oc-includes/osclass/installer/gui/install-target.php
 msgid "No internet connection. You can continue and add your location later from the admin panel."
 msgstr "インターネット接続がありません。このまま続行し、後から管理パネルでエリアを追加できます。"
+
+#: oc-admin/themes/modern/billing/documents.php
+msgid "No invoices yet"
+msgstr ""
 
 #: oc-admin/themes/modern/appearance/menus.php
 msgid "No items yet. Add some under Add items."
@@ -9393,6 +9540,10 @@ msgstr "まだ変動はありません"
 msgid "Nothing here yet"
 msgstr "こちらにはまだ何もありません"
 
+#: oc-admin/themes/modern/billing/order.php
+msgid "Nothing is sent to the payment provider. Refund the money there, this records it."
+msgstr ""
+
 #: oc-admin/themes/modern/items/index.php
 msgid "Nothing is waiting for payment"
 msgstr ""
@@ -9474,6 +9625,11 @@ msgstr "11月"
 #: oc-includes/osclass/helpers/hUtils.php
 msgid "November"
 msgstr "11月"
+
+#: oc-admin/themes/modern/billing/documents.php
+#: oc-admin/themes/modern/billing/order.php
+msgid "Number"
+msgstr ""
 
 #: oc-includes/classes/admin/form/SitemapSettingsScreen.php
 msgid "Number of URLs per XML item sitemap file. Extra listings roll into additional "
@@ -9585,6 +9741,14 @@ msgstr "既定ではオフ：マッチは隔離されている（スパムと非
 msgid "Off by default: it can be abused to send spam."
 msgstr "デフォルトではオフ:スパムを送信するために悪用することができます。"
 
+#: oc-admin/themes/modern/billing/order.php
+msgid "Off for units that were shipped and are not coming back."
+msgstr ""
+
+#: oc-admin/themes/modern/billing/order.php
+msgid "Off to only record a refund you have already made."
+msgstr ""
+
 #: oc-admin/themes/modern/messages/index.php
 #: oc-admin/themes/modern/stats/reports.php
 #: oc-includes/osclass/classes/datatables/ItemsDataTable.php
@@ -9672,6 +9836,10 @@ msgstr "ディスク領域の %s のみが残っています。アップロー�
 #: oc-includes/classes/billing/Billing.php
 msgid "Only a paid order can be refunded"
 msgstr "支払い済み注文のみ返金できます"
+
+#: oc-includes/classes/billing/Billing.php
+msgid "Only a shop order can be refunded in part"
+msgstr ""
 
 #: oc-includes/classes/admin/form/ItemSettingsScreen.php
 msgid "Only allow registered users to contact publisher"
@@ -9821,7 +9989,12 @@ msgstr "オプションが必要です。"
 msgid "Orange"
 msgstr ""
 
+#: oc-includes/osclass/gui/billing/document.php
+msgid "Order"
+msgstr ""
+
 #: oc-admin/themes/modern/billing/order.php
+#: oc-includes/classes/billing/Invoices.php
 msgid "Order #%d"
 msgstr "注文番号 #%d"
 
@@ -9833,6 +10006,10 @@ msgstr "ご注文 %1$sは、 %2$s が %3$sに支払いました。"
 msgid "Order e-mail"
 msgstr "注文メール"
 
+#: oc-includes/classes/billing/Invoices.php
+msgid "Order invoice"
+msgstr ""
+
 #: oc-includes/classes/admin/form/BillingSettingsScreen.php
 msgid "Order number prefix"
 msgstr "注文番号のプレフィックス"
@@ -9841,6 +10018,7 @@ msgstr "注文番号のプレフィックス"
 msgid "Order saved"
 msgstr "並び替えを保存しました。"
 
+#: oc-admin/themes/modern/billing/documents.php
 #: oc-admin/themes/modern/billing/index.php
 #: oc-admin/themes/modern/settings/billing.php
 #: oc-includes/classes/admin/form/BillingSettingsScreen.php
@@ -10086,13 +10264,25 @@ msgstr "親カテゴリは設定不可となっています。そのカテゴリ
 msgid "Parking & Storage"
 msgstr ""
 
+#: oc-includes/classes/billing/Billing.php
+msgid "Part of this order was already refunded. Refund the rest in the payment provider's dashboard, then record it."
+msgstr ""
+
 #: oc-includes/classes/core/mail/CoreEmails.php
 msgid "Part of your order {ORDER_NUMBER} has shipped"
+msgstr ""
+
+#: oc-includes/classes/core/mail/CoreEmails.php
+msgid "Part of your order {ORDER_NUMBER} was refunded"
 msgstr ""
 
 #: oc-includes/osclass/installer/data/categories-classifieds.php
 #: oc-includes/osclass/installer/data/fields-classifieds.php
 msgid "Part-time"
+msgstr ""
+
+#: oc-admin/themes/modern/billing/order.php
+msgid "Partly refunded"
 msgstr ""
 
 #: oc-includes/osclass/installer/data/categories-classifieds.php
@@ -10179,6 +10369,7 @@ msgstr "支払い手順"
 #: oc-admin/themes/modern/billing/order.php
 #: oc-admin/themes/modern/settings/billing.php
 #: oc-includes/classes/billing/Receipts.php
+#: oc-includes/osclass/gui/billing/document.php
 #: oc-includes/osclass/gui/billing/receipt.php
 msgid "Payment method"
 msgstr "支払い方法"
@@ -10193,6 +10384,7 @@ msgid "Payment receipt e-mail"
 msgstr "支払いレシートメール"
 
 #: oc-includes/classes/billing/Receipts.php
+#: oc-includes/osclass/gui/billing/document.php
 #: oc-includes/osclass/gui/billing/receipt.php
 msgid "Payment reference"
 msgstr "支払い参照"
@@ -10547,6 +10739,7 @@ msgstr "前のスクリーンショット"
 #: oc-admin/themes/modern/items/frm.php
 #: oc-includes/classes/admin/form/ItemSettingsScreen.php
 #: oc-includes/classes/core/form/admin/Item.php
+#: oc-includes/osclass/gui/billing/document.php
 #: oc-includes/osclass/gui/billing/receipt.php
 msgid "Price"
 msgstr "価格"
@@ -10576,9 +10769,14 @@ msgstr "価格設定"
 msgid "Primary"
 msgstr "メイン"
 
+#: oc-includes/osclass/gui/billing/document.php
 #: oc-includes/osclass/gui/billing/receipt.php
 msgid "Print / Save as PDF"
 msgstr "印刷 / PDF として保存"
+
+#: oc-admin/themes/modern/billing/order.php
+msgid "Printed on the credit note."
+msgstr ""
 
 #: oc-includes/classes/admin/form/ApiSettingsScreen.php
 msgid "Private addresses"
@@ -10756,12 +10954,17 @@ msgstr "元に戻す"
 msgid "Put back:"
 msgstr "戻します:"
 
+#: oc-admin/themes/modern/billing/order.php
+msgid "Put the units back in stock"
+msgstr ""
+
 #: oc-admin/themes/modern/admins/two_factor.php
 msgid "QR code for your authenticator app"
 msgstr "認証アプリの QR コード"
 
 #: oc-admin/themes/modern/billing/order.php
 #: oc-includes/classes/billing/Receipts.php
+#: oc-includes/osclass/gui/billing/document.php
 #: oc-includes/osclass/gui/billing/receipt.php
 msgid "Qty"
 msgstr "数量"
@@ -10879,7 +11082,9 @@ msgstr "準備完了"
 msgid "Ready, built %s"
 msgstr ""
 
+#: oc-admin/themes/modern/billing/order.php
 #: oc-admin/themes/modern/tools/system-info/jobs.php
+#: oc-includes/osclass/gui/billing/document.php
 msgid "Reason"
 msgstr "理由："
 
@@ -10908,6 +11113,7 @@ msgid "Recalculate counts"
 msgstr "再計算"
 
 #: oc-admin/themes/modern/billing/order.php
+#: oc-includes/classes/billing/Invoices.php
 #: oc-includes/classes/billing/Receipts.php
 msgid "Receipt"
 msgstr "領収書（受領）"
@@ -11006,12 +11212,25 @@ msgstr "リファレンス"
 
 #: oc-admin/themes/modern/billing/order.php
 #: oc-admin/themes/modern/billing/wallet.php
+#: oc-includes/classes/billing/Invoices.php
 msgid "Refund"
 msgstr "返金"
 
 #: oc-admin/themes/modern/billing/order.php
+msgid "Refund an amount or some of the units. A credit note is made. Up to %s is left to refund."
+msgstr ""
+
+#: oc-admin/themes/modern/billing/order.php
 msgid "Refund order #%d?"
 msgstr "払い戻し注文 #%d?"
+
+#: oc-admin/themes/modern/billing/order.php
+msgid "Refund part"
+msgstr ""
+
+#: oc-admin/themes/modern/billing/order.php
+msgid "Refund part of order #%d"
+msgstr ""
 
 #: oc-admin/themes/modern/billing/order.php
 msgid "Refund this payment through %s. The buyer gets the money back "
@@ -11032,8 +11251,16 @@ msgid "Refunded at the provider but not recorded here. Record it with Record a r
 msgstr "プロバイダに返金されましたが、ここには記録されていません。返金を記録してください。"
 
 #: oc-includes/classes/billing/Billing.php
+msgid "Refunded at the provider but not recorded here. Record it with Refund part."
+msgstr ""
+
+#: oc-includes/classes/billing/Billing.php
 msgid "Refunded at the provider, but the order had already been marked refunded. Check the credit movements."
 msgstr "プロバイダで返金されましたが、注文はすでに返金されていました。クレジットの動きを確認してください。"
+
+#: oc-includes/classes/billing/Billing.php
+msgid "Refunded at the provider, but the order had already been refunded here. Check the credit notes."
+msgstr ""
 
 #: oc-includes/classes/admin/SystemChecks.php
 msgid "Refused writes are not recorded while the activity log is off, so this cannot confirm there are none."
@@ -11398,6 +11625,7 @@ msgstr "アクティベーションメールを再送信する"
 msgid "Resend the activation to"
 msgstr "アクティベーションを再送"
 
+#: oc-admin/themes/modern/billing/documents.php
 #: oc-admin/themes/modern/parts/ui.php
 #: oc-admin/themes/modern/tools/logs.php
 #: oc-admin/themes/modern/tools/system-info/security.php
@@ -11611,6 +11839,7 @@ msgid "SKU"
 msgstr "SKU"
 
 #: oc-includes/classes/billing/Receipts.php
+#: oc-includes/osclass/gui/billing/document.php
 #: oc-includes/osclass/gui/billing/receipt.php
 msgid "SKU %s"
 msgstr "SKU %s"
@@ -11638,6 +11867,10 @@ msgstr "親と同じ"
 #: oc-includes/classes/admin/ui/Picker.php
 msgid "Same as parent (%s)"
 msgstr "親 (%s ) と同じ"
+
+#: oc-includes/classes/admin/form/BillingSettingsScreen.php
+msgid "Same rules. Credit notes have their own numbers."
+msgstr ""
 
 #: oc-admin/themes/modern/items/index.php
 msgid "Sample fields from the installer are on this site."
@@ -12319,6 +12552,10 @@ msgstr "テストを送信"
 #: oc-admin/themes/modern/emails/frm.php
 msgid "Send test email"
 msgstr "テストメールを送信"
+
+#: oc-admin/themes/modern/billing/order.php
+msgid "Send the money back through %s"
+msgstr ""
 
 #: oc-admin/themes/modern/emails/frm.php
 msgid "Send to"
@@ -13755,6 +13992,10 @@ msgstr ""
 msgid "The counts also refresh once a day on their own."
 msgstr "カウントはまた、自分自身で1日1回更新します。"
 
+#: oc-includes/classes/billing/Billing.php
+msgid "The credit note could not be made. Nothing was refunded."
+msgstr ""
+
 #: oc-admin/themes/modern/appearance/widgets.php
 msgid "The current theme does not declare any widget sections."
 msgstr "現在のテーマにはウィジェットセクションが定義されていません。"
@@ -13849,6 +14090,10 @@ msgstr "ファイルは %sに属しています。"
 #: oc-includes/classes/market/Installer.php
 msgid "The installation directory is not writable."
 msgstr "インストールディレクトリは書き込み不可です。"
+
+#: oc-includes/classes/billing/Receipts.php
+msgid "The invoice for your order %1$s from %2$s is ready."
+msgstr ""
 
 #: oc-includes/classes/admin/form/SpamSettingsScreen.php
 msgid "The key you entered is invalid. Please double-check it"
@@ -14000,6 +14245,10 @@ msgstr ""
 
 #: oc-admin/themes/modern/messages/index.php
 msgid "The recipient will get this message and the new-message e-mail."
+msgstr ""
+
+#: oc-includes/classes/billing/Billing.php
+msgid "The refund could not be recorded. Try again."
 msgstr ""
 
 #: oc-includes/classes/billing/Billing.php
@@ -14382,6 +14631,7 @@ msgstr "大規模なサイトの場合、処理にしばらく時間がかかる
 msgid "This can take a moment on a large category."
 msgstr "大きなカテゴリでは、処理に少し時間がかかることがあります。"
 
+#: oc-admin/themes/modern/billing/order.php
 #: oc-admin/themes/modern/settings/locations/form.php
 msgid "This cannot be undone."
 msgstr "この操作は元に戻せません。"
@@ -14483,8 +14733,16 @@ msgstr "これにより、チェックアウトから削除されるだけです
 msgid "This order cannot be refunded "
 msgstr "この注文は返金できません "
 
+#: oc-includes/classes/billing/Billing.php
+msgid "This order has no invoice, so it can only be refunded in full"
+msgstr ""
+
 #: oc-admin/themes/modern/billing/order.php
 msgid "This order is marked packed. The buyer gets no mail about it."
+msgstr ""
+
+#: oc-includes/classes/billing/Billing.php
+msgid "This order was refunded meanwhile"
 msgstr ""
 
 #: oc-includes/classes/admin/ajax/MarketAjax.php
@@ -14502,6 +14760,10 @@ msgstr ""
 #: oc-includes/classes/billing/Billing.php
 msgid "This payment method cannot refund from here"
 msgstr "この支払い方法はここから返金できません"
+
+#: oc-includes/classes/billing/Billing.php
+msgid "This payment method cannot refund part of an order from here"
+msgstr ""
 
 #: oc-includes/osclass/gui/billing/receipt.php
 msgid "This payment was refunded."
@@ -14758,6 +15020,7 @@ msgstr "タイトルまたは説明"
 msgid "Titles can be 1 to %d characters."
 msgstr "タイトルは 1 から %d 文字にできます。"
 
+#: oc-admin/themes/modern/billing/documents.php
 #: oc-includes/osclass/classes/form/FieldForm.php
 msgid "To"
 msgstr "終了日"
@@ -14835,11 +15098,17 @@ msgstr "上部左"
 msgid "Top Right"
 msgstr "右"
 
+#: oc-admin/themes/modern/billing/documents.php
 #: oc-admin/themes/modern/billing/order.php
 #: oc-includes/classes/billing/Receipts.php
+#: oc-includes/osclass/gui/billing/document.php
 #: oc-includes/osclass/gui/billing/receipt.php
 msgid "Total"
 msgstr "合計"
+
+#: oc-includes/osclass/gui/billing/document.php
+msgid "Total credited"
+msgstr ""
 
 #: oc-admin/themes/modern/stats/items.php
 msgid "Total number of listings' views"
@@ -14906,6 +15175,10 @@ msgstr ""
 #: oc-admin/themes/modern/billing/index.php
 msgid "Try a different status or payment method."
 msgstr "別のステータスや支払い方法をお試しください。"
+
+#: oc-admin/themes/modern/billing/documents.php
+msgid "Try a different type or dates."
+msgstr ""
 
 #: oc-admin/themes/modern/settings/locations/data.php
 #: oc-admin/themes/modern/tools/backup.php
@@ -15029,6 +15302,7 @@ msgstr ""
 msgid "Two-step sign-in"
 msgstr "2段階認証のサインイン"
 
+#: oc-admin/themes/modern/billing/documents.php
 #: oc-admin/themes/modern/fields/iframe.php
 #: oc-admin/themes/modern/fields/index.php
 #: oc-admin/themes/modern/media/index.php
@@ -15204,6 +15478,10 @@ msgstr ""
 #: oc-includes/classes/market/Compatibility.php
 msgid "Up to %s"
 msgstr "%sまで"
+
+#: oc-includes/classes/admin/form/BillingSettingsScreen.php
+msgid "Up to 12 capital letters, digits, dashes or slashes."
+msgstr ""
 
 #: oc-admin/themes/modern/settings/locations/data.php
 msgid "Up to date"
@@ -15758,6 +16036,7 @@ msgstr "バージョン："
 msgid "Versions"
 msgstr "バージョン"
 
+#: oc-admin/themes/modern/billing/order.php
 #: oc-admin/themes/modern/fields/submissions.php
 #: oc-admin/themes/modern/messages/index.php
 msgid "View"
@@ -15771,6 +16050,10 @@ msgstr "コメントを見る"
 msgid "View counting"
 msgstr "カウントを表示"
 
+#: oc-includes/classes/core/mail/CoreEmails.php
+msgid "View credit note %s"
+msgstr ""
+
 #: oc-admin/themes/modern/parts/market.php
 msgid "View details for %s"
 msgstr "%sの詳細を表示"
@@ -15778,6 +16061,10 @@ msgstr "%sの詳細を表示"
 #: oc-admin/themes/modern/media/index.php
 msgid "View full image"
 msgstr "フルサイズ画像を表示"
+
+#: oc-includes/classes/billing/Receipts.php
+msgid "View invoice %s"
+msgstr ""
 
 #: oc-admin/themes/modern/items/frm.php
 msgid "View listing"
@@ -17304,6 +17591,7 @@ msgstr "— Shopclass"
 msgid "…and %d more"
 msgstr "…と %d その他"
 
+#: oc-admin/themes/modern/billing/documents.php
 #: oc-admin/themes/modern/billing/index.php
 #: oc-admin/themes/modern/billing/order.php
 msgctxt "purchase order"

@@ -118,7 +118,8 @@ function checkPlaceholders(locale, domain, msgid, was, now) {
     const had = fails(was);
     const said = (code) => code === 'lost:%%'
         ? 'dropped a %% escape, so the bare % reads as a conversion'
-        : code.startsWith('extra:') ? `gained an extra ${code.slice(6)}` : code;
+        : code.startsWith('extra:') ? `gained an extra ${code.slice(6)}`
+        : code.startsWith('name:') ? `changed the name ${code.slice(5)}` : code;
     for (const code of fails(now)) {
         if (had.has(code)) continue;
         report.placeholders.push(`${locale}/${domain}: ${JSON.stringify(msgid).slice(0, 50)} ${said(code)}`);

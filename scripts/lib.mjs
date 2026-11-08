@@ -277,7 +277,34 @@ export function placeholderProblems(sources, msgstr) {
             : { code: `lost:${key}`, severity: 'warn',
                 detail: `has ${have} ${name} where the source has ${range}` });
     }
+    for (const name of technicalNames(counts.length ? sources : [])) {
+        if (String(msgstr).includes(name)) continue;
+        problems.push({ code: `name:${name}`, severity: 'fail',
+            detail: `changes the name "${name}" -- a file, folder or setting has to stay as it is` });
+    }
     return problems;
+}
+
+/**
+ * File, folder and setting names a translation must copy as they are.
+ *
+ * Machine translators read "oc-content/uploads" as two words and translate both, so
+ * Hindi said "ओसी-सामग्री/अपलोड" and Hebrew "תוכן/הורדות" -- folders that do not exist,
+ * named to the admin who has to go and find them. ".htaccess" lost its dot, gained a
+ * capital or vanished in seven locales, and "upload_max_filesize" became Arabic. 64
+ * translations of 24 strings, none of which the placeholder check could see.
+ *
+ * Only what is unmistakably a name: a path with a dot, dash or underscore in it, a
+ * file with an extension, and a snake_case identifier. "add/edit" and "listings/users"
+ * are prose with a slash and are left to the translator.
+ */
+const NAME = /(?:[\w.-]+\/)+[\w.-]*\w|\.?[\w-]*\.(?:php|htaccess|txt|json|xml|zip|log|ini|js|css|mo|po)\b|\b[a-z0-9]+(?:_[a-z0-9]+)+\b/g;
+
+export function technicalNames(sources) {
+    const first = (Array.isArray(sources) ? sources : [sources]).find((t) => t);
+    if (!first) return [];
+    return [...new Set(String(first).match(NAME) || [])]
+        .filter((t) => /[._-]/.test(t) && !/^https?:/.test(t) && !/^%/.test(t));
 }
 
 /**

@@ -9,7 +9,7 @@
 import { readdir } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import { readFile } from 'node:fs/promises';
-import { DOMAINS, readPo, merge, writeCatalogue } from './lib.mjs';
+import { DOMAINS, readPo, merge, mergeMail, writeCatalogue, writeMail } from './lib.mjs';
 
 const TPL = 'src/templates';
 const TRANS = 'src/translations';
@@ -27,7 +27,14 @@ for (const d of DOMAINS) {
     if (existsSync(p)) templates[d] = await readPo(p);
 }
 
-console.log(`templates: ${Object.keys(templates).join(', ')}`);
+// The mail templates travel with the catalogues: a locale that keeps one the source
+// dropped sends Crowdin a file out of step with its own, and one that never receives
+// a new template fails npm run check until somebody notices.
+const mailTemplate = existsSync(`${TPL}/mail.json`)
+    ? JSON.parse(await readFile(`${TPL}/mail.json`, 'utf8'))
+    : null;
+
+console.log(`templates: ${[...Object.keys(templates), mailTemplate && 'mail'].filter(Boolean).join(', ')}`);
 let width = Math.max(...locales.map((l) => l.length));
 
 for (const locale of locales) {
@@ -41,6 +48,14 @@ for (const locale of locales) {
         await writeCatalogue(dir, d, catalogue);
         const pct = total ? Math.round((carried / total) * 100) : 0;
         parts.push(`${d} ${String(pct).padStart(3)}% (${carried}/${total})`);
+    }
+    if (mailTemplate) {
+        const p = `${dir}/mail.json`;
+        const existing = existsSync(p) ? JSON.parse(await readFile(p, 'utf8')) : null;
+        const { mail, total, carried } = mergeMail(mailTemplate, existing, locale);
+        await writeMail(dir, mail);
+        const pct = total ? Math.round((carried / total) * 100) : 0;
+        parts.push(`mail ${String(pct).padStart(3)}% (${carried}/${total})`);
     }
     console.log(`  ${locale.padEnd(width)}  ${parts.join('   ')}`);
 }

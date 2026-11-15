@@ -10,7 +10,7 @@
  */
 import { readdir, readFile } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
-import { readPo } from './lib.mjs';
+import { htmlProblems, placeholderProblems, readPo } from './lib.mjs';
 
 const TRANS = 'src/translations';
 const REQUIRED = ['locale.json', 'mail.json', 'core.po', 'messages.po', 'theme.po'];
@@ -101,6 +101,30 @@ for (const locale of locales) {
         }
         if (wrong) fail(locale, `${domain}.po has ${wrong} plural entr${wrong === 1 ? 'y' : 'ies'} without ${n} form(s)`);
         if (blank) warn(locale, `${domain}.po has ${blank} plural entr${blank === 1 ? 'y' : 'ies'} with some forms still empty`);
+
+        // Shopclass hands these strings to sprintf. A translation asking for more
+        // arguments than its source throws ArgumentCountError on PHP 8 and takes the
+        // page down in that locale alone, so it blocks; one asking for fewer only
+        // reads badly, so it is reported. Machine translation is what made this worth
+        // checking: it rewrote "%%" as "٪٪" and as "% " -- the second of which reads
+        // as %d to sprintf -- and Crowdin's own variables check saw nothing wrong.
+        const over = [], under = [];
+        for (const group of Object.values(cat.translations)) {
+            for (const [msgid, e] of Object.entries(group)) {
+                if (!msgid) continue;
+                for (const [i, str] of (e.msgstr || []).entries()) {
+                    if (!str) continue;
+                    const sources = e.msgid_plural ? [msgid, e.msgid_plural] : [msgid];
+                    for (const problem of placeholderProblems(sources, str)) {
+                        (problem.severity === 'fail' ? over : under)
+                            .push(`"${msgid.slice(0, 48)}" ${problem.detail}`);
+                    }
+                }
+            }
+        }
+        for (const line of over.slice(0, 5)) fail(locale, `${domain}.po ${line}`);
+        if (over.length > 5) fail(locale, `${domain}.po and ${over.length - 5} more like it`);
+        if (under.length) warn(locale, `${domain}.po drops a placeholder in ${under.length} string(s), e.g. ${under[0]}`);
     }
 
     if (!existsSync(`${dir}/mail.json`)) continue;
@@ -110,6 +134,18 @@ for (const locale of locales) {
 
     if (mail.language !== locale) fail(locale, `mail.json language is "${mail.language}"`);
     const got = new Map((mail.template || []).map((t) => [t.fk_i_page_id, t]));
+
+    // An entry the template has dropped is not harmless padding. crowdin.yml matches
+    // these strings by their position in the array ($.template[*].s_description), so
+    // a file one entry longer than the source puts every later position out of step:
+    // the last template comes back holding the one before it and the real last one is
+    // gone. That is how 30 locales lost email_warn_expiration, and why the count is
+    // checked in both directions rather than only for what is missing.
+    for (const id of got.keys()) {
+        if (!wanted.has(id)) {
+            fail(locale, `mail.json has template ${id} (${got.get(id).s_internal_name}), which the template dropped`);
+        }
+    }
 
     for (const [id, src] of wanted) {
         const t = got.get(id);
@@ -122,11 +158,31 @@ for (const locale of locales) {
         for (const tok of tokens(src.s_description)) {
             if (!tokens(t.s_description).has(tok)) warn(locale, `template ${id} body lost ${tok}`);
         }
+        // Broken markup here sends a mail with half a sentence missing. It is still
+        // the translator's text to repair, so it is reported and not rewritten --
+        // and a fault the English source already has is not pinned on the locale.
+        for (const field of ['s_title', 's_description']) {
+            const inherited = new Set(htmlProblems(src[field]).map((p) => p.code));
+            for (const p of htmlProblems(t[field])) {
+                if (inherited.has(p.code)) continue;
+                warn(locale, `template ${id} ${field === 's_title' ? 'title' : 'body'} HTML: ${p.detail}`);
+            }
+        }
+    }
+}
+
+// The same faults in src/templates/mail.json reach every locale at once, so they
+// are named once here rather than 32 times above. Fixing them is upstream work.
+for (const src of wanted.values()) {
+    for (const field of ['s_title', 's_description']) {
+        for (const p of htmlProblems(src[field])) {
+            warn('src/templates', `template ${src.fk_i_page_id} ${field === 's_title' ? 'title' : 'body'} HTML: ${p.detail}`);
+        }
     }
 }
 
 const summary = `${locales.length} locales checked`;
 console.log(failures
     ? `\n${summary}: ${failures} blocking, ${warnings} to review`
-    : `\nOK: ${summary}, ${warnings} placeholder(s) to review`);
+    : `\nOK: ${summary}, ${warnings} to review`);
 process.exit(failures ? 1 : 0);

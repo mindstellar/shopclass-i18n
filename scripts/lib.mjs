@@ -64,7 +64,14 @@ export function merge(template, existing, { pluralForms } = {}) {
     for (const [ctx, entries] of Object.entries(template.translations)) {
         out.translations[ctx] = {};
         for (const [msgid, entry] of Object.entries(entries)) {
-            if (msgid === '' && ctx === '') { out.translations[ctx][msgid] = entry; continue; }
+            // The header entry carries the comment block above it. theme.pot still has
+            // gettext's unfilled "SOME DESCRIPTIVE TITLE" stub and a fuzzy flag, which
+            // Crowdin strips on export -- so the locale's own block wins, or the two
+            // put it back and took it away in turn on every round trip.
+            if (msgid === '' && ctx === '') {
+                out.translations[ctx][msgid] = existing.translations?.['']?.[''] || entry;
+                continue;
+            }
             total++;
             const prior = existing.translations?.[ctx]?.[msgid];
             const has = prior && prior.msgstr?.some((s) => s !== '');
@@ -92,18 +99,260 @@ export function nplurals(header) {
 // every re-merge silently replaced a locale's own Language, Last-Translator and
 // Plural-Forms with the template's, which went unnoticed only while every locale
 // happened to carry the template's two-form rule.
-const KEEP = { 'language': 'Language', 'plural-forms': 'Plural-Forms', 'last-translator': 'Last-Translator', 'language-team': 'Language-Team' };
+const KEEP = {
+    'language': 'Language',
+    'plural-forms': 'Plural-Forms',
+    'last-translator': 'Last-Translator',
+    'language-team': 'Language-Team',
+    // Crowdin stamps these on every export and the template cannot know them. Taking
+    // the template's instead rewrote "Project-Id-Version: shopclass" to "Shopclass"
+    // and deleted the five X-Crowdin lines on each re-merge, which Crowdin then wrote
+    // back on its next export -- a header block that flipped all 32 locales every
+    // round trip and buried the real changes.
+    'project-id-version': 'Project-Id-Version',
+    'po-revision-date': 'PO-Revision-Date',
+};
 const canonical = (k) => KEEP[k.toLowerCase()] || k;
 
+/** Headers the locale owns, not the template: kept verbatim, order and all. */
 function pickHeaders(h = {}) {
     const keep = {};
     for (const [k, v] of Object.entries(h)) {
-        if (KEEP[k.toLowerCase()] && v) keep[KEEP[k.toLowerCase()]] = v;
+        // An empty Last-Translator is a value Crowdin writes on purpose, so presence
+        // decides rather than truthiness -- dropping it put the line back every round.
+        if (KEEP[k.toLowerCase()]) keep[KEEP[k.toLowerCase()]] = v;
+        else if (k.toLowerCase().startsWith('x-crowdin-')) keep[k] = v;
     }
     return keep;
 }
 
+// gettext-parser wraps a msgstr at 76 columns; Crowdin exports it on one line. Every
+// translation longer than that was therefore rewritten twice per round trip -- folded
+// here, unfolded by Crowdin -- which is most of what a "New Crowdin updates" pull
+// request contained. Writing unwrapped matches Crowdin, so a diff shows only text that
+// actually changed. The .mo is binary and unaffected.
+const PO_OPTIONS = { foldLength: 0 };
+
 export async function writeCatalogue(dir, domain, catalogue) {
-    await writeFile(`${dir}/${domain}.po`, gettextParser.po.compile(catalogue));
+    await writeFile(`${dir}/${domain}.po`, gettextParser.po.compile(catalogue, PO_OPTIONS));
     await writeFile(`${dir}/${domain}.mo`, gettextParser.mo.compile(catalogue));
+}
+
+/** Tags that carry no closing partner, so an unmatched one is not a defect. */
+const VOID_TAGS = new Set(['area', 'br', 'col', 'hr', 'img', 'input', 'link', 'meta', 'source']);
+const TAG = /^<(\/?)([A-Za-z][A-Za-z0-9]*)((?:\s+[A-Za-z_:][-A-Za-z0-9_:.]*(?:\s*=\s*(?:"[^"]*"|'[^']*'|[^\s"'<>`]+))?)*)\s*(\/?)>/;
+
+/**
+ * Find the HTML in a mail body that a mail client will not render as written.
+ *
+ * These bodies are translated as plain text, so a tag can lose its ">" and
+ * swallow the sentence after it ("</a के बारे में ... >"), or gain a space
+ * ("</ p>") and never close its paragraph. Both survive a diff and a JSON parse
+ * and only show up in a sent mail, which nobody reads twice.
+ *
+ * Only well-formedness is judged. Which tags a translator uses, and how many,
+ * is their choice -- a body that is valid but shaped unlike the source is fine.
+ *
+ * Returns a list of { code, detail }; code is stable enough to compare two
+ * bodies by, detail quotes the text so a human can find it.
+ */
+export function htmlProblems(html) {
+    const problems = [];
+    const open = [];
+    const quote = (i) => JSON.stringify(String(html).slice(i, i + 28));
+    const text = String(html);
+
+    for (let i = text.indexOf('<'); i !== -1; i = text.indexOf('<', i + 1)) {
+        const m = TAG.exec(text.slice(i));
+        if (!m) {
+            problems.push({ code: 'malformed', detail: `malformed tag at ${quote(i)}` });
+            continue;
+        }
+        const [, closing, written, , selfClosing] = m;
+        const name = written.toLowerCase();
+        if (selfClosing || VOID_TAGS.has(name)) continue;
+        if (!closing) { open.push(name); continue; }
+        if (open[open.length - 1] === name) { open.pop(); continue; }
+        if (!open.includes(name)) {
+            problems.push({ code: `stray:${name}`, detail: `stray </${written}> at ${quote(i)}` });
+            continue;
+        }
+        // A closer for something further down the stack leaves everything above it open.
+        while (open[open.length - 1] !== name) {
+            const lost = open.pop();
+            problems.push({ code: `unclosed:${lost}`, detail: `<${lost}> is never closed` });
+        }
+        open.pop();
+    }
+    for (const name of open.reverse()) {
+        problems.push({ code: `unclosed:${name}`, detail: `<${name}> is never closed` });
+    }
+    return problems;
+}
+
+/**
+ * Every substitution a string asks the caller to fill in.
+ *
+ * printf is counted by conversion, not by text: "%1$s" and "%s" both yield "s", and
+ * "%%" yields a literal percent that takes no argument. Braces are counted too,
+ * because the mailer and the JavaScript use {PLACEHOLDER} and {0} instead.
+ *
+ * Only PHP's own conversion letters count, and the space flag is not honoured. Both
+ * narrowings are there to keep prose out of the result: "It covers at most 40% of a
+ * photo" would otherwise read as a %o, and each locale renders that percent followed
+ * by its own word -- "40% der", "40% van" -- so 11 locales looked like they had each
+ * invented a different conversion. The same narrowing drops "%S" and "% z", which are
+ * not conversions PHP knows; losing the real "%s" beside them is still counted.
+ *
+ * Returned sorted, so two strings compare as multisets -- order is a translator's
+ * choice and "%1$s in %2$s" may legitimately become "in %2$s: %1$s".
+ */
+const SPEC = /%(%)|%(?:\d+\$)?[-+0#']*\d*(?:\.\d+)?([bcdeEfFgGosuxX])|(\{[A-Za-z_][A-Za-z0-9_]*\}|\{\d+\})/g;
+
+export function placeholders(text) {
+    const found = [];
+    for (const [, literal, conv, brace] of String(text ?? '').matchAll(SPEC)) {
+        found.push(literal ? '%%' : brace || conv);
+    }
+    return found.sort();
+}
+
+/**
+ * What a translation got wrong about its placeholders.
+ *
+ * Shopclass calls sprintf on these. A translation that asks for MORE arguments than
+ * the source is a fatal ArgumentCountError on PHP 8 -- the page dies, in that locale
+ * only, which is the hardest kind of bug to see from here. One that asks for FEWER
+ * is merely wrong: the value is dropped and the sentence reads oddly.
+ *
+ * "%%" is its own trap. It means one literal percent and consumes no argument, so a
+ * machine translator that renders it as "٪٪" or drops one of the two signs turns the
+ * rest of the string into conversions that were never meant to be read that way.
+ * Crowdin's "variables" QA check does not look at it. Four machine translations
+ * broke exactly this before anything here noticed.
+ *
+ * `sources` may be several strings, and then anything between the smallest and the
+ * largest of their counts passes. A plural entry needs that: with nplurals=1 the
+ * single form covers every count, so Thai renders "One location has been deleted"
+ * from the plural msgid and must keep its %s -- while a three-form language uses
+ * form 0 for 1, 21 and 31 and may keep or drop it. Judging each form against one
+ * msgid alone called all of that broken.
+ *
+ * Returns a list of { code, severity, detail }.
+ */
+export function placeholderProblems(sources, msgstr) {
+    const count = (list) => list.reduce((m, k) => m.set(k, (m.get(k) || 0) + 1), new Map());
+    const counts = (Array.isArray(sources) ? sources : [sources])
+        .filter((t) => t !== undefined && t !== null && t !== '')
+        .map((t) => count(placeholders(t)));
+    if (!counts.length) return [];
+    const got = count(placeholders(msgstr));
+
+    const keys = new Set(counts.flatMap((c) => [...c.keys()]).concat([...got.keys()]));
+    const problems = [];
+    for (const key of keys) {
+        const have = got.get(key) || 0;
+        const wanted = counts.map((c) => c.get(key) || 0);
+        const most = Math.max(...wanted), least = Math.min(...wanted);
+        if (have >= least && have <= most) continue;
+        const name = key.startsWith('{') ? key : `%${key === '%%' ? '%' : key}`;
+        const range = least === most ? `${least}` : `${least} to ${most}`;
+        // A brace token is substituted by name, so an invented one is never filled and
+        // ships as literal text. A printf conversion is positional, so one too many is
+        // a fatal ArgumentCountError instead.
+        const why = key.startsWith('{')
+            ? 'nothing fills it, so it ships as text'
+            : 'sprintf will throw';
+        if (have > most) {
+            problems.push({ code: `extra:${key}`, severity: 'fail',
+                detail: `has ${have} ${name} where the source has ${range} -- ${why}` });
+            continue;
+        }
+        // Dropping a "%%" is the one loss that is not cosmetic. It means one literal
+        // percent, so what is left is a bare "%" against the next letter, and sprintf
+        // reads that as a conversion nobody passed an argument for.
+        problems.push(key === '%%'
+            ? { code: 'lost:%%', severity: 'fail',
+                detail: `has ${have} %% where the source has ${range} -- the bare % left behind reads as a conversion` }
+            : { code: `lost:${key}`, severity: 'warn',
+                detail: `has ${have} ${name} where the source has ${range}` });
+    }
+    for (const name of technicalNames(counts.length ? sources : [])) {
+        if (String(msgstr).includes(name)) continue;
+        problems.push({ code: `name:${name}`, severity: 'fail',
+            detail: `changes the name "${name}" -- a file, folder or setting has to stay as it is` });
+    }
+    return problems;
+}
+
+/**
+ * File, folder and setting names a translation must copy as they are.
+ *
+ * Machine translators read "oc-content/uploads" as two words and translate both, so
+ * Hindi said "ओसी-सामग्री/अपलोड" and Hebrew "תוכן/הורדות" -- folders that do not exist,
+ * named to the admin who has to go and find them. ".htaccess" lost its dot, gained a
+ * capital or vanished in seven locales, and "upload_max_filesize" became Arabic. 64
+ * translations of 24 strings, none of which the placeholder check could see.
+ *
+ * Only what is unmistakably a name: a path with a dot, dash or underscore in it, a
+ * file with an extension, and a snake_case identifier. "add/edit" and "listings/users"
+ * are prose with a slash and are left to the translator.
+ */
+const NAME = /(?:[\w.-]+\/)+[\w.-]*\w|\.?[\w-]*\.(?:php|htaccess|txt|json|xml|zip|log|ini|js|css|mo|po)\b|\b[a-z0-9]+(?:_[a-z0-9]+)+\b/g;
+
+export function technicalNames(sources) {
+    const first = (Array.isArray(sources) ? sources : [sources]).find((t) => t);
+    if (!first) return [];
+    return [...new Set(String(first).match(NAME) || [])]
+        .filter((t) => /[._-]/.test(t) && !/^https?:/.test(t) && !/^%/.test(t));
+}
+
+/**
+ * Carry a locale's mail wording onto the current template list.
+ *
+ * The same rule the catalogues follow: the template decides which templates exist,
+ * the locale only supplies wording. Until this ran, nothing merged mail.json at all
+ * -- merge.mjs rebuilds the .po files and leaves this one alone -- so the two drifted
+ * in both directions and each drift broke something different.
+ *
+ * A template the source dropped lingered. All 32 locales kept translating template 8
+ * long after shopclass deleted instant alerts, and because crowdin.yml matches these
+ * strings by array position, the extra entry put every later position out of step and
+ * Crowdin handed back the last template holding the one before it.
+ *
+ * A template the source gained never arrived, so npm run check failed on all 32
+ * locales the moment shopclass added email_listing_unpaid_reminder, and stayed failing
+ * until somebody pasted it in by hand.
+ *
+ * A new template arrives holding the English. A .po leaves a new string empty, but an
+ * empty mail body is a mail with nothing in it, and these are what the mailer sends.
+ */
+export function mergeMail(template, existing, locale) {
+    const had = new Map((existing?.template || []).map((t) => [t.fk_i_page_id, t]));
+    let total = 0, carried = 0;
+
+    const out = template.template.map((src) => {
+        total++;
+        const prior = had.get(src.fk_i_page_id);
+        if (prior) carried++;
+        // fk_i_page_id and s_internal_name identify the mail to the sender, so they
+        // come from the template even when the locale disagrees about them.
+        return {
+            fk_i_page_id: src.fk_i_page_id,
+            s_internal_name: src.s_internal_name,
+            s_title: prior?.s_title ?? src.s_title,
+            s_description: prior?.s_description ?? src.s_description,
+        };
+    });
+
+    return { mail: { language: locale, template: out }, total, carried };
+}
+
+// Crowdin rewrites these files on every export, so it decides the shape: four-space
+// indent, "/" written as "\/", unescaped UTF-8, no closing newline. Writing anything
+// else means the file is reformatted twice per round trip, which is what 27 of the 32
+// locales were doing with their two-space indent. Round-tripping a Crowdin export
+// through this comes back byte-identical.
+export async function writeMail(dir, mail) {
+    await writeFile(`${dir}/mail.json`, JSON.stringify(mail, null, 4).replaceAll('/', '\\/'));
 }
